@@ -6,7 +6,8 @@ Surveille les événements géopolitiques et industriels pouvant faire rebondir 
 Envoie des alertes email via relais SMTP (Postfix local).
 """
 
-import os
+import sys
+import io
 import json
 import smtplib
 import hashlib
@@ -16,13 +17,13 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from pathlib import Path
 
+from dspy_oil_module import OilAnalyst, setup_dspy
 from smolagents import (
     CodeAgent,
     LiteLLMModel,
     DuckDuckGoSearchTool,
     VisitWebpageTool,
     Tool,
-    tool,
 )
 
 # ─────────────────────────────────────────────
@@ -63,8 +64,6 @@ CONFIG = {
 # ─────────────────────────────────────────────
 # Logging
 # ─────────────────────────────────────────────
-import sys
-import io
 
 # Configurer stdout pour utiliser UTF-8 sur Windows
 if sys.platform == "win32":
@@ -233,7 +232,7 @@ class IranConflictTool(Tool):
             except Exception as e:
                 results.append(f"[Query: {q}] Error: {e}")
         
-        header = f"=== IRAN CONFLICT SEARCH ===\n"
+        header = "=== IRAN CONFLICT SEARCH ===\n"
         header += f"Current Date: {current_date} | Searching since: {date_str}\n\n"
         
         return header + "\n\n---\n\n".join(results) if results else "No relevant results found."
@@ -296,7 +295,7 @@ class RefineryDamageTool(Tool):
             except Exception as e:
                 results.append(f"[{q}] Error: {e}")
         
-        header = f"=== REFINERY DAMAGE SEARCH ===\n"
+        header = "=== REFINERY DAMAGE SEARCH ===\n"
         header += f"Region: {region} | Current Date: {current_date}\n\n"
         
         return header + "\n\n---\n\n".join(results) if results else "No refinery damage news found."
@@ -345,7 +344,7 @@ class OPECSupplyTool(Tool):
             except Exception as e:
                 results.append(f"[{q}] Error: {e}")
         
-        header = f"=== OPEC+ SUPPLY SEARCH ===\n"
+        header = "=== OPEC+ SUPPLY SEARCH ===\n"
         header += f"Focus: {focus} | Current Date: {current_date}\n\n"
         
         return header + "\n\n---\n\n".join(results) if results else "No OPEC news found."
@@ -394,7 +393,7 @@ class NaturalGasDisruptionTool(Tool):
             except Exception as e:
                 results.append(f"[{q}] Error: {e}")
         
-        header = f"=== NATURAL GAS DISRUPTION SEARCH ===\n"
+        header = "=== NATURAL GAS DISRUPTION SEARCH ===\n"
         header += f"Topic: {topic} | Current Date: {current_date}\n\n"
         
         return header + "\n\n---\n\n".join(results) if results else "No gas disruption news found."
@@ -436,7 +435,7 @@ class ShippingDisruptionTool(Tool):
             except Exception as e:
                 results.append(f"[{q}] Error: {e}")
         
-        header = f"=== SHIPPING DISRUPTION SEARCH ===\n"
+        header = "=== SHIPPING DISRUPTION SEARCH ===\n"
         header += f"Current Date: {current_date}\n\n"
         
         return header + "\n\n---\n\n".join(results) if results else "No shipping disruption news found."
@@ -478,7 +477,7 @@ class GeopoliticalEscalationTool(Tool):
             except Exception as e:
                 results.append(f"[{q}] Error: {e}")
         
-        header = f"=== GEOPOLITICAL ESCALATION SEARCH ===\n"
+        header = "=== GEOPOLITICAL ESCALATION SEARCH ===\n"
         header += f"Current Date: {current_date}\n\n"
         
         return header + "\n\n---\n\n".join(results) if results else "No geopolitical escalation news found."
@@ -517,7 +516,7 @@ class OilPriceTool(Tool):
             except Exception as e:
                 results.append(f"[{q}] Error: {e}")
         
-        header = f"=== OIL PRICE DATA ===\n"
+        header = "=== OIL PRICE DATA ===\n"
         header += f"Current Date: {current_date}\n\n"
         
         return header + "\n\n".join(results) if results else "Oil price data unavailable."
@@ -631,7 +630,7 @@ class RecentNewsTool(Tool):
             except Exception as e:
                 results.append(f"[Query: {q}] Error: {e}")
         
-        header = f"=== RECENT NEWS SEARCH ===\n"
+        header = "=== RECENT NEWS SEARCH ===\n"
         header += f"Topic: {topic} | Timeframe: {timeframe} | Current Date: {current_date}\n"
         header += f"Searching since: {date_str}\n"
         header += f"Sources: {', '.join(news_sources)}\n\n"
@@ -727,7 +726,7 @@ class RSSFeedTool(Tool):
             except Exception as e:
                 results.append(f"=== {feed_name.upper()} ===\nError reading feed: {e}")
         
-        header = f"=== RSS FEEDS ===\n"
+        header = "=== RSS FEEDS ===\n"
         header += f"Feeds: {feed} | Timeframe: Last {hours_back} hours\n"
         header += f"Cutoff time: {cutoff_time.strftime('%Y-%m-%d %H:%M')}\n\n"
         
@@ -757,7 +756,7 @@ class VIXTool(Tool):
             f"VIX index value today {current_date}",
             f"CBOE Volatility Index current level {current_date}",
             f"VIX chart volatility market fear {current_date}",
-            f"VIX oil price correlation volatility",
+            "VIX oil price correlation volatility",
         ]
         results = []
         for q in queries:
@@ -768,7 +767,7 @@ class VIXTool(Tool):
             except Exception as e:
                 results.append(f"[{q}] Error: {e}")
         
-        header = f"=== VIX (CBOE Volatility Index) ===\n"
+        header = "=== VIX (CBOE Volatility Index) ===\n"
         header += f"Current Date: {current_date}\n\n"
         
         return header + "\n\n".join(results) if results else "VIX data unavailable."
@@ -915,12 +914,29 @@ def run_monitoring_cycle():
     agent = build_agent()
 
     try:
-        # Utiliser le prompt dynamique avec la date du jour
-        prompt = get_master_prompt()
-        raw_result = agent.run(prompt)
-        log.info(f"Agent result (raw): {str(raw_result)[:500]}")
+        # 1. Collect raw intelligence using the agent as a collector
+        from datetime import datetime
+        current_date = datetime.now().strftime("%Y-%m-%d")
+
+        collector_prompt = f"""
+        Gather all current intelligence related to the oil market for today ({current_date}).
+        Use all your tools to find news about Iran, refineries, OPEC, gas disruptions,
+        shipping, and geopolitics.
+        Just provide a detailed summary of all raw data you found.
+        """
+        raw_intelligence = agent.run(collector_prompt)
+        log.info(f"Raw intelligence collected ({len(str(raw_intelligence))} chars)")
+
+        # 2. Use DSPy to analyze and classify the intelligence
+        log.info("Starting DSPy analysis (5 trials)...")
+        setup_dspy(CONFIG["ollama_model"], CONFIG["ollama_api_base"])
+        analyst = OilAnalyst(num_trials=5)
+        raw_result = analyst.forward(raw_intelligence=str(raw_intelligence), current_date=current_date)
+        log.info(f"DSPy result: {str(raw_result)[:500]}")
     except Exception as e:
-        log.error(f"Agent error: {e}")
+        log.error(f"Analysis error: {e}")
+        import traceback
+        log.error(traceback.format_exc())
         return
 
     # Parse JSON
@@ -966,28 +982,30 @@ def run_monitoring_cycle():
 
 
 def format_email_body(event: dict) -> str:
-    """Formate le corps d'un email d'alerte."""
+    """Formate le corps d'un email d'alerte détaillé généré par DSPy."""
     lines = [
-        f"🛢️  OIL MARKET ALERT",
-        f"{'='*50}",
-        f"",
-        f"📌 TITRE       : {event.get('title', 'N/A')}",
-        f"📂 CATÉGORIE   : {event.get('category', 'N/A')}",
-        f"⚡ SCORE IMPACT: {event.get('impact_score', 'N/A')}/10",
-        f"🔔 URGENCE     : {event.get('urgency', 'N/A')}",
-        f"💰 IMPACT PRIX : {event.get('price_impact', 'N/A')}",
-        f"",
-        f"📝 ANALYSE :",
+        "🛢️  OIL MARKET ANALYSIS REPORT (DSPy Powered)",
+        f"{'='*60}",
+        "",
+        f"📌 EVENT TITLE   : {event.get('title', 'N/A')}",
+        f"📂 CATEGORY      : {event.get('category', 'N/A')}",
+        f"⚡ IMPACT SCORE  : {event.get('impact_score', 'N/A')}/10",
+        f"🔔 URGENCY       : {event.get('urgency', 'N/A')}",
+        f"💰 PRICE IMPACT  : {event.get('price_impact', 'N/A')}",
+        f"📅 PUBLISHED ON  : {event.get('publication_date', 'N/A')}",
+        "",
+        "📝 DETAILED ANALYSIS & INSIGHTS:",
+        f"{'-'*30}",
         f"{event.get('summary', 'N/A')}",
-        f"",
-        f"🔗 SOURCE : {event.get('source_hint', 'N/A')}",
-        f"",
-        f"{'─'*50}",
-        f"⏰ Généré le : {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}",
-        f"🤖 Agent : smolagents 1.24.0 + Ollama qwen2.5:7b",
+        f"{'-'*30}",
+        "",
+        f"🔗 SOURCE INFO   : {event.get('source_hint', 'N/A')}",
+        "",
+        f"{'='*60}",
+        f"⏰ Analysis Timestamp : {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}",
+        "🤖 Powered by DSPy (Multi-trial Validation) + smolagents + Ollama",
     ]
     return "\n".join(lines)
-
 
 # ─────────────────────────────────────────────
 # Affichage historique
@@ -1015,7 +1033,6 @@ def show_history():
 # Entrypoint
 # ─────────────────────────────────────────────
 if __name__ == "__main__":
-    import sys
 
     if len(sys.argv) > 1 and sys.argv[1] == "history":
         show_history()
