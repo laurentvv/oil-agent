@@ -821,21 +821,10 @@ def build_agent() -> CodeAgent:
 def get_master_prompt() -> str:
     """Génère le prompt principal avec la date du jour dynamique."""
     from datetime import datetime
-    from pathlib import Path
     
     current_date = datetime.now().strftime("%Y-%m-%d")
     current_datetime = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     threshold = CONFIG["alert_threshold"]
-    
-    # Charger le fichier skill.md pour les instructions d'optimisation
-    skill_content = ""
-    skill_file = Path("skill.md")
-    if skill_file.exists():
-        try:
-            with open(skill_file, encoding="utf-8") as f:
-                skill_content = f.read()
-        except Exception as e:
-            log.warning(f"Impossible de lire skill.md: {e}")
     
     prompt = f"""
 You are an expert oil market analyst monitoring geopolitical and industrial events 
@@ -906,14 +895,6 @@ If no high-impact events found, return: []
 
 Be thorough, analytical, and focus on ACTIONABLE intelligence for oil traders.
 Remember: Current date is {current_date} - prioritize news from today and recent hours.
-
----
-SKILL DOCUMENTATION FOR PERFORMANCE OPTIMIZATION:
-{skill_content}
-
----
-Use the above skill documentation to optimize your tool usage when appropriate.
-Direct tool calls can be 3-10x faster than full agent analysis.
 """
     return prompt
 
