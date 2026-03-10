@@ -1248,3 +1248,68 @@ Multiple high-impact events are converging today with Iran's coordinated attacks
 2026-03-10 21:09:00,024 [INFO] 📊 0 événement(s) à impact élevé détectés
 2026-03-10 21:09:00,024 [INFO] ✅ Cycle terminé — 0 nouvelle(s) alerte(s) envoyée(s)
 2026-03-10 21:09:00,024 [INFO] 📋 Total événements dans historique : 0
+2026-03-10 21:10:15,357 [INFO] ============================================================
+2026-03-10 21:10:15,357 [INFO] 🛢️  Démarrage cycle de surveillance pétrole
+2026-03-10 21:10:15,357 [INFO] ============================================================
+2026-03-10 21:10:16,836 [INFO] 
+LiteLLM completion() model= qwen3.5:9b; provider = ollama_chat
+2026-03-10 21:10:38,451 [INFO] Wrapper: Completed Call, calling success_handler
+2026-03-10 21:10:40,652 [INFO] 
+LiteLLM completion() model= qwen3.5:9b; provider = ollama_chat
+2026-03-10 21:10:47,532 [INFO] Wrapper: Completed Call, calling success_handler
+2026-03-10 21:10:47,606 [INFO] response: https://grokipedia.com/api/typeahead?query=Brent+crude+oil+price+today+2026-03-10&limit=1 200
+2026-03-10 21:10:47,615 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Brent%20crude%20oil%20price%20today%202026-03-10 200
+2026-03-10 21:10:47,793 [INFO] response: https://search.yahoo.com/search;_ylt=fIMuHHrPdu6Xs067ydcQ_fqP;_ylu=-qNEdzFmm1c7WcUNcfopIS68rAM_5y9xI4UlsUHRTmBL-yY?p=Brent+crude+oil+price+today+2026-03-10 200
+2026-03-10 21:10:49,154 [INFO] response: https://yandex.com/search/site/?text=Brent+crude+oil+price+today+2026-03-10&web=1&searchid=2534565 200
+2026-03-10 21:10:49,183 [INFO] response: https://grokipedia.com/api/typeahead?query=WTI+crude+price+today+barrel+2026-03-10&limit=1 200
+2026-03-10 21:10:49,186 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=WTI%20crude%20price%20today%20barrel%202026-03-10 200
+2026-03-10 21:10:49,958 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-10 21:10:50,185 [INFO] response: https://grokipedia.com/api/typeahead?query=oil+price+forecast+analyst+2026-03-10&limit=1 200
+2026-03-10 21:10:50,188 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=oil%20price%20forecast%20analyst%202026-03-10 200
+2026-03-10 21:10:50,895 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-10 21:10:50,907 [INFO] 
+LiteLLM completion() model= qwen3.5:9b; provider = ollama_chat
+2026-03-10 21:10:58,455 [INFO] Wrapper: Completed Call, calling success_handler
+2026-03-10 21:10:58,471 [INFO] response: https://grokipedia.com/api/typeahead?query=VIX+index+value+today+2026-03-10&limit=1 200
+2026-03-10 21:10:58,475 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=VIX%20index%20value%20today%202026-03-10 200
+2026-03-10 21:10:58,601 [INFO] response: https://search.yahoo.com/search;_ylt=x83tPOfgPEV8gco7-mjItktc;_ylu=g25LsC3lKxBsjTJJwh1_8M4DT6yrRqWnyIUIEWK5sfdJ7XE?p=VIX+index+value+today+2026-03-10 200
+2026-03-10 21:10:59,428 [INFO] response: https://search.brave.com/search?q=VIX+index+value+today+2026-03-10&source=web 429
+2026-03-10 21:10:59,890 [INFO] response: https://yandex.com/search/site/?text=VIX+index+value+today+2026-03-10&web=1&searchid=3373816 200
+2026-03-10 21:10:59,921 [INFO] response: https://grokipedia.com/api/typeahead?query=CBOE+Volatility+Index+current+level+2026-03-10&limit=1 200
+2026-03-10 21:10:59,929 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=CBOE%20Volatility%20Index%20current%20level%202026-03-10 200
+2026-03-10 21:11:00,353 [INFO] response: https://yandex.com/search/site/?text=CBOE+Volatility+Index+current+level+2026-03-10&web=1&searchid=8028892 200
+2026-03-10 21:11:00,922 [INFO] response: https://grokipedia.com/api/typeahead?query=VIX+chart+volatility+market+fear+2026-03-10&limit=1 200
+2026-03-10 21:11:00,927 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=VIX%20chart%20volatility%20market%20fear%202026-03-10 200
+2026-03-10 21:11:02,053 [INFO] response: https://www.mojeek.com/search?q=VIX+chart+volatility+market+fear+2026-03-10 200
+2026-03-10 21:11:02,082 [INFO] response: https://grokipedia.com/api/typeahead?query=VIX+oil+price+correlation+volatility&limit=1 200
+2026-03-10 21:11:02,089 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=VIX%20oil%20price%20correlation%20volatility 200
+2026-03-10 21:11:03,174 [INFO] response: https://www.mojeek.com/search?q=VIX+oil+price+correlation+volatility 200
+2026-03-10 21:11:03,200 [INFO] 
+LiteLLM completion() model= qwen3.5:9b; provider = ollama_chat
+2026-03-10 21:11:09,849 [INFO] Wrapper: Completed Call, calling success_handler
+2026-03-10 21:11:09,863 [INFO] response: https://grokipedia.com/api/typeahead?query=oil+market+breaking+news+2026-03-10+site%3Areuters.com+OR+site%3Abloomberg.com+OR+site%3Aapnews.com+OR+site%3Abbc.com+OR+site%3Aft.com+OR+site%3Awsj.com+today&limit=1 200
+2026-03-10 21:11:09,868 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=oil%20market%20breaking%20news%202026-03-10%20site%3Areuters.com%20OR%20site%3Abloomberg.com%20OR%20site%3Aapnews.com%20OR%20site%3Abbc.com%20OR%20site%3Aft.com%20OR%20site%3Awsj.com%20today 200
+2026-03-10 21:11:10,212 [INFO] response: https://yandex.com/search/site/?text=oil+market+breaking+news+2026-03-10+site%3Areuters.com+OR+site%3Abloomberg.com+OR+site%3Aapnews.com+OR+site%3Abbc.com+OR+site%3Aft.com+OR+site%3Awsj.com+today&web=1&searchid=8844689 200
+2026-03-10 21:11:10,326 [INFO] response: https://www.mojeek.com/search?q=oil+market+breaking+news+2026-03-10+site%3Areuters.com+OR+site%3Abloomberg.com+OR+site%3Aapnews.com+OR+site%3Abbc.com+OR+site%3Aft.com+OR+site%3Awsj.com+today 403
+2026-03-10 21:11:10,756 [INFO] response: https://www.google.com/search?q=oil+market+breaking+news+2026-03-10+site%3Areuters.com+OR+site%3Abloomberg.com+OR+site%3Aapnews.com+OR+site%3Abbc.com+OR+site%3Aft.com+OR+site%3Awsj.com+today&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 403
+2026-03-10 21:11:11,423 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-10 21:11:11,445 [INFO] response: https://grokipedia.com/api/typeahead?query=crude+oil+price+spike+2026-03-10+site%3Areuters.com+OR+site%3Abloomberg.com+OR+site%3Aapnews.com+OR+site%3Abbc.com+OR+site%3Aft.com+OR+site%3Awsj.com+today&limit=1 200
+2026-03-10 21:11:11,447 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=crude%20oil%20price%20spike%202026-03-10%20site%3Areuters.com%20OR%20site%3Abloomberg.com%20OR%20site%3Aapnews.com%20OR%20site%3Abbc.com%20OR%20site%3Aft.com%20OR%20site%3Awsj.com%20today 200
+2026-03-10 21:11:11,941 [INFO] response: https://www.google.com/search?q=crude+oil+price+spike+2026-03-10+site%3Areuters.com+OR+site%3Abloomberg.com+OR+site%3Aapnews.com+OR+site%3Abbc.com+OR+site%3Aft.com+OR+site%3Awsj.com+today&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 403
+2026-03-10 21:11:12,610 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-10 21:11:12,630 [INFO] response: https://grokipedia.com/api/typeahead?query=oil+supply+disruption+2026-03-10+site%3Areuters.com+OR+site%3Abloomberg.com+OR+site%3Aapnews.com+OR+site%3Abbc.com+OR+site%3Aft.com+OR+site%3Awsj.com+today&limit=1 200
+2026-03-10 21:11:12,634 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=oil%20supply%20disruption%202026-03-10%20site%3Areuters.com%20OR%20site%3Abloomberg.com%20OR%20site%3Aapnews.com%20OR%20site%3Abbc.com%20OR%20site%3Aft.com%20OR%20site%3Awsj.com%20today 200
+2026-03-10 21:11:12,995 [INFO] response: https://yandex.com/search/site/?text=oil+supply+disruption+2026-03-10+site%3Areuters.com+OR+site%3Abloomberg.com+OR+site%3Aapnews.com+OR+site%3Abbc.com+OR+site%3Aft.com+OR+site%3Awsj.com+today&web=1&searchid=8551326 200
+2026-03-10 21:11:13,074 [INFO] response: https://www.mojeek.com/search?q=oil+supply+disruption+2026-03-10+site%3Areuters.com+OR+site%3Abloomberg.com+OR+site%3Aapnews.com+OR+site%3Abbc.com+OR+site%3Aft.com+OR+site%3Awsj.com+today 403
+2026-03-10 21:11:13,454 [INFO] response: https://www.google.com/search?q=oil+supply+disruption+2026-03-10+site%3Areuters.com+OR+site%3Abloomberg.com+OR+site%3Aapnews.com+OR+site%3Abbc.com+OR+site%3Aft.com+OR+site%3Awsj.com+today&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 403
+2026-03-10 21:11:13,528 [INFO] response: https://html.duckduckgo.com/html/ 202
+2026-03-10 21:11:13,696 [INFO] response: https://search.brave.com/search?q=oil+supply+disruption+2026-03-10+site%3Areuters.com+OR+site%3Abloomberg.com+OR+site%3Aapnews.com+OR+site%3Abbc.com+OR+site%3Aft.com+OR+site%3Awsj.com+today&source=web 429
+2026-03-10 21:11:13,999 [INFO] response: https://search.yahoo.com/search;_ylt=kuzst1neTMumspYtqHatozBH;_ylu=_T6dzAoYArfk--_qoGmprMoPsKXc48esMVc4R44hopmF1jA?p=oil+supply+disruption+2026-03-10+site%3Areuters.com+OR+site%3Abloomberg.com+OR+site%3Aapnews.com+OR+site%3Abbc.com+OR+site%3Aft.com+OR+site%3Awsj.com+today 200
+2026-03-10 21:11:14,721 [INFO] 
+LiteLLM completion() model= qwen3.5:9b; provider = ollama_chat
+2026-03-10 21:11:25,534 [INFO] Wrapper: Completed Call, calling success_handler
+2026-03-10 21:11:25,539 [INFO] 
+LiteLLM completion() model= qwen3.5:9b; provider = ollama_chat
+2026-03-10 21:11:38,380 [INFO] Wrapper: Completed Call, calling success_handler
+2026-03-10 21:11:38,387 [INFO] 
+LiteLLM completion() model= qwen3.5:9b; provider = ollama_chat
