@@ -15,6 +15,7 @@ dependencies = [
     "beautifulsoup4",
     "markdownify",
     "feedparser",
+    "dspy",
 ]
 
 [project.optional-dependencies]
