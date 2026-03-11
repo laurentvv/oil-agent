@@ -1823,3 +1823,1283 @@ LiteLLM completion() model= qwen3.5:9b; provider = ollama_chat
 2026-03-11 21:16:46,525 [INFO] 📊 0 événement(s) à impact élevé détectés
 2026-03-11 21:16:46,526 [INFO] ✅ Cycle terminé — 0 nouvelle(s) alerte(s) envoyée(s)
 2026-03-11 21:16:46,526 [INFO] 📋 Total événements dans historique : 0
+2026-03-11 21:37:41,926 [INFO] ============================================================
+2026-03-11 21:37:41,926 [INFO] 🛢️  Démarrage cycle de surveillance pétrole (DSPy Mode)
+2026-03-11 21:37:41,927 [INFO] ============================================================
+2026-03-11 21:37:41,968 [INFO] 🔧 CodeAgent code_block_tags: ('```python', '```')
+2026-03-11 21:37:41,968 [INFO] 🔧 CodeAgent attend le format: ```python...```
+2026-03-11 21:38:01,615 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Iran%20military%20attack%20oil%20infrastructure%202026-03-11%20today%20breaking 200
+2026-03-11 21:38:01,981 [INFO] response: https://grokipedia.com/api/typeahead?query=Iran+military+attack+oil+infrastructure+2026-03-11+today+breaking&limit=1 200
+2026-03-11 21:38:02,185 [INFO] response: https://search.yahoo.com/search;_ylt=yTHCWYWUOiRHtQ-n2UVKgeTr;_ylu=nWC13hREAOCJnNG-CCTH4Q0KnCCZGQAfCIDxMPClQ7MN2-I?p=Iran+military+attack+oil+infrastructure+2026-03-11+today+breaking 200
+2026-03-11 21:38:02,910 [INFO] response: https://grokipedia.com/api/typeahead?query=Strait+of+Hormuz+blockade+tanker+2026-03-11+just+in&limit=1 200
+2026-03-11 21:38:02,912 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Strait%20of%20Hormuz%20blockade%20tanker%202026-03-11%20just%20in 200
+2026-03-11 21:38:03,035 [INFO] response: https://search.yahoo.com/search;_ylt=ymEwNJ0LD5MtC2YgqVJmGVQ3;_ylu=8Iv5oRVNOPwKf_PHzr3z51od1kQx5jT-GN67Ft3hOguNcrE?p=Strait+of+Hormuz+blockade+tanker+2026-03-11+just+in 200
+2026-03-11 21:38:03,909 [INFO] response: https://grokipedia.com/api/typeahead?query=Iran+IRGC+oil+tanker+seized+2026-03-11+recent&limit=1 200
+2026-03-11 21:38:03,912 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Iran%20IRGC%20oil%20tanker%20seized%202026-03-11%20recent 200
+2026-03-11 21:38:04,489 [INFO] response: https://yandex.com/search/site/?text=Iran+IRGC+oil+tanker+seized+2026-03-11+recent&web=1&searchid=3267747 200
+2026-03-11 21:38:04,911 [INFO] response: https://grokipedia.com/api/typeahead?query=Iran+Israel+strike+retaliation+oil+2026-03-11+breaking+news&limit=1 200
+2026-03-11 21:38:04,912 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Iran%20Israel%20strike%20retaliation%20oil%202026-03-11%20breaking%20news 200
+2026-03-11 21:38:05,058 [INFO] response: https://consent.google.com/ml?continue=https://www.google.com/search%3Fq%3DIran%2BIsrael%2Bstrike%2Bretaliation%2Boil%2B2026-03-11%2Bbreaking%2Bnews%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&gl=FR&m=0&pc=srp&uxe=none&cm=2&hl=en&src=1 200
+2026-03-11 21:38:05,788 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:38:05,910 [INFO] response: https://grokipedia.com/api/typeahead?query=Iran+US+sanctions+oil+export+disruption+2026-03-11&limit=1 200
+2026-03-11 21:38:05,911 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Iran%20US%20sanctions%20oil%20export%20disruption%202026-03-11 200
+2026-03-11 21:38:06,355 [INFO] response: https://yandex.com/search/site/?text=Iran+US+sanctions+oil+export+disruption+2026-03-11&web=1&searchid=9597872 200
+2026-03-11 21:38:06,913 [INFO] response: https://grokipedia.com/api/typeahead?query=oil+refinery+explosion+fire+2026-03-11+today+breaking&limit=1 200
+2026-03-11 21:38:06,916 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=oil%20refinery%20explosion%20fire%202026-03-11%20today%20breaking 200
+2026-03-11 21:38:07,602 [INFO] response: https://www.mojeek.com/search?q=oil+refinery+explosion+fire+2026-03-11+today+breaking 200
+2026-03-11 21:38:07,913 [INFO] response: https://grokipedia.com/api/typeahead?query=refinery+drone+attack+oil+production+disruption+2026-03-11+just+in&limit=1 200
+2026-03-11 21:38:07,913 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=refinery%20drone%20attack%20oil%20production%20disruption%202026-03-11%20just%20in 200
+2026-03-11 21:38:08,609 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:38:08,912 [INFO] response: https://grokipedia.com/api/typeahead?query=Saudi+Arabia+Aramco+infrastructure+attack+2026-03-11+recent&limit=1 200
+2026-03-11 21:38:08,914 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Saudi%20Arabia%20Aramco%20infrastructure%20attack%202026-03-11%20recent 200
+2026-03-11 21:38:09,997 [INFO] response: https://www.mojeek.com/search?q=Saudi+Arabia+Aramco+infrastructure+attack+2026-03-11+recent 200
+2026-03-11 21:38:10,030 [INFO] response: https://grokipedia.com/api/typeahead?query=OPEC%2B+production+cut+decision+2026-03-11+today+breaking&limit=1 200
+2026-03-11 21:38:10,032 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=OPEC%2B%20production%20cut%20decision%202026-03-11%20today%20breaking 200
+2026-03-11 21:38:12,742 [INFO] response: https://www.mojeek.com/search?q=OPEC%2B+production+cut+decision+2026-03-11+today+breaking 200
+2026-03-11 21:38:12,774 [INFO] response: https://grokipedia.com/api/typeahead?query=Saudi+Arabia+voluntary+oil+cut+barrel+2026-03-11+just+in&limit=1 200
+2026-03-11 21:38:12,777 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Saudi%20Arabia%20voluntary%20oil%20cut%20barrel%202026-03-11%20just%20in 200
+2026-03-11 21:38:13,524 [INFO] response: https://search.brave.com/search?q=Saudi+Arabia+voluntary+oil+cut+barrel+2026-03-11+just+in&source=web 200
+2026-03-11 21:38:13,774 [INFO] response: https://grokipedia.com/api/typeahead?query=Russia+oil+export+reduction+barrel+2026-03-11+recent&limit=1 200
+2026-03-11 21:38:13,776 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Russia%20oil%20export%20reduction%20barrel%202026-03-11%20recent 200
+2026-03-11 21:38:13,941 [INFO] response: https://search.brave.com/search?q=Russia+oil+export+reduction+barrel+2026-03-11+recent&source=web 429
+2026-03-11 21:38:15,031 [INFO] response: https://www.mojeek.com/search?q=Russia+oil+export+reduction+barrel+2026-03-11+recent 200
+2026-03-11 21:38:15,064 [INFO] response: https://grokipedia.com/api/typeahead?query=OPEC+emergency+meeting+oil+price+2026-03-11+breaking+news&limit=1 200
+2026-03-11 21:38:15,066 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=OPEC%20emergency%20meeting%20oil%20price%202026-03-11%20breaking%20news 200
+2026-03-11 21:38:15,875 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:38:16,065 [INFO] response: https://grokipedia.com/api/typeahead?query=UAE+Kuwait+oil+output+quota+2026-03-11+today&limit=1 200
+2026-03-11 21:38:16,066 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=UAE%20Kuwait%20oil%20output%20quota%202026-03-11%20today 200
+2026-03-11 21:38:16,276 [INFO] response: https://search.yahoo.com/search;_ylt=hPAjz6XM62uLOSwCEwQHLmbr;_ylu=5KE-V7ttFRn68QeWjYowk45ljFt1MNaKBsjtV02huktIhws?p=UAE+Kuwait+oil+output+quota+2026-03-11+today 200
+2026-03-11 21:38:17,066 [INFO] response: https://grokipedia.com/api/typeahead?query=natural+gas+pipeline+explosion+sabotage+2026-03-11+today+breaking&limit=1 200
+2026-03-11 21:38:17,066 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=natural%20gas%20pipeline%20explosion%20sabotage%202026-03-11%20today%20breaking 200
+2026-03-11 21:38:17,847 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:38:18,065 [INFO] response: https://grokipedia.com/api/typeahead?query=LNG+terminal+attack+fire+disruption+2026-03-11+just+in&limit=1 200
+2026-03-11 21:38:18,067 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=LNG%20terminal%20attack%20fire%20disruption%202026-03-11%20just%20in 200
+2026-03-11 21:38:18,235 [INFO] response: https://search.brave.com/search?q=LNG+terminal+attack+fire+disruption+2026-03-11+just+in&source=web 429
+2026-03-11 21:38:18,296 [INFO] response: https://consent.google.com/ml?continue=https://www.google.com/search%3Fq%3DLNG%2Bterminal%2Battack%2Bfire%2Bdisruption%2B2026-03-11%2Bjust%2Bin%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&gl=FR&m=0&pc=srp&uxe=none&cm=2&hl=en&src=1 200
+2026-03-11 21:38:19,074 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:38:19,092 [INFO] response: https://grokipedia.com/api/typeahead?query=Russia+gas+supply+Europe+cut+2026-03-11+recent&limit=1 200
+2026-03-11 21:38:19,095 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Russia%20gas%20supply%20Europe%20cut%202026-03-11%20recent 200
+2026-03-11 21:38:19,264 [INFO] response: https://search.brave.com/search?q=Russia+gas+supply+Europe+cut+2026-03-11+recent&source=web 429
+2026-03-11 21:38:19,316 [INFO] response: https://consent.google.com/ml?continue=https://www.google.com/search%3Fq%3DRussia%2Bgas%2Bsupply%2BEurope%2Bcut%2B2026-03-11%2Brecent%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&gl=FR&m=0&pc=srp&uxe=none&cm=2&hl=en&src=1 200
+2026-03-11 21:38:20,399 [INFO] response: https://www.mojeek.com/search?q=Russia+gas+supply+Europe+cut+2026-03-11+recent 200
+2026-03-11 21:38:20,431 [INFO] response: https://grokipedia.com/api/typeahead?query=Qatar+North+Field+gas+disruption+2026-03-11+today&limit=1 200
+2026-03-11 21:38:20,433 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Qatar%20North%20Field%20gas%20disruption%202026-03-11%20today 200
+2026-03-11 21:38:21,079 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:38:21,432 [INFO] response: https://grokipedia.com/api/typeahead?query=Azerbaijan+Georgia+gas+pipeline+attack+2026-03-11+breaking+news&limit=1 200
+2026-03-11 21:38:21,433 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Azerbaijan%20Georgia%20gas%20pipeline%20attack%202026-03-11%20breaking%20news 200
+2026-03-11 21:38:21,888 [INFO] response: https://yandex.com/search/site/?text=Azerbaijan+Georgia+gas+pipeline+attack+2026-03-11+breaking+news&web=1&searchid=3598328 200
+2026-03-11 21:38:22,432 [INFO] response: https://grokipedia.com/api/typeahead?query=Houthi+attack+oil+tanker+Red+Sea+2026-03-11+today+breaking&limit=1 200
+2026-03-11 21:38:22,434 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Houthi%20attack%20oil%20tanker%20Red%20Sea%202026-03-11%20today%20breaking 200
+2026-03-11 21:38:22,868 [INFO] response: https://yandex.com/search/site/?text=Houthi+attack+oil+tanker+Red+Sea+2026-03-11+today+breaking&web=1&searchid=1941496 200
+2026-03-11 21:38:23,432 [INFO] response: https://grokipedia.com/api/typeahead?query=Bab-el-Mandeb+shipping+disruption+oil+2026-03-11+just+in&limit=1 200
+2026-03-11 21:38:23,433 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Bab-el-Mandeb%20shipping%20disruption%20oil%202026-03-11%20just%20in 200
+2026-03-11 21:38:23,562 [INFO] response: https://search.yahoo.com/search;_ylt=XCjJeq2vKeAIilDEsGgkYUas;_ylu=70QeMEcwYbPwN3mMf9HQx0kMx_lH6OYB1vPKMEt8CDuqAYo?p=Bab-el-Mandeb+shipping+disruption+oil+2026-03-11+just+in 200
+2026-03-11 21:38:24,432 [INFO] response: https://grokipedia.com/api/typeahead?query=Suez+Canal+closure+tanker+blockage+2026-03-11+recent&limit=1 200
+2026-03-11 21:38:24,433 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Suez%20Canal%20closure%20tanker%20blockage%202026-03-11%20recent 200
+2026-03-11 21:38:24,895 [INFO] response: https://yandex.com/search/site/?text=Suez+Canal+closure+tanker+blockage+2026-03-11+recent&web=1&searchid=6169996 200
+2026-03-11 21:38:25,432 [INFO] response: https://grokipedia.com/api/typeahead?query=Iran+seize+oil+tanker+Strait+Hormuz+2026-03-11+breaking+news&limit=1 200
+2026-03-11 21:38:25,434 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Iran%20seize%20oil%20tanker%20Strait%20Hormuz%202026-03-11%20breaking%20news 200
+2026-03-11 21:38:25,912 [INFO] response: https://yandex.com/search/site/?text=Iran+seize+oil+tanker+Strait+Hormuz+2026-03-11+breaking+news&web=1&searchid=1795635 200
+2026-03-11 21:38:26,434 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=oil%20tanker%20piracy%20attack%202026-03-11%20today 200
+2026-03-11 21:38:26,435 [INFO] response: https://grokipedia.com/api/typeahead?query=oil+tanker+piracy+attack+2026-03-11+today&limit=1 200
+2026-03-11 21:38:26,485 [INFO] response: https://consent.google.com/ml?continue=https://www.google.com/search%3Fq%3Doil%2Btanker%2Bpiracy%2Battack%2B2026-03-11%2Btoday%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&gl=FR&m=0&pc=srp&uxe=none&cm=2&hl=en&src=1 200
+2026-03-11 21:38:26,953 [INFO] response: https://yandex.com/search/site/?text=oil+tanker+piracy+attack+2026-03-11+today&web=1&searchid=3604405 200
+2026-03-11 21:38:27,435 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Russia%20Ukraine%20oil%20energy%20infrastructure%20attack%202026-03-11%20today%20breaking 200
+2026-03-11 21:38:27,435 [INFO] response: https://grokipedia.com/api/typeahead?query=Russia+Ukraine+oil+energy+infrastructure+attack+2026-03-11+today+breaking&limit=1 200
+2026-03-11 21:38:27,604 [INFO] response: https://search.brave.com/search?q=Russia+Ukraine+oil+energy+infrastructure+attack+2026-03-11+today+breaking&source=web 429
+2026-03-11 21:38:28,050 [INFO] response: https://yandex.com/search/site/?text=Russia+Ukraine+oil+energy+infrastructure+attack+2026-03-11+today+breaking&web=1&searchid=3397038 200
+2026-03-11 21:38:28,432 [INFO] response: https://grokipedia.com/api/typeahead?query=Libya+oil+field+shutdown+civil+war+2026-03-11+just+in&limit=1 200
+2026-03-11 21:38:28,455 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Libya%20oil%20field%20shutdown%20civil%20war%202026-03-11%20just%20in 200
+2026-03-11 21:38:29,164 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:38:29,435 [INFO] response: https://grokipedia.com/api/typeahead?query=Venezuela+oil+sanction+export+2026-03-11+recent&limit=1 200
+2026-03-11 21:38:29,435 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Venezuela%20oil%20sanction%20export%202026-03-11%20recent 200
+2026-03-11 21:38:29,827 [INFO] response: https://search.yahoo.com/search;_ylt=oG9BrNQMZ-qV5KXAMx8YS6Fx;_ylu=podOMrQbf6nq88Dho6YzSWkppiGERQde3BNmpc7--PYSZqo?p=Venezuela+oil+sanction+export+2026-03-11+recent 200
+2026-03-11 21:38:30,464 [INFO] response: https://grokipedia.com/api/typeahead?query=Nigeria+pipeline+attack+oil+production+2026-03-11+breaking+news&limit=1 200
+2026-03-11 21:38:30,465 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Nigeria%20pipeline%20attack%20oil%20production%202026-03-11%20breaking%20news 200
+2026-03-11 21:38:31,611 [INFO] response: https://www.mojeek.com/search?q=Nigeria+pipeline+attack+oil+production+2026-03-11+breaking+news 200
+2026-03-11 21:38:31,644 [INFO] response: https://grokipedia.com/api/typeahead?query=US+China+South+China+Sea+oil+tension+2026-03-11+today&limit=1 200
+2026-03-11 21:38:31,645 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=US%20China%20South%20China%20Sea%20oil%20tension%202026-03-11%20today 200
+2026-03-11 21:38:32,033 [INFO] response: https://search.yahoo.com/search;_ylt=3hXluZpHMo0nIkE99veQpvK5;_ylu=iMxUBGt5O_vCW0cffi6ftqK5rOh6XezXQ400FGeAjbd8fJU?p=US+China+South+China+Sea+oil+tension+2026-03-11+today 200
+2026-03-11 21:38:32,674 [INFO] response: https://grokipedia.com/api/typeahead?query=Brent+crude+oil+price+today+2026-03-11&limit=1 200
+2026-03-11 21:38:32,676 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Brent%20crude%20oil%20price%20today%202026-03-11 200
+2026-03-11 21:38:33,581 [INFO] response: https://www.mojeek.com/search?q=Brent+crude+oil+price+today+2026-03-11 200
+2026-03-11 21:38:33,676 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=WTI%20crude%20price%20today%20barrel%202026-03-11 200
+2026-03-11 21:38:33,677 [INFO] response: https://grokipedia.com/api/typeahead?query=WTI+crude+price+today+barrel+2026-03-11&limit=1 200
+2026-03-11 21:38:33,845 [INFO] response: https://search.brave.com/search?q=WTI+crude+price+today+barrel+2026-03-11&source=web 429
+2026-03-11 21:38:34,290 [INFO] response: https://yandex.com/search/site/?text=WTI+crude+price+today+barrel+2026-03-11&web=1&searchid=4261821 200
+2026-03-11 21:38:34,674 [INFO] response: https://grokipedia.com/api/typeahead?query=oil+price+forecast+analyst+2026-03-11&limit=1 200
+2026-03-11 21:38:34,677 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=oil%20price%20forecast%20analyst%202026-03-11 200
+2026-03-11 21:38:35,787 [INFO] response: https://www.mojeek.com/search?q=oil+price+forecast+analyst+2026-03-11 200
+2026-03-11 21:38:35,811 [INFO] response: https://grokipedia.com/api/typeahead?query=VIX+index+value+today+2026-03-11&limit=1 200
+2026-03-11 21:38:35,811 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=VIX%20index%20value%20today%202026-03-11 200
+2026-03-11 21:38:36,499 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:38:36,809 [INFO] response: https://grokipedia.com/api/typeahead?query=CBOE+Volatility+Index+current+level+2026-03-11&limit=1 200
+2026-03-11 21:38:36,810 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=CBOE%20Volatility%20Index%20current%20level%202026-03-11 200
+2026-03-11 21:38:36,979 [INFO] response: https://search.brave.com/search?q=CBOE+Volatility+Index+current+level+2026-03-11&source=web 429
+2026-03-11 21:38:37,646 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:38:37,809 [INFO] response: https://grokipedia.com/api/typeahead?query=VIX+chart+volatility+market+fear+2026-03-11&limit=1 200
+2026-03-11 21:38:37,811 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=VIX%20chart%20volatility%20market%20fear%202026-03-11 200
+2026-03-11 21:38:38,510 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:38:38,809 [INFO] response: https://grokipedia.com/api/typeahead?query=VIX+oil+price+correlation+volatility&limit=1 200
+2026-03-11 21:38:38,811 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=VIX%20oil%20price%20correlation%20volatility 200
+2026-03-11 21:38:38,866 [INFO] response: https://consent.google.com/ml?continue=https://www.google.com/search%3Fq%3DVIX%2Boil%2Bprice%2Bcorrelation%2Bvolatility%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&gl=FR&m=0&pc=srp&uxe=none&cm=2&hl=en&src=1 200
+2026-03-11 21:38:39,038 [INFO] response: https://search.brave.com/search?q=VIX+oil+price+correlation+volatility&source=web 429
+2026-03-11 21:38:39,480 [INFO] response: https://yandex.com/search/site/?text=VIX+oil+price+correlation+volatility&web=1&searchid=5155834 200
+2026-03-11 21:39:17,280 [INFO] response: https://grokipedia.com/api/typeahead?query=Brent+crude+oil+price+today+2026-03-11&limit=1 200
+2026-03-11 21:39:17,283 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Brent%20crude%20oil%20price%20today%202026-03-11 200
+2026-03-11 21:39:17,652 [INFO] response: https://search.yahoo.com/search;_ylt=dU-WlSPY5THWETbtnE06KPWs;_ylu=4bqerlpPJAu6fRC_d6zh1uSgo5AhoUxTFmOTtDKwfBiKP1A?p=Brent+crude+oil+price+today+2026-03-11 200
+2026-03-11 21:39:18,282 [INFO] response: https://grokipedia.com/api/typeahead?query=WTI+crude+price+today+barrel+2026-03-11&limit=1 200
+2026-03-11 21:39:18,283 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=WTI%20crude%20price%20today%20barrel%202026-03-11 200
+2026-03-11 21:39:18,333 [INFO] response: https://consent.google.com/ml?continue=https://www.google.com/search%3Fq%3DWTI%2Bcrude%2Bprice%2Btoday%2Bbarrel%2B2026-03-11%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&gl=FR&m=0&pc=srp&uxe=none&cm=2&hl=en&src=1 200
+2026-03-11 21:39:19,149 [INFO] response: https://www.mojeek.com/search?q=WTI+crude+price+today+barrel+2026-03-11 200
+2026-03-11 21:39:19,281 [INFO] response: https://grokipedia.com/api/typeahead?query=oil+price+forecast+analyst+2026-03-11&limit=1 200
+2026-03-11 21:39:19,284 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=oil%20price%20forecast%20analyst%202026-03-11 200
+2026-03-11 21:39:19,736 [INFO] response: https://yandex.com/search/site/?text=oil+price+forecast+analyst+2026-03-11&web=1&searchid=2011996 200
+2026-03-11 21:39:20,281 [INFO] response: https://grokipedia.com/api/typeahead?query=Russia+Ukraine+oil+energy+infrastructure+attack+2026-03-11+today+breaking&limit=1 200
+2026-03-11 21:39:20,283 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Russia%20Ukraine%20oil%20energy%20infrastructure%20attack%202026-03-11%20today%20breaking 200
+2026-03-11 21:39:20,972 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:39:21,281 [INFO] response: https://grokipedia.com/api/typeahead?query=Libya+oil+field+shutdown+civil+war+2026-03-11+just+in&limit=1 200
+2026-03-11 21:39:21,284 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Libya%20oil%20field%20shutdown%20civil%20war%202026-03-11%20just%20in 200
+2026-03-11 21:39:21,556 [INFO] response: https://search.yahoo.com/search;_ylt=94iiWMf4AmuHTh8jZ3l6dczU;_ylu=fOb1Fioq6LXG7nNyKJsKr2PX16Z-5_rFXfol0zohMRl10-4?p=Libya+oil+field+shutdown+civil+war+2026-03-11+just+in 200
+2026-03-11 21:39:22,322 [INFO] response: https://grokipedia.com/api/typeahead?query=Venezuela+oil+sanction+export+2026-03-11+recent&limit=1 200
+2026-03-11 21:39:22,326 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Venezuela%20oil%20sanction%20export%202026-03-11%20recent 200
+2026-03-11 21:39:22,763 [INFO] response: https://yandex.com/search/site/?text=Venezuela+oil+sanction+export+2026-03-11+recent&web=1&searchid=3617259 200
+2026-03-11 21:39:23,323 [INFO] response: https://grokipedia.com/api/typeahead?query=Nigeria+pipeline+attack+oil+production+2026-03-11+breaking+news&limit=1 200
+2026-03-11 21:39:23,326 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Nigeria%20pipeline%20attack%20oil%20production%202026-03-11%20breaking%20news 200
+2026-03-11 21:39:24,089 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:39:24,324 [INFO] response: https://grokipedia.com/api/typeahead?query=US+China+South+China+Sea+oil+tension+2026-03-11+today&limit=1 200
+2026-03-11 21:39:24,326 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=US%20China%20South%20China%20Sea%20oil%20tension%202026-03-11%20today 200
+2026-03-11 21:39:25,413 [INFO] response: https://www.mojeek.com/search?q=US+China+South+China+Sea+oil+tension+2026-03-11+today 200
+2026-03-11 21:39:34,352 [INFO] response: https://grokipedia.com/api/typeahead?query=OPEC%2B+production+cut+decision+2026-03-11+today+breaking&limit=1 200
+2026-03-11 21:39:34,353 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=OPEC%2B%20production%20cut%20decision%202026-03-11%20today%20breaking 200
+2026-03-11 21:39:34,479 [INFO] response: https://search.yahoo.com/search;_ylt=UudYdMvMI84LezUVgiQSBQ37;_ylu=uxRb7VIUgDfKHlg3MDzPWVbcYMDX9KgViWtmKzWm-pVojUA?p=OPEC%2B+production+cut+decision+2026-03-11+today+breaking 200
+2026-03-11 21:39:35,350 [INFO] response: https://grokipedia.com/api/typeahead?query=Saudi+Arabia+voluntary+oil+cut+barrel+2026-03-11+just+in&limit=1 200
+2026-03-11 21:39:35,353 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Saudi%20Arabia%20voluntary%20oil%20cut%20barrel%202026-03-11%20just%20in 200
+2026-03-11 21:39:35,569 [INFO] response: https://search.yahoo.com/search;_ylt=q9RSINyXpNdUmXkLS7_QLcP5;_ylu=GN6HizKVl_rs-5LRfTvdr-OnifjHNGCZ_WOC4aS5sx4gVT4?p=Saudi+Arabia+voluntary+oil+cut+barrel+2026-03-11+just+in 200
+2026-03-11 21:39:36,352 [INFO] response: https://grokipedia.com/api/typeahead?query=Russia+oil+export+reduction+barrel+2026-03-11+recent&limit=1 200
+2026-03-11 21:39:36,355 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Russia%20oil%20export%20reduction%20barrel%202026-03-11%20recent 200
+2026-03-11 21:39:36,789 [INFO] response: https://yandex.com/search/site/?text=Russia+oil+export+reduction+barrel+2026-03-11+recent&web=1&searchid=1207689 200
+2026-03-11 21:39:37,351 [INFO] response: https://grokipedia.com/api/typeahead?query=OPEC+emergency+meeting+oil+price+2026-03-11+breaking+news&limit=1 200
+2026-03-11 21:39:37,354 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=OPEC%20emergency%20meeting%20oil%20price%202026-03-11%20breaking%20news 200
+2026-03-11 21:39:37,484 [INFO] response: https://search.yahoo.com/search;_ylt=0U15F_6gjjW-ZIqjQljmgflm;_ylu=i1MiqUzK8Tz99n9jnz9r9lRzcZods8nTtFNXHKL7H_Gy0L8?p=OPEC+emergency+meeting+oil+price+2026-03-11+breaking+news 200
+2026-03-11 21:39:38,354 [INFO] response: https://grokipedia.com/api/typeahead?query=UAE+Kuwait+oil+output+quota+2026-03-11+today&limit=1 200
+2026-03-11 21:39:38,355 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=UAE%20Kuwait%20oil%20output%20quota%202026-03-11%20today 200
+2026-03-11 21:39:39,492 [INFO] response: https://www.mojeek.com/search?q=UAE+Kuwait+oil+output+quota+2026-03-11+today 200
+2026-03-11 21:39:39,523 [INFO] response: https://grokipedia.com/api/typeahead?query=Houthi+attack+oil+tanker+Red+Sea+2026-03-11+today+breaking&limit=1 200
+2026-03-11 21:39:39,526 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Houthi%20attack%20oil%20tanker%20Red%20Sea%202026-03-11%20today%20breaking 200
+2026-03-11 21:39:39,987 [INFO] response: https://www.mojeek.com/search?q=Houthi+attack+oil+tanker+Red+Sea+2026-03-11+today+breaking 200
+2026-03-11 21:39:40,523 [INFO] response: https://grokipedia.com/api/typeahead?query=Bab-el-Mandeb+shipping+disruption+oil+2026-03-11+just+in&limit=1 200
+2026-03-11 21:39:40,527 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Bab-el-Mandeb%20shipping%20disruption%20oil%202026-03-11%20just%20in 200
+2026-03-11 21:39:40,994 [INFO] response: https://yandex.com/search/site/?text=Bab-el-Mandeb+shipping+disruption+oil+2026-03-11+just+in&web=1&searchid=2370675 200
+2026-03-11 21:39:41,523 [INFO] response: https://grokipedia.com/api/typeahead?query=Suez+Canal+closure+tanker+blockage+2026-03-11+recent&limit=1 200
+2026-03-11 21:39:41,533 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Suez%20Canal%20closure%20tanker%20blockage%202026-03-11%20recent 200
+2026-03-11 21:39:42,172 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:39:42,522 [INFO] response: https://grokipedia.com/api/typeahead?query=Iran+seize+oil+tanker+Strait+Hormuz+2026-03-11+breaking+news&limit=1 200
+2026-03-11 21:39:42,526 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Iran%20seize%20oil%20tanker%20Strait%20Hormuz%202026-03-11%20breaking%20news 200
+2026-03-11 21:39:42,696 [INFO] response: https://search.brave.com/search?q=Iran+seize+oil+tanker+Strait+Hormuz+2026-03-11+breaking+news&source=web 429
+2026-03-11 21:39:42,761 [INFO] response: https://consent.google.com/ml?continue=https://www.google.com/search%3Fq%3DIran%2Bseize%2Boil%2Btanker%2BStrait%2BHormuz%2B2026-03-11%2Bbreaking%2Bnews%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&gl=FR&m=0&pc=srp&uxe=none&cm=2&hl=en&src=1 200
+2026-03-11 21:39:43,428 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:39:43,524 [INFO] response: https://grokipedia.com/api/typeahead?query=oil+tanker+piracy+attack+2026-03-11+today&limit=1 200
+2026-03-11 21:39:43,527 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=oil%20tanker%20piracy%20attack%202026-03-11%20today 200
+2026-03-11 21:39:43,662 [INFO] response: https://search.yahoo.com/search;_ylt=JOAGDB5UKeZjIlzzQl9T4YIN;_ylu=34ZbkjNXD6NdAdGbKrRMEgNE_AAP2IAX2Whvm3f0x1hegxk?p=oil+tanker+piracy+attack+2026-03-11+today 200
+2026-03-11 21:39:54,943 [INFO] response: https://grokipedia.com/api/typeahead?query=oil+refinery+explosion+fire+2026-03-11+today+breaking&limit=1 200
+2026-03-11 21:39:54,946 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=oil%20refinery%20explosion%20fire%202026-03-11%20today%20breaking 200
+2026-03-11 21:39:55,495 [INFO] response: https://www.mojeek.com/search?q=oil+refinery+explosion+fire+2026-03-11+today+breaking 200
+2026-03-11 21:39:55,945 [INFO] response: https://grokipedia.com/api/typeahead?query=refinery+drone+attack+oil+production+disruption+2026-03-11+just+in&limit=1 200
+2026-03-11 21:39:55,946 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=refinery%20drone%20attack%20oil%20production%20disruption%202026-03-11%20just%20in 200
+2026-03-11 21:39:56,074 [INFO] response: https://search.yahoo.com/search;_ylt=KNV3DfIZdCBsvKbs2VcciADL;_ylu=jpXkaimGtyAY6RZYstpUEBj15kwPKFmZM6bdqS4KoCaOkag?p=refinery+drone+attack+oil+production+disruption+2026-03-11+just+in 200
+2026-03-11 21:39:56,944 [INFO] response: https://grokipedia.com/api/typeahead?query=Saudi+Arabia+Aramco+infrastructure+attack+2026-03-11+recent&limit=1 200
+2026-03-11 21:39:56,948 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Saudi%20Arabia%20Aramco%20infrastructure%20attack%202026-03-11%20recent 200
+2026-03-11 21:39:58,033 [INFO] response: https://www.mojeek.com/search?q=Saudi+Arabia+Aramco+infrastructure+attack+2026-03-11+recent 200
+2026-03-11 21:40:07,957 [INFO] response: https://grokipedia.com/api/typeahead?query=natural+gas+pipeline+explosion+sabotage+2026-03-11+today+breaking&limit=1 200
+2026-03-11 21:40:07,958 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=natural%20gas%20pipeline%20explosion%20sabotage%202026-03-11%20today%20breaking 200
+2026-03-11 21:40:08,008 [INFO] response: https://consent.google.com/ml?continue=https://www.google.com/search%3Fq%3Dnatural%2Bgas%2Bpipeline%2Bexplosion%2Bsabotage%2B2026-03-11%2Btoday%2Bbreaking%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&gl=FR&m=0&pc=srp&uxe=none&cm=2&hl=en&src=1 200
+2026-03-11 21:40:08,178 [INFO] response: https://search.brave.com/search?q=natural+gas+pipeline+explosion+sabotage+2026-03-11+today+breaking&source=web 429
+2026-03-11 21:40:08,975 [INFO] response: https://www.mojeek.com/search?q=natural+gas+pipeline+explosion+sabotage+2026-03-11+today+breaking 200
+2026-03-11 21:40:09,005 [INFO] response: https://grokipedia.com/api/typeahead?query=LNG+terminal+attack+fire+disruption+2026-03-11+just+in&limit=1 200
+2026-03-11 21:40:09,008 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=LNG%20terminal%20attack%20fire%20disruption%202026-03-11%20just%20in 200
+2026-03-11 21:40:10,089 [INFO] response: https://www.mojeek.com/search?q=LNG+terminal+attack+fire+disruption+2026-03-11+just+in 200
+2026-03-11 21:40:10,123 [INFO] response: https://grokipedia.com/api/typeahead?query=Russia+gas+supply+Europe+cut+2026-03-11+recent&limit=1 200
+2026-03-11 21:40:10,123 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Russia%20gas%20supply%20Europe%20cut%202026-03-11%20recent 200
+2026-03-11 21:40:10,908 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:40:11,121 [INFO] response: https://grokipedia.com/api/typeahead?query=Qatar+North+Field+gas+disruption+2026-03-11+today&limit=1 200
+2026-03-11 21:40:11,124 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Qatar%20North%20Field%20gas%20disruption%202026-03-11%20today 200
+2026-03-11 21:40:11,289 [INFO] response: https://search.brave.com/search?q=Qatar+North+Field+gas+disruption+2026-03-11+today&source=web 429
+2026-03-11 21:40:12,375 [INFO] response: https://www.mojeek.com/search?q=Qatar+North+Field+gas+disruption+2026-03-11+today 200
+2026-03-11 21:40:12,409 [INFO] response: https://grokipedia.com/api/typeahead?query=Azerbaijan+Georgia+gas+pipeline+attack+2026-03-11+breaking+news&limit=1 200
+2026-03-11 21:40:12,409 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Azerbaijan%20Georgia%20gas%20pipeline%20attack%202026-03-11%20breaking%20news 200
+2026-03-11 21:40:12,790 [INFO] response: https://yandex.com/search/site/?text=Azerbaijan+Georgia+gas+pipeline+attack+2026-03-11+breaking+news&web=1&searchid=3064791 200
+2026-03-11 21:40:31,789 [INFO] 🔍 Intelligence récoltée (454 caractères)
+2026-03-11 21:41:46,340 [ERROR] ❌ DSPy Synthesis Error: 5 validation errors for list[OilEvent]
+0.title
+  Field required [type=missing, input_value={'id': 'geopol_hormuz_202...% of global oil trade.'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+1.title
+  Field required [type=missing, input_value={'id': 'shipping_redsea_2...stern crude shipments.'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+2.title
+  Field required [type=missing, input_value={'id': 'refinery_ruwais_2...city loss of 500k bpd.'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+3.title
+  Field required [type=missing, input_value={'id': 'opec_saudi_202603...ply shock environment.'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+4.title
+  Field required [type=missing, input_value={'id': 'russia_exports_20...ening non-OPEC supply.'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+2026-03-11 21:41:46,342 [ERROR] Traceback (most recent call last):
+  File "C:\GIT\oil-agent\oil-agent.py", line 1001, in run_monitoring_cycle
+    dspy_result = analyzer(
+        current_date=current_date,
+    ...<3 lines>...
+        raw_intelligence=raw_intelligence
+    )
+  File "c:\GIT\oil-agent\.venv\Lib\site-packages\dspy\utils\callback.py", line 326, in sync_wrapper
+    return fn(instance, *args, **kwargs)
+  File "c:\GIT\oil-agent\.venv\Lib\site-packages\dspy\primitives\module.py", line 82, in __call__
+    return self.forward(*args, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\GIT\oil-agent\oil-agent.py", line 77, in forward
+    result = self.analyze(**kwargs)
+  File "c:\GIT\oil-agent\.venv\Lib\site-packages\dspy\utils\callback.py", line 326, in sync_wrapper
+    return fn(instance, *args, **kwargs)
+  File "c:\GIT\oil-agent\.venv\Lib\site-packages\dspy\primitives\module.py", line 82, in __call__
+    return self.forward(*args, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "c:\GIT\oil-agent\.venv\Lib\site-packages\dspy\predict\chain_of_thought.py", line 39, in forward
+    return self.predict(**kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^
+  File "c:\GIT\oil-agent\.venv\Lib\site-packages\dspy\predict\predict.py", line 104, in __call__
+    return super().__call__(**kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "c:\GIT\oil-agent\.venv\Lib\site-packages\dspy\utils\callback.py", line 326, in sync_wrapper
+    return fn(instance, *args, **kwargs)
+  File "c:\GIT\oil-agent\.venv\Lib\site-packages\dspy\primitives\module.py", line 82, in __call__
+    return self.forward(*args, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "c:\GIT\oil-agent\.venv\Lib\site-packages\dspy\predict\predict.py", line 198, in forward
+    completions = adapter(lm, lm_kwargs=config, signature=signature, demos=demos, inputs=kwargs)
+  File "c:\GIT\oil-agent\.venv\Lib\site-packages\dspy\adapters\json_adapter.py", line 73, in __call__
+    result = self._json_adapter_call_common(lm, lm_kwargs, signature, demos, inputs, super().__call__)
+  File "c:\GIT\oil-agent\.venv\Lib\site-packages\dspy\adapters\json_adapter.py", line 63, in _json_adapter_call_common
+    return call_fn(lm, lm_kwargs, signature, demos, inputs)
+  File "c:\GIT\oil-agent\.venv\Lib\site-packages\dspy\adapters\chat_adapter.py", line 85, in __call__
+    raise e
+  File "c:\GIT\oil-agent\.venv\Lib\site-packages\dspy\adapters\chat_adapter.py", line 73, in __call__
+    return super().__call__(lm, lm_kwargs, signature, demos, inputs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\GIT\oil-agent\.venv\Lib\site-packages\dspy\adapters\base.py", line 203, in __call__
+    return self._call_postprocess(processed_signature, signature, outputs, lm, lm_kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\GIT\oil-agent\.venv\Lib\site-packages\dspy\adapters\base.py", line 137, in _call_postprocess
+    value = self.parse(processed_signature, text)
+  File "c:\GIT\oil-agent\.venv\Lib\site-packages\dspy\utils\callback.py", line 326, in sync_wrapper
+    return fn(instance, *args, **kwargs)
+  File "c:\GIT\oil-agent\.venv\Lib\site-packages\dspy\adapters\json_adapter.py", line 176, in parse
+    fields[k] = parse_value(v, signature.output_fields[k].annotation)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\GIT\oil-agent\.venv\Lib\site-packages\dspy\adapters\utils.py", line 165, in parse_value
+    return TypeAdapter(annotation).validate_python(value)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "c:\GIT\oil-agent\.venv\Lib\site-packages\pydantic\type_adapter.py", line 441, in validate_python
+    return self.validator.validate_python(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        object,
+        ^^^^^^^
+    ...<6 lines>...
+        by_name=by_name,
+        ^^^^^^^^^^^^^^^^
+    )
+    ^
+pydantic_core._pydantic_core.ValidationError: 5 validation errors for list[OilEvent]
+0.title
+  Field required [type=missing, input_value={'id': 'geopol_hormuz_202...% of global oil trade.'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+1.title
+  Field required [type=missing, input_value={'id': 'shipping_redsea_2...stern crude shipments.'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+2.title
+  Field required [type=missing, input_value={'id': 'refinery_ruwais_2...city loss of 500k bpd.'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+3.title
+  Field required [type=missing, input_value={'id': 'opec_saudi_202603...ply shock environment.'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+4.title
+  Field required [type=missing, input_value={'id': 'russia_exports_20...ening non-OPEC supply.'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+
+2026-03-11 21:43:02,864 [INFO] ============================================================
+2026-03-11 21:43:02,864 [INFO] 🛢️  Démarrage cycle de surveillance pétrole (DSPy Mode)
+2026-03-11 21:43:02,864 [INFO] ============================================================
+2026-03-11 21:43:02,892 [INFO] 🔧 CodeAgent code_block_tags: ('```python', '```')
+2026-03-11 21:43:02,892 [INFO] 🔧 CodeAgent attend le format: ```python...```
+2026-03-11 21:43:12,455 [INFO] ============================================================
+2026-03-11 21:43:12,455 [INFO] 🛢️  Démarrage cycle de surveillance pétrole (DSPy Mode)
+2026-03-11 21:43:12,455 [INFO] ============================================================
+2026-03-11 21:43:12,481 [INFO] 🔧 CodeAgent code_block_tags: ('```python', '```')
+2026-03-11 21:43:12,482 [INFO] 🔧 CodeAgent attend le format: ```python...```
+2026-03-11 21:43:37,625 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Iran%20military%20attack%20oil%20infrastructure%202026-03-11%20today%20breaking 200
+2026-03-11 21:43:38,063 [INFO] response: https://grokipedia.com/api/typeahead?query=Iran+military+attack+oil+infrastructure+2026-03-11+today+breaking&limit=1 200
+2026-03-11 21:43:38,655 [INFO] response: https://yandex.com/search/site/?text=Iran+military+attack+oil+infrastructure+2026-03-11+today+breaking&web=1&searchid=9313041 200
+2026-03-11 21:43:38,687 [INFO] response: https://grokipedia.com/api/typeahead?query=Strait+of+Hormuz+blockade+tanker+2026-03-11+just+in&limit=1 200
+2026-03-11 21:43:38,690 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Strait%20of%20Hormuz%20blockade%20tanker%202026-03-11%20just%20in 200
+2026-03-11 21:43:39,079 [INFO] response: https://consent.yahoo.com/v2/collectConsent?sessionId=3_cc-session_dc27816e-7667-4fb8-9acc-862aef5dbf58 200
+2026-03-11 21:43:39,265 [INFO] response: https://search.brave.com/search?q=Strait+of+Hormuz+blockade+tanker+2026-03-11+just+in&source=web 429
+2026-03-11 21:43:39,766 [INFO] response: https://yandex.com/search/site/?text=Strait+of+Hormuz+blockade+tanker+2026-03-11+just+in&web=1&searchid=8132877 200
+2026-03-11 21:43:39,799 [INFO] response: https://grokipedia.com/api/typeahead?query=Iran+IRGC+oil+tanker+seized+2026-03-11+recent&limit=1 200
+2026-03-11 21:43:39,803 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Iran%20IRGC%20oil%20tanker%20seized%202026-03-11%20recent 200
+2026-03-11 21:43:39,955 [INFO] response: https://consent.google.com/ml?continue=https://www.google.com/search%3Fq%3DIran%2BIRGC%2Boil%2Btanker%2Bseized%2B2026-03-11%2Brecent%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&gl=FR&m=0&pc=srp&uxe=none&cm=2&hl=en&src=1 200
+2026-03-11 21:43:40,136 [INFO] response: https://search.brave.com/search?q=Iran+IRGC+oil+tanker+seized+2026-03-11+recent&source=web 429
+2026-03-11 21:43:40,262 [INFO] response: https://consent.yahoo.com/v2/collectConsent?sessionId=3_cc-session_edce6b2d-027a-4086-a0da-da784c9a5580 200
+2026-03-11 21:43:41,379 [INFO] response: https://www.mojeek.com/search?q=Iran+IRGC+oil+tanker+seized+2026-03-11+recent 200
+2026-03-11 21:43:41,408 [INFO] response: https://grokipedia.com/api/typeahead?query=Iran+Israel+strike+retaliation+oil+2026-03-11+breaking+news&limit=1 200
+2026-03-11 21:43:41,417 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Iran%20Israel%20strike%20retaliation%20oil%202026-03-11%20breaking%20news 200
+2026-03-11 21:43:42,505 [INFO] response: https://www.mojeek.com/search?q=Iran+Israel+strike+retaliation+oil+2026-03-11+breaking+news 200
+2026-03-11 21:43:42,536 [INFO] response: https://grokipedia.com/api/typeahead?query=Iran+US+sanctions+oil+export+disruption+2026-03-11&limit=1 200
+2026-03-11 21:43:42,540 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Iran%20US%20sanctions%20oil%20export%20disruption%202026-03-11 200
+2026-03-11 21:43:43,025 [INFO] response: https://yandex.com/search/site/?text=Iran+US+sanctions+oil+export+disruption+2026-03-11&web=1&searchid=4175398 200
+2026-03-11 21:43:43,535 [INFO] response: https://grokipedia.com/api/typeahead?query=oil+refinery+explosion+fire+2026-03-11+today+breaking&limit=1 200
+2026-03-11 21:43:43,539 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=oil%20refinery%20explosion%20fire%202026-03-11%20today%20breaking 200
+2026-03-11 21:43:43,701 [INFO] response: https://search.brave.com/search?q=oil+refinery+explosion+fire+2026-03-11+today+breaking&source=web 429
+2026-03-11 21:43:44,421 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:43:44,536 [INFO] response: https://grokipedia.com/api/typeahead?query=refinery+drone+attack+oil+production+disruption+2026-03-11+just+in&limit=1 200
+2026-03-11 21:43:44,540 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=refinery%20drone%20attack%20oil%20production%20disruption%202026-03-11%20just%20in 200
+2026-03-11 21:43:45,230 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:43:45,535 [INFO] response: https://grokipedia.com/api/typeahead?query=Saudi+Arabia+Aramco+infrastructure+attack+2026-03-11+recent&limit=1 200
+2026-03-11 21:43:45,539 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Saudi%20Arabia%20Aramco%20infrastructure%20attack%202026-03-11%20recent 200
+2026-03-11 21:43:45,602 [INFO] response: https://consent.google.com/ml?continue=https://www.google.com/search%3Fq%3DSaudi%2BArabia%2BAramco%2Binfrastructure%2Battack%2B2026-03-11%2Brecent%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&gl=FR&m=0&pc=srp&uxe=none&cm=2&hl=en&src=1 200
+2026-03-11 21:43:45,768 [INFO] response: https://search.brave.com/search?q=Saudi+Arabia+Aramco+infrastructure+attack+2026-03-11+recent&source=web 429
+2026-03-11 21:43:45,917 [INFO] response: https://consent.yahoo.com/v2/collectConsent?sessionId=3_cc-session_67c53872-bae3-4688-b460-9e0f91c40269 200
+2026-03-11 21:43:46,637 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:43:46,654 [INFO] response: https://grokipedia.com/api/typeahead?query=OPEC%2B+production+cut+decision+2026-03-11+today+breaking&limit=1 200
+2026-03-11 21:43:46,657 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=OPEC%2B%20production%20cut%20decision%202026-03-11%20today%20breaking 200
+2026-03-11 21:43:47,158 [INFO] response: https://yandex.com/search/site/?text=OPEC%2B+production+cut+decision+2026-03-11+today+breaking&web=1&searchid=7597920 200
+2026-03-11 21:43:47,653 [INFO] response: https://grokipedia.com/api/typeahead?query=Saudi+Arabia+voluntary+oil+cut+barrel+2026-03-11+just+in&limit=1 200
+2026-03-11 21:43:47,658 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Saudi%20Arabia%20voluntary%20oil%20cut%20barrel%202026-03-11%20just%20in 200
+2026-03-11 21:43:47,830 [INFO] response: https://search.brave.com/search?q=Saudi+Arabia+voluntary+oil+cut+barrel+2026-03-11+just+in&source=web 429
+2026-03-11 21:43:48,370 [INFO] response: https://yandex.com/search/site/?text=Saudi+Arabia+voluntary+oil+cut+barrel+2026-03-11+just+in&web=1&searchid=5467483 200
+2026-03-11 21:43:48,654 [INFO] response: https://grokipedia.com/api/typeahead?query=Russia+oil+export+reduction+barrel+2026-03-11+recent&limit=1 200
+2026-03-11 21:43:48,658 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Russia%20oil%20export%20reduction%20barrel%202026-03-11%20recent 200
+2026-03-11 21:43:49,780 [INFO] response: https://www.mojeek.com/search?q=Russia+oil+export+reduction+barrel+2026-03-11+recent 200
+2026-03-11 21:43:49,805 [INFO] response: https://grokipedia.com/api/typeahead?query=OPEC+emergency+meeting+oil+price+2026-03-11+breaking+news&limit=1 200
+2026-03-11 21:43:49,810 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=OPEC%20emergency%20meeting%20oil%20price%202026-03-11%20breaking%20news 200
+2026-03-11 21:43:50,135 [INFO] response: https://search.brave.com/search?q=OPEC+emergency+meeting+oil+price+2026-03-11+breaking+news&source=web 429
+2026-03-11 21:43:51,223 [INFO] response: https://www.mojeek.com/search?q=OPEC+emergency+meeting+oil+price+2026-03-11+breaking+news 200
+2026-03-11 21:43:51,252 [INFO] response: https://grokipedia.com/api/typeahead?query=UAE+Kuwait+oil+output+quota+2026-03-11+today&limit=1 200
+2026-03-11 21:43:51,257 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=UAE%20Kuwait%20oil%20output%20quota%202026-03-11%20today 200
+2026-03-11 21:43:51,890 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:43:52,252 [INFO] response: https://grokipedia.com/api/typeahead?query=natural+gas+pipeline+explosion+sabotage+2026-03-11+today+breaking&limit=1 200
+2026-03-11 21:43:52,257 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=natural%20gas%20pipeline%20explosion%20sabotage%202026-03-11%20today%20breaking 200
+2026-03-11 21:43:53,027 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:43:53,252 [INFO] response: https://grokipedia.com/api/typeahead?query=LNG+terminal+attack+fire+disruption+2026-03-11+just+in&limit=1 200
+2026-03-11 21:43:53,257 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=LNG%20terminal%20attack%20fire%20disruption%202026-03-11%20just%20in 200
+2026-03-11 21:43:53,971 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:43:54,254 [INFO] response: https://grokipedia.com/api/typeahead?query=Russia+gas+supply+Europe+cut+2026-03-11+recent&limit=1 200
+2026-03-11 21:43:54,258 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Russia%20gas%20supply%20Europe%20cut%202026-03-11%20recent 200
+2026-03-11 21:43:54,998 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:43:55,254 [INFO] response: https://grokipedia.com/api/typeahead?query=Qatar+North+Field+gas+disruption+2026-03-11+today&limit=1 200
+2026-03-11 21:43:55,259 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Qatar%20North%20Field%20gas%20disruption%202026-03-11%20today 200
+2026-03-11 21:43:55,715 [INFO] response: https://yandex.com/search/site/?text=Qatar+North+Field+gas+disruption+2026-03-11+today&web=1&searchid=2696711 200
+2026-03-11 21:43:56,255 [INFO] response: https://grokipedia.com/api/typeahead?query=Azerbaijan+Georgia+gas+pipeline+attack+2026-03-11+breaking+news&limit=1 200
+2026-03-11 21:43:56,258 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Azerbaijan%20Georgia%20gas%20pipeline%20attack%202026-03-11%20breaking%20news 200
+2026-03-11 21:43:56,320 [INFO] response: https://consent.google.com/ml?continue=https://www.google.com/search%3Fq%3DAzerbaijan%2BGeorgia%2Bgas%2Bpipeline%2Battack%2B2026-03-11%2Bbreaking%2Bnews%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&gl=FR&m=0&pc=srp&uxe=none&cm=2&hl=en&src=1 200
+2026-03-11 21:43:57,422 [INFO] response: https://www.mojeek.com/search?q=Azerbaijan+Georgia+gas+pipeline+attack+2026-03-11+breaking+news 200
+2026-03-11 21:43:57,451 [INFO] response: https://grokipedia.com/api/typeahead?query=Houthi+attack+oil+tanker+Red+Sea+2026-03-11+today+breaking&limit=1 200
+2026-03-11 21:43:57,455 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Houthi%20attack%20oil%20tanker%20Red%20Sea%202026-03-11%20today%20breaking 200
+2026-03-11 21:43:57,580 [INFO] response: https://consent.yahoo.com/v2/collectConsent?sessionId=3_cc-session_366d5a87-fdfd-4a66-9aa7-793d0b378a49 200
+2026-03-11 21:43:58,249 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:43:58,452 [INFO] response: https://grokipedia.com/api/typeahead?query=Bab-el-Mandeb+shipping+disruption+oil+2026-03-11+just+in&limit=1 200
+2026-03-11 21:43:58,456 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Bab-el-Mandeb%20shipping%20disruption%20oil%202026-03-11%20just%20in 200
+2026-03-11 21:43:59,541 [INFO] response: https://www.mojeek.com/search?q=Bab-el-Mandeb+shipping+disruption+oil+2026-03-11+just+in 200
+2026-03-11 21:43:59,572 [INFO] response: https://grokipedia.com/api/typeahead?query=Suez+Canal+closure+tanker+blockage+2026-03-11+recent&limit=1 200
+2026-03-11 21:43:59,575 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Suez%20Canal%20closure%20tanker%20blockage%202026-03-11%20recent 200
+2026-03-11 21:43:59,683 [INFO] response: https://consent.google.com/ml?continue=https://www.google.com/search%3Fq%3DSuez%2BCanal%2Bclosure%2Btanker%2Bblockage%2B2026-03-11%2Brecent%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&gl=FR&m=0&pc=srp&uxe=none&cm=2&hl=en&src=1 200
+2026-03-11 21:44:00,379 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:44:00,572 [INFO] response: https://grokipedia.com/api/typeahead?query=Iran+seize+oil+tanker+Strait+Hormuz+2026-03-11+breaking+news&limit=1 200
+2026-03-11 21:44:00,576 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Iran%20seize%20oil%20tanker%20Strait%20Hormuz%202026-03-11%20breaking%20news 200
+2026-03-11 21:44:01,658 [INFO] response: https://www.mojeek.com/search?q=Iran+seize+oil+tanker+Strait+Hormuz+2026-03-11+breaking+news 200
+2026-03-11 21:44:01,690 [INFO] response: https://grokipedia.com/api/typeahead?query=oil+tanker+piracy+attack+2026-03-11+today&limit=1 200
+2026-03-11 21:44:01,693 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=oil%20tanker%20piracy%20attack%202026-03-11%20today 200
+2026-03-11 21:44:02,155 [INFO] response: https://yandex.com/search/site/?text=oil+tanker+piracy+attack+2026-03-11+today&web=1&searchid=9528976 200
+2026-03-11 21:44:02,690 [INFO] response: https://grokipedia.com/api/typeahead?query=Russia+Ukraine+oil+energy+infrastructure+attack+2026-03-11+today+breaking&limit=1 200
+2026-03-11 21:44:02,693 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Russia%20Ukraine%20oil%20energy%20infrastructure%20attack%202026-03-11%20today%20breaking 200
+2026-03-11 21:44:02,819 [INFO] response: https://consent.yahoo.com/v2/collectConsent?sessionId=3_cc-session_3d9e8350-e1c4-4438-b91c-0deab807fa32 200
+2026-03-11 21:44:03,437 [INFO] response: https://www.mojeek.com/search?q=Russia+Ukraine+oil+energy+infrastructure+attack+2026-03-11+today+breaking 200
+2026-03-11 21:44:03,689 [INFO] response: https://grokipedia.com/api/typeahead?query=Libya+oil+field+shutdown+civil+war+2026-03-11+just+in&limit=1 200
+2026-03-11 21:44:03,695 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Libya%20oil%20field%20shutdown%20civil%20war%202026-03-11%20just%20in 200
+2026-03-11 21:44:04,777 [INFO] response: https://www.mojeek.com/search?q=Libya+oil+field+shutdown+civil+war+2026-03-11+just+in 200
+2026-03-11 21:44:04,807 [INFO] response: https://grokipedia.com/api/typeahead?query=Venezuela+oil+sanction+export+2026-03-11+recent&limit=1 200
+2026-03-11 21:44:04,810 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Venezuela%20oil%20sanction%20export%202026-03-11%20recent 200
+2026-03-11 21:44:05,483 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:44:05,809 [INFO] response: https://grokipedia.com/api/typeahead?query=Nigeria+pipeline+attack+oil+production+2026-03-11+breaking+news&limit=1 200
+2026-03-11 21:44:05,815 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Nigeria%20pipeline%20attack%20oil%20production%202026-03-11%20breaking%20news 200
+2026-03-11 21:44:05,989 [INFO] response: https://search.brave.com/search?q=Nigeria+pipeline+attack+oil+production+2026-03-11+breaking+news&source=web 429
+2026-03-11 21:44:06,076 [INFO] response: https://consent.google.com/ml?continue=https://www.google.com/search%3Fq%3DNigeria%2Bpipeline%2Battack%2Boil%2Bproduction%2B2026-03-11%2Bbreaking%2Bnews%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&gl=FR&m=0&pc=srp&uxe=none&cm=2&hl=en&src=1 200
+2026-03-11 21:44:06,208 [INFO] response: https://consent.yahoo.com/v2/collectConsent?sessionId=3_cc-session_822fb2fb-71f1-4d3c-944a-8fda5b22c951 200
+2026-03-11 21:44:07,295 [INFO] response: https://www.mojeek.com/search?q=Nigeria+pipeline+attack+oil+production+2026-03-11+breaking+news 200
+2026-03-11 21:44:07,325 [INFO] response: https://grokipedia.com/api/typeahead?query=US+China+South+China+Sea+oil+tension+2026-03-11+today&limit=1 200
+2026-03-11 21:44:07,328 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=US%20China%20South%20China%20Sea%20oil%20tension%202026-03-11%20today 200
+2026-03-11 21:44:08,414 [INFO] response: https://www.mojeek.com/search?q=US+China+South+China+Sea+oil+tension+2026-03-11+today 200
+2026-03-11 21:44:08,445 [INFO] response: https://grokipedia.com/api/typeahead?query=Brent+crude+oil+price+today+2026-03-11&limit=1 200
+2026-03-11 21:44:08,448 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Brent%20crude%20oil%20price%20today%202026-03-11 200
+2026-03-11 21:44:08,585 [INFO] response: https://consent.yahoo.com/v2/collectConsent?sessionId=3_cc-session_481f8b77-c0ec-4b6d-adbf-21cd47829c1b 200
+2026-03-11 21:44:08,756 [INFO] response: https://search.brave.com/search?q=Brent+crude+oil+price+today+2026-03-11&source=web 429
+2026-03-11 21:44:09,464 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:44:09,480 [INFO] response: https://grokipedia.com/api/typeahead?query=WTI+crude+price+today+barrel+2026-03-11&limit=1 200
+2026-03-11 21:44:09,483 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=WTI%20crude%20price%20today%20barrel%202026-03-11 200
+2026-03-11 21:44:09,932 [INFO] response: https://yandex.com/search/site/?text=WTI+crude+price+today+barrel+2026-03-11&web=1&searchid=9517509 200
+2026-03-11 21:44:10,480 [INFO] response: https://grokipedia.com/api/typeahead?query=oil+price+forecast+analyst+2026-03-11&limit=1 200
+2026-03-11 21:44:10,484 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=oil%20price%20forecast%20analyst%202026-03-11 200
+2026-03-11 21:44:11,570 [INFO] response: https://www.mojeek.com/search?q=oil+price+forecast+analyst+2026-03-11 200
+2026-03-11 21:44:11,601 [INFO] response: https://grokipedia.com/api/typeahead?query=VIX+index+value+today+2026-03-11&limit=1 200
+2026-03-11 21:44:11,605 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=VIX%20index%20value%20today%202026-03-11 200
+2026-03-11 21:44:12,305 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:44:12,601 [INFO] response: https://grokipedia.com/api/typeahead?query=CBOE+Volatility+Index+current+level+2026-03-11&limit=1 200
+2026-03-11 21:44:12,605 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=CBOE%20Volatility%20Index%20current%20level%202026-03-11 200
+2026-03-11 21:44:12,750 [INFO] response: https://consent.yahoo.com/v2/collectConsent?sessionId=3_cc-session_764e758e-9f09-47dc-8f93-5087e6ae08b5 200
+2026-03-11 21:44:12,920 [INFO] response: https://search.brave.com/search?q=CBOE+Volatility+Index+current+level+2026-03-11&source=web 429
+2026-03-11 21:44:13,695 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:44:13,711 [INFO] response: https://grokipedia.com/api/typeahead?query=VIX+chart+volatility+market+fear+2026-03-11&limit=1 200
+2026-03-11 21:44:13,714 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=VIX%20chart%20volatility%20market%20fear%202026-03-11 200
+2026-03-11 21:44:13,845 [INFO] response: https://consent.yahoo.com/v2/collectConsent?sessionId=3_cc-session_abb596ab-dcc4-4c0d-82b7-1dd3c3a7543e 200
+2026-03-11 21:44:13,920 [INFO] response: https://consent.google.com/ml?continue=https://www.google.com/search%3Fq%3DVIX%2Bchart%2Bvolatility%2Bmarket%2Bfear%2B2026-03-11%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&gl=FR&m=0&pc=srp&uxe=none&cm=2&hl=en&src=1 200
+2026-03-11 21:44:14,595 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:44:14,712 [INFO] response: https://grokipedia.com/api/typeahead?query=VIX+oil+price+correlation+volatility&limit=1 200
+2026-03-11 21:44:14,715 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=VIX%20oil%20price%20correlation%20volatility 200
+2026-03-11 21:44:15,802 [INFO] response: https://www.mojeek.com/search?q=VIX+oil+price+correlation+volatility 200
+2026-03-11 21:44:15,836 [INFO] response: https://grokipedia.com/api/typeahead?query=oil+market+breaking+news+2026-03-11+site%3Areuters.com+OR+site%3Abloomberg.com+OR+site%3Aapnews.com+OR+site%3Abbc.com+OR+site%3Aft.com+OR+site%3Awsj.com+today&limit=1 200
+2026-03-11 21:44:15,836 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=oil%20market%20breaking%20news%202026-03-11%20site%3Areuters.com%20OR%20site%3Abloomberg.com%20OR%20site%3Aapnews.com%20OR%20site%3Abbc.com%20OR%20site%3Aft.com%20OR%20site%3Awsj.com%20today 200
+2026-03-11 21:44:16,004 [INFO] response: https://search.brave.com/search?q=oil+market+breaking+news+2026-03-11+site%3Areuters.com+OR+site%3Abloomberg.com+OR+site%3Aapnews.com+OR+site%3Abbc.com+OR+site%3Aft.com+OR+site%3Awsj.com+today&source=web 429
+2026-03-11 21:44:16,135 [INFO] response: https://consent.yahoo.com/v2/collectConsent?sessionId=3_cc-session_ae9d779d-9a66-4de5-b5b6-bfecba743b6a 200
+2026-03-11 21:44:16,744 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:44:16,834 [INFO] response: https://grokipedia.com/api/typeahead?query=crude+oil+price+spike+2026-03-11+site%3Areuters.com+OR+site%3Abloomberg.com+OR+site%3Aapnews.com+OR+site%3Abbc.com+OR+site%3Aft.com+OR+site%3Awsj.com+today&limit=1 200
+2026-03-11 21:44:16,837 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=crude%20oil%20price%20spike%202026-03-11%20site%3Areuters.com%20OR%20site%3Abloomberg.com%20OR%20site%3Aapnews.com%20OR%20site%3Abbc.com%20OR%20site%3Aft.com%20OR%20site%3Awsj.com%20today 200
+2026-03-11 21:44:16,916 [INFO] response: https://www.mojeek.com/search?q=crude+oil+price+spike+2026-03-11+site%3Areuters.com+OR+site%3Abloomberg.com+OR+site%3Aapnews.com+OR+site%3Abbc.com+OR+site%3Aft.com+OR+site%3Awsj.com+today 403
+2026-03-11 21:44:17,568 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:44:17,835 [INFO] response: https://grokipedia.com/api/typeahead?query=oil+supply+disruption+2026-03-11+site%3Areuters.com+OR+site%3Abloomberg.com+OR+site%3Aapnews.com+OR+site%3Abbc.com+OR+site%3Aft.com+OR+site%3Awsj.com+today&limit=1 200
+2026-03-11 21:44:17,837 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=oil%20supply%20disruption%202026-03-11%20site%3Areuters.com%20OR%20site%3Abloomberg.com%20OR%20site%3Aapnews.com%20OR%20site%3Abbc.com%20OR%20site%3Aft.com%20OR%20site%3Awsj.com%20today 200
+2026-03-11 21:44:17,889 [INFO] response: https://consent.google.com/ml?continue=https://www.google.com/search%3Fq%3Doil%2Bsupply%2Bdisruption%2B2026-03-11%2Bsite%253Areuters.com%2BOR%2Bsite%253Abloomberg.com%2BOR%2Bsite%253Aapnews.com%2BOR%2Bsite%253Abbc.com%2BOR%2Bsite%253Aft.com%2BOR%2Bsite%253Awsj.com%2Btoday%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&gl=FR&m=0&pc=srp&uxe=none&cm=2&hl=en&src=1 200
+2026-03-11 21:44:18,200 [INFO] response: https://yandex.com/search/site/?text=oil+supply+disruption+2026-03-11+site%3Areuters.com+OR+site%3Abloomberg.com+OR+site%3Aapnews.com+OR+site%3Abbc.com+OR+site%3Aft.com+OR+site%3Awsj.com+today&web=1&searchid=2493465 200
+2026-03-11 21:44:18,259 [INFO] response: https://html.duckduckgo.com/html/ 202
+2026-03-11 21:44:18,406 [INFO] response: https://consent.yahoo.com/v2/collectConsent?sessionId=3_cc-session_6f4218f6-9900-4fa0-af88-8bbc7e318562 200
+2026-03-11 21:44:18,491 [INFO] response: https://www.mojeek.com/search?q=oil+supply+disruption+2026-03-11+site%3Areuters.com+OR+site%3Abloomberg.com+OR+site%3Aapnews.com+OR+site%3Abbc.com+OR+site%3Aft.com+OR+site%3Awsj.com+today 403
+2026-03-11 21:44:18,658 [INFO] response: https://search.brave.com/search?q=oil+supply+disruption+2026-03-11+site%3Areuters.com+OR+site%3Abloomberg.com+OR+site%3Aapnews.com+OR+site%3Abbc.com+OR+site%3Aft.com+OR+site%3Awsj.com+today&source=web 429
+2026-03-11 21:45:17,337 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=oil%20market%20breaking%20news%202026-03-11%20site%3Areuters.com%20OR%20site%3Abloomberg.com%20OR%20site%3Aapnews.com%20OR%20site%3Abbc.com%20OR%20site%3Aft.com%20OR%20site%3Awsj.com%20this%20week 200
+2026-03-11 21:45:17,736 [INFO] response: https://grokipedia.com/api/typeahead?query=oil+market+breaking+news+2026-03-11+site%3Areuters.com+OR+site%3Abloomberg.com+OR+site%3Aapnews.com+OR+site%3Abbc.com+OR+site%3Aft.com+OR+site%3Awsj.com+this+week&limit=1 200
+2026-03-11 21:45:17,902 [INFO] response: https://search.brave.com/search?q=oil+market+breaking+news+2026-03-11+site%3Areuters.com+OR+site%3Abloomberg.com+OR+site%3Aapnews.com+OR+site%3Abbc.com+OR+site%3Aft.com+OR+site%3Awsj.com+this+week&source=web 429
+2026-03-11 21:45:18,038 [INFO] response: https://www.mojeek.com/search?q=oil+market+breaking+news+2026-03-11+site%3Areuters.com+OR+site%3Abloomberg.com+OR+site%3Aapnews.com+OR+site%3Abbc.com+OR+site%3Aft.com+OR+site%3Awsj.com+this+week 403
+2026-03-11 21:45:18,344 [INFO] response: https://yandex.com/search/site/?text=oil+market+breaking+news+2026-03-11+site%3Areuters.com+OR+site%3Abloomberg.com+OR+site%3Aapnews.com+OR+site%3Abbc.com+OR+site%3Aft.com+OR+site%3Awsj.com+this+week&web=1&searchid=6506354 200
+2026-03-11 21:45:18,709 [INFO] response: https://consent.yahoo.com/v2/collectConsent?sessionId=3_cc-session_1d803150-45c8-4758-b617-0e43fe553445 200
+2026-03-11 21:45:18,771 [INFO] response: https://consent.google.com/ml?continue=https://www.google.com/search%3Fq%3Doil%2Bmarket%2Bbreaking%2Bnews%2B2026-03-11%2Bsite%253Areuters.com%2BOR%2Bsite%253Abloomberg.com%2BOR%2Bsite%253Aapnews.com%2BOR%2Bsite%253Abbc.com%2BOR%2Bsite%253Aft.com%2BOR%2Bsite%253Awsj.com%2Bthis%2Bweek%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&gl=FR&m=0&pc=srp&uxe=none&cm=2&hl=en&src=1 200
+2026-03-11 21:45:18,872 [INFO] response: https://html.duckduckgo.com/html/ 202
+2026-03-11 21:45:19,094 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=crude%20oil%20price%20spike%202026-03-11%20site%3Areuters.com%20OR%20site%3Abloomberg.com%20OR%20site%3Aapnews.com%20OR%20site%3Abbc.com%20OR%20site%3Aft.com%20OR%20site%3Awsj.com%20this%20week 200
+2026-03-11 21:45:19,386 [INFO] response: https://grokipedia.com/api/typeahead?query=crude+oil+price+spike+2026-03-11+site%3Areuters.com+OR+site%3Abloomberg.com+OR+site%3Aapnews.com+OR+site%3Abbc.com+OR+site%3Aft.com+OR+site%3Awsj.com+this+week&limit=1 200
+2026-03-11 21:45:19,659 [INFO] response: https://yandex.com/search/site/?text=crude+oil+price+spike+2026-03-11+site%3Areuters.com+OR+site%3Abloomberg.com+OR+site%3Aapnews.com+OR+site%3Abbc.com+OR+site%3Aft.com+OR+site%3Awsj.com+this+week&web=1&searchid=3286804 200
+2026-03-11 21:45:19,780 [INFO] response: https://consent.yahoo.com/v2/collectConsent?sessionId=3_cc-session_a30367a8-0680-4513-acef-d142c32fe1c1 200
+2026-03-11 21:45:19,949 [INFO] response: https://search.brave.com/search?q=crude+oil+price+spike+2026-03-11+site%3Areuters.com+OR+site%3Abloomberg.com+OR+site%3Aapnews.com+OR+site%3Abbc.com+OR+site%3Aft.com+OR+site%3Awsj.com+this+week&source=web 429
+2026-03-11 21:45:20,003 [INFO] response: https://html.duckduckgo.com/html/ 202
+2026-03-11 21:45:20,103 [INFO] response: https://www.mojeek.com/search?q=crude+oil+price+spike+2026-03-11+site%3Areuters.com+OR+site%3Abloomberg.com+OR+site%3Aapnews.com+OR+site%3Abbc.com+OR+site%3Aft.com+OR+site%3Awsj.com+this+week 403
+2026-03-11 21:45:20,177 [INFO] response: https://consent.google.com/ml?continue=https://www.google.com/search%3Fq%3Dcrude%2Boil%2Bprice%2Bspike%2B2026-03-11%2Bsite%253Areuters.com%2BOR%2Bsite%253Abloomberg.com%2BOR%2Bsite%253Aapnews.com%2BOR%2Bsite%253Abbc.com%2BOR%2Bsite%253Aft.com%2BOR%2Bsite%253Awsj.com%2Bthis%2Bweek%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&gl=FR&m=0&pc=srp&uxe=none&cm=2&hl=en&src=1 200
+2026-03-11 21:45:20,373 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=oil%20supply%20disruption%202026-03-11%20site%3Areuters.com%20OR%20site%3Abloomberg.com%20OR%20site%3Aapnews.com%20OR%20site%3Abbc.com%20OR%20site%3Aft.com%20OR%20site%3Awsj.com%20this%20week 200
+2026-03-11 21:45:20,716 [INFO] response: https://grokipedia.com/api/typeahead?query=oil+supply+disruption+2026-03-11+site%3Areuters.com+OR+site%3Abloomberg.com+OR+site%3Aapnews.com+OR+site%3Abbc.com+OR+site%3Aft.com+OR+site%3Awsj.com+this+week&limit=1 200
+2026-03-11 21:45:21,017 [INFO] response: https://yandex.com/search/site/?text=oil+supply+disruption+2026-03-11+site%3Areuters.com+OR+site%3Abloomberg.com+OR+site%3Aapnews.com+OR+site%3Abbc.com+OR+site%3Aft.com+OR+site%3Awsj.com+this+week&web=1&searchid=9419213 200
+2026-03-11 21:45:21,091 [INFO] response: https://www.mojeek.com/search?q=oil+supply+disruption+2026-03-11+site%3Areuters.com+OR+site%3Abloomberg.com+OR+site%3Aapnews.com+OR+site%3Abbc.com+OR+site%3Aft.com+OR+site%3Awsj.com+this+week 403
+2026-03-11 21:45:21,222 [INFO] response: https://consent.yahoo.com/v2/collectConsent?sessionId=3_cc-session_ce1ebbc9-8ff8-40d8-817c-cd0d5bbee1f3 200
+2026-03-11 21:45:21,271 [INFO] response: https://html.duckduckgo.com/html/ 202
+2026-03-11 21:45:21,354 [INFO] response: https://consent.google.com/ml?continue=https://www.google.com/search%3Fq%3Doil%2Bsupply%2Bdisruption%2B2026-03-11%2Bsite%253Areuters.com%2BOR%2Bsite%253Abloomberg.com%2BOR%2Bsite%253Aapnews.com%2BOR%2Bsite%253Abbc.com%2BOR%2Bsite%253Aft.com%2BOR%2Bsite%253Awsj.com%2Bthis%2Bweek%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&gl=FR&m=0&pc=srp&uxe=none&cm=2&hl=en&src=1 200
+2026-03-11 21:45:21,526 [INFO] response: https://search.brave.com/search?q=oil+supply+disruption+2026-03-11+site%3Areuters.com+OR+site%3Abloomberg.com+OR+site%3Aapnews.com+OR+site%3Abbc.com+OR+site%3Aft.com+OR+site%3Awsj.com+this+week&source=web 429
+2026-03-11 21:45:21,531 [INFO] 🔍 Intelligence récoltée (744 caractères)
+2026-03-11 21:45:50,979 [INFO] ✨ DSPy Analysis Complete. Confidence: 0.15
+2026-03-11 21:45:50,980 [INFO] 💾 Exemple ajouté au dataset (data\oil_intelligence_dataset.jsonl)
+2026-03-11 21:45:50,980 [INFO] 📊 0 événement(s) à impact élevé détectés
+2026-03-11 21:45:50,980 [INFO] ✅ Cycle terminé — 0 nouvelle(s) alerte(s) envoyée(s)
+2026-03-11 21:47:34,177 [INFO] ============================================================
+2026-03-11 21:47:34,177 [INFO] 🛢️  Démarrage cycle de surveillance pétrole (DSPy Mode)
+2026-03-11 21:47:34,177 [INFO] ============================================================
+2026-03-11 21:47:34,204 [INFO] 🔧 CodeAgent code_block_tags: ('```python', '```')
+2026-03-11 21:47:34,204 [INFO] 🔧 CodeAgent attend le format: ```python...```
+2026-03-11 21:47:54,136 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Iran%20military%20attack%20oil%20infrastructure%202026-03-11%20today%20breaking 200
+2026-03-11 21:47:54,516 [INFO] response: https://grokipedia.com/api/typeahead?query=Iran+military+attack+oil+infrastructure+2026-03-11+today+breaking&limit=1 200
+2026-03-11 21:47:55,054 [INFO] response: https://www.mojeek.com/search?q=Iran+military+attack+oil+infrastructure+2026-03-11+today+breaking 200
+2026-03-11 21:47:55,087 [INFO] response: https://grokipedia.com/api/typeahead?query=Strait+of+Hormuz+blockade+tanker+2026-03-11+just+in&limit=1 200
+2026-03-11 21:47:55,088 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Strait%20of%20Hormuz%20blockade%20tanker%202026-03-11%20just%20in 200
+2026-03-11 21:47:55,821 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:47:56,085 [INFO] response: https://grokipedia.com/api/typeahead?query=Iran+IRGC+oil+tanker+seized+2026-03-11+recent&limit=1 200
+2026-03-11 21:47:56,088 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Iran%20IRGC%20oil%20tanker%20seized%202026-03-11%20recent 200
+2026-03-11 21:47:56,352 [INFO] response: https://www.google.com/search?q=Iran+IRGC+oil+tanker+seized+2026-03-11+recent&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 403
+2026-03-11 21:47:56,558 [INFO] response: https://search.brave.com/search?q=Iran+IRGC+oil+tanker+seized+2026-03-11+recent&source=web 429
+2026-03-11 21:47:57,116 [INFO] response: https://yandex.com/search/site/?text=Iran+IRGC+oil+tanker+seized+2026-03-11+recent&web=1&searchid=9367949 200
+2026-03-11 21:47:57,146 [INFO] response: https://grokipedia.com/api/typeahead?query=Iran+Israel+strike+retaliation+oil+2026-03-11+breaking+news&limit=1 200
+2026-03-11 21:47:57,148 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Iran%20Israel%20strike%20retaliation%20oil%202026-03-11%20breaking%20news 200
+2026-03-11 21:47:57,909 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:47:58,147 [INFO] response: https://grokipedia.com/api/typeahead?query=Iran+US+sanctions+oil+export+disruption+2026-03-11&limit=1 200
+2026-03-11 21:47:58,149 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Iran%20US%20sanctions%20oil%20export%20disruption%202026-03-11 200
+2026-03-11 21:47:59,233 [INFO] response: https://www.mojeek.com/search?q=Iran+US+sanctions+oil+export+disruption+2026-03-11 200
+2026-03-11 21:47:59,265 [INFO] response: https://grokipedia.com/api/typeahead?query=oil+refinery+explosion+fire+2026-03-11+today+breaking&limit=1 200
+2026-03-11 21:47:59,268 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=oil%20refinery%20explosion%20fire%202026-03-11%20today%20breaking 200
+2026-03-11 21:48:00,353 [INFO] response: https://www.mojeek.com/search?q=oil+refinery+explosion+fire+2026-03-11+today+breaking 200
+2026-03-11 21:48:00,384 [INFO] response: https://grokipedia.com/api/typeahead?query=refinery+drone+attack+oil+production+disruption+2026-03-11+just+in&limit=1 200
+2026-03-11 21:48:00,388 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=refinery%20drone%20attack%20oil%20production%20disruption%202026-03-11%20just%20in 200
+2026-03-11 21:48:01,471 [INFO] response: https://www.mojeek.com/search?q=refinery+drone+attack+oil+production+disruption+2026-03-11+just+in 200
+2026-03-11 21:48:01,501 [INFO] response: https://grokipedia.com/api/typeahead?query=Saudi+Arabia+Aramco+infrastructure+attack+2026-03-11+recent&limit=1 200
+2026-03-11 21:48:01,505 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Saudi%20Arabia%20Aramco%20infrastructure%20attack%202026-03-11%20recent 200
+2026-03-11 21:48:01,910 [INFO] response: https://yandex.com/search/site/?text=Saudi+Arabia+Aramco+infrastructure+attack+2026-03-11+recent&web=1&searchid=1697054 200
+2026-03-11 21:48:02,504 [INFO] response: https://grokipedia.com/api/typeahead?query=OPEC%2B+production+cut+decision+2026-03-11+today+breaking&limit=1 200
+2026-03-11 21:48:02,507 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=OPEC%2B%20production%20cut%20decision%202026-03-11%20today%20breaking 200
+2026-03-11 21:48:02,908 [INFO] response: https://consent.yahoo.com/v2/collectConsent?sessionId=3_cc-session_ab8b7b72-1533-4e86-840d-7999a0fd9194 200
+2026-03-11 21:48:03,149 [INFO] response: https://www.google.com/search?q=OPEC%2B+production+cut+decision+2026-03-11+today+breaking&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 403
+2026-03-11 21:48:03,817 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:48:03,833 [INFO] response: https://grokipedia.com/api/typeahead?query=Saudi+Arabia+voluntary+oil+cut+barrel+2026-03-11+just+in&limit=1 200
+2026-03-11 21:48:03,836 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Saudi%20Arabia%20voluntary%20oil%20cut%20barrel%202026-03-11%20just%20in 200
+2026-03-11 21:48:04,107 [INFO] response: https://www.google.com/search?q=Saudi+Arabia+voluntary+oil+cut+barrel+2026-03-11+just+in&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 403
+2026-03-11 21:48:04,274 [INFO] response: https://search.brave.com/search?q=Saudi+Arabia+voluntary+oil+cut+barrel+2026-03-11+just+in&source=web 429
+2026-03-11 21:48:04,997 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:48:05,014 [INFO] response: https://grokipedia.com/api/typeahead?query=Russia+oil+export+reduction+barrel+2026-03-11+recent&limit=1 200
+2026-03-11 21:48:05,018 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Russia%20oil%20export%20reduction%20barrel%202026-03-11%20recent 200
+2026-03-11 21:48:05,476 [INFO] response: https://www.google.com/search?q=Russia+oil+export+reduction+barrel+2026-03-11+recent&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 403
+2026-03-11 21:48:05,639 [INFO] response: https://search.brave.com/search?q=Russia+oil+export+reduction+barrel+2026-03-11+recent&source=web 429
+2026-03-11 21:48:06,077 [INFO] response: https://yandex.com/search/site/?text=Russia+oil+export+reduction+barrel+2026-03-11+recent&web=1&searchid=8066483 200
+2026-03-11 21:48:06,106 [INFO] response: https://grokipedia.com/api/typeahead?query=OPEC+emergency+meeting+oil+price+2026-03-11+breaking+news&limit=1 200
+2026-03-11 21:48:06,110 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=OPEC%20emergency%20meeting%20oil%20price%202026-03-11%20breaking%20news 200
+2026-03-11 21:48:06,234 [INFO] response: https://consent.yahoo.com/v2/collectConsent?sessionId=3_cc-session_a21a104f-ea88-4ed1-9978-c3761cc98ef6 200
+2026-03-11 21:48:06,881 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:48:07,106 [INFO] response: https://grokipedia.com/api/typeahead?query=UAE+Kuwait+oil+output+quota+2026-03-11+today&limit=1 200
+2026-03-11 21:48:07,110 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=UAE%20Kuwait%20oil%20output%20quota%202026-03-11%20today 200
+2026-03-11 21:48:07,587 [INFO] response: https://www.google.com/search?q=UAE+Kuwait+oil+output+quota+2026-03-11+today&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 403
+2026-03-11 21:48:07,721 [INFO] response: https://consent.yahoo.com/v2/collectConsent?sessionId=3_cc-session_0584c6f8-6fa2-408e-9486-502b6e069137 200
+2026-03-11 21:48:08,417 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:48:08,435 [INFO] response: https://grokipedia.com/api/typeahead?query=natural+gas+pipeline+explosion+sabotage+2026-03-11+today+breaking&limit=1 200
+2026-03-11 21:48:08,437 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=natural%20gas%20pipeline%20explosion%20sabotage%202026-03-11%20today%20breaking 200
+2026-03-11 21:48:08,856 [INFO] response: https://yandex.com/search/site/?text=natural+gas+pipeline+explosion+sabotage+2026-03-11+today+breaking&web=1&searchid=8807726 200
+2026-03-11 21:48:09,435 [INFO] response: https://grokipedia.com/api/typeahead?query=LNG+terminal+attack+fire+disruption+2026-03-11+just+in&limit=1 200
+2026-03-11 21:48:09,437 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=LNG%20terminal%20attack%20fire%20disruption%202026-03-11%20just%20in 200
+2026-03-11 21:48:09,607 [INFO] response: https://search.brave.com/search?q=LNG+terminal+attack+fire+disruption+2026-03-11+just+in&source=web 429
+2026-03-11 21:48:10,774 [INFO] response: https://www.mojeek.com/search?q=LNG+terminal+attack+fire+disruption+2026-03-11+just+in 200
+2026-03-11 21:48:10,804 [INFO] response: https://grokipedia.com/api/typeahead?query=Russia+gas+supply+Europe+cut+2026-03-11+recent&limit=1 200
+2026-03-11 21:48:10,807 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Russia%20gas%20supply%20Europe%20cut%202026-03-11%20recent 200
+2026-03-11 21:48:11,558 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:48:11,804 [INFO] response: https://grokipedia.com/api/typeahead?query=Qatar+North+Field+gas+disruption+2026-03-11+today&limit=1 200
+2026-03-11 21:48:11,809 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Qatar%20North%20Field%20gas%20disruption%202026-03-11%20today 200
+2026-03-11 21:48:12,781 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:48:12,803 [INFO] response: https://grokipedia.com/api/typeahead?query=Azerbaijan+Georgia+gas+pipeline+attack+2026-03-11+breaking+news&limit=1 200
+2026-03-11 21:48:12,808 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Azerbaijan%20Georgia%20gas%20pipeline%20attack%202026-03-11%20breaking%20news 200
+2026-03-11 21:48:13,253 [INFO] response: https://yandex.com/search/site/?text=Azerbaijan+Georgia+gas+pipeline+attack+2026-03-11+breaking+news&web=1&searchid=9629748 200
+2026-03-11 21:48:13,805 [INFO] response: https://grokipedia.com/api/typeahead?query=Houthi+attack+oil+tanker+Red+Sea+2026-03-11+today+breaking&limit=1 200
+2026-03-11 21:48:13,809 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Houthi%20attack%20oil%20tanker%20Red%20Sea%202026-03-11%20today%20breaking 200
+2026-03-11 21:48:14,210 [INFO] response: https://yandex.com/search/site/?text=Houthi+attack+oil+tanker+Red+Sea+2026-03-11+today+breaking&web=1&searchid=1813837 200
+2026-03-11 21:48:14,806 [INFO] response: https://grokipedia.com/api/typeahead?query=Bab-el-Mandeb+shipping+disruption+oil+2026-03-11+just+in&limit=1 200
+2026-03-11 21:48:14,808 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Bab-el-Mandeb%20shipping%20disruption%20oil%202026-03-11%20just%20in 200
+2026-03-11 21:48:15,478 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:48:15,807 [INFO] response: https://grokipedia.com/api/typeahead?query=Suez+Canal+closure+tanker+blockage+2026-03-11+recent&limit=1 200
+2026-03-11 21:48:15,810 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Suez%20Canal%20closure%20tanker%20blockage%202026-03-11%20recent 200
+2026-03-11 21:48:16,890 [INFO] response: https://www.mojeek.com/search?q=Suez+Canal+closure+tanker+blockage+2026-03-11+recent 200
+2026-03-11 21:48:16,923 [INFO] response: https://grokipedia.com/api/typeahead?query=Iran+seize+oil+tanker+Strait+Hormuz+2026-03-11+breaking+news&limit=1 200
+2026-03-11 21:48:16,927 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Iran%20seize%20oil%20tanker%20Strait%20Hormuz%202026-03-11%20breaking%20news 200
+2026-03-11 21:48:17,054 [INFO] response: https://consent.yahoo.com/v2/collectConsent?sessionId=3_cc-session_a2ef0ec2-bbec-4fee-8d12-259a89f71986 200
+2026-03-11 21:48:18,140 [INFO] response: https://www.mojeek.com/search?q=Iran+seize+oil+tanker+Strait+Hormuz+2026-03-11+breaking+news 200
+2026-03-11 21:48:18,171 [INFO] response: https://grokipedia.com/api/typeahead?query=oil+tanker+piracy+attack+2026-03-11+today&limit=1 200
+2026-03-11 21:48:18,179 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=oil%20tanker%20piracy%20attack%202026-03-11%20today 200
+2026-03-11 21:48:18,315 [INFO] response: https://consent.yahoo.com/v2/collectConsent?sessionId=3_cc-session_3e72499e-3223-47b9-a53f-35995ccf4634 200
+2026-03-11 21:48:18,969 [INFO] response: https://www.mojeek.com/search?q=oil+tanker+piracy+attack+2026-03-11+today 200
+2026-03-11 21:48:19,171 [INFO] response: https://grokipedia.com/api/typeahead?query=Russia+Ukraine+oil+energy+infrastructure+attack+2026-03-11+today+breaking&limit=1 200
+2026-03-11 21:48:19,175 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Russia%20Ukraine%20oil%20energy%20infrastructure%20attack%202026-03-11%20today%20breaking 200
+2026-03-11 21:48:19,845 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:48:20,173 [INFO] response: https://grokipedia.com/api/typeahead?query=Libya+oil+field+shutdown+civil+war+2026-03-11+just+in&limit=1 200
+2026-03-11 21:48:20,175 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Libya%20oil%20field%20shutdown%20civil%20war%202026-03-11%20just%20in 200
+2026-03-11 21:48:20,570 [INFO] response: https://yandex.com/search/site/?text=Libya+oil+field+shutdown+civil+war+2026-03-11+just+in&web=1&searchid=9521219 200
+2026-03-11 21:48:21,172 [INFO] response: https://grokipedia.com/api/typeahead?query=Venezuela+oil+sanction+export+2026-03-11+recent&limit=1 200
+2026-03-11 21:48:21,175 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Venezuela%20oil%20sanction%20export%202026-03-11%20recent 200
+2026-03-11 21:48:21,306 [INFO] response: https://consent.yahoo.com/v2/collectConsent?sessionId=3_cc-session_9caedf5c-0fee-40df-a080-bcf5546d676a 200
+2026-03-11 21:48:21,724 [INFO] response: https://yandex.com/search/site/?text=Venezuela+oil+sanction+export+2026-03-11+recent&web=1&searchid=4819044 200
+2026-03-11 21:48:22,172 [INFO] response: https://grokipedia.com/api/typeahead?query=Nigeria+pipeline+attack+oil+production+2026-03-11+breaking+news&limit=1 200
+2026-03-11 21:48:22,175 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Nigeria%20pipeline%20attack%20oil%20production%202026-03-11%20breaking%20news 200
+2026-03-11 21:48:23,257 [INFO] response: https://www.mojeek.com/search?q=Nigeria+pipeline+attack+oil+production+2026-03-11+breaking+news 200
+2026-03-11 21:48:23,287 [INFO] response: https://grokipedia.com/api/typeahead?query=US+China+South+China+Sea+oil+tension+2026-03-11+today&limit=1 200
+2026-03-11 21:48:23,290 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=US%20China%20South%20China%20Sea%20oil%20tension%202026-03-11%20today 200
+2026-03-11 21:48:23,425 [INFO] response: https://consent.yahoo.com/v2/collectConsent?sessionId=3_cc-session_ae87dc6c-0024-4522-806f-d041abf8d3a9 200
+2026-03-11 21:48:24,118 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:48:24,287 [INFO] response: https://grokipedia.com/api/typeahead?query=Brent+crude+oil+price+today+2026-03-11&limit=1 200
+2026-03-11 21:48:24,291 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Brent%20crude%20oil%20price%20today%202026-03-11 200
+2026-03-11 21:48:24,801 [INFO] response: https://yandex.com/search/site/?text=Brent+crude+oil+price+today+2026-03-11&web=1&searchid=2926073 200
+2026-03-11 21:48:25,288 [INFO] response: https://grokipedia.com/api/typeahead?query=WTI+crude+price+today+barrel+2026-03-11&limit=1 200
+2026-03-11 21:48:25,291 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=WTI%20crude%20price%20today%20barrel%202026-03-11 200
+2026-03-11 21:48:26,373 [INFO] response: https://www.mojeek.com/search?q=WTI+crude+price+today+barrel+2026-03-11 200
+2026-03-11 21:48:26,406 [INFO] response: https://grokipedia.com/api/typeahead?query=oil+price+forecast+analyst+2026-03-11&limit=1 200
+2026-03-11 21:48:26,410 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=oil%20price%20forecast%20analyst%202026-03-11 200
+2026-03-11 21:48:27,216 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:48:27,404 [INFO] response: https://grokipedia.com/api/typeahead?query=VIX+index+value+today+2026-03-11&limit=1 200
+2026-03-11 21:48:27,410 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=VIX%20index%20value%20today%202026-03-11 200
+2026-03-11 21:48:28,046 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:48:28,407 [INFO] response: https://grokipedia.com/api/typeahead?query=CBOE+Volatility+Index+current+level+2026-03-11&limit=1 200
+2026-03-11 21:48:28,409 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=CBOE%20Volatility%20Index%20current%20level%202026-03-11 200
+2026-03-11 21:48:28,850 [INFO] response: https://yandex.com/search/site/?text=CBOE+Volatility+Index+current+level+2026-03-11&web=1&searchid=4506172 200
+2026-03-11 21:48:29,407 [INFO] response: https://grokipedia.com/api/typeahead?query=VIX+chart+volatility+market+fear+2026-03-11&limit=1 200
+2026-03-11 21:48:29,410 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=VIX%20chart%20volatility%20market%20fear%202026-03-11 200
+2026-03-11 21:48:29,540 [INFO] response: https://consent.yahoo.com/v2/collectConsent?sessionId=3_cc-session_fea4e488-55dd-4d10-a3ac-97a1fd63397d 200
+2026-03-11 21:48:29,707 [INFO] response: https://search.brave.com/search?q=VIX+chart+volatility+market+fear+2026-03-11&source=web 429
+2026-03-11 21:48:30,114 [INFO] response: https://yandex.com/search/site/?text=VIX+chart+volatility+market+fear+2026-03-11&web=1&searchid=5547352 200
+2026-03-11 21:48:30,407 [INFO] response: https://grokipedia.com/api/typeahead?query=VIX+oil+price+correlation+volatility&limit=1 200
+2026-03-11 21:48:30,411 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=VIX%20oil%20price%20correlation%20volatility 200
+2026-03-11 21:48:30,576 [INFO] response: https://search.brave.com/search?q=VIX+oil+price+correlation+volatility&source=web 429
+2026-03-11 21:48:30,883 [INFO] response: https://www.google.com/search?q=VIX+oil+price+correlation+volatility&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 403
+2026-03-11 21:48:31,292 [INFO] response: https://yandex.com/search/site/?text=VIX+oil+price+correlation+volatility&web=1&searchid=9343897 200
+2026-03-11 21:49:24,920 [INFO] response: https://grokipedia.com/api/typeahead?query=natural+gas+pipeline+explosion+sabotage+2026-03-11+today+breaking&limit=1 200
+2026-03-11 21:49:24,921 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=natural%20gas%20pipeline%20explosion%20sabotage%202026-03-11%20today%20breaking 200
+2026-03-11 21:49:25,099 [INFO] response: https://search.brave.com/search?q=natural+gas+pipeline+explosion+sabotage+2026-03-11+today+breaking&source=web 429
+2026-03-11 21:49:25,626 [INFO] response: https://www.google.com/search?q=natural+gas+pipeline+explosion+sabotage+2026-03-11+today+breaking&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 403
+2026-03-11 21:49:25,751 [INFO] response: https://consent.yahoo.com/v2/collectConsent?sessionId=3_cc-session_0d3a2b28-41de-49b8-a2b7-4db357a9f036 200
+2026-03-11 21:49:26,146 [INFO] response: https://yandex.com/search/site/?text=natural+gas+pipeline+explosion+sabotage+2026-03-11+today+breaking&web=1&searchid=8906072 200
+2026-03-11 21:49:26,178 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=LNG%20terminal%20attack%20fire%20disruption%202026-03-11%20just%20in 200
+2026-03-11 21:49:26,180 [INFO] response: https://grokipedia.com/api/typeahead?query=LNG+terminal+attack+fire+disruption+2026-03-11+just+in&limit=1 200
+2026-03-11 21:49:26,409 [INFO] response: https://www.google.com/search?q=LNG+terminal+attack+fire+disruption+2026-03-11+just+in&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 403
+2026-03-11 21:49:26,630 [INFO] response: https://consent.yahoo.com/v2/collectConsent?sessionId=3_cc-session_5068af10-0fa3-4b64-8a5d-5413e8e57d47 200
+2026-03-11 21:49:26,801 [INFO] response: https://search.brave.com/search?q=LNG+terminal+attack+fire+disruption+2026-03-11+just+in&source=web 429
+2026-03-11 21:49:27,228 [INFO] response: https://yandex.com/search/site/?text=LNG+terminal+attack+fire+disruption+2026-03-11+just+in&web=1&searchid=4446161 200
+2026-03-11 21:49:27,260 [INFO] response: https://grokipedia.com/api/typeahead?query=Russia+gas+supply+Europe+cut+2026-03-11+recent&limit=1 200
+2026-03-11 21:49:27,264 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Russia%20gas%20supply%20Europe%20cut%202026-03-11%20recent 200
+2026-03-11 21:49:27,392 [INFO] response: https://consent.yahoo.com/v2/collectConsent?sessionId=3_cc-session_66d353ee-be3b-49ca-8b10-190fae747015 200
+2026-03-11 21:49:28,510 [INFO] response: https://www.mojeek.com/search?q=Russia+gas+supply+Europe+cut+2026-03-11+recent 200
+2026-03-11 21:49:28,540 [INFO] response: https://grokipedia.com/api/typeahead?query=Qatar+North+Field+gas+disruption+2026-03-11+today&limit=1 200
+2026-03-11 21:49:28,544 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Qatar%20North%20Field%20gas%20disruption%202026-03-11%20today 200
+2026-03-11 21:49:29,626 [INFO] response: https://www.mojeek.com/search?q=Qatar+North+Field+gas+disruption+2026-03-11+today 200
+2026-03-11 21:49:29,655 [INFO] response: https://grokipedia.com/api/typeahead?query=Azerbaijan+Georgia+gas+pipeline+attack+2026-03-11+breaking+news&limit=1 200
+2026-03-11 21:49:29,660 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Azerbaijan%20Georgia%20gas%20pipeline%20attack%202026-03-11%20breaking%20news 200
+2026-03-11 21:49:29,798 [INFO] response: https://consent.yahoo.com/v2/collectConsent?sessionId=3_cc-session_0b16b091-cc2f-4244-86f0-6413a6ec4eed 200
+2026-03-11 21:49:30,506 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:49:46,573 [INFO] 🔍 Intelligence récoltée (828 caractères)
+2026-03-11 21:51:03,616 [ERROR] ❌ DSPy Synthesis Error: module 'dspy' has no attribute 'Assert'
+2026-03-11 21:51:03,617 [ERROR] Traceback (most recent call last):
+  File "C:\GIT\oil-agent\oil-agent.py", line 991, in run_monitoring_cycle
+    dspy_result = analyzer(
+        current_date=current_date,
+    ...<3 lines>...
+        raw_intelligence=raw_intelligence
+    )
+  File "c:\GIT\oil-agent\.venv\Lib\site-packages\dspy\utils\callback.py", line 326, in sync_wrapper
+    return fn(instance, *args, **kwargs)
+  File "c:\GIT\oil-agent\.venv\Lib\site-packages\dspy\primitives\module.py", line 82, in __call__
+    return self.forward(*args, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\GIT\oil-agent\oil-agent.py", line 93, in forward
+    dspy.Assert(
+    ^^^^^^^^^^^
+AttributeError: module 'dspy' has no attribute 'Assert'
+
+2026-03-11 21:51:40,423 [INFO] ============================================================
+2026-03-11 21:51:40,423 [INFO] 🛢️  Démarrage cycle de surveillance pétrole (DSPy Mode)
+2026-03-11 21:51:40,423 [INFO] ============================================================
+2026-03-11 21:51:40,450 [INFO] 🔧 CodeAgent code_block_tags: ('```python', '```')
+2026-03-11 21:51:40,450 [INFO] 🔧 CodeAgent attend le format: ```python...```
+2026-03-11 21:52:03,944 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Iran%20military%20attack%20oil%20infrastructure%202026-03-11%20today%20breaking 200
+2026-03-11 21:52:04,315 [INFO] response: https://grokipedia.com/api/typeahead?query=Iran+military+attack+oil+infrastructure+2026-03-11+today+breaking&limit=1 200
+2026-03-11 21:52:04,508 [INFO] response: https://search.brave.com/search?q=Iran+military+attack+oil+infrastructure+2026-03-11+today+breaking&source=web 429
+2026-03-11 21:52:04,899 [INFO] response: https://consent.yahoo.com/v2/collectConsent?sessionId=3_cc-session_f5d97f2b-e70b-4f86-a8b2-6e8ed066722e 200
+2026-03-11 21:52:05,496 [INFO] response: https://www.mojeek.com/search?q=Iran+military+attack+oil+infrastructure+2026-03-11+today+breaking 200
+2026-03-11 21:52:05,527 [INFO] response: https://grokipedia.com/api/typeahead?query=Strait+of+Hormuz+blockade+tanker+2026-03-11+just+in&limit=1 200
+2026-03-11 21:52:05,531 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Strait%20of%20Hormuz%20blockade%20tanker%202026-03-11%20just%20in 200
+2026-03-11 21:52:05,683 [INFO] response: https://consent.google.com/ml?continue=https://www.google.com/search%3Fq%3DStrait%2Bof%2BHormuz%2Bblockade%2Btanker%2B2026-03-11%2Bjust%2Bin%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&gl=FR&m=1&pc=srp&uxe=none&cm=2&hl=en&src=1 200
+2026-03-11 21:52:05,878 [INFO] response: https://search.brave.com/search?q=Strait+of+Hormuz+blockade+tanker+2026-03-11+just+in&source=web 429
+2026-03-11 21:52:06,968 [INFO] response: https://www.mojeek.com/search?q=Strait+of+Hormuz+blockade+tanker+2026-03-11+just+in 200
+2026-03-11 21:52:06,998 [INFO] response: https://grokipedia.com/api/typeahead?query=Iran+IRGC+oil+tanker+seized+2026-03-11+recent&limit=1 200
+2026-03-11 21:52:07,002 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Iran%20IRGC%20oil%20tanker%20seized%202026-03-11%20recent 200
+2026-03-11 21:52:07,172 [INFO] response: https://search.brave.com/search?q=Iran+IRGC+oil+tanker+seized+2026-03-11+recent&source=web 429
+2026-03-11 21:52:07,235 [INFO] response: https://consent.google.com/ml?continue=https://www.google.com/search%3Fq%3DIran%2BIRGC%2Boil%2Btanker%2Bseized%2B2026-03-11%2Brecent%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&gl=FR&m=1&pc=srp&uxe=none&cm=2&hl=en&src=1 200
+2026-03-11 21:52:07,379 [INFO] response: https://consent.yahoo.com/v2/collectConsent?sessionId=3_cc-session_95058206-8fa8-4c45-a995-0b6173d72268 200
+2026-03-11 21:52:08,147 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:52:08,161 [INFO] response: https://grokipedia.com/api/typeahead?query=Iran+Israel+strike+retaliation+oil+2026-03-11+breaking+news&limit=1 200
+2026-03-11 21:52:08,166 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Iran%20Israel%20strike%20retaliation%20oil%202026-03-11%20breaking%20news 200
+2026-03-11 21:52:08,784 [INFO] response: https://yandex.com/search/site/?text=Iran+Israel+strike+retaliation+oil+2026-03-11+breaking+news&web=1&searchid=8703683 200
+2026-03-11 21:52:09,163 [INFO] response: https://grokipedia.com/api/typeahead?query=Iran+US+sanctions+oil+export+disruption+2026-03-11&limit=1 200
+2026-03-11 21:52:09,172 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Iran%20US%20sanctions%20oil%20export%20disruption%202026-03-11 200
+2026-03-11 21:52:09,297 [INFO] response: https://consent.yahoo.com/v2/collectConsent?sessionId=3_cc-session_403873b6-8625-4e3b-b1fe-96a34b2d1715 200
+2026-03-11 21:52:10,382 [INFO] response: https://www.mojeek.com/search?q=Iran+US+sanctions+oil+export+disruption+2026-03-11 200
+2026-03-11 21:52:10,414 [INFO] response: https://grokipedia.com/api/typeahead?query=oil+refinery+explosion+fire+2026-03-11+today+breaking&limit=1 200
+2026-03-11 21:52:10,417 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=oil%20refinery%20explosion%20fire%202026-03-11%20today%20breaking 200
+2026-03-11 21:52:10,877 [INFO] response: https://yandex.com/search/site/?text=oil+refinery+explosion+fire+2026-03-11+today+breaking&web=1&searchid=3423151 200
+2026-03-11 21:52:11,415 [INFO] response: https://grokipedia.com/api/typeahead?query=refinery+drone+attack+oil+production+disruption+2026-03-11+just+in&limit=1 200
+2026-03-11 21:52:11,416 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=refinery%20drone%20attack%20oil%20production%20disruption%202026-03-11%20just%20in 200
+2026-03-11 21:52:11,505 [INFO] response: https://consent.google.com/ml?continue=https://www.google.com/search%3Fq%3Drefinery%2Bdrone%2Battack%2Boil%2Bproduction%2Bdisruption%2B2026-03-11%2Bjust%2Bin%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&gl=FR&m=1&pc=srp&uxe=none&cm=2&hl=en&src=1 200
+2026-03-11 21:52:12,262 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:52:12,412 [INFO] response: https://grokipedia.com/api/typeahead?query=Saudi+Arabia+Aramco+infrastructure+attack+2026-03-11+recent&limit=1 200
+2026-03-11 21:52:12,417 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Saudi%20Arabia%20Aramco%20infrastructure%20attack%202026-03-11%20recent 200
+2026-03-11 21:52:12,479 [INFO] response: https://consent.google.com/ml?continue=https://www.google.com/search%3Fq%3DSaudi%2BArabia%2BAramco%2Binfrastructure%2Battack%2B2026-03-11%2Brecent%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&gl=FR&m=1&pc=srp&uxe=none&cm=2&hl=en&src=1 200
+2026-03-11 21:52:12,645 [INFO] response: https://search.brave.com/search?q=Saudi+Arabia+Aramco+infrastructure+attack+2026-03-11+recent&source=web 429
+2026-03-11 21:52:13,728 [INFO] response: https://www.mojeek.com/search?q=Saudi+Arabia+Aramco+infrastructure+attack+2026-03-11+recent 200
+2026-03-11 21:52:13,761 [INFO] response: https://grokipedia.com/api/typeahead?query=OPEC%2B+production+cut+decision+2026-03-11+today+breaking&limit=1 200
+2026-03-11 21:52:13,763 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=OPEC%2B%20production%20cut%20decision%202026-03-11%20today%20breaking 200
+2026-03-11 21:52:14,231 [INFO] response: https://yandex.com/search/site/?text=OPEC%2B+production+cut+decision+2026-03-11+today+breaking&web=1&searchid=4288523 200
+2026-03-11 21:52:14,758 [INFO] response: https://grokipedia.com/api/typeahead?query=Saudi+Arabia+voluntary+oil+cut+barrel+2026-03-11+just+in&limit=1 200
+2026-03-11 21:52:14,764 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Saudi%20Arabia%20voluntary%20oil%20cut%20barrel%202026-03-11%20just%20in 200
+2026-03-11 21:52:15,513 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:52:15,759 [INFO] response: https://grokipedia.com/api/typeahead?query=Russia+oil+export+reduction+barrel+2026-03-11+recent&limit=1 200
+2026-03-11 21:52:15,764 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Russia%20oil%20export%20reduction%20barrel%202026-03-11%20recent 200
+2026-03-11 21:52:16,175 [INFO] response: https://yandex.com/search/site/?text=Russia+oil+export+reduction+barrel+2026-03-11+recent&web=1&searchid=7694032 200
+2026-03-11 21:52:16,761 [INFO] response: https://grokipedia.com/api/typeahead?query=OPEC+emergency+meeting+oil+price+2026-03-11+breaking+news&limit=1 200
+2026-03-11 21:52:16,765 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=OPEC%20emergency%20meeting%20oil%20price%202026-03-11%20breaking%20news 200
+2026-03-11 21:52:17,185 [INFO] response: https://yandex.com/search/site/?text=OPEC+emergency+meeting+oil+price+2026-03-11+breaking+news&web=1&searchid=7780527 200
+2026-03-11 21:52:17,762 [INFO] response: https://grokipedia.com/api/typeahead?query=UAE+Kuwait+oil+output+quota+2026-03-11+today&limit=1 200
+2026-03-11 21:52:17,765 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=UAE%20Kuwait%20oil%20output%20quota%202026-03-11%20today 200
+2026-03-11 21:52:17,895 [INFO] response: https://consent.yahoo.com/v2/collectConsent?sessionId=3_cc-session_cc7ca566-9f47-4fd9-a2dd-771b36d5648c 200
+2026-03-11 21:52:18,309 [INFO] response: https://yandex.com/search/site/?text=UAE+Kuwait+oil+output+quota+2026-03-11+today&web=1&searchid=6360285 200
+2026-03-11 21:52:18,761 [INFO] response: https://grokipedia.com/api/typeahead?query=natural+gas+pipeline+explosion+sabotage+2026-03-11+today+breaking&limit=1 200
+2026-03-11 21:52:18,765 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=natural%20gas%20pipeline%20explosion%20sabotage%202026-03-11%20today%20breaking 200
+2026-03-11 21:52:18,820 [INFO] response: https://consent.google.com/ml?continue=https://www.google.com/search%3Fq%3Dnatural%2Bgas%2Bpipeline%2Bexplosion%2Bsabotage%2B2026-03-11%2Btoday%2Bbreaking%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&gl=FR&m=1&pc=srp&uxe=none&cm=2&hl=en&src=1 200
+2026-03-11 21:52:19,710 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:52:19,761 [INFO] response: https://grokipedia.com/api/typeahead?query=LNG+terminal+attack+fire+disruption+2026-03-11+just+in&limit=1 200
+2026-03-11 21:52:19,765 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=LNG%20terminal%20attack%20fire%20disruption%202026-03-11%20just%20in 200
+2026-03-11 21:52:19,813 [INFO] response: https://consent.google.com/ml?continue=https://www.google.com/search%3Fq%3DLNG%2Bterminal%2Battack%2Bfire%2Bdisruption%2B2026-03-11%2Bjust%2Bin%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&gl=FR&m=1&pc=srp&uxe=none&cm=2&hl=en&src=1 200
+2026-03-11 21:52:20,138 [INFO] response: https://yandex.com/search/site/?text=LNG+terminal+attack+fire+disruption+2026-03-11+just+in&web=1&searchid=3629452 200
+2026-03-11 21:52:20,762 [INFO] response: https://grokipedia.com/api/typeahead?query=Russia+gas+supply+Europe+cut+2026-03-11+recent&limit=1 200
+2026-03-11 21:52:20,767 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Russia%20gas%20supply%20Europe%20cut%202026-03-11%20recent 200
+2026-03-11 21:52:20,897 [INFO] response: https://consent.yahoo.com/v2/collectConsent?sessionId=3_cc-session_14fede09-03a3-4b75-af8f-3d96ffc55189 200
+2026-03-11 21:52:21,067 [INFO] response: https://search.brave.com/search?q=Russia+gas+supply+Europe+cut+2026-03-11+recent&source=web 429
+2026-03-11 21:52:21,144 [INFO] response: https://consent.google.com/ml?continue=https://www.google.com/search%3Fq%3DRussia%2Bgas%2Bsupply%2BEurope%2Bcut%2B2026-03-11%2Brecent%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&gl=FR&m=1&pc=srp&uxe=none&cm=2&hl=en&src=1 200
+2026-03-11 21:52:21,546 [INFO] response: https://yandex.com/search/site/?text=Russia+gas+supply+Europe+cut+2026-03-11+recent&web=1&searchid=1545128 200
+2026-03-11 21:52:21,760 [INFO] response: https://grokipedia.com/api/typeahead?query=Qatar+North+Field+gas+disruption+2026-03-11+today&limit=1 200
+2026-03-11 21:52:21,765 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Qatar%20North%20Field%20gas%20disruption%202026-03-11%20today 200
+2026-03-11 21:52:21,817 [INFO] response: https://consent.google.com/ml?continue=https://www.google.com/search%3Fq%3DQatar%2BNorth%2BField%2Bgas%2Bdisruption%2B2026-03-11%2Btoday%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&gl=FR&m=1&pc=srp&uxe=none&cm=2&hl=en&src=1 200
+2026-03-11 21:52:22,569 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:52:22,761 [INFO] response: https://grokipedia.com/api/typeahead?query=Azerbaijan+Georgia+gas+pipeline+attack+2026-03-11+breaking+news&limit=1 200
+2026-03-11 21:52:22,765 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Azerbaijan%20Georgia%20gas%20pipeline%20attack%202026-03-11%20breaking%20news 200
+2026-03-11 21:52:23,527 [INFO] response: https://www.mojeek.com/search?q=Azerbaijan+Georgia+gas+pipeline+attack+2026-03-11+breaking+news 200
+2026-03-11 21:52:23,762 [INFO] response: https://grokipedia.com/api/typeahead?query=Houthi+attack+oil+tanker+Red+Sea+2026-03-11+today+breaking&limit=1 200
+2026-03-11 21:52:23,766 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Houthi%20attack%20oil%20tanker%20Red%20Sea%202026-03-11%20today%20breaking 200
+2026-03-11 21:52:24,321 [INFO] response: https://www.mojeek.com/search?q=Houthi+attack+oil+tanker+Red+Sea+2026-03-11+today+breaking 200
+2026-03-11 21:52:24,764 [INFO] response: https://grokipedia.com/api/typeahead?query=Bab-el-Mandeb+shipping+disruption+oil+2026-03-11+just+in&limit=1 200
+2026-03-11 21:52:24,766 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Bab-el-Mandeb%20shipping%20disruption%20oil%202026-03-11%20just%20in 200
+2026-03-11 21:52:25,431 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:52:25,762 [INFO] response: https://grokipedia.com/api/typeahead?query=Suez+Canal+closure+tanker+blockage+2026-03-11+recent&limit=1 200
+2026-03-11 21:52:25,766 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Suez%20Canal%20closure%20tanker%20blockage%202026-03-11%20recent 200
+2026-03-11 21:52:26,162 [INFO] response: https://yandex.com/search/site/?text=Suez+Canal+closure+tanker+blockage+2026-03-11+recent&web=1&searchid=1300862 200
+2026-03-11 21:52:26,761 [INFO] response: https://grokipedia.com/api/typeahead?query=Iran+seize+oil+tanker+Strait+Hormuz+2026-03-11+breaking+news&limit=1 200
+2026-03-11 21:52:26,766 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Iran%20seize%20oil%20tanker%20Strait%20Hormuz%202026-03-11%20breaking%20news 200
+2026-03-11 21:52:27,587 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:52:27,763 [INFO] response: https://grokipedia.com/api/typeahead?query=oil+tanker+piracy+attack+2026-03-11+today&limit=1 200
+2026-03-11 21:52:27,766 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=oil%20tanker%20piracy%20attack%202026-03-11%20today 200
+2026-03-11 21:52:28,242 [INFO] response: https://yandex.com/search/site/?text=oil+tanker+piracy+attack+2026-03-11+today&web=1&searchid=3548741 200
+2026-03-11 21:52:28,765 [INFO] response: https://grokipedia.com/api/typeahead?query=Russia+Ukraine+oil+energy+infrastructure+attack+2026-03-11+today+breaking&limit=1 200
+2026-03-11 21:52:28,767 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Russia%20Ukraine%20oil%20energy%20infrastructure%20attack%202026-03-11%20today%20breaking 200
+2026-03-11 21:52:28,897 [INFO] response: https://consent.yahoo.com/v2/collectConsent?sessionId=3_cc-session_f1a41b1d-3338-4ed4-965b-006ae94efd17 200
+2026-03-11 21:52:29,666 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:52:29,762 [INFO] response: https://grokipedia.com/api/typeahead?query=Libya+oil+field+shutdown+civil+war+2026-03-11+just+in&limit=1 200
+2026-03-11 21:52:29,767 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Libya%20oil%20field%20shutdown%20civil%20war%202026-03-11%20just%20in 200
+2026-03-11 21:52:29,909 [INFO] response: https://consent.yahoo.com/v2/collectConsent?sessionId=3_cc-session_7aff692b-e86f-4475-914a-bdea17c92716 200
+2026-03-11 21:52:30,078 [INFO] response: https://search.brave.com/search?q=Libya+oil+field+shutdown+civil+war+2026-03-11+just+in&source=web 429
+2026-03-11 21:52:31,207 [INFO] response: https://www.mojeek.com/search?q=Libya+oil+field+shutdown+civil+war+2026-03-11+just+in 200
+2026-03-11 21:52:31,238 [INFO] response: https://grokipedia.com/api/typeahead?query=Venezuela+oil+sanction+export+2026-03-11+recent&limit=1 200
+2026-03-11 21:52:31,244 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Venezuela%20oil%20sanction%20export%202026-03-11%20recent 200
+2026-03-11 21:52:31,401 [INFO] response: https://consent.yahoo.com/v2/collectConsent?sessionId=3_cc-session_9af9dbf0-5fe7-41a2-9d19-32d493343487 200
+2026-03-11 21:52:31,478 [INFO] response: https://consent.google.com/ml?continue=https://www.google.com/search%3Fq%3DVenezuela%2Boil%2Bsanction%2Bexport%2B2026-03-11%2Brecent%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&gl=FR&m=1&pc=srp&uxe=none&cm=2&hl=en&src=1 200
+2026-03-11 21:52:32,273 [INFO] response: https://www.mojeek.com/search?q=Venezuela+oil+sanction+export+2026-03-11+recent 200
+2026-03-11 21:52:32,301 [INFO] response: https://grokipedia.com/api/typeahead?query=Nigeria+pipeline+attack+oil+production+2026-03-11+breaking+news&limit=1 200
+2026-03-11 21:52:32,307 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Nigeria%20pipeline%20attack%20oil%20production%202026-03-11%20breaking%20news 200
+2026-03-11 21:52:32,363 [INFO] response: https://consent.google.com/ml?continue=https://www.google.com/search%3Fq%3DNigeria%2Bpipeline%2Battack%2Boil%2Bproduction%2B2026-03-11%2Bbreaking%2Bnews%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&gl=FR&m=1&pc=srp&uxe=none&cm=2&hl=en&src=1 200
+2026-03-11 21:52:33,103 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:52:33,302 [INFO] response: https://grokipedia.com/api/typeahead?query=US+China+South+China+Sea+oil+tension+2026-03-11+today&limit=1 200
+2026-03-11 21:52:33,307 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=US%20China%20South%20China%20Sea%20oil%20tension%202026-03-11%20today 200
+2026-03-11 21:52:33,723 [INFO] response: https://yandex.com/search/site/?text=US+China+South+China+Sea+oil+tension+2026-03-11+today&web=1&searchid=9612583 200
+2026-03-11 21:52:34,305 [INFO] response: https://grokipedia.com/api/typeahead?query=Brent+crude+oil+price+today+2026-03-11&limit=1 200
+2026-03-11 21:52:34,307 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Brent%20crude%20oil%20price%20today%202026-03-11 200
+2026-03-11 21:52:35,162 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:52:35,303 [INFO] response: https://grokipedia.com/api/typeahead?query=WTI+crude+price+today+barrel+2026-03-11&limit=1 200
+2026-03-11 21:52:35,307 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=WTI%20crude%20price%20today%20barrel%202026-03-11 200
+2026-03-11 21:52:35,733 [INFO] response: https://yandex.com/search/site/?text=WTI+crude+price+today+barrel+2026-03-11&web=1&searchid=8970046 200
+2026-03-11 21:52:36,304 [INFO] response: https://grokipedia.com/api/typeahead?query=oil+price+forecast+analyst+2026-03-11&limit=1 200
+2026-03-11 21:52:36,308 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=oil%20price%20forecast%20analyst%202026-03-11 200
+2026-03-11 21:52:36,440 [INFO] response: https://consent.yahoo.com/v2/collectConsent?sessionId=3_cc-session_e27ddd25-667a-4e4b-8943-0143c89be6c5 200
+2026-03-11 21:52:36,505 [INFO] response: https://consent.google.com/ml?continue=https://www.google.com/search%3Fq%3Doil%2Bprice%2Bforecast%2Banalyst%2B2026-03-11%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&gl=FR&m=1&pc=srp&uxe=none&cm=2&hl=en&src=1 200
+2026-03-11 21:52:36,950 [INFO] response: https://yandex.com/search/site/?text=oil+price+forecast+analyst+2026-03-11&web=1&searchid=1619646 200
+2026-03-11 21:52:37,303 [INFO] response: https://grokipedia.com/api/typeahead?query=VIX+index+value+today+2026-03-11&limit=1 200
+2026-03-11 21:52:37,308 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=VIX%20index%20value%20today%202026-03-11 200
+2026-03-11 21:52:38,390 [INFO] response: https://www.mojeek.com/search?q=VIX+index+value+today+2026-03-11 200
+2026-03-11 21:52:38,420 [INFO] response: https://grokipedia.com/api/typeahead?query=CBOE+Volatility+Index+current+level+2026-03-11&limit=1 200
+2026-03-11 21:52:38,428 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=CBOE%20Volatility%20Index%20current%20level%202026-03-11 200
+2026-03-11 21:52:38,480 [INFO] response: https://consent.google.com/ml?continue=https://www.google.com/search%3Fq%3DCBOE%2BVolatility%2BIndex%2Bcurrent%2Blevel%2B2026-03-11%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&gl=FR&m=1&pc=srp&uxe=none&cm=2&hl=en&src=1 200
+2026-03-11 21:52:39,269 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:52:39,420 [INFO] response: https://grokipedia.com/api/typeahead?query=VIX+chart+volatility+market+fear+2026-03-11&limit=1 200
+2026-03-11 21:52:39,425 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=VIX%20chart%20volatility%20market%20fear%202026-03-11 200
+2026-03-11 21:52:39,588 [INFO] response: https://search.brave.com/search?q=VIX+chart+volatility+market+fear+2026-03-11&source=web 429
+2026-03-11 21:52:39,719 [INFO] response: https://consent.yahoo.com/v2/collectConsent?sessionId=3_cc-session_621fdaed-880b-4ca0-b7c2-b4211d730680 200
+2026-03-11 21:52:39,774 [INFO] response: https://consent.google.com/ml?continue=https://www.google.com/search%3Fq%3DVIX%2Bchart%2Bvolatility%2Bmarket%2Bfear%2B2026-03-11%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&gl=FR&m=1&pc=srp&uxe=none&cm=2&hl=en&src=1 200
+2026-03-11 21:52:40,167 [INFO] response: https://yandex.com/search/site/?text=VIX+chart+volatility+market+fear+2026-03-11&web=1&searchid=4796939 200
+2026-03-11 21:52:40,421 [INFO] response: https://grokipedia.com/api/typeahead?query=VIX+oil+price+correlation+volatility&limit=1 200
+2026-03-11 21:52:40,425 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=VIX%20oil%20price%20correlation%20volatility 200
+2026-03-11 21:52:41,509 [INFO] response: https://www.mojeek.com/search?q=VIX+oil+price+correlation+volatility 200
+2026-03-11 21:52:41,756 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=oil%20market%20breaking%20news%20today 200
+2026-03-11 21:52:41,902 [INFO] response: https://grokipedia.com/api/typeahead?query=oil+market+breaking+news+today&limit=1 200
+2026-03-11 21:52:42,067 [INFO] response: https://search.brave.com/search?q=oil+market+breaking+news+today&source=web 429
+2026-03-11 21:52:43,153 [INFO] response: https://www.mojeek.com/search?q=oil+market+breaking+news+today 200
+2026-03-11 21:52:43,354 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=crude%20oil%20supply%20disruption%20today 200
+2026-03-11 21:52:43,530 [INFO] response: https://grokipedia.com/api/typeahead?query=crude+oil+supply+disruption+today&limit=1 200
+2026-03-11 21:52:43,590 [INFO] response: https://consent.google.com/ml?continue=https://www.google.com/search%3Fq%3Dcrude%2Boil%2Bsupply%2Bdisruption%2Btoday%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&gl=FR&m=1&pc=srp&uxe=none&cm=2&hl=en&src=1 200
+2026-03-11 21:52:44,408 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:52:44,582 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=oil%20price%20spike%20today 200
+2026-03-11 21:52:44,770 [INFO] response: https://grokipedia.com/api/typeahead?query=oil+price+spike+today&limit=1 200
+2026-03-11 21:52:45,166 [INFO] response: https://yandex.com/search/site/?text=oil+price+spike+today&web=1&searchid=4635047 200
+2026-03-11 21:54:32,775 [INFO] response: https://grokipedia.com/api/typeahead?query=Brent+crude+oil+price+today+2026-03-11&limit=1 200
+2026-03-11 21:54:32,789 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Brent%20crude%20oil%20price%20today%202026-03-11 200
+2026-03-11 21:54:33,390 [INFO] response: https://yandex.com/search/site/?text=Brent+crude+oil+price+today+2026-03-11&web=1&searchid=4481311 200
+2026-03-11 21:54:33,752 [INFO] response: https://grokipedia.com/api/typeahead?query=WTI+crude+price+today+barrel+2026-03-11&limit=1 200
+2026-03-11 21:54:33,754 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=WTI%20crude%20price%20today%20barrel%202026-03-11 200
+2026-03-11 21:54:34,365 [INFO] response: https://www.mojeek.com/search?q=WTI+crude+price+today+barrel+2026-03-11 200
+2026-03-11 21:54:34,751 [INFO] response: https://grokipedia.com/api/typeahead?query=oil+price+forecast+analyst+2026-03-11&limit=1 200
+2026-03-11 21:54:34,754 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=oil%20price%20forecast%20analyst%202026-03-11 200
+2026-03-11 21:54:35,126 [INFO] response: https://consent.yahoo.com/v2/collectConsent?sessionId=3_cc-session_547b9945-ecb7-452d-9998-8ccc5fa20449 200
+2026-03-11 21:54:36,073 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:54:36,077 [INFO] 🔍 Intelligence récoltée (1376 caractères)
+2026-03-11 21:55:03,242 [ERROR] ❌ DSPy Synthesis Error: 3 validation errors for list[OilEvent]
+0.publication_date
+  Field required [type=missing, input_value={'id': 'geopolitical_horm...euters.com, apnews.com'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+1.publication_date
+  Field required [type=missing, input_value={'id': 'brent_price_move_...'bloomberg.com, ft.com'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+2.publication_date
+  Field required [type=missing, input_value={'id': 'wti_price_analysi...: 'cnbc.com, yahoo.com'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+2026-03-11 21:55:03,245 [ERROR] Traceback (most recent call last):
+  File "C:\GIT\oil-agent\oil-agent.py", line 993, in run_monitoring_cycle
+    dspy_result = analyzer(
+        current_date=current_date,
+    ...<3 lines>...
+        raw_intelligence=raw_intelligence
+    )
+  File "c:\GIT\oil-agent\.venv\Lib\site-packages\dspy\utils\callback.py", line 326, in sync_wrapper
+    return fn(instance, *args, **kwargs)
+  File "c:\GIT\oil-agent\.venv\Lib\site-packages\dspy\primitives\module.py", line 82, in __call__
+    return self.forward(*args, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\GIT\oil-agent\oil-agent.py", line 84, in forward
+    result = self.analyze(**kwargs)
+  File "c:\GIT\oil-agent\.venv\Lib\site-packages\dspy\utils\callback.py", line 326, in sync_wrapper
+    return fn(instance, *args, **kwargs)
+  File "c:\GIT\oil-agent\.venv\Lib\site-packages\dspy\primitives\module.py", line 82, in __call__
+    return self.forward(*args, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "c:\GIT\oil-agent\.venv\Lib\site-packages\dspy\predict\chain_of_thought.py", line 39, in forward
+    return self.predict(**kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^
+  File "c:\GIT\oil-agent\.venv\Lib\site-packages\dspy\predict\predict.py", line 104, in __call__
+    return super().__call__(**kwargs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^
+  File "c:\GIT\oil-agent\.venv\Lib\site-packages\dspy\utils\callback.py", line 326, in sync_wrapper
+    return fn(instance, *args, **kwargs)
+  File "c:\GIT\oil-agent\.venv\Lib\site-packages\dspy\primitives\module.py", line 82, in __call__
+    return self.forward(*args, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "c:\GIT\oil-agent\.venv\Lib\site-packages\dspy\predict\predict.py", line 198, in forward
+    completions = adapter(lm, lm_kwargs=config, signature=signature, demos=demos, inputs=kwargs)
+  File "c:\GIT\oil-agent\.venv\Lib\site-packages\dspy\adapters\json_adapter.py", line 73, in __call__
+    result = self._json_adapter_call_common(lm, lm_kwargs, signature, demos, inputs, super().__call__)
+  File "c:\GIT\oil-agent\.venv\Lib\site-packages\dspy\adapters\json_adapter.py", line 63, in _json_adapter_call_common
+    return call_fn(lm, lm_kwargs, signature, demos, inputs)
+  File "c:\GIT\oil-agent\.venv\Lib\site-packages\dspy\adapters\chat_adapter.py", line 85, in __call__
+    raise e
+  File "c:\GIT\oil-agent\.venv\Lib\site-packages\dspy\adapters\chat_adapter.py", line 73, in __call__
+    return super().__call__(lm, lm_kwargs, signature, demos, inputs)
+           ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\GIT\oil-agent\.venv\Lib\site-packages\dspy\adapters\base.py", line 203, in __call__
+    return self._call_postprocess(processed_signature, signature, outputs, lm, lm_kwargs)
+           ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\GIT\oil-agent\.venv\Lib\site-packages\dspy\adapters\base.py", line 137, in _call_postprocess
+    value = self.parse(processed_signature, text)
+  File "c:\GIT\oil-agent\.venv\Lib\site-packages\dspy\utils\callback.py", line 326, in sync_wrapper
+    return fn(instance, *args, **kwargs)
+  File "c:\GIT\oil-agent\.venv\Lib\site-packages\dspy\adapters\json_adapter.py", line 176, in parse
+    fields[k] = parse_value(v, signature.output_fields[k].annotation)
+                ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\GIT\oil-agent\.venv\Lib\site-packages\dspy\adapters\utils.py", line 165, in parse_value
+    return TypeAdapter(annotation).validate_python(value)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "c:\GIT\oil-agent\.venv\Lib\site-packages\pydantic\type_adapter.py", line 441, in validate_python
+    return self.validator.validate_python(
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^
+        object,
+        ^^^^^^^
+    ...<6 lines>...
+        by_name=by_name,
+        ^^^^^^^^^^^^^^^^
+    )
+    ^
+pydantic_core._pydantic_core.ValidationError: 3 validation errors for list[OilEvent]
+0.publication_date
+  Field required [type=missing, input_value={'id': 'geopolitical_horm...euters.com, apnews.com'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+1.publication_date
+  Field required [type=missing, input_value={'id': 'brent_price_move_...'bloomberg.com, ft.com'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+2.publication_date
+  Field required [type=missing, input_value={'id': 'wti_price_analysi...: 'cnbc.com, yahoo.com'}, input_type=dict]
+    For further information visit https://errors.pydantic.dev/2.12/v/missing
+
+2026-03-11 21:55:18,418 [INFO] ============================================================
+2026-03-11 21:55:18,419 [INFO] 🛢️  Démarrage cycle de surveillance pétrole (DSPy Mode)
+2026-03-11 21:55:18,419 [INFO] ============================================================
+2026-03-11 21:55:18,445 [INFO] 🔧 CodeAgent code_block_tags: ('```python', '```')
+2026-03-11 21:55:18,445 [INFO] 🔧 CodeAgent attend le format: ```python...```
+2026-03-11 21:55:41,671 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Iran%20military%20attack%20oil%20infrastructure%202026-03-11%20today%20breaking 200
+2026-03-11 21:55:42,072 [INFO] response: https://grokipedia.com/api/typeahead?query=Iran+military+attack+oil+infrastructure+2026-03-11+today+breaking&limit=1 200
+2026-03-11 21:55:42,360 [INFO] response: https://www.google.com/search?q=Iran+military+attack+oil+infrastructure+2026-03-11+today+breaking&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 403
+2026-03-11 21:55:42,558 [INFO] response: https://search.brave.com/search?q=Iran+military+attack+oil+infrastructure+2026-03-11+today+breaking&source=web 429
+2026-03-11 21:55:43,059 [INFO] response: https://www.mojeek.com/search?q=Iran+military+attack+oil+infrastructure+2026-03-11+today+breaking 200
+2026-03-11 21:55:43,090 [INFO] response: https://grokipedia.com/api/typeahead?query=Strait+of+Hormuz+blockade+tanker+2026-03-11+just+in&limit=1 200
+2026-03-11 21:55:43,094 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Strait%20of%20Hormuz%20blockade%20tanker%202026-03-11%20just%20in 200
+2026-03-11 21:55:43,688 [INFO] response: https://www.mojeek.com/search?q=Strait+of+Hormuz+blockade+tanker+2026-03-11+just+in 200
+2026-03-11 21:55:44,090 [INFO] response: https://grokipedia.com/api/typeahead?query=Iran+IRGC+oil+tanker+seized+2026-03-11+recent&limit=1 200
+2026-03-11 21:55:44,094 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Iran%20IRGC%20oil%20tanker%20seized%202026-03-11%20recent 200
+2026-03-11 21:55:44,659 [INFO] response: https://yandex.com/search/site/?text=Iran+IRGC+oil+tanker+seized+2026-03-11+recent&web=1&searchid=8738431 200
+2026-03-11 21:55:45,092 [INFO] response: https://grokipedia.com/api/typeahead?query=Iran+Israel+strike+retaliation+oil+2026-03-11+breaking+news&limit=1 200
+2026-03-11 21:55:45,095 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Iran%20Israel%20strike%20retaliation%20oil%202026-03-11%20breaking%20news 200
+2026-03-11 21:55:45,266 [INFO] response: https://search.brave.com/search?q=Iran+Israel+strike+retaliation+oil+2026-03-11+breaking+news&source=web 429
+2026-03-11 21:55:45,969 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:55:46,091 [INFO] response: https://grokipedia.com/api/typeahead?query=Iran+US+sanctions+oil+export+disruption+2026-03-11&limit=1 200
+2026-03-11 21:55:46,094 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Iran%20US%20sanctions%20oil%20export%20disruption%202026-03-11 200
+2026-03-11 21:55:46,452 [INFO] response: https://www.google.com/search?q=Iran+US+sanctions+oil+export+disruption+2026-03-11&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 403
+2026-03-11 21:55:46,888 [INFO] response: https://yandex.com/search/site/?text=Iran+US+sanctions+oil+export+disruption+2026-03-11&web=1&searchid=3656620 200
+2026-03-11 21:55:47,092 [INFO] response: https://grokipedia.com/api/typeahead?query=oil+refinery+explosion+fire+2026-03-11+today+breaking&limit=1 200
+2026-03-11 21:55:47,094 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=oil%20refinery%20explosion%20fire%202026-03-11%20today%20breaking 200
+2026-03-11 21:55:47,747 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:55:48,091 [INFO] response: https://grokipedia.com/api/typeahead?query=refinery+drone+attack+oil+production+disruption+2026-03-11+just+in&limit=1 200
+2026-03-11 21:55:48,095 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=refinery%20drone%20attack%20oil%20production%20disruption%202026-03-11%20just%20in 200
+2026-03-11 21:55:48,449 [INFO] response: https://www.google.com/search?q=refinery+drone+attack+oil+production+disruption+2026-03-11+just+in&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 403
+2026-03-11 21:55:48,611 [INFO] response: https://search.brave.com/search?q=refinery+drone+attack+oil+production+disruption+2026-03-11+just+in&source=web 429
+2026-03-11 21:55:49,071 [INFO] response: https://yandex.com/search/site/?text=refinery+drone+attack+oil+production+disruption+2026-03-11+just+in&web=1&searchid=6680615 200
+2026-03-11 21:55:49,108 [INFO] response: https://grokipedia.com/api/typeahead?query=Saudi+Arabia+Aramco+infrastructure+attack+2026-03-11+recent&limit=1 200
+2026-03-11 21:55:49,113 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Saudi%20Arabia%20Aramco%20infrastructure%20attack%202026-03-11%20recent 200
+2026-03-11 21:55:49,284 [INFO] response: https://search.brave.com/search?q=Saudi+Arabia+Aramco+infrastructure+attack+2026-03-11+recent&source=web 429
+2026-03-11 21:55:49,545 [INFO] response: https://search.yahoo.com/search;_ylt=qBPtpo3wN9AyYb6watJuGRZj;_ylu=fAhljzOvnmjd1fIV1qNC6D2I4uj6upqc23c1_BbeG7dzF0s?p=Saudi+Arabia+Aramco+infrastructure+attack+2026-03-11+recent 200
+2026-03-11 21:55:50,135 [INFO] response: https://grokipedia.com/api/typeahead?query=Houthi+attack+oil+tanker+Red+Sea+2026-03-11+today+breaking&limit=1 200
+2026-03-11 21:55:50,141 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Houthi%20attack%20oil%20tanker%20Red%20Sea%202026-03-11%20today%20breaking 200
+2026-03-11 21:55:50,318 [INFO] response: https://search.brave.com/search?q=Houthi+attack+oil+tanker+Red+Sea+2026-03-11+today+breaking&source=web 429
+2026-03-11 21:55:50,783 [INFO] response: https://yandex.com/search/site/?text=Houthi+attack+oil+tanker+Red+Sea+2026-03-11+today+breaking&web=1&searchid=6546971 200
+2026-03-11 21:55:51,137 [INFO] response: https://grokipedia.com/api/typeahead?query=Bab-el-Mandeb+shipping+disruption+oil+2026-03-11+just+in&limit=1 200
+2026-03-11 21:55:51,141 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Bab-el-Mandeb%20shipping%20disruption%20oil%202026-03-11%20just%20in 200
+2026-03-11 21:55:51,953 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:55:52,137 [INFO] response: https://grokipedia.com/api/typeahead?query=Suez+Canal+closure+tanker+blockage+2026-03-11+recent&limit=1 200
+2026-03-11 21:55:52,142 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Suez%20Canal%20closure%20tanker%20blockage%202026-03-11%20recent 200
+2026-03-11 21:55:52,589 [INFO] response: https://yandex.com/search/site/?text=Suez+Canal+closure+tanker+blockage+2026-03-11+recent&web=1&searchid=1406223 200
+2026-03-11 21:55:53,137 [INFO] response: https://grokipedia.com/api/typeahead?query=Iran+seize+oil+tanker+Strait+Hormuz+2026-03-11+breaking+news&limit=1 200
+2026-03-11 21:55:53,142 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Iran%20seize%20oil%20tanker%20Strait%20Hormuz%202026-03-11%20breaking%20news 200
+2026-03-11 21:55:53,546 [INFO] response: https://yandex.com/search/site/?text=Iran+seize+oil+tanker+Strait+Hormuz+2026-03-11+breaking+news&web=1&searchid=4755244 200
+2026-03-11 21:55:54,139 [INFO] response: https://grokipedia.com/api/typeahead?query=oil+tanker+piracy+attack+2026-03-11+today&limit=1 200
+2026-03-11 21:55:54,143 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=oil%20tanker%20piracy%20attack%202026-03-11%20today 200
+2026-03-11 21:55:54,759 [INFO] response: https://www.mojeek.com/search?q=oil+tanker+piracy+attack+2026-03-11+today 200
+2026-03-11 21:55:55,143 [INFO] response: https://grokipedia.com/api/typeahead?query=Russia+Ukraine+oil+energy+infrastructure+attack+2026-03-11+today+breaking&limit=1 200
+2026-03-11 21:55:55,144 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Russia%20Ukraine%20oil%20energy%20infrastructure%20attack%202026-03-11%20today%20breaking 200
+2026-03-11 21:55:55,586 [INFO] response: https://yandex.com/search/site/?text=Russia+Ukraine+oil+energy+infrastructure+attack+2026-03-11+today+breaking&web=1&searchid=9683246 200
+2026-03-11 21:55:56,138 [INFO] response: https://grokipedia.com/api/typeahead?query=Libya+oil+field+shutdown+civil+war+2026-03-11+just+in&limit=1 200
+2026-03-11 21:55:56,144 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Libya%20oil%20field%20shutdown%20civil%20war%202026-03-11%20just%20in 200
+2026-03-11 21:55:56,293 [INFO] response: https://search.yahoo.com/search;_ylt=yyvYHFtuvwPZywwFgZ3-tnzh;_ylu=5RHk4UgKtV7uclIwXgN1HRe82LuBDY99iOYKlpwt3Ecq2l4?p=Libya+oil+field+shutdown+civil+war+2026-03-11+just+in 200
+2026-03-11 21:55:57,142 [INFO] response: https://grokipedia.com/api/typeahead?query=Venezuela+oil+sanction+export+2026-03-11+recent&limit=1 200
+2026-03-11 21:55:57,145 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Venezuela%20oil%20sanction%20export%202026-03-11%20recent 200
+2026-03-11 21:55:57,312 [INFO] response: https://search.brave.com/search?q=Venezuela+oil+sanction+export+2026-03-11+recent&source=web 429
+2026-03-11 21:55:57,639 [INFO] response: https://www.google.com/search?q=Venezuela+oil+sanction+export+2026-03-11+recent&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 403
+2026-03-11 21:55:58,726 [INFO] response: https://www.mojeek.com/search?q=Venezuela+oil+sanction+export+2026-03-11+recent 200
+2026-03-11 21:55:58,755 [INFO] response: https://grokipedia.com/api/typeahead?query=Nigeria+pipeline+attack+oil+production+2026-03-11+breaking+news&limit=1 200
+2026-03-11 21:55:58,760 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Nigeria%20pipeline%20attack%20oil%20production%202026-03-11%20breaking%20news 200
+2026-03-11 21:55:59,450 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:55:59,757 [INFO] response: https://grokipedia.com/api/typeahead?query=US+China+South+China+Sea+oil+tension+2026-03-11+today&limit=1 200
+2026-03-11 21:55:59,761 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=US%20China%20South%20China%20Sea%20oil%20tension%202026-03-11%20today 200
+2026-03-11 21:56:00,843 [INFO] response: https://www.mojeek.com/search?q=US+China+South+China+Sea+oil+tension+2026-03-11+today 200
+2026-03-11 21:56:00,876 [INFO] response: https://grokipedia.com/api/typeahead?query=OPEC%2B+production+cut+decision+2026-03-11+today+breaking&limit=1 200
+2026-03-11 21:56:00,879 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=OPEC%2B%20production%20cut%20decision%202026-03-11%20today%20breaking 200
+2026-03-11 21:56:01,011 [INFO] response: https://search.yahoo.com/search;_ylt=1pWnKr1C1JPBL8g1XIvHzTNf;_ylu=O56Fpnuuy-qI9gPdlSkRxtBfwHMtSbDHZpIwTtTWhUPFXFA?p=OPEC%2B+production+cut+decision+2026-03-11+today+breaking 200
+2026-03-11 21:56:01,877 [INFO] response: https://grokipedia.com/api/typeahead?query=Saudi+Arabia+voluntary+oil+cut+barrel+2026-03-11+just+in&limit=1 200
+2026-03-11 21:56:01,880 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Saudi%20Arabia%20voluntary%20oil%20cut%20barrel%202026-03-11%20just%20in 200
+2026-03-11 21:56:02,022 [INFO] response: https://search.yahoo.com/search;_ylt=x6QEGHnGCtXOQRiW9HxQsgau;_ylu=kt4Lc8Gxr6KePw2ogOPXviyfTfosCmFgClBLN5gxYtCpm2Y?p=Saudi+Arabia+voluntary+oil+cut+barrel+2026-03-11+just+in 200
+2026-03-11 21:56:02,878 [INFO] response: https://grokipedia.com/api/typeahead?query=Russia+oil+export+reduction+barrel+2026-03-11+recent&limit=1 200
+2026-03-11 21:56:02,880 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Russia%20oil%20export%20reduction%20barrel%202026-03-11%20recent 200
+2026-03-11 21:56:03,259 [INFO] response: https://search.yahoo.com/search;_ylt=L371QfsT_YPwE34C06iDcytS;_ylu=3xidSZnwA_aJZCIEdlGHZ_mU_r2t8kHK-xKuAxsyBavAqhY?p=Russia+oil+export+reduction+barrel+2026-03-11+recent 200
+2026-03-11 21:56:03,878 [INFO] response: https://grokipedia.com/api/typeahead?query=OPEC+emergency+meeting+oil+price+2026-03-11+breaking+news&limit=1 200
+2026-03-11 21:56:03,881 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=OPEC%20emergency%20meeting%20oil%20price%202026-03-11%20breaking%20news 200
+2026-03-11 21:56:04,967 [INFO] response: https://www.mojeek.com/search?q=OPEC+emergency+meeting+oil+price+2026-03-11+breaking+news 200
+2026-03-11 21:56:04,998 [INFO] response: https://grokipedia.com/api/typeahead?query=UAE+Kuwait+oil+output+quota+2026-03-11+today&limit=1 200
+2026-03-11 21:56:05,002 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=UAE%20Kuwait%20oil%20output%20quota%202026-03-11%20today 200
+2026-03-11 21:56:05,629 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:56:05,998 [INFO] response: https://grokipedia.com/api/typeahead?query=natural+gas+pipeline+explosion+sabotage+2026-03-11+today+breaking&limit=1 200
+2026-03-11 21:56:06,005 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=natural%20gas%20pipeline%20explosion%20sabotage%202026-03-11%20today%20breaking 200
+2026-03-11 21:56:06,170 [INFO] response: https://search.brave.com/search?q=natural+gas+pipeline+explosion+sabotage+2026-03-11+today+breaking&source=web 429
+2026-03-11 21:56:06,608 [INFO] response: https://yandex.com/search/site/?text=natural+gas+pipeline+explosion+sabotage+2026-03-11+today+breaking&web=1&searchid=8906292 200
+2026-03-11 21:56:06,997 [INFO] response: https://grokipedia.com/api/typeahead?query=LNG+terminal+attack+fire+disruption+2026-03-11+just+in&limit=1 200
+2026-03-11 21:56:07,004 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=LNG%20terminal%20attack%20fire%20disruption%202026-03-11%20just%20in 200
+2026-03-11 21:56:07,628 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:56:08,000 [INFO] response: https://grokipedia.com/api/typeahead?query=Russia+gas+supply+Europe+cut+2026-03-11+recent&limit=1 200
+2026-03-11 21:56:08,003 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Russia%20gas%20supply%20Europe%20cut%202026-03-11%20recent 200
+2026-03-11 21:56:08,655 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:56:09,003 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Qatar%20North%20Field%20gas%20disruption%202026-03-11%20today 200
+2026-03-11 21:56:09,009 [INFO] response: https://grokipedia.com/api/typeahead?query=Qatar+North+Field+gas+disruption+2026-03-11+today&limit=1 200
+2026-03-11 21:56:10,091 [INFO] response: https://www.mojeek.com/search?q=Qatar+North+Field+gas+disruption+2026-03-11+today 200
+2026-03-11 21:56:10,125 [INFO] response: https://grokipedia.com/api/typeahead?query=Azerbaijan+Georgia+gas+pipeline+attack+2026-03-11+breaking+news&limit=1 200
+2026-03-11 21:56:10,126 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Azerbaijan%20Georgia%20gas%20pipeline%20attack%202026-03-11%20breaking%20news 200
+2026-03-11 21:56:10,524 [INFO] response: https://yandex.com/search/site/?text=Azerbaijan+Georgia+gas+pipeline+attack+2026-03-11+breaking+news&web=1&searchid=7438689 200
+2026-03-11 21:56:11,124 [INFO] response: https://grokipedia.com/api/typeahead?query=Brent+crude+oil+price+today+2026-03-11&limit=1 200
+2026-03-11 21:56:11,126 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Brent%20crude%20oil%20price%20today%202026-03-11 200
+2026-03-11 21:56:11,254 [INFO] response: https://search.yahoo.com/search;_ylt=ZIgL-WORX-5jx62TGq6Gjibx;_ylu=86INs3e1MqKSi1WbGDMfXzBaWpBdzlL-XrkewMudbn6ZTvg?p=Brent+crude+oil+price+today+2026-03-11 200
+2026-03-11 21:56:12,123 [INFO] response: https://grokipedia.com/api/typeahead?query=WTI+crude+price+today+barrel+2026-03-11&limit=1 200
+2026-03-11 21:56:12,126 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=WTI%20crude%20price%20today%20barrel%202026-03-11 200
+2026-03-11 21:56:12,293 [INFO] response: https://search.brave.com/search?q=WTI+crude+price+today+barrel+2026-03-11&source=web 429
+2026-03-11 21:56:13,377 [INFO] response: https://www.mojeek.com/search?q=WTI+crude+price+today+barrel+2026-03-11 200
+2026-03-11 21:56:13,409 [INFO] response: https://grokipedia.com/api/typeahead?query=oil+price+forecast+analyst+2026-03-11&limit=1 200
+2026-03-11 21:56:13,412 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=oil%20price%20forecast%20analyst%202026-03-11 200
+2026-03-11 21:56:14,497 [INFO] response: https://www.mojeek.com/search?q=oil+price+forecast+analyst+2026-03-11 200
+2026-03-11 21:56:14,528 [INFO] response: https://grokipedia.com/api/typeahead?query=VIX+index+value+today+2026-03-11&limit=1 200
+2026-03-11 21:56:14,531 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=VIX%20index%20value%20today%202026-03-11 200
+2026-03-11 21:56:15,146 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:56:15,528 [INFO] response: https://grokipedia.com/api/typeahead?query=CBOE+Volatility+Index+current+level+2026-03-11&limit=1 200
+2026-03-11 21:56:15,532 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=CBOE%20Volatility%20Index%20current%20level%202026-03-11 200
+2026-03-11 21:56:16,148 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:56:16,529 [INFO] response: https://grokipedia.com/api/typeahead?query=VIX+chart+volatility+market+fear+2026-03-11&limit=1 200
+2026-03-11 21:56:16,532 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=VIX%20chart%20volatility%20market%20fear%202026-03-11 200
+2026-03-11 21:56:16,949 [INFO] response: https://yandex.com/search/site/?text=VIX+chart+volatility+market+fear+2026-03-11&web=1&searchid=8994160 200
+2026-03-11 21:56:17,528 [INFO] response: https://grokipedia.com/api/typeahead?query=VIX+oil+price+correlation+volatility&limit=1 200
+2026-03-11 21:56:17,532 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=VIX%20oil%20price%20correlation%20volatility 200
+2026-03-11 21:56:17,699 [INFO] response: https://search.brave.com/search?q=VIX+oil+price+correlation+volatility&source=web 429
+2026-03-11 21:56:18,196 [INFO] response: https://www.google.com/search?q=VIX+oil+price+correlation+volatility&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 403
+2026-03-11 21:56:18,409 [INFO] response: https://search.yahoo.com/search;_ylt=47-fLgrr6VNAMZcRMPc0wPlm;_ylu=X9ii02RshR0hNyQBFTV6JNt04tHVo888ADhboeDXpWzcY9U?p=VIX+oil+price+correlation+volatility 200
+2026-03-11 21:56:19,527 [INFO] response: https://grokipedia.com/api/typeahead?query=oil+market+breaking+news+today&limit=1 200
+2026-03-11 21:56:19,530 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=oil%20market%20breaking%20news%20today 200
+2026-03-11 21:56:19,760 [INFO] response: https://www.google.com/search?q=oil+market+breaking+news+today&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 403
+2026-03-11 21:56:20,847 [INFO] response: https://www.mojeek.com/search?q=oil+market+breaking+news+today 200
+2026-03-11 21:56:20,880 [INFO] response: https://grokipedia.com/api/typeahead?query=crude+oil+supply+disruption+today&limit=1 200
+2026-03-11 21:56:20,881 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=crude%20oil%20supply%20disruption%20today 200
+2026-03-11 21:56:21,622 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:56:21,877 [INFO] response: https://grokipedia.com/api/typeahead?query=oil+price+spike+today&limit=1 200
+2026-03-11 21:56:21,881 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=oil%20price%20spike%20today 200
+2026-03-11 21:56:22,642 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:57:14,663 [INFO] response: https://grokipedia.com/api/typeahead?query=Brent+crude+oil+price+today+2026-03-11&limit=1 200
+2026-03-11 21:57:14,666 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Brent%20crude%20oil%20price%20today%202026-03-11 200
+2026-03-11 21:57:14,789 [INFO] response: https://search.yahoo.com/search;_ylt=AxFxDcR_MSe1vqp_3wgkKahC;_ylu=lAXzThg8fVgxmAcrdEbO_LMTTi0WVDuP4gESs0ZaDC45HAA?p=Brent+crude+oil+price+today+2026-03-11 200
+2026-03-11 21:57:15,663 [INFO] response: https://grokipedia.com/api/typeahead?query=WTI+crude+price+today+barrel+2026-03-11&limit=1 200
+2026-03-11 21:57:15,668 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=WTI%20crude%20price%20today%20barrel%202026-03-11 200
+2026-03-11 21:57:16,176 [INFO] response: https://www.google.com/search?q=WTI+crude+price+today+barrel+2026-03-11&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 403
+2026-03-11 21:57:16,308 [INFO] response: https://search.yahoo.com/search;_ylt=3pRCJfW78NxTUZ0BaEWF6VOR;_ylu=DE0vIQvQIF-zykBEowRYB6FztgsJO2cokdAcQhpDw0DPPMg?p=WTI+crude+price+today+barrel+2026-03-11 200
+2026-03-11 21:57:17,035 [INFO] response: https://grokipedia.com/api/typeahead?query=oil+price+forecast+analyst+2026-03-11&limit=1 200
+2026-03-11 21:57:17,038 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=oil%20price%20forecast%20analyst%202026-03-11 200
+2026-03-11 21:57:17,504 [INFO] response: https://www.google.com/search?q=oil+price+forecast+analyst+2026-03-11&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 403
+2026-03-11 21:57:17,672 [INFO] response: https://search.brave.com/search?q=oil+price+forecast+analyst+2026-03-11&source=web 429
+2026-03-11 21:57:18,816 [INFO] response: https://www.mojeek.com/search?q=oil+price+forecast+analyst+2026-03-11 200
+2026-03-11 21:57:18,847 [INFO] response: https://grokipedia.com/api/typeahead?query=Russia+Ukraine+oil+energy+infrastructure+attack+2026-03-11+today+breaking&limit=1 200
+2026-03-11 21:57:18,849 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Russia%20Ukraine%20oil%20energy%20infrastructure%20attack%202026-03-11%20today%20breaking 200
+2026-03-11 21:57:19,201 [INFO] response: https://yandex.com/search/site/?text=Russia+Ukraine+oil+energy+infrastructure+attack+2026-03-11+today+breaking&web=1&searchid=7230828 200
+2026-03-11 21:57:19,848 [INFO] response: https://grokipedia.com/api/typeahead?query=Libya+oil+field+shutdown+civil+war+2026-03-11+just+in&limit=1 200
+2026-03-11 21:57:19,850 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Libya%20oil%20field%20shutdown%20civil%20war%202026-03-11%20just%20in 200
+2026-03-11 21:57:20,793 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:57:20,846 [INFO] response: https://grokipedia.com/api/typeahead?query=Venezuela+oil+sanction+export+2026-03-11+recent&limit=1 200
+2026-03-11 21:57:20,850 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Venezuela%20oil%20sanction%20export%202026-03-11%20recent 200
+2026-03-11 21:57:21,023 [INFO] response: https://search.brave.com/search?q=Venezuela+oil+sanction+export+2026-03-11+recent&source=web 429
+2026-03-11 21:57:21,464 [INFO] response: https://www.google.com/search?q=Venezuela+oil+sanction+export+2026-03-11+recent&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 403
+2026-03-11 21:57:21,860 [INFO] response: https://yandex.com/search/site/?text=Venezuela+oil+sanction+export+2026-03-11+recent&web=1&searchid=6066148 200
+2026-03-11 21:57:21,892 [INFO] response: https://grokipedia.com/api/typeahead?query=Nigeria+pipeline+attack+oil+production+2026-03-11+breaking+news&limit=1 200
+2026-03-11 21:57:21,896 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Nigeria%20pipeline%20attack%20oil%20production%202026-03-11%20breaking%20news 200
+2026-03-11 21:57:22,060 [INFO] response: https://search.brave.com/search?q=Nigeria+pipeline+attack+oil+production+2026-03-11+breaking+news&source=web 429
+2026-03-11 21:57:22,559 [INFO] response: https://www.google.com/search?q=Nigeria+pipeline+attack+oil+production+2026-03-11+breaking+news&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 403
+2026-03-11 21:57:23,315 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:57:23,330 [INFO] response: https://grokipedia.com/api/typeahead?query=US+China+South+China+Sea+oil+tension+2026-03-11+today&limit=1 200
+2026-03-11 21:57:23,334 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=US%20China%20South%20China%20Sea%20oil%20tension%202026-03-11%20today 200
+2026-03-11 21:57:24,417 [INFO] response: https://www.mojeek.com/search?q=US+China+South+China+Sea+oil+tension+2026-03-11+today 200
+2026-03-11 21:57:24,449 [INFO] response: https://grokipedia.com/api/typeahead?query=Houthi+attack+oil+tanker+Red+Sea+2026-03-11+today+breaking&limit=1 200
+2026-03-11 21:57:24,454 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Houthi%20attack%20oil%20tanker%20Red%20Sea%202026-03-11%20today%20breaking 200
+2026-03-11 21:57:24,807 [INFO] response: https://yandex.com/search/site/?text=Houthi+attack+oil+tanker+Red+Sea+2026-03-11+today+breaking&web=1&searchid=6401071 200
+2026-03-11 21:57:25,450 [INFO] response: https://grokipedia.com/api/typeahead?query=Bab-el-Mandeb+shipping+disruption+oil+2026-03-11+just+in&limit=1 200
+2026-03-11 21:57:25,455 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Bab-el-Mandeb%20shipping%20disruption%20oil%202026-03-11%20just%20in 200
+2026-03-11 21:57:25,795 [INFO] response: https://www.google.com/search?q=Bab-el-Mandeb+shipping+disruption+oil+2026-03-11+just+in&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 403
+2026-03-11 21:57:25,922 [INFO] response: https://search.yahoo.com/search;_ylt=IcyuxxQVxHh6gDs0ilG2cbXv;_ylu=kC-9CvEpxQ3JkfPNVM7jPrAEHxAeu63mqJjKme9jDP-eQ5g?p=Bab-el-Mandeb+shipping+disruption+oil+2026-03-11+just+in 200
+2026-03-11 21:57:26,450 [INFO] response: https://grokipedia.com/api/typeahead?query=Suez+Canal+closure+tanker+blockage+2026-03-11+recent&limit=1 200
+2026-03-11 21:57:26,455 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Suez%20Canal%20closure%20tanker%20blockage%202026-03-11%20recent 200
+2026-03-11 21:57:26,621 [INFO] response: https://search.brave.com/search?q=Suez+Canal+closure+tanker+blockage+2026-03-11+recent&source=web 429
+2026-03-11 21:57:27,020 [INFO] response: https://yandex.com/search/site/?text=Suez+Canal+closure+tanker+blockage+2026-03-11+recent&web=1&searchid=5611267 200
+2026-03-11 21:57:27,450 [INFO] response: https://grokipedia.com/api/typeahead?query=Iran+seize+oil+tanker+Strait+Hormuz+2026-03-11+breaking+news&limit=1 200
+2026-03-11 21:57:27,455 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Iran%20seize%20oil%20tanker%20Strait%20Hormuz%202026-03-11%20breaking%20news 200
+2026-03-11 21:57:27,823 [INFO] response: https://yandex.com/search/site/?text=Iran+seize+oil+tanker+Strait+Hormuz+2026-03-11+breaking+news&web=1&searchid=8115570 200
+2026-03-11 21:57:28,453 [INFO] response: https://grokipedia.com/api/typeahead?query=oil+tanker+piracy+attack+2026-03-11+today&limit=1 200
+2026-03-11 21:57:28,455 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=oil%20tanker%20piracy%20attack%202026-03-11%20today 200
+2026-03-11 21:57:28,863 [INFO] response: https://www.google.com/search?q=oil+tanker+piracy+attack+2026-03-11+today&filter=1&start=0&hl=en-US&lr=lang_en&cr=countryUS 403
+2026-03-11 21:57:29,264 [INFO] response: https://yandex.com/search/site/?text=oil+tanker+piracy+attack+2026-03-11+today&web=1&searchid=2643669 200
+2026-03-11 21:57:29,287 [INFO] 🔍 Intelligence récoltée (399 caractères)
+2026-03-11 21:58:59,765 [ERROR] ❌ DSPy Synthesis Error: module 'dspy' has no attribute 'Suggest'
+2026-03-11 21:58:59,766 [ERROR] Traceback (most recent call last):
+  File "C:\GIT\oil-agent\oil-agent.py", line 993, in run_monitoring_cycle
+    dspy_result = analyzer(
+        current_date=current_date,
+    ...<3 lines>...
+        raw_intelligence=raw_intelligence
+    )
+  File "c:\GIT\oil-agent\.venv\Lib\site-packages\dspy\utils\callback.py", line 326, in sync_wrapper
+    return fn(instance, *args, **kwargs)
+  File "c:\GIT\oil-agent\.venv\Lib\site-packages\dspy\primitives\module.py", line 82, in __call__
+    return self.forward(*args, **kwargs)
+           ~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "C:\GIT\oil-agent\oil-agent.py", line 108, in forward
+    dspy.Suggest(
+    ^^^^^^^^^^^^
+AttributeError: module 'dspy' has no attribute 'Suggest'
+
+2026-03-11 21:59:23,604 [INFO] ============================================================
+2026-03-11 21:59:23,604 [INFO] 🛢️  Démarrage cycle de surveillance pétrole (DSPy Mode)
+2026-03-11 21:59:23,604 [INFO] ============================================================
+2026-03-11 21:59:23,629 [INFO] 🔧 CodeAgent code_block_tags: ('```python', '```')
+2026-03-11 21:59:23,629 [INFO] 🔧 CodeAgent attend le format: ```python...```
+2026-03-11 21:59:48,130 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Iran%20military%20attack%20oil%20infrastructure%202026-03-11%20today%20breaking 200
+2026-03-11 21:59:48,488 [INFO] response: https://grokipedia.com/api/typeahead?query=Iran+military+attack+oil+infrastructure+2026-03-11+today+breaking&limit=1 200
+2026-03-11 21:59:48,674 [INFO] response: https://search.brave.com/search?q=Iran+military+attack+oil+infrastructure+2026-03-11+today+breaking&source=web 429
+2026-03-11 21:59:49,546 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:59:49,562 [INFO] response: https://grokipedia.com/api/typeahead?query=Strait+of+Hormuz+blockade+tanker+2026-03-11+just+in&limit=1 200
+2026-03-11 21:59:49,566 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Strait%20of%20Hormuz%20blockade%20tanker%202026-03-11%20just%20in 200
+2026-03-11 21:59:49,734 [INFO] response: https://search.brave.com/search?q=Strait+of+Hormuz+blockade+tanker+2026-03-11+just+in&source=web 429
+2026-03-11 21:59:49,877 [INFO] response: https://consent.google.com/ml?continue=https://www.google.com/search%3Fq%3DStrait%2Bof%2BHormuz%2Bblockade%2Btanker%2B2026-03-11%2Bjust%2Bin%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&gl=FR&m=1&pc=srp&uxe=none&cm=2&hl=en&src=1 200
+2026-03-11 21:59:50,446 [INFO] response: https://yandex.com/search/site/?text=Strait+of+Hormuz+blockade+tanker+2026-03-11+just+in&web=1&searchid=6888301 200
+2026-03-11 21:59:50,566 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Iran%20IRGC%20oil%20tanker%20seized%202026-03-11%20recent 200
+2026-03-11 21:59:50,567 [INFO] response: https://grokipedia.com/api/typeahead?query=Iran+IRGC+oil+tanker+seized+2026-03-11+recent&limit=1 200
+2026-03-11 21:59:50,628 [INFO] response: https://consent.google.com/ml?continue=https://www.google.com/search%3Fq%3DIran%2BIRGC%2Boil%2Btanker%2Bseized%2B2026-03-11%2Brecent%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&gl=FR&m=1&pc=srp&uxe=none&cm=2&hl=en&src=1 200
+2026-03-11 21:59:51,745 [INFO] response: https://www.mojeek.com/search?q=Iran+IRGC+oil+tanker+seized+2026-03-11+recent 200
+2026-03-11 21:59:51,776 [INFO] response: https://grokipedia.com/api/typeahead?query=Iran+Israel+strike+retaliation+oil+2026-03-11+breaking+news&limit=1 200
+2026-03-11 21:59:51,779 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Iran%20Israel%20strike%20retaliation%20oil%202026-03-11%20breaking%20news 200
+2026-03-11 21:59:52,523 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:59:52,776 [INFO] response: https://grokipedia.com/api/typeahead?query=Iran+US+sanctions+oil+export+disruption+2026-03-11&limit=1 200
+2026-03-11 21:59:52,784 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Iran%20US%20sanctions%20oil%20export%20disruption%202026-03-11 200
+2026-03-11 21:59:53,536 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:59:53,777 [INFO] response: https://grokipedia.com/api/typeahead?query=oil+refinery+explosion+fire+2026-03-11+today+breaking&limit=1 200
+2026-03-11 21:59:53,780 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=oil%20refinery%20explosion%20fire%202026-03-11%20today%20breaking 200
+2026-03-11 21:59:54,488 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 21:59:54,777 [INFO] response: https://grokipedia.com/api/typeahead?query=refinery+drone+attack+oil+production+disruption+2026-03-11+just+in&limit=1 200
+2026-03-11 21:59:54,781 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=refinery%20drone%20attack%20oil%20production%20disruption%202026-03-11%20just%20in 200
+2026-03-11 21:59:54,956 [INFO] response: https://search.yahoo.com/search;_ylt=q8XW0dDa3qLigmch_APGSBKA;_ylu=S9AtUWZhBMNGNBtBi2-2lhmJFuEv4L9GqUtvmJtpqBK_wcI?p=refinery+drone+attack+oil+production+disruption+2026-03-11+just+in 200
+2026-03-11 21:59:56,664 [INFO] response: https://www.mojeek.com/search?q=refinery+drone+attack+oil+production+disruption+2026-03-11+just+in 200
+2026-03-11 21:59:56,694 [INFO] response: https://grokipedia.com/api/typeahead?query=Saudi+Arabia+Aramco+infrastructure+attack+2026-03-11+recent&limit=1 200
+2026-03-11 21:59:56,697 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Saudi%20Arabia%20Aramco%20infrastructure%20attack%202026-03-11%20recent 200
+2026-03-11 21:59:57,131 [INFO] response: https://yandex.com/search/site/?text=Saudi+Arabia+Aramco+infrastructure+attack+2026-03-11+recent&web=1&searchid=2681110 200
+2026-03-11 21:59:57,694 [INFO] response: https://grokipedia.com/api/typeahead?query=OPEC%2B+production+cut+decision+2026-03-11+today+breaking&limit=1 200
+2026-03-11 21:59:57,699 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=OPEC%2B%20production%20cut%20decision%202026-03-11%20today%20breaking 200
+2026-03-11 21:59:58,779 [INFO] response: https://www.mojeek.com/search?q=OPEC%2B+production+cut+decision+2026-03-11+today+breaking 200
+2026-03-11 21:59:58,810 [INFO] response: https://grokipedia.com/api/typeahead?query=Saudi+Arabia+voluntary+oil+cut+barrel+2026-03-11+just+in&limit=1 200
+2026-03-11 21:59:58,814 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Saudi%20Arabia%20voluntary%20oil%20cut%20barrel%202026-03-11%20just%20in 200
+2026-03-11 21:59:59,258 [INFO] response: https://yandex.com/search/site/?text=Saudi+Arabia+voluntary+oil+cut+barrel+2026-03-11+just+in&web=1&searchid=9475272 200
+2026-03-11 21:59:59,811 [INFO] response: https://grokipedia.com/api/typeahead?query=Russia+oil+export+reduction+barrel+2026-03-11+recent&limit=1 200
+2026-03-11 21:59:59,815 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Russia%20oil%20export%20reduction%20barrel%202026-03-11%20recent 200
+2026-03-11 22:00:00,503 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 22:00:00,812 [INFO] response: https://grokipedia.com/api/typeahead?query=OPEC+emergency+meeting+oil+price+2026-03-11+breaking+news&limit=1 200
+2026-03-11 22:00:00,816 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=OPEC%20emergency%20meeting%20oil%20price%202026-03-11%20breaking%20news 200
+2026-03-11 22:00:01,904 [INFO] response: https://www.mojeek.com/search?q=OPEC+emergency+meeting+oil+price+2026-03-11+breaking+news 200
+2026-03-11 22:00:01,935 [INFO] response: https://grokipedia.com/api/typeahead?query=UAE+Kuwait+oil+output+quota+2026-03-11+today&limit=1 200
+2026-03-11 22:00:01,939 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=UAE%20Kuwait%20oil%20output%20quota%202026-03-11%20today 200
+2026-03-11 22:00:02,401 [INFO] response: https://search.yahoo.com/search;_ylt=8NvYcdCAHCg8HS4sSqtcgkXx;_ylu=9AYWKwDcEYHFFrEAXKPU34KOzQxxy5fKHva9TGZhQuaeha0?p=UAE+Kuwait+oil+output+quota+2026-03-11+today 200
+2026-03-11 22:00:04,232 [INFO] response: https://www.mojeek.com/search?q=UAE+Kuwait+oil+output+quota+2026-03-11+today 200
+2026-03-11 22:00:13,698 [INFO] response: https://grokipedia.com/api/typeahead?query=natural+gas+pipeline+explosion+sabotage+2026-03-11+today+breaking&limit=1 200
+2026-03-11 22:00:13,700 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=natural%20gas%20pipeline%20explosion%20sabotage%202026-03-11%20today%20breaking 200
+2026-03-11 22:00:13,865 [INFO] response: https://search.brave.com/search?q=natural+gas+pipeline+explosion+sabotage+2026-03-11+today+breaking&source=web 429
+2026-03-11 22:00:14,383 [INFO] response: https://www.mojeek.com/search?q=natural+gas+pipeline+explosion+sabotage+2026-03-11+today+breaking 200
+2026-03-11 22:00:14,698 [INFO] response: https://grokipedia.com/api/typeahead?query=LNG+terminal+attack+fire+disruption+2026-03-11+just+in&limit=1 200
+2026-03-11 22:00:14,701 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=LNG%20terminal%20attack%20fire%20disruption%202026-03-11%20just%20in 200
+2026-03-11 22:00:14,868 [INFO] response: https://search.brave.com/search?q=LNG+terminal+attack+fire+disruption+2026-03-11+just+in&source=web 429
+2026-03-11 22:00:15,569 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 22:00:15,697 [INFO] response: https://grokipedia.com/api/typeahead?query=Russia+gas+supply+Europe+cut+2026-03-11+recent&limit=1 200
+2026-03-11 22:00:15,700 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Russia%20gas%20supply%20Europe%20cut%202026-03-11%20recent 200
+2026-03-11 22:00:15,762 [INFO] response: https://consent.google.com/ml?continue=https://www.google.com/search%3Fq%3DRussia%2Bgas%2Bsupply%2BEurope%2Bcut%2B2026-03-11%2Brecent%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&gl=FR&m=1&pc=srp&uxe=none&cm=2&hl=en&src=1 200
+2026-03-11 22:00:16,849 [INFO] response: https://www.mojeek.com/search?q=Russia+gas+supply+Europe+cut+2026-03-11+recent 200
+2026-03-11 22:00:16,878 [INFO] response: https://grokipedia.com/api/typeahead?query=Qatar+North+Field+gas+disruption+2026-03-11+today&limit=1 200
+2026-03-11 22:00:16,882 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Qatar%20North%20Field%20gas%20disruption%202026-03-11%20today 200
+2026-03-11 22:00:17,556 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 22:00:17,879 [INFO] response: https://grokipedia.com/api/typeahead?query=Azerbaijan+Georgia+gas+pipeline+attack+2026-03-11+breaking+news&limit=1 200
+2026-03-11 22:00:17,884 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Azerbaijan%20Georgia%20gas%20pipeline%20attack%202026-03-11%20breaking%20news 200
+2026-03-11 22:00:18,011 [INFO] response: https://search.yahoo.com/search;_ylt=UREjyxoyAKGRo9VNzyeiyBlQ;_ylu=NPK3VD0MXmPA2G4xQKzVCeKBxS5wj0ryTK0MvlpOzJrL9D4?p=Azerbaijan+Georgia+gas+pipeline+attack+2026-03-11+breaking+news 200
+2026-03-11 22:00:18,819 [INFO] response: https://search.brave.com/search?q=Azerbaijan+Georgia+gas+pipeline+attack+2026-03-11+breaking+news&source=web 429
+2026-03-11 22:00:19,903 [INFO] response: https://www.mojeek.com/search?q=Azerbaijan+Georgia+gas+pipeline+attack+2026-03-11+breaking+news 200
+2026-03-11 22:00:19,935 [INFO] response: https://grokipedia.com/api/typeahead?query=Houthi+attack+oil+tanker+Red+Sea+2026-03-11+today+breaking&limit=1 200
+2026-03-11 22:00:19,939 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Houthi%20attack%20oil%20tanker%20Red%20Sea%202026-03-11%20today%20breaking 200
+2026-03-11 22:00:20,111 [INFO] response: https://search.yahoo.com/search;_ylt=PZR4L1y0Tq4ymjzhPYc5kyen;_ylu=n-7gNitjCAmWEEhgVJxXIDoHKxc3zqzFdFhhXSrijxnq31Q?p=Houthi+attack+oil+tanker+Red+Sea+2026-03-11+today+breaking 200
+2026-03-11 22:00:21,514 [INFO] response: https://www.mojeek.com/search?q=Houthi+attack+oil+tanker+Red+Sea+2026-03-11+today+breaking 200
+2026-03-11 22:00:21,545 [INFO] response: https://grokipedia.com/api/typeahead?query=Bab-el-Mandeb+shipping+disruption+oil+2026-03-11+just+in&limit=1 200
+2026-03-11 22:00:21,549 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Bab-el-Mandeb%20shipping%20disruption%20oil%202026-03-11%20just%20in 200
+2026-03-11 22:00:22,002 [INFO] response: https://yandex.com/search/site/?text=Bab-el-Mandeb+shipping+disruption+oil+2026-03-11+just+in&web=1&searchid=6652255 200
+2026-03-11 22:00:22,546 [INFO] response: https://grokipedia.com/api/typeahead?query=Suez+Canal+closure+tanker+blockage+2026-03-11+recent&limit=1 200
+2026-03-11 22:00:22,551 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Suez%20Canal%20closure%20tanker%20blockage%202026-03-11%20recent 200
+2026-03-11 22:00:22,998 [INFO] response: https://yandex.com/search/site/?text=Suez+Canal+closure+tanker+blockage+2026-03-11+recent&web=1&searchid=1686576 200
+2026-03-11 22:00:23,548 [INFO] response: https://grokipedia.com/api/typeahead?query=Iran+seize+oil+tanker+Strait+Hormuz+2026-03-11+breaking+news&limit=1 200
+2026-03-11 22:00:23,550 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Iran%20seize%20oil%20tanker%20Strait%20Hormuz%202026-03-11%20breaking%20news 200
+2026-03-11 22:00:23,601 [INFO] response: https://consent.google.com/ml?continue=https://www.google.com/search%3Fq%3DIran%2Bseize%2Boil%2Btanker%2BStrait%2BHormuz%2B2026-03-11%2Bbreaking%2Bnews%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&gl=FR&m=1&pc=srp&uxe=none&cm=2&hl=en&src=1 200
+2026-03-11 22:00:23,739 [INFO] response: https://search.yahoo.com/search;_ylt=xw6OsPSiJmw-_wELUKBXsjs0;_ylu=pOAl21u8p_uKcDd5Gn37dUXbbXPpkoHzd_S6zYy6OStBmUk?p=Iran+seize+oil+tanker+Strait+Hormuz+2026-03-11+breaking+news 200
+2026-03-11 22:00:24,911 [INFO] response: https://www.mojeek.com/search?q=Iran+seize+oil+tanker+Strait+Hormuz+2026-03-11+breaking+news 200
+2026-03-11 22:00:24,941 [INFO] response: https://grokipedia.com/api/typeahead?query=oil+tanker+piracy+attack+2026-03-11+today&limit=1 200
+2026-03-11 22:00:24,946 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=oil%20tanker%20piracy%20attack%202026-03-11%20today 200
+2026-03-11 22:00:25,572 [INFO] response: https://www.mojeek.com/search?q=oil+tanker+piracy+attack+2026-03-11+today 200
+2026-03-11 22:00:25,944 [INFO] response: https://grokipedia.com/api/typeahead?query=Russia+Ukraine+oil+energy+infrastructure+attack+2026-03-11+today+breaking&limit=1 200
+2026-03-11 22:00:25,947 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Russia%20Ukraine%20oil%20energy%20infrastructure%20attack%202026-03-11%20today%20breaking 200
+2026-03-11 22:00:26,625 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 22:00:26,941 [INFO] response: https://grokipedia.com/api/typeahead?query=Libya+oil+field+shutdown+civil+war+2026-03-11+just+in&limit=1 200
+2026-03-11 22:00:26,946 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Libya%20oil%20field%20shutdown%20civil%20war%202026-03-11%20just%20in 200
+2026-03-11 22:00:27,409 [INFO] response: https://yandex.com/search/site/?text=Libya+oil+field+shutdown+civil+war+2026-03-11+just+in&web=1&searchid=3062925 200
+2026-03-11 22:00:27,944 [INFO] response: https://grokipedia.com/api/typeahead?query=Venezuela+oil+sanction+export+2026-03-11+recent&limit=1 200
+2026-03-11 22:00:27,946 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Venezuela%20oil%20sanction%20export%202026-03-11%20recent 200
+2026-03-11 22:00:28,079 [INFO] response: https://consent.google.com/ml?continue=https://www.google.com/search%3Fq%3DVenezuela%2Boil%2Bsanction%2Bexport%2B2026-03-11%2Brecent%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&gl=FR&m=1&pc=srp&uxe=none&cm=2&hl=en&src=1 200
+2026-03-11 22:00:29,164 [INFO] response: https://www.mojeek.com/search?q=Venezuela+oil+sanction+export+2026-03-11+recent 200
+2026-03-11 22:00:29,195 [INFO] response: https://grokipedia.com/api/typeahead?query=Nigeria+pipeline+attack+oil+production+2026-03-11+breaking+news&limit=1 200
+2026-03-11 22:00:29,199 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Nigeria%20pipeline%20attack%20oil%20production%202026-03-11%20breaking%20news 200
+2026-03-11 22:00:29,858 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 22:00:30,195 [INFO] response: https://grokipedia.com/api/typeahead?query=US+China+South+China+Sea+oil+tension+2026-03-11+today&limit=1 200
+2026-03-11 22:00:30,199 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=US%20China%20South%20China%20Sea%20oil%20tension%202026-03-11%20today 200
+2026-03-11 22:00:30,324 [INFO] response: https://search.yahoo.com/search;_ylt=Gsf5C_WYEjHoHfuUrm78sHH2;_ylu=p4YXsJwdOeAMMRUPwwTbFjf4d9Wb20ZQATGF9uYEwaAOHLk?p=US+China+South+China+Sea+oil+tension+2026-03-11+today 200
+2026-03-11 22:00:31,758 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 22:00:42,401 [INFO] response: https://grokipedia.com/api/typeahead?query=Brent+crude+oil+price+today+2026-03-11&limit=1 200
+2026-03-11 22:00:42,406 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Brent%20crude%20oil%20price%20today%202026-03-11 200
+2026-03-11 22:00:43,128 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 22:00:43,401 [INFO] response: https://grokipedia.com/api/typeahead?query=WTI+crude+price+today+barrel+2026-03-11&limit=1 200
+2026-03-11 22:00:43,428 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=WTI%20crude%20price%20today%20barrel%202026-03-11 200
+2026-03-11 22:00:43,604 [INFO] response: https://search.brave.com/search?q=WTI+crude+price+today+barrel+2026-03-11&source=web 429
+2026-03-11 22:00:43,699 [INFO] response: https://consent.google.com/ml?continue=https://www.google.com/search%3Fq%3DWTI%2Bcrude%2Bprice%2Btoday%2Bbarrel%2B2026-03-11%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&gl=FR&m=1&pc=srp&uxe=none&cm=2&hl=en&src=1 200
+2026-03-11 22:00:44,105 [INFO] response: https://yandex.com/search/site/?text=WTI+crude+price+today+barrel+2026-03-11&web=1&searchid=9622636 200
+2026-03-11 22:00:44,402 [INFO] response: https://grokipedia.com/api/typeahead?query=oil+price+forecast+analyst+2026-03-11&limit=1 200
+2026-03-11 22:00:44,406 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=oil%20price%20forecast%20analyst%202026-03-11 200
+2026-03-11 22:00:44,465 [INFO] response: https://consent.google.com/ml?continue=https://www.google.com/search%3Fq%3Doil%2Bprice%2Bforecast%2Banalyst%2B2026-03-11%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&gl=FR&m=1&pc=srp&uxe=none&cm=2&hl=en&src=1 200
+2026-03-11 22:00:45,162 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 22:00:45,406 [INFO] response: https://grokipedia.com/api/typeahead?query=VIX+index+value+today+2026-03-11&limit=1 200
+2026-03-11 22:00:45,408 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=VIX%20index%20value%20today%202026-03-11 200
+2026-03-11 22:00:45,533 [INFO] response: https://search.yahoo.com/search;_ylt=VrDxfpk7gZpVjOsBT5H18FG4;_ylu=ebYRUiDFhgUbCHvypoCbcNGejv8KQjLVU-m8TmR9CMMD5RU?p=VIX+index+value+today+2026-03-11 200
+2026-03-11 22:00:46,343 [INFO] response: https://search.brave.com/search?q=VIX+index+value+today+2026-03-11&source=web 429
+2026-03-11 22:00:46,399 [INFO] response: https://consent.google.com/ml?continue=https://www.google.com/search%3Fq%3DVIX%2Bindex%2Bvalue%2Btoday%2B2026-03-11%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&gl=FR&m=1&pc=srp&uxe=none&cm=2&hl=en&src=1 200
+2026-03-11 22:00:46,787 [INFO] response: https://yandex.com/search/site/?text=VIX+index+value+today+2026-03-11&web=1&searchid=7970244 200
+2026-03-11 22:00:46,826 [INFO] response: https://grokipedia.com/api/typeahead?query=CBOE+Volatility+Index+current+level+2026-03-11&limit=1 200
+2026-03-11 22:00:46,831 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=CBOE%20Volatility%20Index%20current%20level%202026-03-11 200
+2026-03-11 22:00:47,487 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 22:00:47,828 [INFO] response: https://grokipedia.com/api/typeahead?query=VIX+chart+volatility+market+fear+2026-03-11&limit=1 200
+2026-03-11 22:00:47,830 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=VIX%20chart%20volatility%20market%20fear%202026-03-11 200
+2026-03-11 22:00:47,956 [INFO] response: https://search.yahoo.com/search;_ylt=_Zt-EY7tWSEfuld0jKAQ05Kt;_ylu=0Yy2uxcjbsJf7tVGoLST58xsF_OWg1FSdflYGgb2_7DooqA?p=VIX+chart+volatility+market+fear+2026-03-11 200
+2026-03-11 22:00:49,150 [INFO] response: https://yandex.com/search/site/?text=VIX+chart+volatility+market+fear+2026-03-11&web=1&searchid=1344476 200
+2026-03-11 22:00:49,189 [INFO] response: https://grokipedia.com/api/typeahead?query=VIX+oil+price+correlation+volatility&limit=1 200
+2026-03-11 22:00:49,193 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=VIX%20oil%20price%20correlation%20volatility 200
+2026-03-11 22:00:49,320 [INFO] response: https://search.yahoo.com/search;_ylt=9ogKMNrH1vUPKeICnLXmbhxM;_ylu=By_LrE8NMrPoX6lS8Znr_YI9Ccwim-4TaJhbCb3R8iksv04?p=VIX+oil+price+correlation+volatility 200
+2026-03-11 22:00:50,045 [INFO] response: https://search.brave.com/search?q=VIX+oil+price+correlation+volatility&source=web 429
+2026-03-11 22:00:50,109 [INFO] response: https://consent.google.com/ml?continue=https://www.google.com/search%3Fq%3DVIX%2Boil%2Bprice%2Bcorrelation%2Bvolatility%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&gl=FR&m=1&pc=srp&uxe=none&cm=2&hl=en&src=1 200
+2026-03-11 22:00:51,225 [INFO] response: https://www.mojeek.com/search?q=VIX+oil+price+correlation+volatility 200
+2026-03-11 22:00:51,433 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=oil%20market%20breaking%20news%20this%20week 200
+2026-03-11 22:00:51,624 [INFO] response: https://grokipedia.com/api/typeahead?query=oil+market+breaking+news+this+week&limit=1 200
+2026-03-11 22:00:51,678 [INFO] response: https://consent.google.com/ml?continue=https://www.google.com/search%3Fq%3Doil%2Bmarket%2Bbreaking%2Bnews%2Bthis%2Bweek%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&gl=FR&m=1&pc=srp&uxe=none&cm=2&hl=en&src=1 200
+2026-03-11 22:00:52,144 [INFO] response: https://yandex.com/search/site/?text=oil+market+breaking+news+this+week&web=1&searchid=6469940 200
+2026-03-11 22:00:52,437 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=crude%20oil%20supply%20disruption%20this%20week 200
+2026-03-11 22:00:52,634 [INFO] response: https://grokipedia.com/api/typeahead?query=crude+oil+supply+disruption+this+week&limit=1 200
+2026-03-11 22:00:52,805 [INFO] response: https://search.brave.com/search?q=crude+oil+supply+disruption+this+week&source=web 429
+2026-03-11 22:00:53,894 [INFO] response: https://www.mojeek.com/search?q=crude+oil+supply+disruption+this+week 200
+2026-03-11 22:00:54,149 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=oil%20price%20spike%20this%20week 200
+2026-03-11 22:00:54,276 [INFO] response: https://grokipedia.com/api/typeahead?query=oil+price+spike+this+week&limit=1 200
+2026-03-11 22:00:54,493 [INFO] response: https://search.brave.com/search?q=oil+price+spike+this+week&source=web 429
+2026-03-11 22:00:55,277 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 22:01:49,709 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Stanislaus%20Ulam%201979%20interview%20Einstein%20math%20creativity 200
+2026-03-11 22:01:49,885 [INFO] response: https://grokipedia.com/api/typeahead?query=Stanislaus+Ulam+1979+interview+Einstein+math+creativity&limit=1 200
+2026-03-11 22:01:51,014 [INFO] response: https://www.mojeek.com/search?q=Stanislaus+Ulam+1979+interview+Einstein+math+creativity 200
+2026-03-11 22:01:58,187 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Stanislaus%20Ulam%201979%20Martin%20Sherwin%20interview%20Einstein%20mathematics%20creativity 200
+2026-03-11 22:01:58,397 [INFO] response: https://grokipedia.com/api/typeahead?query=Stanislaus+Ulam+1979+Martin+Sherwin+interview+Einstein+mathematics+creativity&limit=1 200
+2026-03-11 22:01:59,388 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 22:02:13,361 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Stanislaus%20Ulam%20Einstein%20math%20too%20much%20mathematics%20creativity%20interview 200
+2026-03-11 22:02:13,565 [INFO] response: https://grokipedia.com/api/typeahead?query=Stanislaus+Ulam+Einstein+math+too+much+mathematics+creativity+interview&limit=1 200
+2026-03-11 22:02:13,692 [INFO] response: https://search.yahoo.com/search;_ylt=CwCIkR-8t7n4siORaL5sda6G;_ylu=63BkSDk9R4eNCamGE_wMYd_ILVp1-iVSpgm96EgoJwKvwCE?p=Stanislaus+Ulam+Einstein+math+too+much+mathematics+creativity+interview 200
+2026-03-11 22:02:14,435 [INFO] response: https://consent.google.com/ml?continue=https://www.google.com/search%3Fq%3DStanislaus%2BUlam%2BEinstein%2Bmath%2Btoo%2Bmuch%2Bmathematics%2Bcreativity%2Binterview%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&gl=FR&m=1&pc=srp&uxe=none&cm=2&hl=en&src=1 200
+2026-03-11 22:02:15,247 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 22:02:34,811 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Stanislaus%20Ulam%20%22Einstein%22%20creativity%20math%20diminished 200
+2026-03-11 22:02:34,976 [INFO] response: https://grokipedia.com/api/typeahead?query=Stanislaus+Ulam+%22Einstein%22+creativity+math+diminished&limit=1 200
+2026-03-11 22:02:35,694 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-11 22:02:48,255 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Ulam%20said%20Einstein%20too%20much%20mathematics%20consequence%20creativity 200
+2026-03-11 22:02:48,452 [INFO] response: https://grokipedia.com/api/typeahead?query=Ulam+said+Einstein+too+much+mathematics+consequence+creativity&limit=1 200
+2026-03-11 22:02:49,011 [INFO] response: https://yandex.com/search/site/?text=Ulam+said+Einstein+too+much+mathematics+consequence+creativity&web=1&searchid=5201869 200
+2026-03-11 22:03:00,474 [INFO] 🔍 Intelligence récoltée (10 caractères)
+2026-03-11 22:03:30,150 [INFO] ✨ DSPy Analysis Complete. Confidence: 0.45
+2026-03-11 22:03:30,150 [INFO] 💾 Exemple ajouté au dataset (data\oil_intelligence_dataset.jsonl)
+2026-03-11 22:03:30,151 [INFO] 📊 3 événement(s) à impact élevé détectés
+2026-03-11 22:03:30,151 [INFO] 📧 Email désactivé (simulation) : [OIL-ALERT] Geopolitical | Score 7/10 — Tensions stratégiques en mer Rouge affectent le transit pétrolier

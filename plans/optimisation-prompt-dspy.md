@@ -110,7 +110,7 @@ Il est crucial d'inclure des exemples de "Faux Positifs" pour affiner le filtrag
 
 ## 🚀 Plan d'Intégration dans `oil-agent.py`
 
-1. **Installation** : `uv add dspy`
+1. **Installation** : `uv add dspy` : Déjà installé et mis dans pyproject.toml
 2. **Initialisation du modèle** :
    ```python
    lm = dspy.LM("ollama_chat/qwen3.5:9b", api_base=CONFIG["ollama_api_base"])

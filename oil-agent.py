@@ -25,6 +25,101 @@ from smolagents import (
     tool,
 )
 
+import dspy
+from pydantic import BaseModel, Field, validator
+from typing import List, Literal, Optional
+
+# ─────────────────────────────────────────────
+# DSPy Configuration & Models
+# ─────────────────────────────────────────────
+
+# Modèle Pydantic pour la sortie structurée
+class OilEvent(BaseModel):
+    """Structure d'un événement pétrolier."""
+    id: str = Field(..., description="ID unique (ex: iran_hormuz_20240311)")
+    category: Literal["Iran", "Refinery", "OPEC", "Gas", "Shipping", "Geopolitical"]
+    title: str
+    impact_score: int = Field(..., ge=0, le=10)
+    certainty_score: Optional[float] = Field(0.7, ge=0.0, le=1.0, description="Niveau de certitude (0.0-1.0)")
+    urgency: Literal["Breaking", "Recent", "Developing", "Background"]
+    summary: str
+    price_impact: str = Field(..., description="Ex: +$2-4/barrel")
+    source_hint: str
+    publication_date: Optional[str] = Field(None, description="Date de publication si disponible")
+
+class OilEventsResponse(BaseModel):
+    """Structure de réponse avec la liste des événements."""
+    events: List[OilEvent]
+    confidence_score: float = Field(..., description="Score de confiance global (0.0-1.0)")
+
+# Signature DSPy
+class OilEventSignature(dspy.Signature):
+    """Analyse les événements du marché pétrolier, évalue leur impact et extrait des données structurées.
+    
+    IMPORTANT: Pour chaque événement, vous DEVEZ inclure TOUS les champs: id, category, title, impact_score, 
+    certainty_score, urgency, summary, price_impact, source_hint, publication_date.
+    Ne sautez JAMAIS le champ 'title'.
+    """
+    
+    current_date: str = dspy.InputField(desc="Date actuelle (YYYY-MM-DD)")
+    current_datetime: str = dspy.InputField(desc="Horodatage complet actuel")
+    alert_threshold: int = dspy.InputField(desc="Seuil d'alerte (0-10)")
+    news_sources: list[str] = dspy.InputField(desc="Domaines de sources d'actualités prioritaires")
+    raw_intelligence: str = dspy.InputField(desc="Données brutes collectées par les outils de surveillance")
+    
+    events: List[OilEvent] = dspy.OutputField(desc="Liste d'objets OilEvent. CHAQUE objet doit avoir TOUS les champs requis.")
+    confidence_score: float = dspy.OutputField(desc="Score de confiance global dans l'analyse (0.0-1.0)")
+
+# Module avec Chain of Thought
+class OilEventAnalyzer(dspy.Module):
+    """Analyseur d'événements pétroliers avec raisonnement explicite."""
+    
+    def __init__(self):
+        super().__init__()
+        self.analyze = dspy.ChainOfThought(OilEventSignature)
+
+    def forward(self, **kwargs):
+        # Utiliser dspy.Predict ou ChainOfThought
+        return self.analyze(**kwargs)
+
+def validate_and_fix_events(events: list, current_date: str) -> list:
+    """Valide et nettoie les événements produits par le LLM."""
+    valid_events = []
+    for i, event in enumerate(events):
+        try:
+            # Transformation en dict si c'est un objet Pydantic
+            e_dict = event if isinstance(event, dict) else (event.model_dump() if hasattr(event, 'model_dump') else {})
+            
+            # 1. Vérification des champs obligatoires minimums
+            if not e_dict.get("title") or not e_dict.get("category"):
+                log.warning(f"⚠️ Event {i} ignoré : titre ou catégorie manquant")
+                continue
+                
+            # 2. Valeurs par défaut pour les champs optionnels manquants
+            if "impact_score" not in e_dict: e_dict["impact_score"] = 5
+            if "urgency" not in e_dict: e_dict["urgency"] = "Recent"
+            if "summary" not in e_dict: e_dict["summary"] = "No summary provided."
+            if "price_impact" not in e_dict: e_dict["price_impact"] = "Unknown"
+            if "source_hint" not in e_dict: e_dict["source_hint"] = "Multiple sources"
+            if "publication_date" not in e_dict or not e_dict["publication_date"]:
+                e_dict["publication_date"] = current_date
+            if "certainty_score" not in e_dict: e_dict["certainty_score"] = 0.7
+            if "id" not in e_dict:
+                e_dict["id"] = event_fingerprint(e_dict["title"], e_dict["category"])
+                
+            valid_events.append(e_dict)
+        except Exception as ex:
+            log.error(f"❌ Erreur lors de la validation de l'événement {i} : {ex}")
+            
+    return valid_events
+
+# Configurer DSPy par défaut (sera mis à jour dans build_agent si nécessaire)
+def configure_dspy():
+    """Configure DSPy avec le modèle Ollama défini dans CONFIG."""
+    lm = dspy.LM(CONFIG["ollama_model"], api_base=CONFIG["ollama_api_base"])
+    dspy.configure(lm=lm, adapter=dspy.JSONAdapter())
+    return lm
+
 # ─────────────────────────────────────────────
 # Configuration
 # ─────────────────────────────────────────────
@@ -43,6 +138,7 @@ CONFIG = {
     # Fichiers de persistance
     "history_file": "logs/email_history.json",
     "events_db": "logs/events_seen.json",
+    "dataset_file": "data/oil_intelligence_dataset.jsonl",
     # Seuil de score d'impact (0-10) pour déclencher une alerte
     "alert_threshold": 6,
     # Sources d'actualités prioritaires
@@ -90,13 +186,13 @@ Path("logs").mkdir(exist_ok=True)
 def load_seen_events() -> set:
     p = Path(CONFIG["events_db"])
     if p.exists():
-        with open(p) as f:
+        with open(p, encoding="utf-8") as f:
             return set(json.load(f))
     return set()
 
 
 def save_seen_events(seen: set):
-    with open(CONFIG["events_db"], "w") as f:
+    with open(CONFIG["events_db"], "w", encoding="utf-8") as f:
         json.dump(list(seen), f, indent=2)
 
 
@@ -112,13 +208,13 @@ def event_fingerprint(title: str, source: str) -> str:
 def load_email_history() -> list:
     p = Path(CONFIG["history_file"])
     if p.exists():
-        with open(p) as f:
+        with open(p, encoding="utf-8") as f:
             return json.load(f)
     return []
 
 
 def save_email_history(history: list):
-    with open(CONFIG["history_file"], "w") as f:
+    with open(CONFIG["history_file"], "w", encoding="utf-8") as f:
         json.dump(history, f, indent=2, ensure_ascii=False)
 
 
@@ -554,89 +650,55 @@ class RecentNewsTool(Tool):
     def forward(self, topic: str = "all", timeframe: str = "24h") -> str:
         from datetime import datetime, timedelta
         
-        # Calculer la date de début pour le filtrage
         now = datetime.now()
+        # On utilise des termes relatifs au lieu de la date fixe qui bloque souvent les résultats
         if timeframe == "24h":
-            date_start = now - timedelta(hours=24)
-            date_str = date_start.strftime("%Y-%m-%d")
-            time_keywords = ["today", "breaking", "just in", "last 24 hours"]
+            time_query = "today"
+            time_label = "Last 24 hours"
         elif timeframe == "48h":
-            date_start = now - timedelta(hours=48)
-            date_str = date_start.strftime("%Y-%m-%d")
-            time_keywords = ["today", "yesterday", "breaking", "last 48 hours"]
-        else:  # 7d
-            date_start = now - timedelta(days=7)
-            date_str = date_start.strftime("%Y-%m-%d")
-            time_keywords = ["this week", "recent", "last 7 days"]
+            time_query = "yesterday OR today"
+            time_label = "Last 48 hours"
+        else:
+            time_query = "this week"
+            time_label = "Last 7 days"
         
-        current_date = now.strftime("%Y-%m-%d")
+        # Simplification des sources : on ne met que les 2 plus importantes pour ne pas surcharger la requête
+        # L'agent trouvera les autres via une recherche plus large
+        priority_sites = "site:reuters.com OR site:bloomberg.com"
         
-        # Sources d'actualités prioritaires
-        news_sources = CONFIG.get("news_sources", [
-            "reuters.com", "bloomberg.com", "apnews.com", 
-            "bbc.com", "ft.com", "wsj.com"
-        ])
-        site_filter = " OR ".join([f"site:{s}" for s in news_sources])
-        
-        # Requêtes par sujet
         topic_queries = {
             "iran": [
-                f"Iran military oil infrastructure {current_date} {site_filter}",
-                f"Strait of Hormuz oil tanker {current_date} {site_filter}",
-                f"Iran IRGC oil attack {current_date} {site_filter}",
+                f"Iran oil attack {time_query} {priority_sites}",
+                f"Strait of Hormuz tension {time_query}",
             ],
             "refinery": [
-                f"oil refinery explosion fire {current_date} {site_filter}",
-                f"refinery drone attack oil {current_date} {site_filter}",
-                f"Aramco refinery attack {current_date} {site_filter}",
+                f"oil refinery explosion fire {time_query}",
+                f"refinery drone attack {time_query}",
             ],
             "opec": [
-                f"OPEC production cut decision {current_date} {site_filter}",
-                f"Saudi Arabia oil cut {current_date} {site_filter}",
-                f"OPEC emergency meeting oil {current_date} {site_filter}",
-            ],
-            "gas": [
-                f"natural gas pipeline explosion {current_date} {site_filter}",
-                f"LNG terminal disruption {current_date} {site_filter}",
-                f"Russia gas supply Europe {current_date} {site_filter}",
-            ],
-            "shipping": [
-                f"Houthi attack oil tanker {current_date} {site_filter}",
-                f"Red Sea shipping oil disruption {current_date} {site_filter}",
-                f"Suez Canal oil tanker {current_date} {site_filter}",
-            ],
-            "geopolitical": [
-                f"Russia Ukraine oil infrastructure {current_date} {site_filter}",
-                f"Libya oil field shutdown {current_date} {site_filter}",
-                f"Venezuela oil sanction {current_date} {site_filter}",
+                f"OPEC production cut {time_query}",
+                f"Saudi Arabia oil supply {time_query}",
             ],
             "all": [
-                f"oil market breaking news {current_date} {site_filter}",
-                f"crude oil price spike {current_date} {site_filter}",
-                f"oil supply disruption {current_date} {site_filter}",
+                f"oil market breaking news {time_query}",
+                f"crude oil supply disruption {time_query}",
+                f"oil price spike {time_query}",
             ],
         }
         
         queries = topic_queries.get(topic, topic_queries["all"])
-        
-        # Ajouter des mots-clés temporels pour améliorer la fraîcheur
-        queries = [f"{q} {time_keywords[0]}" for q in queries]
-        
         results = []
         for q in queries:
             try:
+                # Augmentation du nombre de résultats pour compenser la simplification
                 r = self._search(q)
                 if r and len(r) > 50:
-                    results.append(f"[Query: {q}]\n{r[:800]}")
+                    results.append(f"[Query: {q}]\n{r[:1000]}")
             except Exception as e:
-                results.append(f"[Query: {q}] Error: {e}")
+                log.warning(f"⚠️ Search error for query '{q}': {e}")
         
-        header = f"=== RECENT NEWS SEARCH ===\n"
-        header += f"Topic: {topic} | Timeframe: {timeframe} | Current Date: {current_date}\n"
-        header += f"Searching since: {date_str}\n"
-        header += f"Sources: {', '.join(news_sources)}\n\n"
-        
-        return header + "\n\n---\n\n".join(results) if results else f"No recent news found for topic '{topic}' in the last {timeframe}."
+        header = f"=== RECENT NEWS SEARCH ({time_label}) ===\n\n"
+        return header + "\n\n---\n\n".join(results) if results else f"No results found for {topic}."
 
 
 class RSSFeedTool(Tool):
@@ -835,177 +897,59 @@ def build_agent() -> CodeAgent:
 # ─────────────────────────────────────────────
 
 def get_master_prompt() -> str:
-    """Génère le prompt principal avec la date du jour dynamique."""
+    """Génère le prompt principal de collecte d'informations."""
     from datetime import datetime
     
     current_date = datetime.now().strftime("%Y-%m-%d")
     current_datetime = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    threshold = CONFIG["alert_threshold"]
     
     prompt = f"""
-═══════════════════════════════════════════════════════════════════════════════
-⚠️  FORMAT DE RÉPONSE OBLIGATOIRE - À LIRE ATTENTIVEMENT
-═══════════════════════════════════════════════════════════════════════════════
-
-VOUS DEVEZ RETOURNER SEULEMENT DU JSON VALIDE. AUCUN AUTRE TEXTE N'EST ACCEPTÉ.
-
-Votre réponse doit être EXACTEMENT dans ce format:
-
-```json
-{{
-  "events": [
-    {{
-      "id": "unique_event_id",
-      "category": "Iran|Refinery|OPEC|Gas|Shipping|Geopolitical",
-      "title": "Court titre descriptif",
-      "impact_score": 8,
-      "urgency": "Breaking|Recent|Developing|Background",
-      "summary": "Analyse détaillée de l'événement et son impact sur les prix du pétrole",
-      "price_impact": "+$3-5/barrel attendu",
-      "source_hint": "Brève description de la source",
-      "publication_date": "{current_date}"
-    }}
-  ]
-}}
-```
-
-RÈGLES STRICTES:
-- ✓ Retourner SEULEMENT le bloc JSON entre ```json et ```
-- ✓ AUCUN texte avant ou après le JSON
-- ✓ AUCUNE explication, commentaire ou formatage supplémentaire
-- ✓ Le JSON doit être valide et parseable
-- ✓ Si aucun événement n'est trouvé, retourner: {{"events": []}}
-
-═══════════════════════════════════════════════════════════════════════════════
-EXEMPLES DE RÉPONSES
-═══════════════════════════════════════════════════════════════════════════════
-
-EXEMPLE 1 - Avec événement de haute priorité:
-```json
-{{
-  "events": [
-    {{
-      "id": "iran_hormuz_blockade_{current_date.replace('-', '')}",
-      "category": "Iran",
-      "title": "Iran bloque le détroit d'Ormuz - menace majeure sur l'approvisionnement",
-      "impact_score": 9,
-      "urgency": "Breaking",
-      "summary": "L'Iran a annoncé le blocage du détroit d'Ormuz, qui transporte 20% du pétrole mondial. Cette action sans précédent menace gravement l'approvisionnement mondial et pourrait entraîner une hausse immédiate des prix du Brent de $5-10/barrel.",
-      "price_impact": "+$5-10/barrel attendu",
-      "source_hint": "Reuters Breaking News",
-      "publication_date": "{current_date}"
-    }}
-  ]
-}}
-```
-
-EXEMPLE 2 - Avec plusieurs événements:
-```json
-{{
-  "events": [
-    {{
-      "id": "saudi_refinery_attack_{current_date.replace('-', '')}",
-      "category": "Refinery",
-      "title": "Attaque drone sur raffinerie Aramco en Arabie Saoudite",
-      "impact_score": 7,
-      "urgency": "Breaking",
-      "summary": "Une attaque de drone a touché la raffinerie Aramco à Ras Tanura, causant des dégâts importants et réduisant la production de 500k barils/jour. Les forces de sécurité ont intercepté l'attaque mais les opérations sont suspendues.",
-      "price_impact": "+$2-4/barrel attendu",
-      "source_hint": "Bloomberg Energy",
-      "publication_date": "{current_date}"
-    }},
-    {{
-      "id": "opec_emergency_meeting_{current_date.replace('-', '')}",
-      "category": "OPEC",
-      "title": "OPEC convoque réunion d'urgence sur les coupes de production",
-      "impact_score": 6,
-      "urgency": "Recent",
-      "summary": "L'OPEC a annoncé une réunion d'urgence pour discuter de coupes de production supplémentaires en réponse à la baisse des prix. Les analystes anticipent une réduction de 1M barils/jour.",
-      "price_impact": "+$1-3/barrel attendu",
-      "source_hint": "Reuters Energy",
-      "publication_date": "{current_date}"
-    }}
-  ]
-}}
-```
-
-EXEMPLE 3 - Sans événement:
-```json
-{{
-  "events": []
-}}
-```
-
-═══════════════════════════════════════════════════════════════════════════════
-VOTRE MISSION
-═══════════════════════════════════════════════════════════════════════════════
-
 You are an expert oil market analyst monitoring geopolitical and industrial events
 that could cause oil prices (Brent crude, WTI) to spike or rebound.
 
 CURRENT DATE: {current_date}
 CURRENT DATETIME: {current_datetime}
 
-1. Use ALL available specialized tools to gather current intelligence:
-   - search_iran_conflict: Iran military tensions, IRGC, Strait of Hormuz
-   - search_refinery_damage: Refinery attacks, fires, explosions globally
-   - search_opec_supply: OPEC+ cuts, production quota decisions
-   - search_gas_disruption: Natural gas pipeline/LNG disruptions
-   - search_shipping_disruption: Houthi attacks, tanker seizures, maritime blockages
-   - search_geopolitical_escalation: Russia/Ukraine, Libya, Venezuela, Nigeria, etc.
-   - get_oil_price: Current Brent/WTI prices and context
-   - search_recent_news: Very recent news from major sources (last 24h/48h/7d)
-   - read_rss_feeds: Real-time RSS feeds from Reuters, Bloomberg, AP, BBC
-    - get_vix_index: Current VIX volatility index (market fear indicator)
+YOUR MISSION:
+1. Use ALL available specialized tools to gather current intelligence from TODAY ({current_date}) and the last 24-48 hours.
+2. Focus on:
+   - Iran tensions & Strait of Hormuz (search_iran_conflict)
+   - Refinery attacks or damage (search_refinery_damage)
+   - OPEC+ production decisions (search_opec_supply)
+   - Gas disruptions (search_gas_disruption)
+   - Shipping/Red Sea tensions (search_shipping_disruption)
+   - Broad geopolitical escalations (search_geopolitical_escalation)
+   - Current oil prices & volatility (get_oil_price, get_vix_index)
+   - Breaking news from Reuters, Bloomberg, AP, BBC, FT, WSJ (search_recent_news, read_rss_feeds)
 
-2. PERFORMANCE OPTIMIZATION: For faster execution, you can call tools directly
-   without intermediate analysis steps when appropriate:
-   - For quick checks: Call search_recent_news(topic="all", timeframe="24h") directly
-   - For real-time updates: Call read_rss_feeds(feed="all", hours_back=12) directly
-   - For volatility assessment: Call get_vix_index() directly
-   - For price checks: Call get_oil_price() directly
-   - For targeted searches: Use specific tools with appropriate parameters (e.g.,
-     search_iran_conflict(days_back=1), search_refinery_damage(region="middle_east"))
-   - Direct tool calls are ~3-10x faster than full agent analysis
-   - Use direct calls when: (a) You need quick information, (b) You're testing/debugging,
-     (c) You're integrating into automation scripts, (d) You need minimal latency
-
-3. IMPORTANT: Focus on events from TODAY ({current_date}) and the last 24-48 hours.
-    When searching, use date-specific queries like "today", "breaking", "just in",
-    and include the current date in search terms. Prioritize:
-    - search_recent_news with timeframe="24h" for breaking news
-    - read_rss_feeds for real-time updates
-    - get_vix_index to gauge market volatility and fear levels
-
-4. For each event or news item found, evaluate:
-   - CATEGORY: (Iran/Refinery/OPEC/Gas/Shipping/Geopolitical/Other)
-   - IMPACT SCORE: 1-10 (10 = immediate major oil price spike likely)
-   - URGENCY: (Breaking/Recent/Developing/Background)
-   - SUMMARY: 2-3 sentences explaining the event and price impact mechanism
-   - SOURCE_TITLE: Brief title of the news
-   - PUBLICATION_DATE: Date of the news (if available)
-
-5. Filter to keep ONLY events with Impact Score >= {threshold}
-
-6. RETURN YOUR RESPONSE IN THE JSON FORMAT SPECIFIED ABOVE.
-
-═══════════════════════════════════════════════════════════════════════════════
-FINAL REMINDER
-═══════════════════════════════════════════════════════════════════════════════
-
-⚠️  REMINDER: Return ONLY valid JSON between ```json and ```
-⚠️  NO text before or after the JSON
-⚠️  NO explanations or comments
-
-```json
-{{
-  "events": [...]
-}}
-```
+3. OUTPUT: Provide a detailed summary of each significant finding. For each event, specify the date, source, 
+   and a brief explanation of how it might affect oil supply or prices. 
+   Do NOT worry about JSON formatting, just be thorough and precise in your analysis.
 """
     return prompt
 
-MASTER_PROMPT = get_master_prompt()
+# ─────────────────────────────────────────────
+# Dataset Collection
+# ─────────────────────────────────────────────
+
+def save_to_dataset(input_data: dict, output_data: dict):
+    """Enregistre un exemple d'entrée/sortie pour l'entraînement DSPy."""
+    try:
+        dataset_file = Path(CONFIG["dataset_file"])
+        dataset_file.parent.mkdir(exist_ok=True)
+        
+        example = {
+            "input": input_data,
+            "output": output_data,
+            "timestamp": datetime.now().isoformat()
+        }
+        
+        with open(dataset_file, "a", encoding="utf-8") as f:
+            f.write(json.dumps(example, ensure_ascii=False) + "\n")
+            
+        log.info(f"💾 Exemple ajouté au dataset ({dataset_file})")
+    except Exception as e:
+        log.error(f"❌ Erreur lors de la sauvegarde du dataset : {e}")
 
 
 # ─────────────────────────────────────────────
@@ -1013,97 +957,80 @@ MASTER_PROMPT = get_master_prompt()
 # ─────────────────────────────────────────────
 
 def run_monitoring_cycle():
-    """Lance un cycle de surveillance et envoie les alertes email pour les nouveaux événements."""
+    """Lance un cycle de surveillance avec DSPy pour la synthèse finale."""
     log.info("=" * 60)
-    log.info("🛢️  Démarrage cycle de surveillance pétrole")
+    log.info("🛢️  Démarrage cycle de surveillance pétrole (DSPy Mode)")
     log.info("=" * 60)
 
+    # 1. Configuration DSPy
+    configure_dspy()
+    
     seen_events = load_seen_events()
     agent = build_agent()
 
+    # 2. Collecte d'intelligence via smolagents
     try:
-        # Utiliser le prompt dynamique avec la date du jour
         prompt = get_master_prompt()
-        raw_result = agent.run(prompt)
-        
-        # LOG DE DEBUG : Logger le résultat brut retourné par l'agent
-        log.info(f"🔍 Agent result (raw, 500 premiers caractères): {str(raw_result)[:500]}")
-        log.info(f"📊 Type du résultat brut: {type(raw_result)}")
-        
+        raw_intelligence = agent.run(prompt)
+        log.info(f"🔍 Intelligence récoltée ({len(raw_intelligence)} caractères)")
     except Exception as e:
         log.error(f"Agent error: {e}")
         return
 
-    # Parse JSON - Version améliorée avec plusieurs patterns
+    # 3. Synthèse et formatage via DSPy
     events = []
-    
-    # LOG DE DEBUG : Logger le début du parsing
-    log.info(f"🔧 Début du parsing JSON...")
-    
-    if isinstance(raw_result, list):
-        events = raw_result
-        log.info(f"✅ Résultat est une liste, {len(events)} événements")
-    elif isinstance(raw_result, str):
-        # Extraction du JSON depuis la réponse texte avec plusieurs patterns
-        import re
+    try:
+        analyzer = OilEventAnalyzer()
         
-        # LOG DE DEBUG : Logger le texte brut pour analyse
-        log.info(f"📝 Résultat brut (premiers 200 caractères): {raw_result[:200]}")
+        # Charger les poids optimisés si disponibles
+        optimized_path = Path(CONFIG.get("dataset_file", "data/")).parent / "oil_analyzer_optimized.json"
+        if optimized_path.exists():
+            log.info(f"📂 Chargement du module DSPy optimisé : {optimized_path}")
+            analyzer.load(str(optimized_path))
+            
+        current_date = datetime.now().strftime("%Y-%m-%d")
+        current_datetime = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         
-        # Pattern 1: Bloc JSON avec marqueurs ```json ... ```
-        json_match = re.search(r'```json\s*(\{.*?\})\s*```', raw_result, re.DOTALL)
-        if json_match:
-            try:
-                data = json.loads(json_match.group(1))
-                events = data.get("events", [])
-                log.info(f"✅ JSON extrait via pattern 1 (bloc ```json), {len(events)} événements")
-            except json.JSONDecodeError as e:
-                log.warning(f"⚠️  Erreur parsing JSON (pattern 1): {e}")
+        dspy_result = analyzer(
+            current_date=current_date,
+            current_datetime=current_datetime,
+            alert_threshold=CONFIG["alert_threshold"],
+            news_sources=CONFIG["news_sources"],
+            raw_intelligence=raw_intelligence
+        )
         
-        # Pattern 2: Tableau JSON direct [...]
-        if not events:
-            match = re.search(r'\[.*\]', raw_result, re.DOTALL)
-            if match:
-                try:
-                    events = json.loads(match.group())
-                    log.info(f"✅ JSON extrait via pattern 2 (tableau direct)")
-                except json.JSONDecodeError as e:
-                    log.warning(f"⚠️  Erreur parsing JSON (pattern 2): {e}")
-        
-        # Pattern 3: Objet JSON avec clé "events"
-        if not events:
-            match = re.search(r'\{.*"events".*?\}', raw_result, re.DOTALL)
-            if match:
-                try:
-                    data = json.loads(match.group())
-                    events = data.get("events", [])
-                    log.info(f"✅ JSON extrait via pattern 3 (objet avec clé 'events')")
-                except json.JSONDecodeError as e:
-                    log.warning(f"⚠️  Erreur parsing JSON (pattern 3): {e}")
-        
-        # Pattern 4: Objet JSON simple sans clé "events" (compatibilité)
-        if not events:
-            match = re.search(r'\{.*?\}', raw_result, re.DOTALL)
-            if match:
-                try:
-                    data = json.loads(match.group())
-                    if isinstance(data, list):
-                        events = data
-                        log.info(f"✅ JSON extrait via pattern 4 (objet liste)")
-                    elif isinstance(data, dict) and "events" in data:
-                        events = data["events"]
-                        log.info(f"✅ JSON extrait via pattern 4 (objet dict)")
-                except json.JSONDecodeError as e:
-                    log.warning(f"⚠️  Erreur parsing JSON (pattern 4): {e}")
-        
-        if not events:
-            log.warning("❌ Impossible de parser le JSON — pas d'alerte envoyée")
-            log.debug(f"Résultat brut (premiers 500 caractères): {str(raw_result)[:500]}")
-            log.warning("⚠️  DIAGNOSTIC: Aucun pattern de JSON n'a correspondu. Vérifiez les logs ci-dessus pour voir le format retourné par le modèle.")
+        # Extraire les événements de la réponse DSPy
+        # DSPy avec JSONAdapter retourne souvent des objets Pydantic ou des dicts
+        if hasattr(dspy_result, 'events'):
+            # Convertir les objets Pydantic en dicts si nécessaire
             events = []
+            for e in dspy_result.events:
+                if hasattr(e, 'dict'):
+                    events.append(e.dict())
+                else:
+                    events.append(e)
+        
+        log.info(f"✨ DSPy Analysis Complete. Confidence: {getattr(dspy_result, 'confidence_score', 'N/A')}")
+        
+        # Sauvegarder pour l'amélioration continue (20 exemples cibles)
+        save_to_dataset(
+            input_data={
+                "current_date": current_date,
+                "alert_threshold": CONFIG["alert_threshold"],
+                "raw_intelligence": raw_intelligence
+            },
+            output_data={"events": events}
+        )
+        
+    except Exception as e:
+        log.error(f"❌ DSPy Synthesis Error: {e}")
+        import traceback
+        log.error(traceback.format_exc())
+        return
 
     log.info(f"📊 {len(events)} événement(s) à impact élevé détectés")
 
+    # 4. Envoi des alertes
     new_events_count = 0
     for event in events:
         event_id = event.get("id") or event_fingerprint(
@@ -1126,7 +1053,6 @@ def run_monitoring_cycle():
     save_seen_events(seen_events)
 
     log.info(f"✅ Cycle terminé — {new_events_count} nouvelle(s) alerte(s) envoyée(s)")
-    log.info(f"📋 Total événements dans historique : {len(load_email_history())}")
 
 
 def format_email_body(event: dict) -> str:
@@ -1140,15 +1066,17 @@ def format_email_body(event: dict) -> str:
         f"⚡ SCORE IMPACT: {event.get('impact_score', 'N/A')}/10",
         f"🔔 URGENCE     : {event.get('urgency', 'N/A')}",
         f"💰 IMPACT PRIX : {event.get('price_impact', 'N/A')}",
+        f"🎯 CERTITUDE   : {int(event.get('certainty_score', 0) * 100)}%",
         f"",
         f"📝 ANALYSE :",
         f"{event.get('summary', 'N/A')}",
         f"",
         f"🔗 SOURCE : {event.get('source_hint', 'N/A')}",
+        f"📅 DATE PUB: {event.get('publication_date', 'N/A')}",
         f"",
         f"{'─'*50}",
         f"⏰ Généré le : {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}",
-        f"🤖 Agent : smolagents 1.24.0 + Ollama qwen2.5:7b",
+        f"🤖 Agent : smolagents + DSPy (qwen3.5:9b)",
     ]
     return "\n".join(lines)
 
