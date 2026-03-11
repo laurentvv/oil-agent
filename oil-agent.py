@@ -17,7 +17,7 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from pathlib import Path
 
-from dspy_oil_module import OilAnalyst, setup_dspy
+from dspy_oil_module_v2 import OilAnalyst, setup_dspy
 from smolagents import (
     CodeAgent,
     LiteLLMModel,
@@ -35,12 +35,12 @@ CONFIG = {
     "ollama_api_base": "http://127.0.0.1:11434",
     "ollama_num_ctx": 8192,
     # Email (relais Postfix local)
-    "smtp_host": "localhost",
+    "smtp_host": "smtp2.123ce.net",
     "smtp_port": 25,
-    "email_from": "oil-monitor@localhost",
-    "email_to": "admin@example.com",       # ← Modifier ici
+    "email_from": "no-reply@123ce.net",
+    "email_to": "laurentvv@gmail.com",       # ← Modifier ici
     "email_subject_prefix": "[OIL-ALERT]",
-    "send_emails": False,                  # Désactiver l'envoi d'emails (True pour activer)
+    "send_emails": True,                  # Désactiver l'envoi d'emails (True pour activer)
     # Fichiers de persistance
     "history_file": "logs/email_history.json",
     "events_db": "logs/events_seen.json",
@@ -89,13 +89,13 @@ Path("logs").mkdir(exist_ok=True)
 def load_seen_events() -> set:
     p = Path(CONFIG["events_db"])
     if p.exists():
-        with open(p) as f:
+        with open(p, encoding="utf-8") as f:
             return set(json.load(f))
     return set()
 
 
 def save_seen_events(seen: set):
-    with open(CONFIG["events_db"], "w") as f:
+    with open(CONFIG["events_db"], "w", encoding="utf-8") as f:
         json.dump(list(seen), f, indent=2)
 
 
@@ -111,13 +111,13 @@ def event_fingerprint(title: str, source: str) -> str:
 def load_email_history() -> list:
     p = Path(CONFIG["history_file"])
     if p.exists():
-        with open(p) as f:
+        with open(p, encoding="utf-8") as f:
             return json.load(f)
     return []
 
 
 def save_email_history(history: list):
-    with open(CONFIG["history_file"], "w") as f:
+    with open(CONFIG["history_file"], "w", encoding="utf-8") as f:
         json.dump(history, f, indent=2, ensure_ascii=False)
 
 
@@ -931,7 +931,7 @@ def run_monitoring_cycle():
         log.info("Starting DSPy analysis (5 trials)...")
         setup_dspy(CONFIG["ollama_model"], CONFIG["ollama_api_base"])
         analyst = OilAnalyst(num_trials=5)
-        raw_result = analyst.forward(raw_intelligence=str(raw_intelligence), current_date=current_date)
+        raw_result = analyst(raw_intelligence=str(raw_intelligence), current_date=current_date)
         log.info(f"DSPy result: {str(raw_result)[:500]}")
     except Exception as e:
         log.error(f"Analysis error: {e}")
