@@ -780,6 +780,8 @@ class VIXTool(Tool):
 
 def build_agent() -> CodeAgent:
     """Initialise le modèle Ollama et l'agent avec tous les tools."""
+    from smolagents.local_python_executor import LocalPythonExecutor
+    
     model = LiteLLMModel(
         model_id=CONFIG["ollama_model"],
         api_base=CONFIG["ollama_api_base"],
@@ -805,12 +807,26 @@ def build_agent() -> CodeAgent:
         VIXTool(ddg),
     ]
 
+    # Créer un executor personnalisé avec un timeout augmenté à 60 secondes
+    custom_executor = LocalPythonExecutor(
+        additional_authorized_imports=["json", "datetime", "hashlib", "feedparser"],
+        timeout_seconds=60,  # Timeout augmenté de 30 à 60 secondes
+    )
+
+    # Créer l'agent avec le format markdown pour les balises de code
     agent = CodeAgent(
         tools=tools,
         model=model,
         max_steps=20,
         additional_authorized_imports=["json", "datetime", "hashlib", "feedparser"],
+        executor=custom_executor,  # Utiliser l'executor personnalisé
+        code_block_tags="markdown",  # ✅ CORRECTION: Accepter le format markdown standard (```python``` ou ```json```)
     )
+    
+    # LOG DE DEBUG : Logger les balises de code utilisées par le CodeAgent
+    log.info(f"🔧 CodeAgent code_block_tags: {agent.code_block_tags}")
+    log.info(f"🔧 CodeAgent attend le format: {agent.code_block_tags[0]}...{agent.code_block_tags[1]}")
+    
     return agent
 
 
@@ -827,13 +843,108 @@ def get_master_prompt() -> str:
     threshold = CONFIG["alert_threshold"]
     
     prompt = f"""
-You are an expert oil market analyst monitoring geopolitical and industrial events 
+═══════════════════════════════════════════════════════════════════════════════
+⚠️  FORMAT DE RÉPONSE OBLIGATOIRE - À LIRE ATTENTIVEMENT
+═══════════════════════════════════════════════════════════════════════════════
+
+VOUS DEVEZ RETOURNER SEULEMENT DU JSON VALIDE. AUCUN AUTRE TEXTE N'EST ACCEPTÉ.
+
+Votre réponse doit être EXACTEMENT dans ce format:
+
+```json
+{{
+  "events": [
+    {{
+      "id": "unique_event_id",
+      "category": "Iran|Refinery|OPEC|Gas|Shipping|Geopolitical",
+      "title": "Court titre descriptif",
+      "impact_score": 8,
+      "urgency": "Breaking|Recent|Developing|Background",
+      "summary": "Analyse détaillée de l'événement et son impact sur les prix du pétrole",
+      "price_impact": "+$3-5/barrel attendu",
+      "source_hint": "Brève description de la source",
+      "publication_date": "{current_date}"
+    }}
+  ]
+}}
+```
+
+RÈGLES STRICTES:
+- ✓ Retourner SEULEMENT le bloc JSON entre ```json et ```
+- ✓ AUCUN texte avant ou après le JSON
+- ✓ AUCUNE explication, commentaire ou formatage supplémentaire
+- ✓ Le JSON doit être valide et parseable
+- ✓ Si aucun événement n'est trouvé, retourner: {{"events": []}}
+
+═══════════════════════════════════════════════════════════════════════════════
+EXEMPLES DE RÉPONSES
+═══════════════════════════════════════════════════════════════════════════════
+
+EXEMPLE 1 - Avec événement de haute priorité:
+```json
+{{
+  "events": [
+    {{
+      "id": "iran_hormuz_blockade_{current_date.replace('-', '')}",
+      "category": "Iran",
+      "title": "Iran bloque le détroit d'Ormuz - menace majeure sur l'approvisionnement",
+      "impact_score": 9,
+      "urgency": "Breaking",
+      "summary": "L'Iran a annoncé le blocage du détroit d'Ormuz, qui transporte 20% du pétrole mondial. Cette action sans précédent menace gravement l'approvisionnement mondial et pourrait entraîner une hausse immédiate des prix du Brent de $5-10/barrel.",
+      "price_impact": "+$5-10/barrel attendu",
+      "source_hint": "Reuters Breaking News",
+      "publication_date": "{current_date}"
+    }}
+  ]
+}}
+```
+
+EXEMPLE 2 - Avec plusieurs événements:
+```json
+{{
+  "events": [
+    {{
+      "id": "saudi_refinery_attack_{current_date.replace('-', '')}",
+      "category": "Refinery",
+      "title": "Attaque drone sur raffinerie Aramco en Arabie Saoudite",
+      "impact_score": 7,
+      "urgency": "Breaking",
+      "summary": "Une attaque de drone a touché la raffinerie Aramco à Ras Tanura, causant des dégâts importants et réduisant la production de 500k barils/jour. Les forces de sécurité ont intercepté l'attaque mais les opérations sont suspendues.",
+      "price_impact": "+$2-4/barrel attendu",
+      "source_hint": "Bloomberg Energy",
+      "publication_date": "{current_date}"
+    }},
+    {{
+      "id": "opec_emergency_meeting_{current_date.replace('-', '')}",
+      "category": "OPEC",
+      "title": "OPEC convoque réunion d'urgence sur les coupes de production",
+      "impact_score": 6,
+      "urgency": "Recent",
+      "summary": "L'OPEC a annoncé une réunion d'urgence pour discuter de coupes de production supplémentaires en réponse à la baisse des prix. Les analystes anticipent une réduction de 1M barils/jour.",
+      "price_impact": "+$1-3/barrel attendu",
+      "source_hint": "Reuters Energy",
+      "publication_date": "{current_date}"
+    }}
+  ]
+}}
+```
+
+EXEMPLE 3 - Sans événement:
+```json
+{{
+  "events": []
+}}
+```
+
+═══════════════════════════════════════════════════════════════════════════════
+VOTRE MISSION
+═══════════════════════════════════════════════════════════════════════════════
+
+You are an expert oil market analyst monitoring geopolitical and industrial events
 that could cause oil prices (Brent crude, WTI) to spike or rebound.
 
 CURRENT DATE: {current_date}
 CURRENT DATETIME: {current_datetime}
-
-Your mission for this analysis run:
 
 1. Use ALL available specialized tools to gather current intelligence:
    - search_iran_conflict: Iran military tensions, IRGC, Strait of Hormuz
@@ -847,13 +958,13 @@ Your mission for this analysis run:
    - read_rss_feeds: Real-time RSS feeds from Reuters, Bloomberg, AP, BBC
     - get_vix_index: Current VIX volatility index (market fear indicator)
 
-2. PERFORMANCE OPTIMIZATION: For faster execution, you can call tools directly 
+2. PERFORMANCE OPTIMIZATION: For faster execution, you can call tools directly
    without intermediate analysis steps when appropriate:
    - For quick checks: Call search_recent_news(topic="all", timeframe="24h") directly
    - For real-time updates: Call read_rss_feeds(feed="all", hours_back=12) directly
    - For volatility assessment: Call get_vix_index() directly
    - For price checks: Call get_oil_price() directly
-   - For targeted searches: Use specific tools with appropriate parameters (e.g., 
+   - For targeted searches: Use specific tools with appropriate parameters (e.g.,
      search_iran_conflict(days_back=1), search_refinery_damage(region="middle_east"))
    - Direct tool calls are ~3-10x faster than full agent analysis
    - Use direct calls when: (a) You need quick information, (b) You're testing/debugging,
@@ -874,27 +985,23 @@ Your mission for this analysis run:
    - SOURCE_TITLE: Brief title of the news
    - PUBLICATION_DATE: Date of the news (if available)
 
-4. Filter to keep ONLY events with Impact Score >= {threshold}
+5. Filter to keep ONLY events with Impact Score >= {threshold}
 
-5. Return your final answer as a JSON list with this structure:
-[
-  {{
-    "id": "unique_slug",
-    "category": "Iran|Refinery|OPEC|Gas|Shipping|Geopolitical",
-    "title": "Short event title",
-    "impact_score": 8,
-    "urgency": "Breaking",
-    "summary": "Detailed analysis of the event...",
-    "price_impact": "+$3-5/barrel expected",
-    "source_hint": "Brief source description",
-    "publication_date": "{current_date}"
-  }}
-]
+6. RETURN YOUR RESPONSE IN THE JSON FORMAT SPECIFIED ABOVE.
 
-If no high-impact events found, return: []
+═══════════════════════════════════════════════════════════════════════════════
+FINAL REMINDER
+═══════════════════════════════════════════════════════════════════════════════
 
-Be thorough, analytical, and focus on ACTIONABLE intelligence for oil traders.
-Remember: Current date is {current_date} - prioritize news from today and recent hours.
+⚠️  REMINDER: Return ONLY valid JSON between ```json and ```
+⚠️  NO text before or after the JSON
+⚠️  NO explanations or comments
+
+```json
+{{
+  "events": [...]
+}}
+```
 """
     return prompt
 
@@ -918,25 +1025,82 @@ def run_monitoring_cycle():
         # Utiliser le prompt dynamique avec la date du jour
         prompt = get_master_prompt()
         raw_result = agent.run(prompt)
-        log.info(f"Agent result (raw): {str(raw_result)[:500]}")
+        
+        # LOG DE DEBUG : Logger le résultat brut retourné par l'agent
+        log.info(f"🔍 Agent result (raw, 500 premiers caractères): {str(raw_result)[:500]}")
+        log.info(f"📊 Type du résultat brut: {type(raw_result)}")
+        
     except Exception as e:
         log.error(f"Agent error: {e}")
         return
 
-    # Parse JSON
+    # Parse JSON - Version améliorée avec plusieurs patterns
     events = []
+    
+    # LOG DE DEBUG : Logger le début du parsing
+    log.info(f"🔧 Début du parsing JSON...")
+    
     if isinstance(raw_result, list):
         events = raw_result
+        log.info(f"✅ Résultat est une liste, {len(events)} événements")
     elif isinstance(raw_result, str):
-        # Extraction du JSON depuis la réponse texte
+        # Extraction du JSON depuis la réponse texte avec plusieurs patterns
         import re
-        match = re.search(r'\[.*\]', raw_result, re.DOTALL)
-        if match:
+        
+        # LOG DE DEBUG : Logger le texte brut pour analyse
+        log.info(f"📝 Résultat brut (premiers 200 caractères): {raw_result[:200]}")
+        
+        # Pattern 1: Bloc JSON avec marqueurs ```json ... ```
+        json_match = re.search(r'```json\s*(\{.*?\})\s*```', raw_result, re.DOTALL)
+        if json_match:
             try:
-                events = json.loads(match.group())
-            except json.JSONDecodeError:
-                log.warning("Impossible de parser le JSON — pas d'alerte envoyée")
-                events = []
+                data = json.loads(json_match.group(1))
+                events = data.get("events", [])
+                log.info(f"✅ JSON extrait via pattern 1 (bloc ```json), {len(events)} événements")
+            except json.JSONDecodeError as e:
+                log.warning(f"⚠️  Erreur parsing JSON (pattern 1): {e}")
+        
+        # Pattern 2: Tableau JSON direct [...]
+        if not events:
+            match = re.search(r'\[.*\]', raw_result, re.DOTALL)
+            if match:
+                try:
+                    events = json.loads(match.group())
+                    log.info(f"✅ JSON extrait via pattern 2 (tableau direct)")
+                except json.JSONDecodeError as e:
+                    log.warning(f"⚠️  Erreur parsing JSON (pattern 2): {e}")
+        
+        # Pattern 3: Objet JSON avec clé "events"
+        if not events:
+            match = re.search(r'\{.*"events".*?\}', raw_result, re.DOTALL)
+            if match:
+                try:
+                    data = json.loads(match.group())
+                    events = data.get("events", [])
+                    log.info(f"✅ JSON extrait via pattern 3 (objet avec clé 'events')")
+                except json.JSONDecodeError as e:
+                    log.warning(f"⚠️  Erreur parsing JSON (pattern 3): {e}")
+        
+        # Pattern 4: Objet JSON simple sans clé "events" (compatibilité)
+        if not events:
+            match = re.search(r'\{.*?\}', raw_result, re.DOTALL)
+            if match:
+                try:
+                    data = json.loads(match.group())
+                    if isinstance(data, list):
+                        events = data
+                        log.info(f"✅ JSON extrait via pattern 4 (objet liste)")
+                    elif isinstance(data, dict) and "events" in data:
+                        events = data["events"]
+                        log.info(f"✅ JSON extrait via pattern 4 (objet dict)")
+                except json.JSONDecodeError as e:
+                    log.warning(f"⚠️  Erreur parsing JSON (pattern 4): {e}")
+        
+        if not events:
+            log.warning("❌ Impossible de parser le JSON — pas d'alerte envoyée")
+            log.debug(f"Résultat brut (premiers 500 caractères): {str(raw_result)[:500]}")
+            log.warning("⚠️  DIAGNOSTIC: Aucun pattern de JSON n'a correspondu. Vérifiez les logs ci-dessus pour voir le format retourné par le modèle.")
+            events = []
 
     log.info(f"📊 {len(events)} événement(s) à impact élevé détectés")
 
