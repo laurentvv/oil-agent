@@ -10,15 +10,11 @@ Ce skill explique comment utiliser les outils Python du projet **oil-agent** dir
 
 ### Avantages :
 - **⚡ Plus rapide** : Pas d'analyse par l'agent, exécution directe
-- **💰 Moins coûteux** : Moins d'appels au LLM (Ollama)
+- **💰 Moins coûteux** : Moins d'appels au LLM (llama-server)
 - **🎯 Plus précis** : Contrôle total sur les paramètres
 - **🔧 Plus flexible** : Peut être intégré dans d'autres scripts
-
-### Quand l'utiliser :
-- Recherche rapide d'informations spécifiques
-- Tests et débogage des outils
-- Intégration dans des scripts d'automatisation
-- Surveillance en temps réel avec latence minimale
+- **📊 Plus flexible** : Peut être intégré dans d'autres scripts d'automatisation
+- **🎨 Compatible avec llama-server** : Fonctionne avec l'infrastructure de migration
 
 ---
 
@@ -173,7 +169,8 @@ result = shipping_tool.forward()
 print(result)
 ```
 
-**Paramètres** : Aucun
+**Paramètres** :
+- Aucun
 
 ---
 
@@ -187,7 +184,8 @@ result = geo_tool.forward()
 print(result)
 ```
 
-**Paramètres** : Aucun
+**Paramètres** :
+- Aucun
 
 ---
 
@@ -201,13 +199,14 @@ result = price_tool.forward()
 print(result)
 ```
 
-**Paramètres** : Aucun
+**Paramètres** :
+- Aucun
 
 ---
 
 ### 8. RecentNewsTool - Actualités très récentes ⚡
 
-**Description** : Recherche les actualités très récentes sur le pétrole depuis les sources majeures (Reuters, Bloomberg, AP, BBC, FT, WSJ).
+**Description** : Recherche les actualités très récentes sur le pétrole depuis les sources majeures (Reuters, Bloomberg, AP, BBC, FT, WSJ). Filtre les résultats par date (dernières 24h, 48h, ou 7 jours) et priorise les breaking news et developing stories.
 
 ```python
 # Recherche des actualités des dernières 24h
@@ -286,7 +285,8 @@ result = vix_tool.forward()
 print(result)
 ```
 
-**Paramètres** : Aucun
+**Paramètres** :
+- Aucun
 
 ---
 
@@ -320,7 +320,7 @@ price_tool = OilPriceTool(ddg)
 def quick_monitoring():
     """Surveillance rapide des événements à fort impact."""
     print(f"\n{'='*60}")
-    print(f"🛢️  SURVEILLANCE RAPIDE - {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
+    print(f"🛢️ SURVEILLANCE RAPIDE - {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}")
     print(f"{'='*60}\n")
     
     # 1. Actualités très récentes (24h)
@@ -386,15 +386,17 @@ def monitor_specific_topic(topic: str):
     
     if topic == "iran":
         result = iran_tool.forward(days_back=1)
+        print(result)
     elif topic == "refinery":
         result = refinery_tool.forward(region="global")
+        print(result)
     elif topic == "opec":
         result = opec_tool.forward(focus="all")
+        print(result)
     else:
         print(f"❌ Topic inconnu: {topic}")
         return
     
-    print(result)
     print(f"\n{'='*60}\n")
 
 if __name__ == "__main__":
@@ -413,7 +415,7 @@ if __name__ == "__main__":
 ## 📊 Comparaison des performances
 
 | Méthode | Temps d'exécution | Coût LLM | Flexibilité |
-|---------|------------------|-----------|-------------|
+|---------|------------------|-------------|-------------|
 | **Agent complet** | ~30-60s | Élevé (plusieurs appels) | Automatique |
 | **Outils directs** | ~5-15s | Faible (0-1 appel) | Manuel mais précis |
 | **Outils ciblés** | ~2-5s | Nul | Maximum contrôle |
@@ -444,7 +446,7 @@ if "high" in vix.lower() or "spike" in vix.lower():
 ```python
 # Exemple de filtrage des résultats
 def filter_high_impact_news(news_result: str, min_score: int = 7):
-    """Filtre les actualités à fort impact."""
+    """Filtrer les actualités à fort impact."""
     lines = news_result.split('\n')
     high_impact = []
     
@@ -470,7 +472,7 @@ logging.basicConfig(
 )
 
 def log_tool_result(tool_name: str, result: str):
-    """Logge le résultat d'un outil."""
+    """Logger le résultat d'un outil."""
     timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     logging.info(f"[{tool_name}] {timestamp}")
     logging.info(f"Result: {result[:500]}...")  # Log tronqué
@@ -510,11 +512,12 @@ python monitor_targeted.py opec
 Ce skill permet d'utiliser les outils Python du projet **oil-agent** directement pour :
 
 1. **Accélérer l'exécution** : Éviter les étapes intermédiaires de l'agent
-2. **Réduire les coûts** : Moins d'appels au LLM
+2. **Réduire les coûts** : Moins d'appels au LLM (llama-server)
 3. **Avoir un contrôle total** : Choisir exactement quels outils utiliser et comment
-4. **Intégrer facilement** : Utiliser les outils dans d'autres scripts
+4. **Intégrer facilement** : Utiliser les outils dans d'autres scripts d'automatisation
+5. **Surveiller en temps réel** : Utiliser les outils **RecentNewsTool**, **RSSFeedTool** et **VIXTool** avec des paramètres de temps courts (24h, 12h, 6h)
 
-Pour une surveillance en temps réel, privilégiez les outils **RecentNewsTool**, **RSSFeedTool** et **VIXTool** avec des paramètres de temps courts (24h, 12h, 6h).
+Pour une surveillance automatisée complète avec envoi d'emails, utilisez l'agent complet via `python oil_agent.py`.
 
 ---
 
@@ -523,6 +526,7 @@ Pour une surveillance en temps réel, privilégiez les outils **RecentNewsTool**
 - [`oil_agent.py`](oil_agent.py) : Code principal avec tous les outils
 - [`README.md`](README.md) : Documentation complète du projet
 - [`pyproject.toml`](pyproject.toml) : Dépendances du projet
+- [`config.json`](config.json) : Configuration du projet (llama-server, modèle, email, etc.)
 
 ---
 
