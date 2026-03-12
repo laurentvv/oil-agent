@@ -1,16 +1,21 @@
 """
 Oil Market Monitoring Agent
 ============================
-smolagents 1.24.0 + LiteLLM + Ollama (qwen2.5:7b)
+smolagents 1.24.0 + LiteLLM + llama.cpp (Qwen3.5-9B)
 Surveille les événements géopolitiques et industriels pouvant faire rebondir le cours du pétrole.
 Envoie des alertes email via relais SMTP (Postfix local).
 """
 
-import os
 import json
 import smtplib
 import hashlib
 import logging
+import subprocess
+import time
+import requests
+import atexit
+import sys
+import io
 from datetime import datetime
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
@@ -22,11 +27,10 @@ from smolagents import (
     DuckDuckGoSearchTool,
     VisitWebpageTool,
     Tool,
-    tool,
 )
 
 import dspy
-from pydantic import BaseModel, Field, validator
+from pydantic import BaseModel, Field, field_validator
 from typing import List, Literal, Optional
 
 # ─────────────────────────────────────────────
@@ -87,6 +91,8 @@ class OilEventAnalyzer(dspy.Module):
 def validate_and_fix_events(events: list, current_date: str) -> list:
     """Valide et nettoie les événements produits par le LLM."""
     valid_events = []
+    valid_categories = ["Iran", "Refinery", "OPEC", "Gas", "Shipping", "Geopolitical"]
+    
     for i, event in enumerate(events):
         try:
             # Transformation en dict si c'est un objet Pydantic
@@ -96,16 +102,45 @@ def validate_and_fix_events(events: list, current_date: str) -> list:
             if not e_dict.get("title") or not e_dict.get("category"):
                 log.warning(f"⚠️ Event {i} ignoré : titre ou catégorie manquant")
                 continue
+            
+            # 1.5. Corriger les catégories invalides
+            category = e_dict.get("category", "")
+            if category not in valid_categories:
+                log.warning(f"⚠️ Event {i} catégorie invalide '{category}', tentative de correction...")
+                # Essayer de mapper vers une catégorie valide
+                category_lower = category.lower()
+                if "iran" in category_lower or "hormuz" in category_lower or "persian" in category_lower:
+                    e_dict["category"] = "Iran"
+                elif "refinery" in category_lower or "plant" in category_lower:
+                    e_dict["category"] = "Refinery"
+                elif "opec" in category_lower or "production" in category_lower or "supply" in category_lower:
+                    e_dict["category"] = "OPEC"
+                elif "gas" in category_lower or "lng" in category_lower:
+                    e_dict["category"] = "Gas"
+                elif "shipping" in category_lower or "tanker" in category_lower or "red sea" in category_lower or "suez" in category_lower:
+                    e_dict["category"] = "Shipping"
+                elif "geopolitical" in category_lower or "war" in category_lower or "conflict" in category_lower:
+                    e_dict["category"] = "Geopolitical"
+                else:
+                    # Si aucune correspondance, utiliser "Geopolitical" par défaut
+                    log.warning(f"⚠️ Event {i} catégorie '{category}' mappée vers 'Geopolitical'")
+                    e_dict["category"] = "Geopolitical"
                 
             # 2. Valeurs par défaut pour les champs optionnels manquants
-            if "impact_score" not in e_dict: e_dict["impact_score"] = 5
-            if "urgency" not in e_dict: e_dict["urgency"] = "Recent"
-            if "summary" not in e_dict: e_dict["summary"] = "No summary provided."
-            if "price_impact" not in e_dict: e_dict["price_impact"] = "Unknown"
-            if "source_hint" not in e_dict: e_dict["source_hint"] = "Multiple sources"
+            if "impact_score" not in e_dict:
+                e_dict["impact_score"] = 5
+            if "urgency" not in e_dict:
+                e_dict["urgency"] = "Recent"
+            if "summary" not in e_dict:
+                e_dict["summary"] = "No summary provided."
+            if "price_impact" not in e_dict:
+                e_dict["price_impact"] = "Unknown"
+            if "source_hint" not in e_dict:
+                e_dict["source_hint"] = "Multiple sources"
             if "publication_date" not in e_dict or not e_dict["publication_date"]:
                 e_dict["publication_date"] = current_date
-            if "certainty_score" not in e_dict: e_dict["certainty_score"] = 0.7
+            if "certainty_score" not in e_dict:
+                e_dict["certainty_score"] = 0.7
             if "id" not in e_dict:
                 e_dict["id"] = event_fingerprint(e_dict["title"], e_dict["category"])
                 
@@ -115,54 +150,254 @@ def validate_and_fix_events(events: list, current_date: str) -> list:
             
     return valid_events
 
-# Configurer DSPy par défaut (sera mis à jour dans build_agent si nécessaire)
 def configure_dspy():
-    """Configure DSPy avec le modèle Ollama défini dans CONFIG."""
-    lm = dspy.LM(CONFIG["ollama_model"], api_base=CONFIG["ollama_api_base"])
+    """Configure DSPy avec le modèle llama-server défini dans CONFIG."""
+    lm = dspy.LM(
+        model=f"openai/{CONFIG.model.name}",
+        api_base=CONFIG.model.api_base,
+        api_key="dummy",  # llama-server ne nécessite pas de clé API
+        model_type="chat"
+    )
     dspy.configure(lm=lm, adapter=dspy.JSONAdapter())
     return lm
 
 # ─────────────────────────────────────────────
 # Configuration
 # ─────────────────────────────────────────────
-CONFIG = {
-    # Ollama
-    "ollama_model": "ollama_chat/qwen3.5:9b",
-    "ollama_api_base": "http://127.0.0.1:11434",
-    "ollama_num_ctx": 8192,
-    # Email (relais Postfix local)
-    "smtp_host": "localhost",
-    "smtp_port": 25,
-    "email_from": "oil-monitor@localhost",
-    "email_to": "admin@example.com",       # ← Modifier ici
-    "email_subject_prefix": "[OIL-ALERT]",
-    "send_emails": False,                  # Désactiver l'envoi d'emails (True pour activer)
-    # Fichiers de persistance
-    "history_file": "logs/email_history.json",
-    "events_db": "logs/events_seen.json",
-    "dataset_file": "data/oil_intelligence_dataset.jsonl",
-    # Seuil de score d'impact (0-10) pour déclencher une alerte
-    "alert_threshold": 6,
-    # Sources d'actualités prioritaires
-    "news_sources": [
-        "reuters.com",
-        "bloomberg.com",
-        "apnews.com",
-        "bbc.com",
-        "ft.com",
-        "wsj.com",
-    ],
-    # Fuseau horaire pour les dates
-    "timezone": "Europe/Paris",
-    # Délai maximal pour considérer une actualité comme "récente" (heures)
-    "recent_news_hours": 24,
-}
+
+# Modèles Pydantic pour la validation de la configuration
+class ModelConfig(BaseModel):
+    """Configuration du modèle LLM."""
+    name: str = Field(..., description="Nom du modèle")
+    path: str = Field(..., description="Chemin vers le fichier du modèle")
+    api_base: str = Field(..., description="URL de base de l'API")
+    num_ctx: int = Field(..., gt=0, description="Taille du contexte")
+    provider: str = Field(..., description="Fournisseur du modèle")
+    
+    @field_validator('path')
+    @classmethod
+    def path_exists(cls, v):
+        """Vérifie que le fichier du modèle existe."""
+        path = Path(v)
+        if not path.exists():
+            raise ValueError(f"Modèle introuvable : {v}")
+        if not path.is_file():
+            raise ValueError(f"Le chemin n'est pas un fichier : {v}")
+        return v
+
+class LlamaServerConfig(BaseModel):
+    """Configuration du serveur llama-server."""
+    executable: str = Field(default="llama-server", description="Exécutable du serveur")
+    n_gpu_layers: int = Field(default=-1, ge=-1, description="Nombre de couches GPU (-1 pour toutes)")
+    n_threads: int = Field(default=0, ge=-1, description="Nombre de threads CPU (0 pour auto)")
+    ctx_size: int = Field(default=8192, gt=0, description="Taille du contexte")
+    batch_size: int = Field(default=512, gt=0, description="Taille du batch")
+    ubatch_size: int = Field(default=128, gt=0, description="Taille du micro-batch")
+    cache_type_k: str = Field(default="f16", description="Type de cache K")
+    cache_type_v: str = Field(default="f16", description="Type de cache V")
+    host: str = Field(default="0.0.0.0", description="Adresse d'écoute")
+    port: int = Field(default=8080, ge=1, le=65535, description="Port d'écoute")
+
+class EmailConfig(BaseModel):
+    """Configuration de l'envoi d'emails."""
+    smtp_host: str = Field(default="localhost", description="Hôte SMTP")
+    smtp_port: int = Field(default=25, ge=1, le=65535, description="Port SMTP")
+    email_from: str = Field(default="oil-monitor@localhost", description="Expéditeur")
+    email_to: str = Field(default="admin@example.com", description="Destinataire")
+    email_subject_prefix: str = Field(default="[OIL-ALERT]", description="Préfixe du sujet")
+    send_emails: bool = Field(default=False, description="Activer l'envoi d'emails")
+
+class PersistenceConfig(BaseModel):
+    """Configuration de la persistance."""
+    history_file: str = Field(default="logs/email_history.json", description="Fichier d'historique")
+    events_db: str = Field(default="logs/events_seen.json", description="Base des événements vus")
+    dataset_file: str = Field(default="data/oil_intelligence_dataset.jsonl", description="Fichier de dataset")
+
+class MonitoringConfig(BaseModel):
+    """Configuration de la surveillance."""
+    alert_threshold: int = Field(default=6, ge=0, le=10, description="Seuil d'alerte")
+    news_sources: List[str] = Field(default_factory=list, description="Sources d'actualités")
+    timezone: str = Field(default="Europe/Paris", description="Fuseau horaire")
+    recent_news_hours: int = Field(default=24, gt=0, description="Heures d'actualités récentes")
+
+class Config(BaseModel):
+    """Configuration principale."""
+    model: ModelConfig
+    llama_server: LlamaServerConfig
+    email: EmailConfig
+    persistence: PersistenceConfig
+    monitoring: MonitoringConfig
+
+# Charger la configuration depuis config.json
+def load_config() -> Config:
+    """Charge et valide la configuration depuis config.json."""
+    config_path = Path("config.json")
+    if not config_path.exists():
+        raise FileNotFoundError(
+            "Fichier config.json introuvable. "
+            "Veuillez le créer avec la configuration du modèle."
+        )
+    try:
+        with open(config_path, "r", encoding="utf-8") as f:
+            config_dict = json.load(f)
+        return Config(**config_dict)
+    except json.JSONDecodeError as e:
+        raise ValueError(f"Erreur de parsing JSON dans config.json : {e}")
+    except Exception as e:
+        raise ValueError(f"Erreur de validation de la configuration : {e}")
+
+CONFIG = load_config()
+
+# Configuration legacy pour compatibilité
+CONFIG_dict = CONFIG.model_dump()
+CONFIG_dict["llama_model"] = f"openai/{CONFIG.model.name}"
+CONFIG_dict["llama_api_base"] = CONFIG.model.api_base
+CONFIG_dict["llama_num_ctx"] = CONFIG.model.num_ctx
+
+# ─────────────────────────────────────────────
+# Gestion automatique de llama-server
+# ─────────────────────────────────────────────
+
+_llama_server_process = None
+
+def build_llama_server_command(config: Config) -> list:
+    """Construit la commande llama-server de manière cohérente.
+    
+    Args:
+        config: Configuration validée
+        
+    Returns:
+        Liste des arguments pour subprocess.Popen
+    """
+    server_config = config.llama_server
+    model_path = config.model.path
+    
+    # Ajouter l'extension .exe sur Windows si nécessaire
+    executable = server_config.executable
+    if sys.platform == "win32" and not executable.endswith(".exe"):
+        executable += ".exe"
+    
+    return [
+        executable,
+        "-m", model_path,
+        "--host", server_config.host,
+        "--port", str(server_config.port),
+        "-ngl", str(server_config.n_gpu_layers),
+        "-t", str(server_config.n_threads),
+        "-c", str(server_config.ctx_size),
+        "-b", str(server_config.batch_size),
+        "-ub", str(server_config.ubatch_size),
+        "-ctk", server_config.cache_type_k,
+        "-ctv", server_config.cache_type_v,
+    ]
+
+def check_llama_server_running() -> bool:
+    """Vérifie si llama-server est déjà en cours d'exécution."""
+    try:
+        response = requests.get(
+            f"{CONFIG.model.api_base}/health",
+            timeout=2
+        )
+        return response.status_code == 200
+    except Exception:
+        return False
+
+def start_llama_server():
+    """Démarre automatiquement llama-server avec la configuration de config.json."""
+    global _llama_server_process
+    
+    # Vérifier si déjà démarré
+    if check_llama_server_running():
+        log.info("✅ llama-server est déjà en cours d'exécution")
+        return True
+    
+    # Construire la commande de manière cohérente
+    cmd = build_llama_server_command(CONFIG)
+    
+    log.info("🚀 Démarrage automatique de llama-server...")
+    log.info(f"   Modèle: {CONFIG.model.path}")
+    log.info(f"   Port: {CONFIG.llama_server.port}")
+    log.info(f"   GPU Layers: {CONFIG.llama_server.n_gpu_layers}")
+    log.info(f"   Commande: {' '.join(cmd)}")
+    
+    try:
+        # Démarrer le processus en arrière-plan
+        _llama_server_process = subprocess.Popen(
+            cmd,
+            stdout=subprocess.PIPE,
+            stderr=subprocess.PIPE,
+            creationflags=subprocess.CREATE_NO_WINDOW if sys.platform == "win32" else 0
+        )
+        
+        # Attendre que le serveur soit prêt
+        max_wait = 60  # 60 secondes max
+        for i in range(max_wait):
+            # Vérifier si le processus s'est terminé avec une erreur
+            return_code = _llama_server_process.poll()
+            if return_code is not None:
+                # Le processus s'est terminé, lire stderr pour l'erreur
+                stderr_output = _llama_server_process.stderr.read().decode('utf-8', errors='replace')
+                log.error(f"❌ llama-server s'est terminé avec le code {return_code}")
+                log.error(f"❌ Erreur stderr: {stderr_output}")
+                return False
+            
+            if check_llama_server_running():
+                log.info(f"✅ llama-server démarré avec succès (PID: {_llama_server_process.pid})")
+                
+                # Enregistrer le nettoyage à la sortie
+                atexit.register(stop_llama_server)
+                return True
+            
+            if i % 5 == 0:  # Log toutes les 5 secondes
+                log.info(f"⏳ Attente du serveur... ({i}s)")
+            
+            time.sleep(1)
+        
+        # Timeout : lire stderr pour diagnostiquer
+        stderr_output = _llama_server_process.stderr.read().decode('utf-8', errors='replace')
+        log.error("❌ Timeout : llama-server n'a pas démarré dans le temps imparti")
+        log.error(f"❌ Dernières erreurs stderr: {stderr_output}")
+        return False
+        
+    except Exception as e:
+        log.error(f"❌ Erreur lors du démarrage de llama-server : {e}")
+        import traceback
+        log.error(traceback.format_exc())
+        return False
+
+def stop_llama_server():
+    """Arrête proprement llama-server s'il a été démarré automatiquement.
+    
+    IMPORTANT : Cette fonction est enregistrée avec atexit.register(),
+    donc elle est AUTOMATIQUEMENT appelée quand le script Python se termine.
+    C'est le comportement souhaité : llama-server démarre avec l'agent
+    et s'arrête automatiquement quand l'agent a fini son travail.
+    """
+    global _llama_server_process
+    
+    if _llama_server_process is None:
+        return
+    
+    try:
+        log.info(f"🛑 Arrêt automatique de llama-server (PID: {_llama_server_process.pid})...")
+        _llama_server_process.terminate()
+        
+        # Attendre que le processus se termine
+        try:
+            _llama_server_process.wait(timeout=10)
+        except subprocess.TimeoutExpired:
+            log.warning("⚠️ Timeout, envoi de SIGKILL...")
+            _llama_server_process.kill()
+        
+        log.info("✅ llama-server arrêté proprement")
+    except Exception as e:
+        log.error(f"❌ Erreur lors de l'arrêt de llama-server : {e}")
+    finally:
+        _llama_server_process = None
 
 # ─────────────────────────────────────────────
 # Logging
 # ─────────────────────────────────────────────
-import sys
-import io
 
 # Configurer stdout pour utiliser UTF-8 sur Windows
 if sys.platform == "win32":
@@ -186,7 +421,7 @@ Path("logs").mkdir(exist_ok=True)
 # Persistance : historique des événements vus
 # ─────────────────────────────────────────────
 def load_seen_events() -> set:
-    p = Path(CONFIG["events_db"])
+    p = Path(CONFIG.persistence.events_db)
     if p.exists():
         with open(p, encoding="utf-8", errors="replace") as f:
             return set(json.load(f))
@@ -194,7 +429,7 @@ def load_seen_events() -> set:
 
 
 def save_seen_events(seen: set):
-    with open(CONFIG["events_db"], "w", encoding="utf-8") as f:
+    with open(CONFIG.persistence.events_db, "w", encoding="utf-8") as f:
         json.dump(list(seen), f, indent=2)
 
 
@@ -208,7 +443,7 @@ def event_fingerprint(title: str, source: str) -> str:
 # Persistance : historique des emails envoyés
 # ─────────────────────────────────────────────
 def load_email_history() -> list:
-    p = Path(CONFIG["history_file"])
+    p = Path(CONFIG.persistence.history_file)
     if p.exists():
         try:
             with open(p, encoding="utf-8", errors="replace") as f:
@@ -221,7 +456,7 @@ def load_email_history() -> list:
 
 
 def save_email_history(history: list):
-    p = Path(CONFIG["history_file"])
+    p = Path(CONFIG.persistence.history_file)
     # Backup avant écriture
     if p.exists():
         try:
@@ -250,11 +485,11 @@ def append_email_log(subject: str, body_preview: str, event_id: str):
 # ─────────────────────────────────────────────
 def send_alert_email(subject: str, body: str, event_id: str) -> bool:
     """Envoie une alerte email via relais SMTP Postfix."""
-    full_subject = f"{CONFIG['email_subject_prefix']} {subject}"
+    full_subject = f"{CONFIG.email.email_subject_prefix} {subject}"
     msg = MIMEMultipart("alternative")
     msg["Subject"] = full_subject
-    msg["From"] = CONFIG["email_from"]
-    msg["To"] = CONFIG["email_to"]
+    msg["From"] = CONFIG.email.email_from
+    msg["To"] = CONFIG.email.email_to
     msg["X-OilMonitor-EventID"] = event_id
 
     # Corps texte brut
@@ -279,14 +514,14 @@ def send_alert_email(subject: str, body: str, event_id: str) -> bool:
     msg.attach(MIMEText(html_body, "html", "utf-8"))
 
     # Vérifier si l'envoi d'emails est désactivé
-    if not CONFIG.get("send_emails", True):
+    if not CONFIG.email.send_emails:
         log.info(f"📧 Email désactivé (simulation) : {full_subject}")
         append_email_log(full_subject, body, event_id)
         return True
 
     try:
-        with smtplib.SMTP(CONFIG["smtp_host"], CONFIG["smtp_port"], timeout=10) as smtp:
-            smtp.sendmail(CONFIG["email_from"], [CONFIG["email_to"]], msg.as_string())
+        with smtplib.SMTP(CONFIG.email.smtp_host, CONFIG.email.smtp_port, timeout=10) as smtp:
+            smtp.sendmail(CONFIG.email.email_from, [CONFIG.email.email_to], msg.as_string())
         log.info(f"✅ Email envoyé : {full_subject}")
         append_email_log(full_subject, body, event_id)
         return True
@@ -344,7 +579,7 @@ class IranConflictTool(Tool):
             except Exception as e:
                 results.append(f"[Query: {q}] Error: {e}")
         
-        header = f"=== IRAN CONFLICT SEARCH ===\n"
+        header = "=== IRAN CONFLICT SEARCH ===\n"
         header += f"Current Date: {current_date} | Searching since: {date_str}\n\n"
         
         return header + "\n\n---\n\n".join(results) if results else "No relevant results found."
@@ -407,7 +642,7 @@ class RefineryDamageTool(Tool):
             except Exception as e:
                 results.append(f"[{q}] Error: {e}")
         
-        header = f"=== REFINERY DAMAGE SEARCH ===\n"
+        header = "=== REFINERY DAMAGE SEARCH ===\n"
         header += f"Region: {region} | Current Date: {current_date}\n\n"
         
         return header + "\n\n---\n\n".join(results) if results else "No refinery damage news found."
@@ -456,7 +691,7 @@ class OPECSupplyTool(Tool):
             except Exception as e:
                 results.append(f"[{q}] Error: {e}")
         
-        header = f"=== OPEC+ SUPPLY SEARCH ===\n"
+        header = "=== OPEC+ SUPPLY SEARCH ===\n"
         header += f"Focus: {focus} | Current Date: {current_date}\n\n"
         
         return header + "\n\n---\n\n".join(results) if results else "No OPEC news found."
@@ -505,7 +740,7 @@ class NaturalGasDisruptionTool(Tool):
             except Exception as e:
                 results.append(f"[{q}] Error: {e}")
         
-        header = f"=== NATURAL GAS DISRUPTION SEARCH ===\n"
+        header = "=== NATURAL GAS DISRUPTION SEARCH ===\n"
         header += f"Topic: {topic} | Current Date: {current_date}\n\n"
         
         return header + "\n\n---\n\n".join(results) if results else "No gas disruption news found."
@@ -547,7 +782,7 @@ class ShippingDisruptionTool(Tool):
             except Exception as e:
                 results.append(f"[{q}] Error: {e}")
         
-        header = f"=== SHIPPING DISRUPTION SEARCH ===\n"
+        header = "=== SHIPPING DISRUPTION SEARCH ===\n"
         header += f"Current Date: {current_date}\n\n"
         
         return header + "\n\n---\n\n".join(results) if results else "No shipping disruption news found."
@@ -589,7 +824,7 @@ class GeopoliticalEscalationTool(Tool):
             except Exception as e:
                 results.append(f"[{q}] Error: {e}")
         
-        header = f"=== GEOPOLITICAL ESCALATION SEARCH ===\n"
+        header = "=== GEOPOLITICAL ESCALATION SEARCH ===\n"
         header += f"Current Date: {current_date}\n\n"
         
         return header + "\n\n---\n\n".join(results) if results else "No geopolitical escalation news found."
@@ -628,7 +863,7 @@ class OilPriceTool(Tool):
             except Exception as e:
                 results.append(f"[{q}] Error: {e}")
         
-        header = f"=== OIL PRICE DATA ===\n"
+        header = "=== OIL PRICE DATA ===\n"
         header += f"Current Date: {current_date}\n\n"
         
         return header + "\n\n".join(results) if results else "Oil price data unavailable."
@@ -663,9 +898,6 @@ class RecentNewsTool(Tool):
         self._search = search_tool
 
     def forward(self, topic: str = "all", timeframe: str = "24h") -> str:
-        from datetime import datetime, timedelta
-        
-        now = datetime.now()
         # On utilise des termes relatifs au lieu de la date fixe qui bloque souvent les résultats
         if timeframe == "24h":
             time_query = "today"
@@ -804,7 +1036,7 @@ class RSSFeedTool(Tool):
             except Exception as e:
                 results.append(f"=== {feed_name.upper()} ===\nError reading feed: {e}")
         
-        header = f"=== RSS FEEDS ===\n"
+        header = "=== RSS FEEDS ===\n"
         header += f"Feeds: {feed} | Timeframe: Last {hours_back} hours\n"
         header += f"Cutoff time: {cutoff_time.strftime('%Y-%m-%d %H:%M')}\n\n"
         
@@ -834,7 +1066,7 @@ class VIXTool(Tool):
             f"VIX index value today {current_date}",
             f"CBOE Volatility Index current level {current_date}",
             f"VIX chart volatility market fear {current_date}",
-            f"VIX oil price correlation volatility",
+            "VIX oil price correlation volatility",
         ]
         results = []
         for q in queries:
@@ -845,7 +1077,7 @@ class VIXTool(Tool):
             except Exception as e:
                 results.append(f"[{q}] Error: {e}")
         
-        header = f"=== VIX (CBOE Volatility Index) ===\n"
+        header = "=== VIX (CBOE Volatility Index) ===\n"
         header += f"Current Date: {current_date}\n\n"
         
         return header + "\n\n".join(results) if results else "VIX data unavailable."
@@ -856,13 +1088,14 @@ class VIXTool(Tool):
 # ─────────────────────────────────────────────
 
 def build_agent() -> CodeAgent:
-    """Initialise le modèle Ollama et l'agent avec tous les tools."""
+    """Initialise le modèle llama-server et l'agent avec tous les tools."""
     from smolagents.local_python_executor import LocalPythonExecutor
     
     model = LiteLLMModel(
-        model_id=CONFIG["ollama_model"],
-        api_base=CONFIG["ollama_api_base"],
-        num_ctx=CONFIG["ollama_num_ctx"],
+        model_id=f"openai/{CONFIG.model.name}",
+        api_base=CONFIG.model.api_base,
+        api_key="dummy",  # llama-server ne nécessite pas de clé API
+        num_ctx=CONFIG.model.num_ctx,
     )
 
     # Tools built-in réutilisés dans les tools custom
@@ -887,7 +1120,7 @@ def build_agent() -> CodeAgent:
     # Créer un executor personnalisé avec un timeout augmenté à 60 secondes
     custom_executor = LocalPythonExecutor(
         additional_authorized_imports=["json", "datetime", "hashlib", "feedparser"],
-        timeout_seconds=60,  # Timeout augmenté de 30 à 60 secondes
+        timeout_seconds=60,
     )
 
     # Créer l'agent avec le format markdown pour les balises de code
@@ -896,11 +1129,10 @@ def build_agent() -> CodeAgent:
         model=model,
         max_steps=20,
         additional_authorized_imports=["json", "datetime", "hashlib", "feedparser"],
-        executor=custom_executor,  # Utiliser l'executor personnalisé
-        code_block_tags="markdown",  # ✅ CORRECTION: Accepter le format markdown standard (```python``` ou ```json```)
+        executor=custom_executor,
+        code_block_tags="markdown",
     )
     
-    # LOG DE DEBUG : Logger les balises de code utilisées par le CodeAgent
     log.info(f"🔧 CodeAgent code_block_tags: {agent.code_block_tags}")
     log.info(f"🔧 CodeAgent attend le format: {agent.code_block_tags[0]}...{agent.code_block_tags[1]}")
     
@@ -956,7 +1188,7 @@ If you find multiple sources for the same event, list them all to increase certa
 def save_to_dataset(input_data: dict, output_data: dict):
     """Enregistre un exemple d'entrée/sortie pour l'entraînement DSPy."""
     try:
-        dataset_file = Path(CONFIG["dataset_file"])
+        dataset_file = Path(CONFIG.persistence.dataset_file)
         dataset_file.parent.mkdir(exist_ok=True)
         
         example = {
@@ -983,6 +1215,11 @@ def run_monitoring_cycle():
     log.info("🛢️  Démarrage cycle de surveillance pétrole (DSPy Mode)")
     log.info("=" * 60)
 
+    # 0. Démarrer automatiquement llama-server si nécessaire
+    if not start_llama_server():
+        log.error("❌ Impossible de démarrer llama-server. Abandon.")
+        return
+
     # 1. Configuration DSPy
     configure_dspy()
     
@@ -1004,7 +1241,7 @@ def run_monitoring_cycle():
         analyzer = OilEventAnalyzer()
         
         # Charger les poids optimisés si disponibles
-        optimized_path = Path(CONFIG.get("dataset_file", "data/")).parent / "oil_analyzer_optimized.json"
+        optimized_path = Path(CONFIG.persistence.dataset_file).parent / "oil_analyzer_optimized.json"
         if optimized_path.exists():
             log.info(f"📂 Chargement du module DSPy optimisé : {optimized_path}")
             analyzer.load(str(optimized_path))
@@ -1015,8 +1252,8 @@ def run_monitoring_cycle():
         dspy_result = analyzer(
             current_date=current_date,
             current_datetime=current_datetime,
-            alert_threshold=CONFIG["alert_threshold"],
-            news_sources=CONFIG["news_sources"],
+            alert_threshold=CONFIG.monitoring.alert_threshold,
+            news_sources=CONFIG.monitoring.news_sources,
             raw_intelligence=raw_intelligence
         )
         
@@ -1041,7 +1278,7 @@ def run_monitoring_cycle():
         save_to_dataset(
             input_data={
                 "current_date": current_date,
-                "alert_threshold": CONFIG["alert_threshold"],
+                "alert_threshold": CONFIG.monitoring.alert_threshold,
                 "raw_intelligence": raw_intelligence
             },
             output_data={"events": events}
@@ -1060,8 +1297,8 @@ def run_monitoring_cycle():
     for event in events:
         # Vérifier le seuil d'alerte configuré
         impact_score = event.get("impact_score", 0)
-        if impact_score < CONFIG["alert_threshold"]:
-            log.info(f"⏭️  Impact trop faible ({impact_score}/{CONFIG['alert_threshold']}), skip email : {event.get('title')}")
+        if impact_score < CONFIG.monitoring.alert_threshold:
+            log.info(f"⏭️  Impact trop faible ({impact_score}/{CONFIG.monitoring.alert_threshold}), skip email : {event.get('title')}")
             continue
 
         event_id = event.get("id") or event_fingerprint(
@@ -1089,25 +1326,25 @@ def run_monitoring_cycle():
 def format_email_body(event: dict) -> str:
     """Formate le corps d'un email d'alerte."""
     lines = [
-        f"🛢️  OIL MARKET ALERT",
+        "🛢️  OIL MARKET ALERT",
         f"{'='*50}",
-        f"",
+        "",
         f"📌 TITRE       : {event.get('title', 'N/A')}",
         f"📂 CATÉGORIE   : {event.get('category', 'N/A')}",
         f"⚡ SCORE IMPACT: {event.get('impact_score', 'N/A')}/10",
         f"🔔 URGENCE     : {event.get('urgency', 'N/A')}",
         f"💰 IMPACT PRIX : {event.get('price_impact', 'N/A')}",
         f"🎯 CERTITUDE   : {int(event.get('certainty_score', 0) * 100)}%",
-        f"",
-        f"📝 ANALYSE :",
+        "",
+        "📝 ANALYSE :",
         f"{event.get('summary', 'N/A')}",
-        f"",
+        "",
         f"🔗 SOURCE : {event.get('source_hint', 'N/A')}",
         f"📅 DATE PUB: {event.get('publication_date', 'N/A')}",
-        f"",
+        "",
         f"{'─'*50}",
         f"⏰ Généré le : {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}",
-        f"🤖 Agent : smolagents + DSPy (qwen3.5:9b)",
+        "🤖 Agent : smolagents + DSPy (qwen3.5:9b)",
     ]
     return "\n".join(lines)
 

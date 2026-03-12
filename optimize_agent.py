@@ -4,14 +4,14 @@ import json
 import os
 from pathlib import Path
 from datetime import datetime
-from oil_agent import OilEventAnalyzer, OilEventSignature, CONFIG, configure_dspy
+from oil_agent import OilEventAnalyzer, CONFIG, configure_dspy
 
 # Configuration
 OPTIMIZED_MODULE_PATH = "data/oil_analyzer_optimized.json"
 
 def load_dataset():
     """Charge le dataset d'exemples collectés."""
-    dataset_path = Path(CONFIG["dataset_file"])
+    dataset_path = Path(CONFIG["persistence"]["dataset_file"])
     if not dataset_path.exists():
         print(f"❌ Dataset non trouvé : {dataset_path}")
         return []
@@ -26,7 +26,7 @@ def load_dataset():
                 current_date=data["input"]["current_date"],
                 current_datetime=data.get("timestamp", datetime.now().isoformat()),
                 alert_threshold=data["input"]["alert_threshold"],
-                news_sources=CONFIG["news_sources"],
+                news_sources=CONFIG["monitoring"]["news_sources"],
                 raw_intelligence=data["input"]["raw_intelligence"],
                 events=data["output"]["events"]
             ).with_inputs("current_date", "current_datetime", "alert_threshold", "news_sources", "raw_intelligence")
@@ -76,7 +76,7 @@ def metric(gold, pred, trace=None):
 def optimize():
     """Lance le processus d'optimisation DSPy."""
     # Configurer le modèle
-    print("🚀 Configuration du modèle Ollama...")
+    print("🚀 Configuration du modèle llama-server...")
     configure_dspy()
     
     # Charger les données
@@ -119,7 +119,7 @@ if __name__ == "__main__":
                 current_date=datetime.now().strftime("%Y-%m-%d"),
                 current_datetime=datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
                 alert_threshold=6,
-                news_sources=CONFIG["news_sources"],
+                news_sources=CONFIG["monitoring"]["news_sources"],
                 raw_intelligence=test_intel
             )
             print("\n--- TEST RESULT ---")

@@ -1,0 +1,47 @@
+{
+  "model": {
+    "name": "qwen3.5-9b",
+    "path": "C:\\Modeles_LLM\\Qwen3.5-9B-Q4_K_S.gguf",
+    "api_base": "http://127.0.0.1:8080",
+    "num_ctx": 65536,
+    "provider": "llama.cpp"
+  },
+  "llama_server": {
+    "executable": "llama-server",
+    "n_gpu_layers": -1,
+    "n_threads": 0,
+    "ctx_size": 65536,
+    "batch_size": 512,
+    "ubatch_size": 128,
+    "cache_type_k": "f16",
+    "cache_type_v": "f16",
+    "host": "0.0.0.0",
+    "port": 8080
+  },
+  "email": {
+    "smtp_host": "localhost",
+    "smtp_port": 25,
+    "email_from": "oil-monitor@localhost",
+    "email_to": "admin@example.com",
+    "email_subject_prefix": "[OIL-ALERT]",
+    "send_emails": false
+  },
+  "persistence": {
+    "history_file": "logs/email_history.json",
+    "events_db": "logs/events_seen.json",
+    "dataset_file": "data/oil_intelligence_dataset.jsonl"
+  },
+  "monitoring": {
+    "alert_threshold": 6,
+    "news_sources": [
+      "reuters.com",
+      "bloomberg.com",
+      "apnews.com",
+      "bbc.com",
+      "ft.com",
+      "wsj.com"
+    ],
+    "timezone": "Europe/Paris",
+    "recent_news_hours": 24
+  }
+}
