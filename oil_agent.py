@@ -1,7 +1,7 @@
 """
 Oil Market Monitoring Agent
 ============================
-smolagents 1.24.0 + LiteLLM + Ollama (qwen2.5:7b)
+smolagents 1.24.0 + llama-cpp-python + Qwen3.5-9B
 Surveille les événements géopolitiques et industriels pouvant faire rebondir le cours du pétrole.
 Envoie des alertes email via relais SMTP (Postfix local).
 """
@@ -16,9 +16,9 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 from pathlib import Path
 
+from llama_utils import SmolLlamaCppModel, LlamaCppDSPy
 from smolagents import (
     CodeAgent,
-    LiteLLMModel,
     DuckDuckGoSearchTool,
     VisitWebpageTool,
     Tool,
@@ -117,8 +117,8 @@ def validate_and_fix_events(events: list, current_date: str) -> list:
 
 # Configurer DSPy par défaut (sera mis à jour dans build_agent si nécessaire)
 def configure_dspy():
-    """Configure DSPy avec le modèle Ollama défini dans CONFIG."""
-    lm = dspy.LM(CONFIG["ollama_model"], api_base=CONFIG["ollama_api_base"])
+    """Configure DSPy avec le modèle local via llama-cpp-python."""
+    lm = LlamaCppDSPy(model_path=CONFIG["llama_model_path"])
     dspy.configure(lm=lm, adapter=dspy.JSONAdapter())
     return lm
 
@@ -126,10 +126,8 @@ def configure_dspy():
 # Configuration
 # ─────────────────────────────────────────────
 CONFIG = {
-    # Ollama
-    "ollama_model": "ollama_chat/qwen3.5:9b",
-    "ollama_api_base": "http://127.0.0.1:11434",
-    "ollama_num_ctx": 8192,
+    # Modèle local (Chemin vers le fichier GGUF)
+    "llama_model_path": "models/Qwen2.5-7B-Instruct-Q4_K_M.gguf", # À modifier selon l'emplacement réel
     # Email (relais Postfix local)
     "smtp_host": "localhost",
     "smtp_port": 25,
@@ -559,7 +557,7 @@ class GeopoliticalEscalationTool(Tool):
     description = (
         "Searches for broad geopolitical escalations that could spike oil prices: "
         "Russia-Ukraine energy infrastructure attacks, US-China South China Sea tensions, "
-        "Libya civil war oil fields, Venezuela sanctions, Nigeria pipeline attacks."
+        "Libya civil war oil fields, dsanctions, Nigeria pipeline attacks."
     )
     inputs = {}
     output_type = "string"
@@ -856,14 +854,10 @@ class VIXTool(Tool):
 # ─────────────────────────────────────────────
 
 def build_agent() -> CodeAgent:
-    """Initialise le modèle Ollama et l'agent avec tous les tools."""
+    """Initialise le modèle local et l'agent avec tous les tools."""
     from smolagents.local_python_executor import LocalPythonExecutor
     
-    model = LiteLLMModel(
-        model_id=CONFIG["ollama_model"],
-        api_base=CONFIG["ollama_api_base"],
-        num_ctx=CONFIG["ollama_num_ctx"],
-    )
+    model = SmolLlamaCppModel(model_path=CONFIG["llama_model_path"])
 
     # Tools built-in réutilisés dans les tools custom
     ddg = DuckDuckGoSearchTool(max_results=5)
@@ -902,7 +896,6 @@ def build_agent() -> CodeAgent:
     
     # LOG DE DEBUG : Logger les balises de code utilisées par le CodeAgent
     log.info(f"🔧 CodeAgent code_block_tags: {agent.code_block_tags}")
-    log.info(f"🔧 CodeAgent attend le format: {agent.code_block_tags[0]}...{agent.code_block_tags[1]}")
     
     return agent
 
@@ -980,7 +973,7 @@ def save_to_dataset(input_data: dict, output_data: dict):
 def run_monitoring_cycle():
     """Lance un cycle de surveillance avec DSPy pour la synthèse finale."""
     log.info("=" * 60)
-    log.info("🛢️  Démarrage cycle de surveillance pétrole (DSPy Mode)")
+    log.info("🛢️  Démarrage cycle de surveillance pétrole (Local llama-cpp Mode)")
     log.info("=" * 60)
 
     # 1. Configuration DSPy
@@ -1021,7 +1014,6 @@ def run_monitoring_cycle():
         )
         
         # Extraire les événements de la réponse DSPy
-        # DSPy avec JSONAdapter retourne souvent des objets Pydantic ou des dicts
         raw_events = []
         if hasattr(dspy_result, 'events'):
             for e in dspy_result.events:
@@ -1035,9 +1027,9 @@ def run_monitoring_cycle():
         # 4. Validation et nettoyage final
         events = validate_and_fix_events(raw_events, current_date)
         
-        log.info(f"✨ DSPy Analysis Complete. Confidence: {getattr(dspy_result, 'confidence_score', 'N/A')}")
+        log.info("✨ DSPy Analysis Complete.")
         
-        # Sauvegarder pour l'amélioration continue (20 exemples cibles)
+        # Sauvegarder pour l'amélioration continue
         save_to_dataset(
             input_data={
                 "current_date": current_date,
@@ -1107,7 +1099,7 @@ def format_email_body(event: dict) -> str:
         f"",
         f"{'─'*50}",
         f"⏰ Généré le : {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}",
-        f"🤖 Agent : smolagents + DSPy (qwen3.5:9b)",
+        f"🤖 Agent : smolagents + llama-cpp-python (Local GGUF)",
     ]
     return "\n".join(lines)
 
