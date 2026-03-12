@@ -24,7 +24,7 @@ uv sync
 ### Execution
 - **Run the Agent**:
   ```bash
-  uv run python oil-agent.py
+  uv run python oil_agent.py
   ```
 - **Optimize the Agent**:
   ```bash
@@ -34,7 +34,7 @@ uv sync
 
 - **Check History**:
   ```bash
-  uv run python oil-agent.py history
+  uv run python oil_agent.py history
   ```
 
 ## Development Conventions

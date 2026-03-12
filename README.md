@@ -71,7 +71,7 @@ source .venv/bin/activate
 
 ## ⚙️ Configuration
 
-Edit the `CONFIG` block in `oil-agent.py`:
+Edit the `CONFIG` block in `oil_agent.py`:
 
 ```python
 CONFIG = {
@@ -104,7 +104,7 @@ This script uses the `BootstrapFewShot` teleprompter to:
 - Select the most effective examples based on a custom metric (structure validation + content relevance).
 - Save the optimized weights to `data/oil_analyzer_optimized.json`.
 
-The next time `oil-agent.py` runs, it will **automatically load** these optimized weights to provide superior analysis.
+The next time `oil_agent.py` runs, it will **automatically load** these optimized weights to provide superior analysis.
 
 ---
 
@@ -112,12 +112,12 @@ The next time `oil-agent.py` runs, it will **automatically load** these optimize
 
 ### Run a Monitoring Cycle
 ```bash
-uv run python oil-agent.py
+uv run python oil_agent.py
 ```
 
 ### View Alert History
 ```bash
-uv run python oil-agent.py history
+uv run python oil_agent.py history
 ```
 
 ---

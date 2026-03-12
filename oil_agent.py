@@ -1058,6 +1058,12 @@ def run_monitoring_cycle():
     # 4. Envoi des alertes
     new_events_count = 0
     for event in events:
+        # Vérifier le seuil d'alerte configuré
+        impact_score = event.get("impact_score", 0)
+        if impact_score < CONFIG["alert_threshold"]:
+            log.info(f"⏭️  Impact trop faible ({impact_score}/{CONFIG['alert_threshold']}), skip email : {event.get('title')}")
+            continue
+
         event_id = event.get("id") or event_fingerprint(
             event.get("title", ""), event.get("category", "")
         )

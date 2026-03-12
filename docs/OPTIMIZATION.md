@@ -17,7 +17,7 @@ Traditional LLM calls rely on static prompts that often fail or hallucinate when
 
 ## 2. Data Collection (Traces)
 
-Every successful execution of `oil-agent.py` contributes to a local dataset:
+Every successful execution of `oil_agent.py` contributes to a local dataset:
 - **Location**: `data/oil_intelligence_dataset.jsonl`
 - **Format**: Each line contains an input (raw intelligence + context) and its corresponding validated output (structured events).
 
@@ -44,7 +44,7 @@ The optimization process uses the **BootstrapFewShot** strategy. This is not "tr
 
 ## 4. How to Optimize
 
-1.  **Generate Data**: Run `uv run python oil-agent.py` multiple times over several days.
+1.  **Generate Data**: Run `uv run python oil_agent.py` multiple times over several days.
 2.  **Review (Optional)**: Open `data/oil_intelligence_dataset.jsonl` and manually edit any incorrect outputs to serve as "gold" standards.
 3.  **Run Optimizer**:
     ```bash
@@ -59,7 +59,7 @@ The optimization process uses the **BootstrapFewShot** strategy. This is not "tr
 
 ## 5. Automatic Loading
 
-The main `oil-agent.py` script is designed to detect the optimized file:
+The main `oil_agent.py` script is designed to detect the optimized file:
 ```python
 optimized_path = Path("data/oil_analyzer_optimized.json")
 if optimized_path.exists():

@@ -4,7 +4,7 @@
 
 ### Points d'amélioration identifiés
 
-Le prompt actuel dans [`oil-agent.py`](oil-agent.py:837-1006) présente plusieurs limitations :
+Le prompt actuel dans [`oil_agent.py`](oil_agent.py:837-1006) présente plusieurs limitations :
 
 1. **Structure impérative** : Le prompt utilise des instructions impératives ("VOUS DEVEZ", "RÈGLES STRICTES") plutôt qu'une approche déclarative.
 2. **Pas de signatures explicites** : Les entrées/sorties ne sont pas définies formellement comme des signatures DSPy.
@@ -108,7 +108,7 @@ Il est crucial d'inclure des exemples de "Faux Positifs" pour affiner le filtrag
 
 ---
 
-## 🚀 Plan d'Intégration dans `oil-agent.py`
+## 🚀 Plan d'Intégration dans `oil_agent.py`
 
 1. **Installation** : `uv add dspy` : Déjà installé et mis dans pyproject.toml
 2. **Initialisation du modèle** :

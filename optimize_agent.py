@@ -83,7 +83,7 @@ def optimize():
     trainset = load_dataset()
     if len(trainset) < 5:
         print("⚠️ Pas assez de données pour une optimisation efficace (min 5 exemples).")
-        print("💡 Continuez à faire tourner oil-agent.py pour collecter plus de données.")
+        print("💡 Continuez à faire tourner oil_agent.py pour collecter plus de données.")
         return
 
     # Initialiser le module non-optimisé

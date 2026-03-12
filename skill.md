@@ -424,9 +424,9 @@ if __name__ == "__main__":
 
 ### 1. Utiliser les outils récents en priorité
 Pour une surveillance en temps réel, privilégiez :
-- [`RecentNewsTool`](oil-agent.py:526) avec `timeframe="24h"`
-- [`RSSFeedTool`](oil-agent.py:642) avec `hours_back=12` ou moins
-- [`VIXTool`](oil-agent.py:737) pour la volatilité
+- [`RecentNewsTool`](oil_agent.py:526) avec `timeframe="24h"`
+- [`RSSFeedTool`](oil_agent.py:642) avec `hours_back=12` ou moins
+- [`VIXTool`](oil_agent.py:737) pour la volatilité
 
 ### 2. Combiner les outils intelligemment
 ```python
@@ -520,10 +520,10 @@ Pour une surveillance en temps réel, privilégiez les outils **RecentNewsTool**
 
 ## 🔗 Liens utiles
 
-- [`oil-agent.py`](oil-agent.py) : Code principal avec tous les outils
+- [`oil_agent.py`](oil_agent.py) : Code principal avec tous les outils
 - [`README.md`](README.md) : Documentation complète du projet
 - [`pyproject.toml`](pyproject.toml) : Dépendances du projet
 
 ---
 
-**Note** : Ce skill est optimisé pour une utilisation directe des outils. Pour une surveillance automatisée complète avec envoi d'emails, utilisez l'agent complet via `python oil-agent.py`.
+**Note** : Ce skill est optimisé pour une utilisation directe des outils. Pour une surveillance automatisée complète avec envoi d'emails, utilisez l'agent complet via `python oil_agent.py`.

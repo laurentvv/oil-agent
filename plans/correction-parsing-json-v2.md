@@ -11,7 +11,7 @@ The VIX index value on March 11, 2026 is approximately 24.93 (representing eleva
 
 **Cause**: Le modèle `qwen3.5:9b` ne suit pas correctement les instructions de formatage JSON du prompt, même avec des instructions explicites.
 
-**Localisation**: [`oil-agent.py`](oil-agent.py:837-1008) - fonction `get_master_prompt()`
+**Localisation**: [`oil_agent.py`](oil_agent.py:837-1008) - fonction `get_master_prompt()`
 
 ---
 
@@ -146,7 +146,7 @@ Valider les données extraites et reconstruire un JSON valide.
 
 ### Phase 2: Implémentation
 
-1. Modifier la fonction `run_monitoring_cycle()` dans [`oil-agent.py`](oil-agent.py:1015-1129)
+1. Modifier la fonction `run_monitoring_cycle()` dans [`oil_agent.py`](oil_agent.py:1015-1129)
 2. Ajouter une nouvelle fonction `extract_events_from_response()`
 3. Implémenter les patterns de parsing
 4. Ajouter la logique de fallback

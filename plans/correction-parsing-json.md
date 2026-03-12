@@ -6,7 +6,7 @@
 
 **Cause**: Le modèle `qwen3.5:9b` ne suit pas correctement les instructions de formatage JSON du prompt.
 
-**Localisation**: [`oil-agent.py`](oil-agent.py:830-908) - fonction `get_master_prompt()`
+**Localisation**: [`oil_agent.py`](oil_agent.py:830-908) - fonction `get_master_prompt()`
 
 ---
 
@@ -93,7 +93,7 @@ Le prompt actuel (`get_master_prompt()`) contient:
 
 ### Étape 3: Modifications à Apporter
 
-#### Fichier: [`oil-agent.py`](oil-agent.py:830-908)
+#### Fichier: [`oil_agent.py`](oil_agent.py:830-908)
 
 **Section à modifier**: Fonction `get_master_prompt()` (lignes 830-908)
 
@@ -274,7 +274,7 @@ RAPPEL FINAL
 
 Bien que l'option 1 se concentre sur l'amélioration du prompt, il est recommandé d'améliorer légèrement le parsing pour plus de robustesse:
 
-**Fichier**: [`oil-agent.py`](oil-agent.py:935-948)
+**Fichier**: [`oil_agent.py`](oil_agent.py:935-948)
 
 **Modifications proposées**:
 
