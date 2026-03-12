@@ -54,7 +54,8 @@ def metric(gold, pred, trace=None):
         valid_events = 0
         for event in pred.events:
             # Vérifier les champs obligatoires
-            if all(k in event for k in ["category", "impact_score", "title", "summary"]):
+            required_fields = ["category", "impact_score", "title", "summary", "publication_date"]
+            if all(k in event and event[k] for k in required_fields):
                 # Vérifier si le score d'impact est dans les bornes
                 if 0 <= event["impact_score"] <= 10:
                     valid_events += 1

@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Environment
+.venv/
+.env
+
+# Logs and local state
+logs/*.log
+logs/*.json
+logs/*.bak
+logs/*.corrupt
+
+# Data and artifacts (local synthesis traces)
+data/*.jsonl
+data/*.json

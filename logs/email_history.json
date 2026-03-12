@@ -1,6 +1,26 @@
 [
   {
-    "timestamp": "2026-03-11T22:03:30.151482",
-    "event_id": "geo_middle_east_20260311_001",
-    "subject": "[OIL-ALERT] Geopolitical | Score 7/10 � Tensions strat�giques en mer Rouge affectent le transit p�trolier",
-    "preview": 
+    "timestamp": "2026-03-12T11:12:12.843032",
+    "event_id": "opec_production_cut_sa_20260312",
+    "subject": "[OIL-ALERT] OPEC | Score 9/10 — Arabie Saoudite : Réduction drastique de la production",
+    "preview": "🛢️  OIL MARKET ALERT\n==================================================\n\n📌 TITRE       : Arabie Saoudite : Réduction drastique de la production\n📂 CATÉGORIE   : OPEC\n⚡ SCORE IMPACT: 9/10\n🔔 URGENCE     : Breaking\n💰 IMPACT PRIX : +$2-4/barrel\n🎯 CERTITUDE   : 95%\n\n📝 ANALYSE :\nL'Arabie Saoudite a réduit "
+  },
+  {
+    "timestamp": "2026-03-12T11:12:12.848051",
+    "event_id": "shipping_hormuz_threat_20260312",
+    "subject": "[OIL-ALERT] Geopolitical | Score 8/10 — Menaces de blocus sur le détroit du Hormuz",
+    "preview": "🛢️  OIL MARKET ALERT\n==================================================\n\n📌 TITRE       : Menaces de blocus sur le détroit du Hormuz\n📂 CATÉGORIE   : Geopolitical\n⚡ SCORE IMPACT: 8/10\n🔔 URGENCE     : Breaking\n💰 IMPACT PRIX : +$3-5/barrel\n🎯 CERTITUDE   : 85%\n\n📝 ANALYSE :\nLe blocage potentiel du détroit"
+  },
+  {
+    "timestamp": "2026-03-12T11:12:12.852755",
+    "event_id": "red_sea_disruption_march2026",
+    "subject": "[OIL-ALERT] Shipping | Score 7/10 — Perturbations en Mer Rouge et Golfe d'Aden",
+    "preview": "🛢️  OIL MARKET ALERT\n==================================================\n\n📌 TITRE       : Perturbations en Mer Rouge et Golfe d'Aden\n📂 CATÉGORIE   : Shipping\n⚡ SCORE IMPACT: 7/10\n🔔 URGENCE     : Recent\n💰 IMPACT PRIX : +$1-3/barrel\n🎯 CERTITUDE   : 90%\n\n📝 ANALYSE :\nLes attaques Houthis continuent de pe"
+  },
+  {
+    "timestamp": "2026-03-12T11:12:12.857054",
+    "event_id": "iraq_terminals_attack_20260312",
+    "subject": "[OIL-ALERT] Geopolitical | Score 7/10 — Fermeture des terminaux pétroliers irakiens",
+    "preview": "🛢️  OIL MARKET ALERT\n==================================================\n\n📌 TITRE       : Fermeture des terminaux pétroliers irakiens\n📂 CATÉGORIE   : Geopolitical\n⚡ SCORE IMPACT: 7/10\n🔔 URGENCE     : Developing\n💰 IMPACT PRIX : +$1-2/barrel\n🎯 CERTITUDE   : 90%\n\n📝 ANALYSE :\nL'Irak a fermé ses infrastru"
+  }
+]

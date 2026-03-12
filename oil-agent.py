@@ -80,7 +80,9 @@ class OilEventAnalyzer(dspy.Module):
 
     def forward(self, **kwargs):
         # Utiliser dspy.Predict ou ChainOfThought
-        return self.analyze(**kwargs)
+        pred = self.analyze(**kwargs)
+        
+        return pred
 
 def validate_and_fix_events(events: list, current_date: str) -> list:
     """Valide et nettoie les événements produits par le LLM."""
@@ -186,7 +188,7 @@ Path("logs").mkdir(exist_ok=True)
 def load_seen_events() -> set:
     p = Path(CONFIG["events_db"])
     if p.exists():
-        with open(p, encoding="utf-8") as f:
+        with open(p, encoding="utf-8", errors="replace") as f:
             return set(json.load(f))
     return set()
 
@@ -208,13 +210,26 @@ def event_fingerprint(title: str, source: str) -> str:
 def load_email_history() -> list:
     p = Path(CONFIG["history_file"])
     if p.exists():
-        with open(p, encoding="utf-8") as f:
-            return json.load(f)
+        try:
+            with open(p, encoding="utf-8", errors="replace") as f:
+                return json.load(f)
+        except (json.JSONDecodeError, UnicodeDecodeError) as e:
+            log.error(f"⚠️ Fichier historique corrompu ({p}) : {e}. Création d'un nouveau fichier.")
+            if p.stat().st_size > 0:
+                p.replace(p.with_suffix(".json.corrupt"))
     return []
 
 
 def save_email_history(history: list):
-    with open(CONFIG["history_file"], "w", encoding="utf-8") as f:
+    p = Path(CONFIG["history_file"])
+    # Backup avant écriture
+    if p.exists():
+        try:
+            p.with_suffix(".json.bak").write_text(p.read_text(encoding="utf-8", errors="replace"), encoding="utf-8")
+        except Exception:
+            pass
+            
+    with open(p, "w", encoding="utf-8") as f:
         json.dump(history, f, indent=2, ensure_ascii=False)
 
 
@@ -922,9 +937,15 @@ YOUR MISSION:
    - Current oil prices & volatility (get_oil_price, get_vix_index)
    - Breaking news from Reuters, Bloomberg, AP, BBC, FT, WSJ (search_recent_news, read_rss_feeds)
 
-3. OUTPUT: Provide a detailed summary of each significant finding. For each event, specify the date, source, 
-   and a brief explanation of how it might affect oil supply or prices. 
-   Do NOT worry about JSON formatting, just be thorough and precise in your analysis.
+3. OUTPUT: Provide a COMPREHENSIVE report of your findings. For EACH significant event or news item, you MUST include:
+   - EXACT DATE and TIME (if available).
+   - SOURCE (Website, tool, or news agency).
+   - CATEGORY (Iran, Refinery, OPEC, Gas, Shipping, Geopolitical).
+   - DETAILED EXPLANATION of the event.
+   - PRICE IMPACT: How exactly this influences oil supply or market sentiment.
+
+Be extremely thorough. Do NOT provide a high-level summary. I need the raw, detailed intelligence to perform a structured synthesis later.
+If you find multiple sources for the same event, list them all to increase certainty.
 """
     return prompt
 
@@ -1001,14 +1022,18 @@ def run_monitoring_cycle():
         
         # Extraire les événements de la réponse DSPy
         # DSPy avec JSONAdapter retourne souvent des objets Pydantic ou des dicts
+        raw_events = []
         if hasattr(dspy_result, 'events'):
-            # Convertir les objets Pydantic en dicts si nécessaire
-            events = []
             for e in dspy_result.events:
-                if hasattr(e, 'dict'):
-                    events.append(e.dict())
+                if hasattr(e, 'model_dump'):
+                    raw_events.append(e.model_dump())
+                elif hasattr(e, 'dict'):
+                    raw_events.append(e.dict())
                 else:
-                    events.append(e)
+                    raw_events.append(e)
+        
+        # 4. Validation et nettoyage final
+        events = validate_and_fix_events(raw_events, current_date)
         
         log.info(f"✨ DSPy Analysis Complete. Confidence: {getattr(dspy_result, 'confidence_score', 'N/A')}")
         
