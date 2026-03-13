@@ -1127,7 +1127,7 @@ def build_agent() -> CodeAgent:
     agent = CodeAgent(
         tools=tools,
         model=model,
-        max_steps=20,
+        max_steps=10,
         additional_authorized_imports=["json", "datetime", "hashlib", "feedparser"],
         executor=custom_executor,
         code_block_tags="markdown",
