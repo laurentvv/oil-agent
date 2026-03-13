@@ -82,5 +82,77 @@
     "event_id": "opec_production_cuts_20260312",
     "subject": "[OIL-ALERT] OPEC | Score 6/10 — OPEC+ Maintains Production Cuts Through Q1 2026",
     "preview": "🛢️  OIL MARKET ALERT\n==================================================\n\n📌 TITRE       : OPEC+ Maintains Production Cuts Through Q1 2026\n📂 CATÉGORIE   : OPEC\n⚡ SCORE IMPACT: 6/10\n🔔 URGENCE     : Background\n💰 IMPACT PRIX : +$1-2/barrel structural\n🎯 CERTITUDE   : 90%\n\n📝 ANALYSE :\nOPEC+ maintaining pro"
+  },
+  {
+    "timestamp": "2026-03-13T17:18:38.957236",
+    "event_id": "iran_hormuz_threat_20260313",
+    "subject": "[OIL-ALERT] Iran | Score 9/10 — Iran Navy Threatens Hormuz Strait",
+    "preview": "🛢️  OIL MARKET ALERT\n==================================================\n\n📌 TITRE       : Iran Navy Threatens Hormuz Strait\n📂 CATÉGORIE   : Iran\n⚡ SCORE IMPACT: 9/10\n🔔 URGENCE     : Breaking\n💰 IMPACT PRIX : +$3-5/barrel\n🎯 CERTITUDE   : 85%\n\n📝 ANALYSE :\nIranian Revolutionary Guard announces increased "
+  },
+  {
+    "timestamp": "2026-03-13T17:18:38.960499",
+    "event_id": "iran_tankers_attack_20260313",
+    "subject": "[OIL-ALERT] Iran | Score 8/10 — Iranian Attack on Oil Tankers",
+    "preview": "🛢️  OIL MARKET ALERT\n==================================================\n\n📌 TITRE       : Iranian Attack on Oil Tankers\n📂 CATÉGORIE   : Iran\n⚡ SCORE IMPACT: 8/10\n🔔 URGENCE     : Breaking\n💰 IMPACT PRIX : +$2-4/barrel\n🎯 CERTITUDE   : 80%\n\n📝 ANALYSE :\nMultiple oil tankers reported damaged in Gulf of Oma"
+  },
+  {
+    "timestamp": "2026-03-13T17:18:38.963573",
+    "event_id": "iran_proton_missile_20260313",
+    "subject": "[OIL-ALERT] Iran | Score 7/10 — Iran Missile Tests Near Oil Infrastructure",
+    "preview": "🛢️  OIL MARKET ALERT\n==================================================\n\n📌 TITRE       : Iran Missile Tests Near Oil Infrastructure\n📂 CATÉGORIE   : Iran\n⚡ SCORE IMPACT: 7/10\n🔔 URGENCE     : Recent\n💰 IMPACT PRIX : +$1-3/barrel\n🎯 CERTITUDE   : 75%\n\n📝 ANALYSE :\nIranian missiles test-fired near major oi"
+  },
+  {
+    "timestamp": "2026-03-13T17:18:38.966784",
+    "event_id": "refinery_alarabia_fire_20260313",
+    "subject": "[OIL-ALERT] Refinery | Score 7/10 — Saudi Arabia Refinery Fire",
+    "preview": "🛢️  OIL MARKET ALERT\n==================================================\n\n📌 TITRE       : Saudi Arabia Refinery Fire\n📂 CATÉGORIE   : Refinery\n⚡ SCORE IMPACT: 7/10\n🔔 URGENCE     : Recent\n💰 IMPACT PRIX : +$1-2/barrel\n🎯 CERTITUDE   : 90%\n\n📝 ANALYSE :\nMajor refinery fire at Yanbu Complex reduces capacity"
+  },
+  {
+    "timestamp": "2026-03-13T17:18:38.970120",
+    "event_id": "opec_quota_reduction_20260313",
+    "subject": "[OIL-ALERT] OPEC | Score 9/10 — Saudi Arabia 20% Production Cut",
+    "preview": "🛢️  OIL MARKET ALERT\n==================================================\n\n📌 TITRE       : Saudi Arabia 20% Production Cut\n📂 CATÉGORIE   : OPEC\n⚡ SCORE IMPACT: 9/10\n🔔 URGENCE     : Breaking\n💰 IMPACT PRIX : +$4-6/barrel\n🎯 CERTITUDE   : 95%\n\n📝 ANALYSE :\nSaudi Arabia announces unexpected 20% production c"
+  },
+  {
+    "timestamp": "2026-03-13T17:18:38.973428",
+    "event_id": "opec_meeting_20260313",
+    "subject": "[OIL-ALERT] OPEC | Score 8/10 — OPEC+ Emergency Meeting",
+    "preview": "🛢️  OIL MARKET ALERT\n==================================================\n\n📌 TITRE       : OPEC+ Emergency Meeting\n📂 CATÉGORIE   : OPEC\n⚡ SCORE IMPACT: 8/10\n🔔 URGENCE     : Recent\n💰 IMPACT PRIX : +$2-3/barrel\n🎯 CERTITUDE   : 85%\n\n📝 ANALYSE :\nEmergency OPEC+ meeting called to discuss supply stability a"
+  },
+  {
+    "timestamp": "2026-03-13T17:18:38.979142",
+    "event_id": "gas_russia_ukraine_20260313",
+    "subject": "[OIL-ALERT] Gas | Score 8/10 — Russia-Ukraine Gas Pipeline Disruption",
+    "preview": "🛢️  OIL MARKET ALERT\n==================================================\n\n📌 TITRE       : Russia-Ukraine Gas Pipeline Disruption\n📂 CATÉGORIE   : Gas\n⚡ SCORE IMPACT: 8/10\n🔔 URGENCE     : Breaking\n💰 IMPACT PRIX : +$2-4/barrel\n🎯 CERTITUDE   : 70%\n\n📝 ANALYSE :\nCritical gas pipeline infrastructure damaged"
+  },
+  {
+    "timestamp": "2026-03-13T17:18:38.983207",
+    "event_id": "gas_mediterranean_supply_20260313",
+    "subject": "[OIL-ALERT] Gas | Score 7/10 — Mediterranean Gas Supply Cut",
+    "preview": "🛢️  OIL MARKET ALERT\n==================================================\n\n📌 TITRE       : Mediterranean Gas Supply Cut\n📂 CATÉGORIE   : Gas\n⚡ SCORE IMPACT: 7/10\n🔔 URGENCE     : Recent\n💰 IMPACT PRIX : +$1-3/barrel\n🎯 CERTITUDE   : 75%\n\n📝 ANALYSE :\nLNG export terminals in Mediterranean experiencing reduc"
+  },
+  {
+    "timestamp": "2026-03-13T17:18:38.988196",
+    "event_id": "shipping_yemen_hacking_20260313",
+    "subject": "[OIL-ALERT] Shipping | Score 8/10 — Yemen Hacking of Shipping Systems",
+    "preview": "🛢️  OIL MARKET ALERT\n==================================================\n\n📌 TITRE       : Yemen Hacking of Shipping Systems\n📂 CATÉGORIE   : Shipping\n⚡ SCORE IMPACT: 8/10\n🔔 URGENCE     : Breaking\n💰 IMPACT PRIX : +$2-4/barrel\n🎯 CERTITUDE   : 80%\n\n📝 ANALYSE :\nCyberattack disrupts maritime navigation sys"
+  },
+  {
+    "timestamp": "2026-03-13T17:18:38.992529",
+    "event_id": "shipping_piracy_increase_20260313",
+    "subject": "[OIL-ALERT] Shipping | Score 7/10 — Piracy Surge in Red Sea",
+    "preview": "🛢️  OIL MARKET ALERT\n==================================================\n\n📌 TITRE       : Piracy Surge in Red Sea\n📂 CATÉGORIE   : Shipping\n⚡ SCORE IMPACT: 7/10\n🔔 URGENCE     : Developing\n💰 IMPACT PRIX : +$1-2/barrel\n🎯 CERTITUDE   : 70%\n\n📝 ANALYSE :\nIncreased piracy incidents in Red Sea forcing oil ta"
+  },
+  {
+    "timestamp": "2026-03-13T17:18:38.996505",
+    "event_id": "geopolitical_middle_east_20260313",
+    "subject": "[OIL-ALERT] Geopolitical | Score 8/10 — Middle East Regional Tensions Rise",
+    "preview": "🛢️  OIL MARKET ALERT\n==================================================\n\n📌 TITRE       : Middle East Regional Tensions Rise\n📂 CATÉGORIE   : Geopolitical\n⚡ SCORE IMPACT: 8/10\n🔔 URGENCE     : Recent\n💰 IMPACT PRIX : +$3-5/barrel\n🎯 CERTITUDE   : 85%\n\n📝 ANALYSE :\nMultiple nations in Middle East increase "
+  },
+  {
+    "timestamp": "2026-03-13T17:18:39.000047",
+    "event_id": "geopolitical_us_sanctions_20260313",
+    "subject": "[OIL-ALERT] Geopolitical | Score 7/10 — US Sanctions on Oil Exports",
+    "preview": "🛢️  OIL MARKET ALERT\n==================================================\n\n📌 TITRE       : US Sanctions on Oil Exports\n📂 CATÉGORIE   : Geopolitical\n⚡ SCORE IMPACT: 7/10\n🔔 URGENCE     : Developing\n💰 IMPACT PRIX : +$2-3/barrel\n🎯 CERTITUDE   : 80%\n\n📝 ANALYSE :\nNew US sanctions regime affects secondary oi"
   }
 ]

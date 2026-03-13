@@ -6651,3 +6651,337 @@ pydantic_core._pydantic_core.ValidationError: 3 validation errors for list[OilEv
 2026-03-12 19:31:44,305 [INFO] ✅ Cycle terminé — 7 nouvelle(s) alerte(s) envoyée(s)
 2026-03-12 19:31:44,307 [INFO] 🛑 Arrêt automatique de llama-server (PID: 3148)...
 2026-03-12 19:31:44,761 [INFO] ✅ llama-server arrêté proprement
+2026-03-13 16:27:08,270 [INFO] ============================================================
+2026-03-13 16:27:08,271 [INFO] 🛢️  Démarrage cycle de surveillance pétrole (DSPy Mode)
+2026-03-13 16:27:08,272 [INFO] ============================================================
+2026-03-13 16:27:10,288 [INFO] 🚀 Démarrage automatique de llama-server...
+2026-03-13 16:27:10,288 [INFO]    Modèle: C:\Modeles_LLM\Qwen3.5-9B-Q4_K_S.gguf
+2026-03-13 16:27:10,289 [INFO]    Port: 8080
+2026-03-13 16:27:10,289 [INFO]    GPU Layers: -1
+2026-03-13 16:27:10,289 [INFO]    Commande: llama-server.exe -m C:\Modeles_LLM\Qwen3.5-9B-Q4_K_S.gguf --host 0.0.0.0 --port 8080 -ngl -1 -t 0 -c 65536 -b 512 -ub 128 -ctk f16 -ctv f16
+2026-03-13 16:27:10,303 [ERROR] ❌ Erreur lors du démarrage de llama-server : [WinError 2] Le fichier spécifié est introuvable
+2026-03-13 16:27:10,306 [ERROR] Traceback (most recent call last):
+  File "D:\GIT\oil-agent\oil_agent.py", line 332, in start_llama_server
+    _llama_server_process = subprocess.Popen(
+        cmd,
+    ...<2 lines>...
+        creationflags=subprocess.CREATE_NO_WINDOW if sys.platform == "win32" else 0
+    )
+  File "C:\Users\lvolff\AppData\Roaming\uv\python\cpython-3.14.0-windows-x86_64-none\Lib\subprocess.py", line 1038, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lvolff\AppData\Roaming\uv\python\cpython-3.14.0-windows-x86_64-none\Lib\subprocess.py", line 1552, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+                             # no special security
+                             ^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+                             cwd,
+                             ^^^^
+                             startupinfo)
+                             ^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] Le fichier spécifié est introuvable
+
+2026-03-13 16:27:10,306 [ERROR] ❌ Impossible de démarrer llama-server. Abandon.
+2026-03-13 16:30:17,452 [INFO] ============================================================
+2026-03-13 16:30:17,452 [INFO] 🛢️  Démarrage cycle de surveillance pétrole (DSPy Mode)
+2026-03-13 16:30:17,453 [INFO] ============================================================
+2026-03-13 16:30:19,460 [INFO] 🚀 Démarrage automatique de llama-server...
+2026-03-13 16:30:19,461 [INFO]    Modèle: C:\Modeles_LLM\Qwen3.5-9B-Q4_K_S.gguf
+2026-03-13 16:30:19,461 [INFO]    Port: 8080
+2026-03-13 16:30:19,461 [INFO]    GPU Layers: -1
+2026-03-13 16:30:19,461 [INFO]    Commande: llama-server.exe -m C:\Modeles_LLM\Qwen3.5-9B-Q4_K_S.gguf --host 0.0.0.0 --port 8080 -ngl -1 -t 0 -c 65536 -b 512 -ub 128 -ctk f16 -ctv f16
+2026-03-13 16:30:19,473 [ERROR] ❌ Erreur lors du démarrage de llama-server : [WinError 2] Le fichier spécifié est introuvable
+2026-03-13 16:30:19,475 [ERROR] Traceback (most recent call last):
+  File "D:\GIT\oil-agent\oil_agent.py", line 332, in start_llama_server
+    _llama_server_process = subprocess.Popen(
+        cmd,
+    ...<2 lines>...
+        creationflags=subprocess.CREATE_NO_WINDOW if sys.platform == "win32" else 0
+    )
+  File "C:\Users\lvolff\AppData\Roaming\uv\python\cpython-3.14.0-windows-x86_64-none\Lib\subprocess.py", line 1038, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lvolff\AppData\Roaming\uv\python\cpython-3.14.0-windows-x86_64-none\Lib\subprocess.py", line 1552, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+                             # no special security
+                             ^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+                             cwd,
+                             ^^^^
+                             startupinfo)
+                             ^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] Le fichier spécifié est introuvable
+
+2026-03-13 16:30:19,476 [ERROR] ❌ Impossible de démarrer llama-server. Abandon.
+2026-03-13 16:42:29,956 [INFO] ============================================================
+2026-03-13 16:42:29,957 [INFO] 🛢️  Démarrage cycle de surveillance pétrole (DSPy Mode)
+2026-03-13 16:42:29,957 [INFO] ============================================================
+2026-03-13 16:42:31,972 [INFO] 🚀 Démarrage automatique de llama-server...
+2026-03-13 16:42:31,972 [INFO]    Modèle: C:\Modeles_LLM\Qwen3.5-9B-Q4_K_S.gguf
+2026-03-13 16:42:31,972 [INFO]    Port: 8080
+2026-03-13 16:42:31,973 [INFO]    GPU Layers: -1
+2026-03-13 16:42:31,973 [INFO]    Commande: llama-server.exe -m C:\Modeles_LLM\Qwen3.5-9B-Q4_K_S.gguf --host 0.0.0.0 --port 8080 -ngl -1 -t 0 -c 65536 -b 512 -ub 128 -ctk f16 -ctv f16
+2026-03-13 16:42:31,984 [ERROR] ❌ Erreur lors du démarrage de llama-server : [WinError 2] Le fichier spécifié est introuvable
+2026-03-13 16:42:31,986 [ERROR] Traceback (most recent call last):
+  File "D:\GIT\oil-agent\oil_agent.py", line 332, in start_llama_server
+    _llama_server_process = subprocess.Popen(
+        cmd,
+    ...<2 lines>...
+        creationflags=subprocess.CREATE_NO_WINDOW if sys.platform == "win32" else 0
+    )
+  File "C:\Users\lvolff\AppData\Roaming\uv\python\cpython-3.14.0-windows-x86_64-none\Lib\subprocess.py", line 1038, in __init__
+    self._execute_child(args, executable, preexec_fn, close_fds,
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+                        pass_fds, cwd, env,
+                        ^^^^^^^^^^^^^^^^^^^
+    ...<5 lines>...
+                        gid, gids, uid, umask,
+                        ^^^^^^^^^^^^^^^^^^^^^^
+                        start_new_session, process_group)
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lvolff\AppData\Roaming\uv\python\cpython-3.14.0-windows-x86_64-none\Lib\subprocess.py", line 1552, in _execute_child
+    hp, ht, pid, tid = _winapi.CreateProcess(executable, args,
+                       ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+                             # no special security
+                             ^^^^^^^^^^^^^^^^^^^^^
+    ...<4 lines>...
+                             cwd,
+                             ^^^^
+                             startupinfo)
+                             ^^^^^^^^^^^^
+FileNotFoundError: [WinError 2] Le fichier spécifié est introuvable
+
+2026-03-13 16:42:31,987 [ERROR] ❌ Impossible de démarrer llama-server. Abandon.
+2026-03-13 16:43:39,603 [INFO] ============================================================
+2026-03-13 16:43:39,603 [INFO] 🛢️  Démarrage cycle de surveillance pétrole (DSPy Mode)
+2026-03-13 16:43:39,604 [INFO] ============================================================
+2026-03-13 16:43:41,610 [INFO] 🚀 Démarrage automatique de llama-server...
+2026-03-13 16:43:41,611 [INFO]    Modèle: C:\Modeles_LLM\Qwen3.5-9B-Q4_K_S.gguf
+2026-03-13 16:43:41,611 [INFO]    Port: 8080
+2026-03-13 16:43:41,611 [INFO]    GPU Layers: -1
+2026-03-13 16:43:41,612 [INFO]    Commande: llama-server.exe -m C:\Modeles_LLM\Qwen3.5-9B-Q4_K_S.gguf --host 0.0.0.0 --port 8080 -ngl -1 -t 0 -c 65536 -b 512 -ub 128 -ctk f16 -ctv f16
+2026-03-13 16:43:42,677 [INFO] ⏳ Attente du serveur... (0s)
+2026-03-13 16:43:47,702 [INFO] ⏳ Attente du serveur... (5s)
+2026-03-13 16:43:52,745 [INFO] ⏳ Attente du serveur... (10s)
+2026-03-13 16:43:57,789 [INFO] ⏳ Attente du serveur... (15s)
+2026-03-13 16:44:02,821 [INFO] ⏳ Attente du serveur... (20s)
+2026-03-13 16:44:08,035 [INFO] ⏳ Attente du serveur... (25s)
+2026-03-13 16:44:13,163 [INFO] ⏳ Attente du serveur... (30s)
+2026-03-13 16:44:18,180 [INFO] ⏳ Attente du serveur... (35s)
+2026-03-13 16:44:21,196 [INFO] ✅ llama-server démarré avec succès (PID: 7704)
+2026-03-13 16:44:21,890 [INFO] 🔧 CodeAgent code_block_tags: ('```python', '```')
+2026-03-13 16:44:21,890 [INFO] 🔧 CodeAgent attend le format: ```python...```
+2026-03-13 16:44:21,890 [INFO] 📦 Context management initialized with window_size=3, max_tokens=8000
+2026-03-13 16:44:21,922 [ERROR] Agent error: 'AgentState' object is not iterable
+2026-03-13 16:44:21,930 [ERROR] Traceback (most recent call last):
+  File "D:\GIT\oil-agent\oil_agent.py", line 1262, in run_monitoring_cycle
+    raw_intelligence = agent.run(prompt)
+  File "D:\GIT\oil-agent\.venv\Lib\site-packages\smolagents\agents.py", line 490, in run
+    self.python_executor.send_variables(variables=self.state)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\GIT\oil-agent\.venv\Lib\site-packages\smolagents\local_python_executor.py", line 1755, in send_variables
+    self.state.update(variables)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+TypeError: 'AgentState' object is not iterable
+
+2026-03-13 16:44:21,942 [INFO] 🛑 Arrêt automatique de llama-server (PID: 7704)...
+2026-03-13 16:44:22,986 [INFO] ✅ llama-server arrêté proprement
+2026-03-13 16:49:10,635 [INFO] ============================================================
+2026-03-13 16:49:10,635 [INFO] 🛢️  Démarrage cycle de surveillance pétrole (DSPy Mode)
+2026-03-13 16:49:10,635 [INFO] ============================================================
+2026-03-13 16:49:12,652 [INFO] 🚀 Démarrage automatique de llama-server...
+2026-03-13 16:49:12,652 [INFO]    Modèle: C:\Modeles_LLM\Qwen3.5-9B-Q4_K_S.gguf
+2026-03-13 16:49:12,653 [INFO]    Port: 8080
+2026-03-13 16:49:12,653 [INFO]    GPU Layers: -1
+2026-03-13 16:49:12,653 [INFO]    Commande: llama-server.exe -m C:\Modeles_LLM\Qwen3.5-9B-Q4_K_S.gguf --host 0.0.0.0 --port 8080 -ngl -1 -t 0 -c 65536 -b 512 -ub 128 -ctk f16 -ctv f16
+2026-03-13 16:49:14,224 [INFO] ⏳ Attente du serveur... (0s)
+2026-03-13 16:49:19,252 [INFO] ⏳ Attente du serveur... (5s)
+2026-03-13 16:49:24,282 [INFO] ⏳ Attente du serveur... (10s)
+2026-03-13 16:49:28,313 [INFO] ✅ llama-server démarré avec succès (PID: 10844)
+2026-03-13 16:49:28,651 [INFO] 🔧 CodeAgent code_block_tags: ('```python', '```')
+2026-03-13 16:49:28,651 [INFO] 🔧 CodeAgent attend le format: ```python...```
+2026-03-13 16:49:28,651 [INFO] 📦 Context management initialized with window_size=3, max_tokens=8000
+2026-03-13 16:51:29,180 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Iran%20military%20attack%20oil%20infrastructure%202026-03-13%20today%20breaking 200
+2026-03-13 16:51:29,375 [INFO] response: https://grokipedia.com/api/typeahead?query=Iran+military+attack+oil+infrastructure+2026-03-13+today+breaking&limit=1 200
+2026-03-13 16:51:30,229 [INFO] response: https://search.brave.com/search?q=Iran+military+attack+oil+infrastructure+2026-03-13+today+breaking&source=web 200
+2026-03-13 16:51:30,514 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Strait%20of%20Hormuz%20blockade%20tanker%202026-03-13%20just%20in 200
+2026-03-13 16:51:30,647 [INFO] response: https://grokipedia.com/api/typeahead?query=Strait+of+Hormuz+blockade+tanker+2026-03-13+just+in&limit=1 200
+2026-03-13 16:51:30,866 [INFO] response: https://consent.google.com/ml?continue=https://www.google.com/search%3Fq%3DStrait%2Bof%2BHormuz%2Bblockade%2Btanker%2B2026-03-13%2Bjust%2Bin%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&gl=FR&m=1&pc=srp&uxe=none&cm=2&hl=en&src=1 200
+2026-03-13 16:51:31,735 [INFO] response: https://www.mojeek.com/search?q=Strait+of+Hormuz+blockade+tanker+2026-03-13+just+in 200
+2026-03-13 16:51:31,940 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Iran%20IRGC%20oil%20tanker%20seized%202026-03-13%20recent 200
+2026-03-13 16:51:32,137 [INFO] response: https://grokipedia.com/api/typeahead?query=Iran+IRGC+oil+tanker+seized+2026-03-13+recent&limit=1 200
+2026-03-13 16:51:32,402 [INFO] response: https://search.yahoo.com/search;_ylt=iAmBOHnQe-_ytIQwfkA70F7m;_ylu=VsM55I1n01oY8nq1DHs1P9vmYkwd7sw241S_OAWok6OhmE0?p=Iran+IRGC+oil+tanker+seized+2026-03-13+recent 200
+2026-03-13 16:51:33,172 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Iran%20Israel%20strike%20retaliation%20oil%202026-03-13%20breaking%20news 200
+2026-03-13 16:51:33,344 [INFO] response: https://grokipedia.com/api/typeahead?query=Iran+Israel+strike+retaliation+oil+2026-03-13+breaking+news&limit=1 200
+2026-03-13 16:51:34,261 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-13 16:51:34,461 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Iran%20US%20sanctions%20oil%20export%20disruption%202026-03-13 200
+2026-03-13 16:51:34,643 [INFO] response: https://grokipedia.com/api/typeahead?query=Iran+US+sanctions+oil+export+disruption+2026-03-13&limit=1 200
+2026-03-13 16:51:35,734 [INFO] response: https://www.mojeek.com/search?q=Iran+US+sanctions+oil+export+disruption+2026-03-13 200
+2026-03-13 16:51:35,958 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=oil%20refinery%20explosion%20fire%202026-03-13%20today%20breaking 200
+2026-03-13 16:51:36,158 [INFO] response: https://grokipedia.com/api/typeahead?query=oil+refinery+explosion+fire+2026-03-13+today+breaking&limit=1 200
+2026-03-13 16:51:36,913 [INFO] response: https://yandex.com/search/site/?text=oil+refinery+explosion+fire+2026-03-13+today+breaking&web=1&searchid=8640067 200
+2026-03-13 16:51:37,125 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=refinery%20drone%20attack%20oil%20production%20disruption%202026-03-13%20just%20in 200
+2026-03-13 16:51:37,434 [INFO] response: https://grokipedia.com/api/typeahead?query=refinery+drone+attack+oil+production+disruption+2026-03-13+just+in&limit=1 200
+2026-03-13 16:51:37,672 [INFO] response: https://search.yahoo.com/search;_ylt=K25GE_liFwzoP3ffAd8mHhxE;_ylu=QuYniZ_2zK8MOYu1-_3D9XOr8tyq7SJoM2b5cxOecbmM5gQ?p=refinery+drone+attack+oil+production+disruption+2026-03-13+just+in 200
+2026-03-13 16:51:38,374 [INFO] response: https://grokipedia.com/api/typeahead?query=Saudi+Arabia+Aramco+infrastructure+attack+2026-03-13+recent&limit=1 200
+2026-03-13 16:51:38,416 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Saudi%20Arabia%20Aramco%20infrastructure%20attack%202026-03-13%20recent 200
+2026-03-13 16:51:39,061 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-13 16:51:39,380 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=OPEC%2B%20production%20cut%20decision%202026-03-13%20today%20breaking 200
+2026-03-13 16:51:39,610 [INFO] response: https://grokipedia.com/api/typeahead?query=OPEC%2B+production+cut+decision+2026-03-13+today+breaking&limit=1 200
+2026-03-13 16:51:40,062 [INFO] response: https://search.yahoo.com/search;_ylt=80OCVr1sqSzBYV2f9_AFnKKL;_ylu=PZhrn01XBkGiE6EwPbaJ7aaECIKvMvWlwzhL5l6Y3EI230k?p=OPEC%2B+production+cut+decision+2026-03-13+today+breaking 200
+2026-03-13 16:51:41,063 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Saudi%20Arabia%20voluntary%20oil%20cut%20barrel%202026-03-13%20just%20in 200
+2026-03-13 16:51:41,225 [INFO] response: https://grokipedia.com/api/typeahead?query=Saudi+Arabia+voluntary+oil+cut+barrel+2026-03-13+just+in&limit=1 200
+2026-03-13 16:51:41,308 [INFO] response: https://consent.google.com/ml?continue=https://www.google.com/search%3Fq%3DSaudi%2BArabia%2Bvoluntary%2Boil%2Bcut%2Bbarrel%2B2026-03-13%2Bjust%2Bin%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&gl=FR&m=1&pc=srp&uxe=none&cm=2&hl=en&src=1 200
+2026-03-13 16:51:41,694 [INFO] response: https://search.yahoo.com/search;_ylt=Y60ZcGfJmqj4FCdTOaoIMiEH;_ylu=HTU1H26XmtpcAYlMYqmXQJ4AxvYWZTlmdaw7f62aAnRQbAU?p=Saudi+Arabia+voluntary+oil+cut+barrel+2026-03-13+just+in 200
+2026-03-13 16:51:42,443 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Russia%20oil%20export%20reduction%20barrel%202026-03-13%20recent 200
+2026-03-13 16:51:42,663 [INFO] response: https://grokipedia.com/api/typeahead?query=Russia+oil+export+reduction+barrel+2026-03-13+recent&limit=1 200
+2026-03-13 16:51:43,370 [INFO] response: https://search.brave.com/search?q=Russia+oil+export+reduction+barrel+2026-03-13+recent&source=web 200
+2026-03-13 16:51:43,569 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=OPEC%20emergency%20meeting%20oil%20price%202026-03-13%20breaking%20news 200
+2026-03-13 16:51:43,777 [INFO] response: https://grokipedia.com/api/typeahead?query=OPEC+emergency+meeting+oil+price+2026-03-13+breaking+news&limit=1 200
+2026-03-13 16:51:44,938 [INFO] response: https://www.mojeek.com/search?q=OPEC+emergency+meeting+oil+price+2026-03-13+breaking+news 200
+2026-03-13 16:51:45,164 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=UAE%20Kuwait%20oil%20output%20quota%202026-03-13%20today 200
+2026-03-13 16:51:45,338 [INFO] response: https://grokipedia.com/api/typeahead?query=UAE+Kuwait+oil+output+quota+2026-03-13+today&limit=1 200
+2026-03-13 16:51:45,835 [INFO] response: https://yandex.com/search/site/?text=UAE+Kuwait+oil+output+quota+2026-03-13+today&web=1&searchid=9140724 200
+2026-03-13 16:51:46,164 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=natural%20gas%20pipeline%20explosion%20sabotage%202026-03-13%20today%20breaking 200
+2026-03-13 16:51:46,369 [INFO] response: https://grokipedia.com/api/typeahead?query=natural+gas+pipeline+explosion+sabotage+2026-03-13+today+breaking&limit=1 200
+2026-03-13 16:51:46,514 [INFO] response: https://search.yahoo.com/search;_ylt=BqZBYPa-ivShd4VxUsVo3Tf3;_ylu=0Ce2A8GJUrCCqCgvJlFE_9suSMb8u7WyxFjirBLTSYZeA5Y?p=natural+gas+pipeline+explosion+sabotage+2026-03-13+today+breaking 200
+2026-03-13 16:51:47,443 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=LNG%20terminal%20attack%20fire%20disruption%202026-03-13%20just%20in 200
+2026-03-13 16:51:47,634 [INFO] response: https://grokipedia.com/api/typeahead?query=LNG+terminal+attack+fire+disruption+2026-03-13+just+in&limit=1 200
+2026-03-13 16:51:48,341 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-13 16:51:48,527 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Russia%20gas%20supply%20Europe%20cut%202026-03-13%20recent 200
+2026-03-13 16:51:48,729 [INFO] response: https://grokipedia.com/api/typeahead?query=Russia+gas+supply+Europe+cut+2026-03-13+recent&limit=1 200
+2026-03-13 16:51:49,220 [INFO] response: https://yandex.com/search/site/?text=Russia+gas+supply+Europe+cut+2026-03-13+recent&web=1&searchid=9298167 200
+2026-03-13 16:51:49,539 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Qatar%20North%20Field%20gas%20disruption%202026-03-13%20today 200
+2026-03-13 16:51:49,725 [INFO] response: https://grokipedia.com/api/typeahead?query=Qatar+North+Field+gas+disruption+2026-03-13+today&limit=1 200
+2026-03-13 16:51:50,829 [INFO] response: https://www.mojeek.com/search?q=Qatar+North+Field+gas+disruption+2026-03-13+today 200
+2026-03-13 16:51:51,084 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Azerbaijan%20Georgia%20gas%20pipeline%20attack%202026-03-13%20breaking%20news 200
+2026-03-13 16:51:51,283 [INFO] response: https://grokipedia.com/api/typeahead?query=Azerbaijan+Georgia+gas+pipeline+attack+2026-03-13+breaking+news&limit=1 200
+2026-03-13 16:51:51,750 [INFO] response: https://yandex.com/search/site/?text=Azerbaijan+Georgia+gas+pipeline+attack+2026-03-13+breaking+news&web=1&searchid=3860291 200
+2026-03-13 16:51:52,040 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Houthi%20attack%20oil%20tanker%20Red%20Sea%202026-03-13%20today%20breaking 200
+2026-03-13 16:51:52,245 [INFO] response: https://grokipedia.com/api/typeahead?query=Houthi+attack+oil+tanker+Red+Sea+2026-03-13+today+breaking&limit=1 200
+2026-03-13 16:51:52,773 [INFO] response: https://yandex.com/search/site/?text=Houthi+attack+oil+tanker+Red+Sea+2026-03-13+today+breaking&web=1&searchid=8944950 200
+2026-03-13 16:51:53,048 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Bab-el-Mandeb%20shipping%20disruption%20oil%202026-03-13%20just%20in 200
+2026-03-13 16:51:53,229 [INFO] response: https://grokipedia.com/api/typeahead?query=Bab-el-Mandeb+shipping+disruption+oil+2026-03-13+just+in&limit=1 200
+2026-03-13 16:51:53,907 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-13 16:51:54,115 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Suez%20Canal%20closure%20tanker%20blockage%202026-03-13%20recent 200
+2026-03-13 16:51:54,289 [INFO] response: https://grokipedia.com/api/typeahead?query=Suez+Canal+closure+tanker+blockage+2026-03-13+recent&limit=1 200
+2026-03-13 16:51:55,044 [INFO] response: https://search.brave.com/search?q=Suez+Canal+closure+tanker+blockage+2026-03-13+recent&source=web 200
+2026-03-13 16:51:55,286 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Iran%20seize%20oil%20tanker%20Strait%20Hormuz%202026-03-13%20breaking%20news 200
+2026-03-13 16:51:55,482 [INFO] response: https://grokipedia.com/api/typeahead?query=Iran+seize+oil+tanker+Strait+Hormuz+2026-03-13+breaking+news&limit=1 200
+2026-03-13 16:51:55,559 [INFO] response: https://consent.google.com/ml?continue=https://www.google.com/search%3Fq%3DIran%2Bseize%2Boil%2Btanker%2BStrait%2BHormuz%2B2026-03-13%2Bbreaking%2Bnews%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&gl=FR&m=1&pc=srp&uxe=none&cm=2&hl=en&src=1 200
+2026-03-13 16:51:56,313 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-13 16:51:56,508 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=oil%20tanker%20piracy%20attack%202026-03-13%20today 200
+2026-03-13 16:51:56,693 [INFO] response: https://grokipedia.com/api/typeahead?query=oil+tanker+piracy+attack+2026-03-13+today&limit=1 200
+2026-03-13 16:51:57,192 [INFO] response: https://yandex.com/search/site/?text=oil+tanker+piracy+attack+2026-03-13+today&web=1&searchid=5842480 200
+2026-03-13 16:51:57,525 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Russia%20Ukraine%20oil%20energy%20infrastructure%20attack%202026-03-13%20today%20breaking 200
+2026-03-13 16:51:57,769 [INFO] response: https://grokipedia.com/api/typeahead?query=Russia+Ukraine+oil+energy+infrastructure+attack+2026-03-13+today+breaking&limit=1 200
+2026-03-13 16:51:57,928 [INFO] response: https://search.yahoo.com/search;_ylt=2mNYk_bT9wqY_O4ylq2QWQYX;_ylu=KIwBFBJ2_afh31Oo-nCxRgiXKinpC7XghfiTeiGRgWhUaG0?p=Russia+Ukraine+oil+energy+infrastructure+attack+2026-03-13+today+breaking 200
+2026-03-13 16:51:58,691 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Libya%20oil%20field%20shutdown%20civil%20war%202026-03-13%20just%20in 200
+2026-03-13 16:51:58,845 [INFO] response: https://grokipedia.com/api/typeahead?query=Libya+oil+field+shutdown+civil+war+2026-03-13+just+in&limit=1 200
+2026-03-13 16:51:59,986 [INFO] response: https://www.mojeek.com/search?q=Libya+oil+field+shutdown+civil+war+2026-03-13+just+in 200
+2026-03-13 16:52:00,197 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Venezuela%20oil%20sanction%20export%202026-03-13%20recent 200
+2026-03-13 16:52:00,398 [INFO] response: https://grokipedia.com/api/typeahead?query=Venezuela+oil+sanction+export+2026-03-13+recent&limit=1 200
+2026-03-13 16:52:00,475 [INFO] response: https://consent.google.com/ml?continue=https://www.google.com/search%3Fq%3DVenezuela%2Boil%2Bsanction%2Bexport%2B2026-03-13%2Brecent%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&gl=FR&m=1&pc=srp&uxe=none&cm=2&hl=en&src=1 200
+2026-03-13 16:52:01,178 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-13 16:52:01,425 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Nigeria%20pipeline%20attack%20oil%20production%202026-03-13%20breaking%20news 200
+2026-03-13 16:52:01,575 [INFO] response: https://grokipedia.com/api/typeahead?query=Nigeria+pipeline+attack+oil+production+2026-03-13+breaking+news&limit=1 200
+2026-03-13 16:52:02,376 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-13 16:52:02,584 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=US%20China%20South%20China%20Sea%20oil%20tension%202026-03-13%20today 200
+2026-03-13 16:52:02,755 [INFO] response: https://grokipedia.com/api/typeahead?query=US+China+South+China+Sea+oil+tension+2026-03-13+today&limit=1 200
+2026-03-13 16:52:03,802 [INFO] response: https://search.brave.com/search?q=US+China+South+China+Sea+oil+tension+2026-03-13+today&source=web 200
+2026-03-13 16:52:04,001 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=Brent%20crude%20oil%20price%20today%202026-03-13 200
+2026-03-13 16:52:04,184 [INFO] response: https://grokipedia.com/api/typeahead?query=Brent+crude+oil+price+today+2026-03-13&limit=1 200
+2026-03-13 16:52:04,969 [INFO] response: https://search.brave.com/search?q=Brent+crude+oil+price+today+2026-03-13&source=web 200
+2026-03-13 16:52:05,174 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=WTI%20crude%20price%20today%20barrel%202026-03-13 200
+2026-03-13 16:52:05,355 [INFO] response: https://grokipedia.com/api/typeahead?query=WTI+crude+price+today+barrel+2026-03-13&limit=1 200
+2026-03-13 16:52:06,120 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-13 16:52:06,320 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=oil%20price%20forecast%20analyst%202026-03-13 200
+2026-03-13 16:52:06,502 [INFO] response: https://grokipedia.com/api/typeahead?query=oil+price+forecast+analyst+2026-03-13&limit=1 200
+2026-03-13 16:52:07,257 [INFO] response: https://search.brave.com/search?q=oil+price+forecast+analyst+2026-03-13&source=web 200
+2026-03-13 16:52:07,443 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=VIX%20index%20value%20today%202026-03-13 200
+2026-03-13 16:52:07,637 [INFO] response: https://grokipedia.com/api/typeahead?query=VIX+index+value+today+2026-03-13&limit=1 200
+2026-03-13 16:52:07,702 [INFO] response: https://consent.google.com/ml?continue=https://www.google.com/search%3Fq%3DVIX%2Bindex%2Bvalue%2Btoday%2B2026-03-13%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&gl=FR&m=1&pc=srp&uxe=none&cm=2&hl=en&src=1 200
+2026-03-13 16:52:08,396 [INFO] response: https://search.brave.com/search?q=VIX+index+value+today+2026-03-13&source=web 200
+2026-03-13 16:52:08,619 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=CBOE%20Volatility%20Index%20current%20level%202026-03-13 200
+2026-03-13 16:52:08,781 [INFO] response: https://grokipedia.com/api/typeahead?query=CBOE+Volatility+Index+current+level+2026-03-13&limit=1 200
+2026-03-13 16:52:09,468 [INFO] response: https://html.duckduckgo.com/html/ 200
+2026-03-13 16:52:09,668 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=VIX%20chart%20volatility%20market%20fear%202026-03-13 200
+2026-03-13 16:52:09,848 [INFO] response: https://grokipedia.com/api/typeahead?query=VIX+chart+volatility+market+fear+2026-03-13&limit=1 200
+2026-03-13 16:52:09,920 [INFO] response: https://consent.google.com/ml?continue=https://www.google.com/search%3Fq%3DVIX%2Bchart%2Bvolatility%2Bmarket%2Bfear%2B2026-03-13%26filter%3D1%26start%3D0%26hl%3Den-US%26lr%3Dlang_en%26cr%3DcountryUS&gl=FR&m=1&pc=srp&uxe=none&cm=2&hl=en&src=1 200
+2026-03-13 16:52:10,063 [INFO] response: https://search.yahoo.com/search;_ylt=c78EruJ8CtBOM9elMKzsJNny;_ylu=_qp8yVc_ciM-XBIN9a75hZQJAJ3k524MjqTe-I2bBWowrqI?p=VIX+chart+volatility+market+fear+2026-03-13 200
+2026-03-13 16:52:10,929 [INFO] response: https://en.wikipedia.org/w/api.php?action=opensearch&profile=fuzzy&limit=1&search=VIX%20oil%20price%20correlation%20volatility 200
+2026-03-13 16:52:11,109 [INFO] response: https://grokipedia.com/api/typeahead?query=VIX+oil+price+correlation+volatility&limit=1 200
+2026-03-13 16:52:12,267 [INFO] response: https://www.mojeek.com/search?q=VIX+oil+price+correlation+volatility 200
+2026-03-13 17:10:27,830 [INFO] 🔍 Intelligence récoltée (232 caractères)
+2026-03-13 17:10:27,831 [INFO] 📊 Token usage: 204 in → 58 out
+2026-03-13 17:10:27,831 [INFO] 📈 Step 1/10 completed
+2026-03-13 17:18:38,949 [INFO] ✨ DSPy Analysis Complete. Confidence: 0.82
+2026-03-13 17:18:38,950 [INFO] 📌 Event tracked: Iran Navy Threatens Hormuz Strait (impact: 9)
+2026-03-13 17:18:38,950 [INFO] 📌 Event tracked: Iranian Attack on Oil Tankers (impact: 8)
+2026-03-13 17:18:38,950 [INFO] 📌 Event tracked: Iran Missile Tests Near Oil Infrastructure (impact: 7)
+2026-03-13 17:18:38,950 [INFO] 📌 Event tracked: Saudi Arabia Refinery Fire (impact: 7)
+2026-03-13 17:18:38,951 [INFO] 📌 Event tracked: Saudi Arabia 20% Production Cut (impact: 9)
+2026-03-13 17:18:38,951 [INFO] 📌 Event tracked: OPEC+ Emergency Meeting (impact: 8)
+2026-03-13 17:18:38,951 [INFO] 📌 Event tracked: Russia-Ukraine Gas Pipeline Disruption (impact: 8)
+2026-03-13 17:18:38,951 [INFO] 📌 Event tracked: Mediterranean Gas Supply Cut (impact: 7)
+2026-03-13 17:18:38,951 [INFO] 📌 Event tracked: Yemen Hacking of Shipping Systems (impact: 8)
+2026-03-13 17:18:38,951 [INFO] 📌 Event tracked: Piracy Surge in Red Sea (impact: 7)
+2026-03-13 17:18:38,952 [INFO] 📌 Event tracked: Middle East Regional Tensions Rise (impact: 8)
+2026-03-13 17:18:38,952 [INFO] 📌 Event tracked: US Sanctions on Oil Exports (impact: 7)
+2026-03-13 17:18:38,955 [INFO] 💾 Exemple ajouté au dataset (data\oil_intelligence_dataset.jsonl)
+2026-03-13 17:18:38,955 [INFO] 📊 12 événement(s) à impact élevé détectés
+2026-03-13 17:18:38,956 [INFO] 📧 Email désactivé (simulation) : [OIL-ALERT] Iran | Score 9/10 — Iran Navy Threatens Hormuz Strait
+2026-03-13 17:18:38,959 [INFO] 📧 Historique email mis à jour (15 entrées)
+2026-03-13 17:18:38,959 [INFO] 📧 Email désactivé (simulation) : [OIL-ALERT] Iran | Score 8/10 — Iranian Attack on Oil Tankers
+2026-03-13 17:18:38,962 [INFO] 📧 Historique email mis à jour (16 entrées)
+2026-03-13 17:18:38,962 [INFO] 📧 Email désactivé (simulation) : [OIL-ALERT] Iran | Score 7/10 — Iran Missile Tests Near Oil Infrastructure
+2026-03-13 17:18:38,965 [INFO] 📧 Historique email mis à jour (17 entrées)
+2026-03-13 17:18:38,966 [INFO] 📧 Email désactivé (simulation) : [OIL-ALERT] Refinery | Score 7/10 — Saudi Arabia Refinery Fire
+2026-03-13 17:18:38,969 [INFO] 📧 Historique email mis à jour (18 entrées)
+2026-03-13 17:18:38,969 [INFO] 📧 Email désactivé (simulation) : [OIL-ALERT] OPEC | Score 9/10 — Saudi Arabia 20% Production Cut
+2026-03-13 17:18:38,972 [INFO] 📧 Historique email mis à jour (19 entrées)
+2026-03-13 17:18:38,972 [INFO] 📧 Email désactivé (simulation) : [OIL-ALERT] OPEC | Score 8/10 — OPEC+ Emergency Meeting
+2026-03-13 17:18:38,977 [INFO] 📧 Historique email mis à jour (20 entrées)
+2026-03-13 17:18:38,978 [INFO] 📧 Email désactivé (simulation) : [OIL-ALERT] Gas | Score 8/10 — Russia-Ukraine Gas Pipeline Disruption
+2026-03-13 17:18:38,981 [INFO] 📧 Historique email mis à jour (21 entrées)
+2026-03-13 17:18:38,982 [INFO] 📧 Email désactivé (simulation) : [OIL-ALERT] Gas | Score 7/10 — Mediterranean Gas Supply Cut
+2026-03-13 17:18:38,986 [INFO] 📧 Historique email mis à jour (22 entrées)
+2026-03-13 17:18:38,987 [INFO] 📧 Email désactivé (simulation) : [OIL-ALERT] Shipping | Score 8/10 — Yemen Hacking of Shipping Systems
+2026-03-13 17:18:38,991 [INFO] 📧 Historique email mis à jour (23 entrées)
+2026-03-13 17:18:38,991 [INFO] 📧 Email désactivé (simulation) : [OIL-ALERT] Shipping | Score 7/10 — Piracy Surge in Red Sea
+2026-03-13 17:18:38,995 [INFO] 📧 Historique email mis à jour (24 entrées)
+2026-03-13 17:18:38,995 [INFO] 📧 Email désactivé (simulation) : [OIL-ALERT] Geopolitical | Score 8/10 — Middle East Regional Tensions Rise
+2026-03-13 17:18:38,998 [INFO] 📧 Historique email mis à jour (25 entrées)
+2026-03-13 17:18:38,999 [INFO] 📧 Email désactivé (simulation) : [OIL-ALERT] Geopolitical | Score 7/10 — US Sanctions on Oil Exports
+2026-03-13 17:18:39,002 [INFO] 📧 Historique email mis à jour (26 entrées)
+2026-03-13 17:18:39,003 [INFO] ✅ Cycle terminé — 12 nouvelle(s) alerte(s) envoyée(s)
+2026-03-13 17:18:39,003 [INFO] ============================================================
+2026-03-13 17:18:39,003 [INFO] 📊 AGENT STATISTICS SUMMARY
+2026-03-13 17:18:39,003 [INFO] ============================================================
+2026-03-13 17:18:39,004 [INFO] Steps completed: 1/10
+2026-03-13 17:18:39,004 [INFO] Total input tokens: 204
+2026-03-13 17:18:39,004 [INFO] Total output tokens: 58
+2026-03-13 17:18:39,004 [INFO] Events detected: 0
+2026-03-13 17:18:39,004 [INFO] Tools used: 0
+2026-03-13 17:18:39,004 [INFO] High impact events: 10
+2026-03-13 17:18:39,005 [INFO] Compression savings: 0 tokens
+2026-03-13 17:18:39,005 [INFO] Token ratio (output/input): 28.43%
+2026-03-13 17:18:39,005 [INFO] ============================================================
+2026-03-13 17:18:39,008 [INFO] 🛑 Arrêt automatique de llama-server (PID: 10844)...
+2026-03-13 17:18:39,745 [INFO] ✅ llama-server arrêté proprement

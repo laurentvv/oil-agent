@@ -34,17 +34,6 @@ from pydantic import BaseModel, Field, field_validator
 from typing import List, Literal, Optional
 
 # ─────────────────────────────────────────────
-# Context Management
-# ─────────────────────────────────────────────
-from context_management import (
-    HistoryCompressor,
-    SlidingWindowManager,
-    MemoryCleaner,
-    AgentState,
-    build_optimized_prompt_context,
-)
-
-# ─────────────────────────────────────────────
 # DSPy Configuration & Models
 # ─────────────────────────────────────────────
 
@@ -69,17 +58,21 @@ class OilEventsResponse(BaseModel):
 
 # Signature DSPy
 class OilEventSignature(dspy.Signature):
-    """Extract structured oil events from intelligence. ALL fields required per event."""
+    """Analyse les événements du marché pétrolier, évalue leur impact et extrait des données structurées.
     
-    current_date: str = dspy.InputField(desc="Date (YYYY-MM-DD)")
-    current_datetime: str = dspy.InputField(desc="Timestamp")
-    alert_threshold: int = dspy.InputField(desc="Alert threshold (0-10)")
-    news_sources: list[str] = dspy.InputField(desc="Priority news sources")
-    raw_intelligence: str = dspy.InputField(desc="Collected intelligence data")
+    IMPORTANT: Pour chaque événement, vous DEVEZ inclure TOUS les champs: id, category, title, impact_score, 
+    certainty_score, urgency, summary, price_impact, source_hint, publication_date.
+    Ne sautez JAMAIS le champ 'title'.
+    """
     
-    events: List[OilEvent] = dspy.OutputField(desc="Oil events with all required fields")
-    confidence_score: float = dspy.OutputField(desc="Global confidence (0.0-1.0)")
-
+    current_date: str = dspy.InputField(desc="Date actuelle (YYYY-MM-DD)")
+    current_datetime: str = dspy.InputField(desc="Horodatage complet actuel")
+    alert_threshold: int = dspy.InputField(desc="Seuil d'alerte (0-10)")
+    news_sources: list[str] = dspy.InputField(desc="Domaines de sources d'actualités prioritaires")
+    raw_intelligence: str = dspy.InputField(desc="Données brutes collectées par les outils de surveillance")
+    
+    events: List[OilEvent] = dspy.OutputField(desc="Liste d'objets OilEvent. CHAQUE objet doit avoir TOUS les champs requis.")
+    confidence_score: float = dspy.OutputField(desc="Score de confiance global dans l'analyse (0.0-1.0)")
 
 # Module avec Chain of Thought
 class OilEventAnalyzer(dspy.Module):
@@ -403,16 +396,6 @@ def stop_llama_server():
         _llama_server_process = None
 
 # ─────────────────────────────────────────────
-# Token Estimation
-
-def estimate_tokens(text: str) -> int:
-    """
-    Estime le nombre de tokens dans un texte.
-    Approximation: 4 caracteres ≈ 1 token pour l'anglais.
-    """
-    return len(text) // 4
-
-# ─────────────────────────────────────────────
 # Logging
 # ─────────────────────────────────────────────
 
@@ -555,8 +538,9 @@ class IranConflictTool(Tool):
     """Tool : conflits Iran / Détroit d'Ormuz / IRGC"""
     name = "search_iran_conflict"
     description = (
-        "Search Iran/Hormuz conflicts, IRGC actions, Israel escalation, "
-        "sanctions disrupting oil supply. Returns structured summary."
+        "Searches for recent news about Iran military conflicts, IRGC actions, "
+        "Strait of Hormuz tensions, Iran-Israel escalation, or Iran sanctions "
+        "that could disrupt oil supply. Returns a structured summary."
     )
     inputs = {
         "days_back": {
@@ -605,8 +589,9 @@ class RefineryDamageTool(Tool):
     """Tool : dommages raffineries (attaques, accidents, incendies)"""
     name = "search_refinery_damage"
     description = (
-        "Search refinery damage, fires, explosions, drone attacks worldwide. "
-        "Returns structured results affecting global oil supply."
+        "Searches for news about oil refinery damage, fires, explosions, drone attacks "
+        "on refineries worldwide (Saudi Arabia, Russia, Iraq, UAE, Kazakhstan). "
+        "Returns structured results that can affect global oil supply."
     )
     inputs = {
         "region": {
@@ -667,8 +652,9 @@ class OPECSupplyTool(Tool):
     """Tool : décisions OPEC+, coupes de production, quotas"""
     name = "search_opec_supply"
     description = (
-        "Search OPEC+ production cuts, quota decisions, emergency meetings, "
-        "supply policy changes. Covers Saudi, Russia, UAE unilateral cuts."
+        "Searches for OPEC+ production cuts, quota decisions, emergency meetings, "
+        "and supply policy changes that could drive oil prices higher. "
+        "Also covers Saudi Arabia, Russia, UAE unilateral cuts."
     )
     inputs = {
         "focus": {
@@ -715,8 +701,9 @@ class NaturalGasDisruptionTool(Tool):
     """Tool : perturbations gaz naturel (pipelines, LNG, Russie)"""
     name = "search_gas_disruption"
     description = (
-        "Search gas pipeline sabotage, LNG terminal damage, Russia cuts to Europe, "
-        "Middle East gas field attacks. Gas spikes correlate with oil rallies."
+        "Searches for natural gas supply disruptions: pipeline sabotage, LNG terminal damage, "
+        "Russia gas cuts to Europe, Middle East gas field attacks. "
+        "Gas price spikes often correlate with oil rallies."
     )
     inputs = {
         "topic": {
@@ -763,8 +750,9 @@ class ShippingDisruptionTool(Tool):
     """Tool : perturbations maritimes (Houthis, pirates, blocage)"""
     name = "search_shipping_disruption"
     description = (
-        "Search maritime disruptions: Houthi Red Sea attacks, Bab-el-Mandeb tensions, "
-        "Suez blockage, Iran tanker seizures. Directly impacts Brent prices."
+        "Searches for maritime oil shipping disruptions: Houthi attacks in Red Sea, "
+        "Bab-el-Mandeb strait tensions, Suez Canal blockage, tanker seizures by Iran. "
+        "Shipping disruptions directly impact Brent crude prices."
     )
     inputs = {}
     output_type = "string"
@@ -804,8 +792,9 @@ class GeopoliticalEscalationTool(Tool):
     """Tool : escalades géopolitiques générales impactant le pétrole"""
     name = "search_geopolitical_escalation"
     description = (
-        "Search broad escalations: Russia-Ukraine energy attacks, US-China tensions, "
-        "Libya civil war, Venezuela sanctions, Nigeria pipeline attacks."
+        "Searches for broad geopolitical escalations that could spike oil prices: "
+        "Russia-Ukraine energy infrastructure attacks, US-China South China Sea tensions, "
+        "Libya civil war oil fields, Venezuela sanctions, Nigeria pipeline attacks."
     )
     inputs = {}
     output_type = "string"
@@ -884,8 +873,9 @@ class RecentNewsTool(Tool):
     """Tool : actualités très récentes sur le pétrole"""
     name = "search_recent_news"
     description = (
-        "Search recent oil news from major sources. Filter by date (24h, 48h, 7d). "
-        "Prioritize breaking news from Reuters, Bloomberg, AP, BBC, FT, WSJ."
+        "Searches for very recent oil-related news from major news sources. "
+        "Filters results by date (last 24h, 48h, or 7 days) and prioritizes "
+        "breaking news and developing stories from Reuters, Bloomberg, AP, BBC, FT, WSJ."
     )
     inputs = {
         "topic": {
@@ -962,8 +952,8 @@ class RSSFeedTool(Tool):
     """Tool : lecture des flux RSS d'actualités en temps réel"""
     name = "read_rss_feeds"
     description = (
-        "Read RSS feeds from major sources for real-time oil market news. "
-        "Filter by publication date, return recent headlines and summaries."
+        "Reads RSS feeds from major news sources to get real-time oil market news. "
+        "Filters entries by publication date and returns recent headlines and summaries."
     )
     inputs = {
         "feed": {
@@ -1146,13 +1136,6 @@ def build_agent() -> CodeAgent:
     log.info(f"🔧 CodeAgent code_block_tags: {agent.code_block_tags}")
     log.info(f"🔧 CodeAgent attend le format: {agent.code_block_tags[0]}...{agent.code_block_tags[1]}")
     
-    # Initialiser la gestion du contexte
-    agent.custom_state = AgentState(max_steps=10)
-    agent.window_manager = SlidingWindowManager(window_size=3, max_tokens=8000)
-    agent.memory_cleaner = MemoryCleaner()
-    
-    log.info(f"📦 Context management initialized with window_size=3, max_tokens=8000")
-    
     return agent
 
 
@@ -1161,33 +1144,41 @@ def build_agent() -> CodeAgent:
 # ─────────────────────────────────────────────
 
 def get_master_prompt() -> str:
-    """Génère le prompt principal optimisé de collecte d'informations."""
+    """Génère le prompt principal de collecte d'informations."""
     from datetime import datetime
     
     current_date = datetime.now().strftime("%Y-%m-%d")
     current_datetime = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     
-    prompt = f"""Date: {current_date} {current_datetime}
-Task: Monitor oil market for price-impacting events.
+    prompt = f"""
+You are an expert oil market analyst monitoring geopolitical and industrial events
+that could cause oil prices (Brent crude, WTI) to spike or rebound.
 
-TOOLS (use systematically):
-- search_iran_conflict: Iran/Hormuz tensions
-- search_refinery_damage: Refinery attacks/fires
-- search_opec_supply: OPEC+ production decisions
-- search_gas_disruption: Gas pipeline/LNG issues
-- search_shipping_disruption: Red Sea/Suez disruptions
-- search_geopolitical_escalation: Broad escalations
-- get_oil_price: Current Brent/WTI prices
-- get_vix_index: Market volatility
-- search_recent_news: Breaking news (24h)
-- read_rss_feeds: Real-time feeds
+CURRENT DATE: {current_date}
+CURRENT DATETIME: {current_datetime}
 
-OUTPUT FORMAT (per event):
-[CAT] Title | Impact: X/10 | Source: X | Date: X
-Details: [2-3 sentences]
-Price Impact: [specific mechanism]
+YOUR MISSION:
+1. Use ALL available specialized tools to gather current intelligence from TODAY ({current_date}) and the last 24-48 hours.
+2. Focus on:
+   - Iran tensions & Strait of Hormuz (search_iran_conflict)
+   - Refinery attacks or damage (search_refinery_damage)
+   - OPEC+ production decisions (search_opec_supply)
+   - Gas disruptions (search_gas_disruption)
+   - Shipping/Red Sea tensions (search_shipping_disruption)
+   - Broad geopolitical escalations (search_geopolitical_escalation)
+   - Current oil prices & volatility (get_oil_price, get_vix_index)
+   - Breaking news from Reuters, Bloomberg, AP, BBC, FT, WSJ (search_recent_news, read_rss_feeds)
 
-Prioritize events with impact ≥6. Deduplicate sources."""
+3. OUTPUT: Provide a COMPREHENSIVE report of your findings. For EACH significant event or news item, you MUST include:
+   - EXACT DATE and TIME (if available).
+   - SOURCE (Website, tool, or news agency).
+   - CATEGORY (Iran, Refinery, OPEC, Gas, Shipping, Geopolitical).
+   - DETAILED EXPLANATION of the event.
+   - PRICE IMPACT: How exactly this influences oil supply or market sentiment.
+
+Be extremely thorough. Do NOT provide a high-level summary. I need the raw, detailed intelligence to perform a structured synthesis later.
+If you find multiple sources for the same event, list them all to increase certainty.
+"""
     return prompt
 
 # ─────────────────────────────────────────────
@@ -1223,93 +1214,25 @@ def run_monitoring_cycle():
     log.info("=" * 60)
     log.info("🛢️  Démarrage cycle de surveillance pétrole (DSPy Mode)")
     log.info("=" * 60)
-    
+
     # 0. Démarrer automatiquement llama-server si nécessaire
     if not start_llama_server():
         log.error("❌ Impossible de démarrer llama-server. Abandon.")
         return
-    
+
     # 1. Configuration DSPy
     configure_dspy()
     
     seen_events = load_seen_events()
     agent = build_agent()
-    
-    # Phase 2: Initialize HistoryCompressor
-    history_compressor = HistoryCompressor(compression_ratio=0.15)
-    
-    # 2. Collecte d'intelligence via smolagents avec contexte optimisé
+
+    # 2. Collecte d'intelligence via smolagents
     try:
-        from datetime import datetime
-        current_date = datetime.now().strftime("%Y-%m-%d")
-        current_datetime = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        
-        # Construire le prompt avec contexte optimisé
-        prompt = build_optimized_prompt_context(
-            agent.custom_state,
-            agent.window_manager,
-            current_date,
-            current_datetime
-        )
-        
-        # Ajouter les instructions de la tâche
-        prompt += "\n\n" + get_master_prompt()
-        
-        # Phase 2: Track step data before running agent
-        step_start_time = datetime.now()
-        prompt_tokens_before = estimate_tokens(prompt)
-        
+        prompt = get_master_prompt()
         raw_intelligence = agent.run(prompt)
         log.info(f"🔍 Intelligence récoltée ({len(raw_intelligence)} caractères)")
-        
-        # Phase 2: Track step data after running agent
-        step_end_time = datetime.now()
-        output_tokens = estimate_tokens(raw_intelligence)
-        
-        # Add step data to window manager
-        step_data = {
-            'step': agent.custom_state.current_step,
-            'tool_calls': [],  # Will be filled if tools were called
-            'events': [],  # Will be filled with detected events
-            'timestamp': step_start_time.isoformat(),
-            'duration_seconds': (step_end_time - step_start_time).total_seconds(),
-            'input_tokens': prompt_tokens_before,
-            'output_tokens': output_tokens
-        }
-        agent.window_manager.add_step(step_data)
-        
-        # Increment step counter
-        agent.custom_state.increment_step()
-        
-        # Mettre à jour les statistiques de l'agent
-        agent.custom_state.add_tokens(prompt_tokens_before, output_tokens)
-        
-        # Phase 2: Clean raw intelligence with memory cleaner
-        cleaned_intelligence = agent.memory_cleaner.clean_content(raw_intelligence)
-        
-        # Phase 2: Log compression statistics
-        if len(agent.window_manager.history) > agent.window_manager.window_size:
-            # Calculate compression savings
-            original_tokens = sum(step.get('input_tokens', 0) + step.get('output_tokens', 0)
-                                    for step in agent.window_manager.history)
-            compressed_tokens = estimate_tokens(cleaned_intelligence)
-            savings = original_tokens - compressed_tokens
-            if savings > 0:
-                agent.custom_state.add_compression_savings(savings)
-                log.info(f"📦 Compression savings: {savings:,} tokens (original: {original_tokens:,}, compressed: {compressed_tokens:,})")
-        
-        # Phase 2: Compress window if needed
-        if agent.custom_state.current_step % 3 == 0:  # Compress every 3 steps
-            compressed = agent.window_manager.compress_window(history_compressor)
-            if compressed:
-                log.info(f"🗜️ Window compressed: {compressed['steps_count']} steps → {len(compressed['summary'])} chars")
-        
-        log.info(f"📊 Token usage: {agent.custom_state.total_tokens_input:,} in → {agent.custom_state.total_tokens_output:,} out")
-        log.info(f"📈 Step {agent.custom_state.current_step}/{agent.custom_state.max_steps} completed")
     except Exception as e:
         log.error(f"Agent error: {e}")
-        import traceback
-        log.error(traceback.format_exc())
         return
 
     # 3. Synthèse et formatage via DSPy
@@ -1350,15 +1273,6 @@ def run_monitoring_cycle():
         events = validate_and_fix_events(raw_events, current_date)
         
         log.info(f"✨ DSPy Analysis Complete. Confidence: {getattr(dspy_result, 'confidence_score', 'N/A')}")
-        
-        # Phase 2: Track detected events
-        for event in events:
-            agent.custom_state.add_detected_event(event)
-            log.info(f"📌 Event tracked: {event.get('title', 'Unknown')} (impact: {event.get('impact_score', 0)})")
-        
-        # Phase 2: Update step data with detected events
-        if agent.window_manager.history:
-            agent.window_manager.history[-1]['events'] = events
         
         # Sauvegarder pour l'amélioration continue (20 exemples cibles)
         save_to_dataset(
@@ -1405,24 +1319,8 @@ def run_monitoring_cycle():
             new_events_count += 1
 
     save_seen_events(seen_events)
-    
+
     log.info(f"✅ Cycle terminé — {new_events_count} nouvelle(s) alerte(s) envoyée(s)")
-    
-    # Phase 2: Log final agent statistics
-    log.info("=" * 60)
-    log.info("📊 AGENT STATISTICS SUMMARY")
-    log.info("=" * 60)
-    log.info(f"Steps completed: {agent.custom_state.current_step}/{agent.custom_state.max_steps}")
-    log.info(f"Total input tokens: {agent.custom_state.total_tokens_input:,}")
-    log.info(f"Total output tokens: {agent.custom_state.total_tokens_output:,}")
-    log.info(f"Events detected: {agent.custom_state.events_detected}")
-    log.info(f"Tools used: {len(agent.custom_state.tools_used)}")
-    log.info(f"High impact events: {len(agent.custom_state.high_impact_events)}")
-    log.info(f"Compression savings: {agent.custom_state.compression_savings:,} tokens")
-    if agent.custom_state.total_tokens_input > 0:
-        ratio = agent.custom_state.total_tokens_output / agent.custom_state.total_tokens_input
-        log.info(f"Token ratio (output/input): {ratio:.2%}")
-    log.info("=" * 60)
 
 
 def format_email_body(event: dict) -> str:
