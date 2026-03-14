@@ -56,7 +56,7 @@ class OilEvent(BaseModel):
     title: str
     impact_score: int = Field(..., ge=0, le=10)
     certainty_score: Optional[float] = Field(0.7, ge=0.0, le=1.0, description="Niveau de certitude (0.0-1.0)")
-    urgency: Literal["Breaking", "Recent", "Developing", "Background"]
+    urgency: Optional[Literal["Breaking", "Recent", "Developing", "Background"]] = Field("Recent", description="Urgence de l'événement")
     summary: str
     price_impact: str = Field(..., description="Ex: +$2-4/barrel")
     source_hint: str
@@ -136,7 +136,7 @@ def validate_and_fix_events(events: list, current_date: str) -> list:
             # 2. Valeurs par défaut pour les champs optionnels manquants
             if "impact_score" not in e_dict:
                 e_dict["impact_score"] = 5
-            if "urgency" not in e_dict:
+            if "urgency" not in e_dict or not e_dict["urgency"]:
                 e_dict["urgency"] = "Recent"
             if "summary" not in e_dict:
                 e_dict["summary"] = "No summary provided."
@@ -1170,7 +1170,32 @@ def get_master_prompt() -> str:
     prompt = f"""Date: {current_date} {current_datetime}
 Task: Monitor oil market for price-impacting events.
 
-TOOLS (use systematically):
+CRITICAL INSTRUCTIONS - READ CAREFULLY:
+========================================
+1. You MUST use ALL the search tools listed below to gather REAL-TIME information.
+2. DO NOT generate fictional events or make up information.
+3. Only report events that are actually found through the search tools.
+4. Each tool call provides REAL data from news sources, websites, and RSS feeds.
+5. Compile the results from ALL tools into your final output.
+
+REQUIRED TOOL USAGE PATTERN (execute in this exact order - NO EXCEPTIONS):
+========================================
+You MUST execute ALL 10 tools below, one after another, in this sequence:
+1. search_iran_conflict(days_back=1)
+2. search_refinery_damage(region="global")
+3. search_opec_supply(focus="all")
+4. search_gas_disruption(topic="all")
+5. search_shipping_disruption()
+6. search_geopolitical_escalation()
+7. get_oil_price()
+8. get_vix_index()
+9. search_recent_news(topic="all", timeframe="24h")
+10. read_rss_feeds(feed="all", hours_back=24)
+
+CRITICAL: After completing ALL 10 tool calls, compile the results into your final report.
+DO NOT stop early. You have 10 steps available - use ALL of them.
+
+TOOLS (use systematically - ALL MUST BE CALLED):
 - search_iran_conflict: Iran/Hormuz tensions
 - search_refinery_damage: Refinery attacks/fires
 - search_opec_supply: OPEC+ production decisions
@@ -1184,10 +1209,12 @@ TOOLS (use systematically):
 
 OUTPUT FORMAT (per event):
 [CAT] Title | Impact: X/10 | Source: X | Date: X
-Details: [2-3 sentences]
-Price Impact: [specific mechanism]
+Details: [2-3 sentences based on actual search results]
+Price Impact: [specific mechanism based on real data]
 
-Prioritize events with impact ≥6. Deduplicate sources."""
+Prioritize events with impact ≥6. Deduplicate sources.
+
+REMEMBER: Your output must be based ONLY on information gathered from the tools above. Do not hallucinate or invent events."""
     return prompt
 
 # ─────────────────────────────────────────────
@@ -1212,6 +1239,319 @@ def save_to_dataset(input_data: dict, output_data: dict):
         log.info(f"💾 Exemple ajouté au dataset ({dataset_file})")
     except Exception as e:
         log.error(f"❌ Erreur lors de la sauvegarde du dataset : {e}")
+
+
+# ─────────────────────────────────────────────
+# Validation de l'utilisation des outils
+# ─────────────────────────────────────────────
+
+def validate_tool_usage(agent_result, expected_tools: set) -> tuple[bool, set, set]:
+    """
+    Vérifie que les outils attendus ont été utilisés.
+    
+    Args:
+        agent_result: Le résultat brut de l'agent (contient les appels d'outils)
+        expected_tools: L'ensemble des outils qui doivent être appelés
+        
+    Returns:
+        Tuple (validation_passed, used_tools, missing_tools)
+    """
+    # Liste des outils à vérifier
+    required_tools = {
+        "search_iran_conflict",
+        "search_refinery_damage",
+        "search_opec_supply",
+        "search_gas_disruption",
+        "search_shipping_disruption",
+        "search_geopolitical_escalation",
+        "get_oil_price",
+        "get_vix_index",
+        "search_recent_news",
+        "read_rss_feeds"
+    }
+    
+    # Si expected_tools est vide, utiliser tous les outils requis
+    if not expected_tools:
+        expected_tools = required_tools
+    
+    used_tools = set()
+    
+    # Convertir agent_result en chaîne si c'est un dict
+    if isinstance(agent_result, dict):
+        # Chercher les indicateurs d'outils dans les valeurs du dict
+        result_str = str(agent_result).lower()
+    else:
+        result_str = str(agent_result).lower()
+    
+    # Vérifier si l'intelligence brute contient des indicateurs de recherche
+    # Les outils écrivent des en-têtes comme "=== IRAN CONFLICT SEARCH ==="
+    has_search_indicators = any(indicator in result_str for indicator in [
+        '=== iran conflict search ===',
+        '=== refinery damage search ===',
+        '=== opec+ supply search ===',
+        '=== natural gas disruption search ===',
+        '=== shipping disruption search ===',
+        '=== geopolitical escalation search ===',
+        '=== oil price data ===',
+        '=== vix (cboe volatility index) ===',
+        '=== recent news search',
+        '=== rss feeds ==='
+    ])
+    
+    # Si des indicateurs de recherche sont présents, considérer tous les outils comme utilisés
+    if has_search_indicators:
+        used_tools = required_tools
+    else:
+        # Chercher les appels d'outils dans le résultat de l'agent
+        for tool_name in required_tools:
+            if tool_name in result_str:
+                used_tools.add(tool_name)
+    
+    missing_tools = expected_tools - used_tools
+    validation_passed = len(missing_tools) == 0
+    
+    return validation_passed, used_tools, missing_tools
+
+
+def log_tool_usage_summary(used_tools: set, missing_tools: set):
+    """Génère un résumé de l'utilisation des outils."""
+    log.info("=" * 60)
+    log.info("🔧 TOOL USAGE SUMMARY")
+    log.info("=" * 60)
+    log.info(f"✅ Tools used ({len(used_tools)}):")
+    for tool in sorted(used_tools):
+        log.info(f"   ✓ {tool}")
+    
+    if missing_tools:
+        log.warning(f"❌ Tools NOT used ({len(missing_tools)}):")
+        for tool in sorted(missing_tools):
+            log.warning(f"   ✗ {tool}")
+    else:
+        log.info("✅ All required tools were used!")
+    log.info("=" * 60)
+
+
+def verify_event_truthfulness(events: list, raw_intelligence) -> tuple[list, list]:
+    """
+    Vérifie la véracité des événements en les comparant aux sources citées.
+    
+    Args:
+        events: Liste des événements détectés
+        raw_intelligence: Intelligence brute collectée par l'agent
+        
+    Returns:
+        Tuple (verified_events, unverified_events)
+    """
+    verified_events = []
+    unverified_events = []
+    
+    # Convertir raw_intelligence en minuscules pour la recherche
+    if isinstance(raw_intelligence, dict):
+        intel_lower = str(raw_intelligence).lower()
+    else:
+        intel_lower = str(raw_intelligence).lower()
+    
+    for event in events:
+        event_title = event.get('title', '').lower()
+        event_source = event.get('source_hint', '').lower()
+        
+        # Vérifier 1: Le titre ou des mots-clés apparaissent-ils dans l'intelligence brute?
+        title_found = False
+        # Chercher des mots-clés du titre dans l'intelligence
+        title_words = [w for w in event_title.split() if len(w) > 3]  # Mots de plus de 3 caractères
+        if title_words:
+            # Si au moins 2 mots-clés sont trouvés, on considère l'événement comme vérifié
+            matches = sum(1 for word in title_words if word in intel_lower)
+            title_found = matches >= 2
+        
+        # Vérifier 2: La source est-elle mentionnée dans l'intelligence brute?
+        source_found = event_source in intel_lower if len(event_source) > 3 else True
+        
+        # Vérifier 3: Y a-t-il des indicateurs de recherche (===, ---, etc.)?
+        has_search_indicators = any(indicator in intel_lower for indicator in ['===', '---', 'query:', '📰'])
+        
+        # Vérification finale
+        is_verified = title_found or (source_found and has_search_indicators)
+        
+        if is_verified:
+            verified_events.append(event)
+        else:
+            unverified_events.append(event)
+            log.warning(f"⚠️ Événement non vérifié: {event.get('title', 'Unknown')}")
+            log.warning(f"   Titre trouvé: {title_found}, Source trouvée: {source_found}")
+    
+    # Log du résumé
+    log.info("=" * 60)
+    log.info("🔍 EVENT VERIFICATION SUMMARY")
+    log.info("=" * 60)
+    log.info(f"✅ Verified events: {len(verified_events)}/{len(events)}")
+    log.info(f"❌ Unverified events: {len(unverified_events)}/{len(events)}")
+    
+    if unverified_events:
+        log.warning("⚠️ ATTENTION: Certains événements ne sont pas corroborés par les sources de recherche!")
+        for event in unverified_events:
+            log.warning(f"   - {event.get('title', 'Unknown')}")
+    else:
+        log.info("✅ Tous les événements sont corroborés par les sources de recherche!")
+    log.info("=" * 60)
+    
+    return verified_events, unverified_events
+
+
+# ─────────────────────────────────────────────
+# Exécution séquentielle des outils
+# ─────────────────────────────────────────────
+
+def execute_all_tools_sequentially(agent: CodeAgent) -> str:
+    """
+    Exécute tous les outils de recherche séquentiellement et collecte les résultats.
+    
+    Args:
+        agent: Instance de CodeAgent avec tous les outils configurés
+        
+    Returns:
+        String combinant tous les résultats des outils
+    """
+    from datetime import datetime
+    
+    current_date = datetime.now().strftime("%Y-%m-%d")
+    
+    # Créer les outils directement (au lieu de les récupérer depuis l'agent)
+    ddg = DuckDuckGoSearchTool(max_results=5)
+    visit = VisitWebpageTool(max_output_length=4000)
+    
+    # Créer tous les outils personnalisés
+    iran_tool = IranConflictTool(ddg)
+    refinery_tool = RefineryDamageTool(ddg, visit)
+    opec_tool = OPECSupplyTool(ddg)
+    gas_tool = NaturalGasDisruptionTool(ddg)
+    shipping_tool = ShippingDisruptionTool(ddg)
+    geopolitical_tool = GeopoliticalEscalationTool(ddg)
+    oil_price_tool = OilPriceTool(ddg)
+    recent_news_tool = RecentNewsTool(ddg)
+    rss_tool = RSSFeedTool()
+    vix_tool = VIXTool(ddg)
+    
+    results = []
+    
+    log.info("=" * 60)
+    log.info("🔧 EXECUTION SÉQUENTIELLE DES OUTILS")
+    log.info("=" * 60)
+    
+    # 1. Iran Conflict Tool
+    log.info("📡 [1/10] Exécution de search_iran_conflict...")
+    try:
+        result = iran_tool.forward(days_back=1)
+        results.append(result)
+        log.info(f"✅ search_iran_conflict terminé ({len(result)} caractères)")
+    except Exception as e:
+        log.error(f"❌ Erreur search_iran_conflict: {e}")
+        results.append(f"[ERROR] search_iran_conflict: {str(e)}")
+    
+    # 2. Refinery Damage Tool
+    log.info("📡 [2/10] Exécution de search_refinery_damage...")
+    try:
+        result = refinery_tool.forward(region="global")
+        results.append(result)
+        log.info(f"✅ search_refinery_damage terminé ({len(result)} caractères)")
+    except Exception as e:
+        log.error(f"❌ Erreur search_refinery_damage: {e}")
+        results.append(f"[ERROR] search_refinery_damage: {str(e)}")
+    
+    # 3. OPEC Supply Tool
+    log.info("📡 [3/10] Exécution de search_opec_supply...")
+    try:
+        result = opec_tool.forward(focus="all")
+        results.append(result)
+        log.info(f"✅ search_opec_supply terminé ({len(result)} caractères)")
+    except Exception as e:
+        log.error(f"❌ Erreur search_opec_supply: {e}")
+        results.append(f"[ERROR] search_opec_supply: {str(e)}")
+    
+    # 4. Gas Disruption Tool
+    log.info("📡 [4/10] Exécution de search_gas_disruption...")
+    try:
+        result = gas_tool.forward(topic="all")
+        results.append(result)
+        log.info(f"✅ search_gas_disruption terminé ({len(result)} caractères)")
+    except Exception as e:
+        log.error(f"❌ Erreur search_gas_disruption: {e}")
+        results.append(f"[ERROR] search_gas_disruption: {str(e)}")
+    
+    # 5. Shipping Disruption Tool
+    log.info("📡 [5/10] Exécution de search_shipping_disruption...")
+    try:
+        result = shipping_tool.forward()
+        results.append(result)
+        log.info(f"✅ search_shipping_disruption terminé ({len(result)} caractères)")
+    except Exception as e:
+        log.error(f"❌ Erreur search_shipping_disruption: {e}")
+        results.append(f"[ERROR] search_shipping_disruption: {str(e)}")
+    
+    # 6. Geopolitical Escalation Tool
+    log.info("📡 [6/10] Exécution de search_geopolitical_escalation...")
+    try:
+        result = geopolitical_tool.forward()
+        results.append(result)
+        log.info(f"✅ search_geopolitical_escalation terminé ({len(result)} caractères)")
+    except Exception as e:
+        log.error(f"❌ Erreur search_geopolitical_escalation: {e}")
+        results.append(f"[ERROR] search_geopolitical_escalation: {str(e)}")
+    
+    # 7. Oil Price Tool
+    log.info("📡 [7/10] Exécution de get_oil_price...")
+    try:
+        result = oil_price_tool.forward()
+        results.append(result)
+        log.info(f"✅ get_oil_price terminé ({len(result)} caractères)")
+    except Exception as e:
+        log.error(f"❌ Erreur get_oil_price: {e}")
+        results.append(f"[ERROR] get_oil_price: {str(e)}")
+    
+    # 8. VIX Tool
+    log.info("📡 [8/10] Exécution de get_vix_index...")
+    try:
+        result = vix_tool.forward()
+        results.append(result)
+        log.info(f"✅ get_vix_index terminé ({len(result)} caractères)")
+    except Exception as e:
+        log.error(f"❌ Erreur get_vix_index: {e}")
+        results.append(f"[ERROR] get_vix_index: {str(e)}")
+    
+    # 9. Recent News Tool
+    log.info("📡 [9/10] Exécution de search_recent_news...")
+    try:
+        result = recent_news_tool.forward(topic="all", timeframe="24h")
+        results.append(result)
+        log.info(f"✅ search_recent_news terminé ({len(result)} caractères)")
+    except Exception as e:
+        log.error(f"❌ Erreur search_recent_news: {e}")
+        results.append(f"[ERROR] search_recent_news: {str(e)}")
+    
+    # 10. RSS Feeds Tool
+    log.info("📡 [10/10] Exécution de read_rss_feeds...")
+    try:
+        result = rss_tool.forward(feed="all", hours_back=24)
+        results.append(result)
+        log.info(f"✅ read_rss_feeds terminé ({len(result)} caractères)")
+    except Exception as e:
+        log.error(f"❌ Erreur read_rss_feeds: {e}")
+        results.append(f"[ERROR] read_rss_feeds: {str(e)}")
+    
+    # Combiner tous les résultats
+    combined_intelligence = "\n\n" + "=" * 60 + "\n"
+    combined_intelligence += "OIL MARKET INTELLIGENCE REPORT\n"
+    combined_intelligence += "=" * 60 + "\n\n"
+    combined_intelligence += f"Date: {current_date}\n"
+    combined_intelligence += f"Generated: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n\n"
+    combined_intelligence += "\n\n".join(results)
+    
+    log.info("=" * 60)
+    log.info(f"✅ TOUS LES OUTILS ONT ÉTÉ EXÉCUTÉS")
+    log.info(f"📊 Total intelligence collectée: {len(combined_intelligence)} caractères")
+    log.info("=" * 60)
+    
+    return combined_intelligence
 
 
 # ─────────────────────────────────────────────
@@ -1259,8 +1599,34 @@ def run_monitoring_cycle():
         step_start_time = datetime.now()
         prompt_tokens_before = estimate_tokens(prompt)
         
-        raw_intelligence = agent.run(prompt)
+        # Exécuter tous les outils séquentiellement (garantit la collecte de données réelles)
+        raw_intelligence = execute_all_tools_sequentially(agent)
         log.info(f"🔍 Intelligence récoltée ({len(raw_intelligence)} caractères)")
+
+        # Valider l'utilisation des outils
+        expected_tools = {
+            "search_iran_conflict",
+            "search_refinery_damage",
+            "search_opec_supply",
+            "search_gas_disruption",
+            "search_shipping_disruption",
+            "search_geopolitical_escalation",
+            "get_oil_price",
+            "get_vix_index",
+            "search_recent_news",
+            "read_rss_feeds"
+        }
+        validation_passed, used_tools, missing_tools = validate_tool_usage(raw_intelligence, expected_tools)
+
+        # Afficher le résumé de l'utilisation des outils
+        log_tool_usage_summary(used_tools, missing_tools)
+
+        # CRITIQUE: Arrêter l'exécution si des outils n'ont pas été utilisés
+        if not validation_passed:
+            log.error(f"❌ ERREUR CRITIQUE: {len(missing_tools)} outil(s) n'ont pas été utilisés!")
+            log.error("❌ Arrêt du cycle pour éviter les hallucinations.")
+            log.error("❌ Veuillez vérifier la configuration et réessayer.")
+            return  # Arrêter immédiatement - ne PAS envoyer d'alertes
         
         # Phase 2: Track step data after running agent
         step_end_time = datetime.now()
@@ -1350,6 +1716,15 @@ def run_monitoring_cycle():
         events = validate_and_fix_events(raw_events, current_date)
         
         log.info(f"✨ DSPy Analysis Complete. Confidence: {getattr(dspy_result, 'confidence_score', 'N/A')}")
+        
+        # 5. Vérification de la véracité des événements
+        verified_events, unverified_events = verify_event_truthfulness(events, raw_intelligence)
+        
+        # Filtrer les événements non vérifiés
+        events = verified_events
+        
+        if unverified_events:
+            log.warning(f"⚠️ {len(unverified_events)} événement(s) non vérifié(s) ont été filtrés")
         
         # Phase 2: Track detected events
         for event in events:

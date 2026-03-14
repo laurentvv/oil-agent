@@ -140,16 +140,25 @@ class MemoryCleaner:
     def __init__(self):
         self.cache: Dict[str, any] = {}
     
-    def clean_content(self, content: str) -> str:
+    def clean_content(self, content) -> str:
         """
         Cleans content by removing duplicates and low-value text.
         
         Args:
-            content: Raw content string
+            content: Raw content (string or dict)
             
         Returns:
             Cleaned content string
         """
+        # Handle dict input (from agent results)
+        if isinstance(content, dict):
+            # Convert dict to string representation
+            content = str(content)
+        
+        # Ensure content is a string
+        if not isinstance(content, str):
+            return str(content)
+        
         # Split into lines
         lines = content.split('\n')
         cleaned_lines = []
