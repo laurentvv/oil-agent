@@ -5,6 +5,7 @@ __pycache__/
 # Environment
 .venv/
 .env
+.ruff/
 
 # Logs and local state
 logs/*.log
@@ -16,3 +17,10 @@ logs/*.corrupt
 data/*.jsonl
 data/*.json
 uv.lock
+
+# IA
+.agents/
+.crush/
+.kilocode/
+.qwen/
+
