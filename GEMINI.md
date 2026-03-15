@@ -1,5 +1,9 @@
 # Oil Market Monitoring Agent (oil-agent)
 
+## Statut du Projet : Production Ready (v1.0-stable)
+**Date de validation :** 15 Mars 2026
+**État :** Validé pour déploiement. Le cycle complet (Recherche -> Synthèse DSPy -> Validation de véracité -> Alerte) est fonctionnel et robuste.
+
 ## Project Overview
 
 **Oil Market Monitoring Agent** is an advanced AI system designed to track geopolitical and industrial events impacting global oil prices (Brent/WTI). It uses a hybrid architecture combining **smolagents** for autonomous intelligence gathering and **DSPy** for structured synthesis and continuous improvement.

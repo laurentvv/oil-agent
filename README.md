@@ -10,6 +10,14 @@ An advanced autonomous AI system designed to track geopolitical and industrial e
 
 ---
 
+### 🛡️ État Actuel : Version Stable (v1.0-stable)
+- **Cycle complet validé :** Recherche (smolagents) + Synthèse (DSPy) + Vérification.
+- **Filtrage Anti-Hallucination :** Validation automatique des événements par rapport aux sources brutes (`verify_event_truthfulness`).
+- **Gestion du Contexte :** Compression automatique de l'historique pour maintenir la performance.
+- **Fiabilité :** 100% des outils de recherche systématiquement exécutés avant toute synthèse.
+
+---
+
 ## 🚀 Key Features
 
 - **Autonomous Intelligence Gathering**: Uses `CodeAgent` with a suite of specialized tools to browse web, search news, and parse RSS feeds.
