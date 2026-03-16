@@ -95,6 +95,67 @@ class OilEventAnalyzer(dspy.Module):
         
         return pred
 
+def reduce_intelligence_for_dspy(raw_intelligence: str, max_chars: int) -> str:
+    """
+    Réduit l'intelligence brute pour le traitement DSPy en:
+    - Gardant les sections les plus pertinentes
+    - Supprimant les doublons consécutifs
+    - Limitant la taille totale
+    
+    Args:
+        raw_intelligence: Intelligence brute collectée
+        max_chars: Nombre maximum de caractères à conserver
+        
+    Returns:
+        Intelligence réduite optimisée pour DSPy
+    """
+    # Stratégie 1: Garder les en-têtes et les résumés de chaque outil
+    lines = raw_intelligence.split('\n')
+    essential_lines = []
+    
+    for line in lines:
+        # Garder les en-têtes de section (===, ---)
+        if line.strip().startswith(('===', '---')):
+            essential_lines.append(line)
+        # Garder les résumés (lignes avec 🔍, 📊, ✅)
+        elif any(marker in line for marker in ['🔍', '📊', '✅']):
+            essential_lines.append(line)
+        # Garder les 50 premières lignes importantes
+        elif len(essential_lines) < 50:
+            essential_lines.append(line)
+    
+    # Stratégie 2: Supprimer les doublons consécutifs (pas tous les doublons)
+    filtered_lines = []
+    prev_line_stripped = None
+    consecutive_empty_count = 0
+    
+    for line in essential_lines:
+        line_stripped = line.strip()
+        
+        # Limiter les lignes vides consécutives à maximum 2
+        if not line_stripped:
+            consecutive_empty_count += 1
+            if consecutive_empty_count <= 2:
+                filtered_lines.append(line)
+        else:
+            consecutive_empty_count = 0
+            # Éviter les doublons consécutifs
+            if line_stripped != prev_line_stripped:
+                filtered_lines.append(line)
+                prev_line_stripped = line_stripped
+    
+    # Stratégie 3: Limiter la taille totale
+    reduced_intelligence = '\n'.join(filtered_lines)
+    
+    # Si encore trop long, tronquer avec un message d'avertissement
+    if len(reduced_intelligence) > max_chars:
+        reduced_intelligence = reduced_intelligence[:max_chars] + '\n\n[... Intelligence tronquée à ' + str(max_chars) + ' caractères ...]'
+    
+    log.info(f"📦 Intelligence réduite : {len(raw_intelligence)} → {len(reduced_intelligence)} caractères")
+    
+    return reduced_intelligence
+
+
 def validate_and_fix_events(events: list, current_date: str) -> list:
     """Valide et nettoie les événements produits par le LLM."""
     valid_events = []
@@ -163,9 +224,11 @@ def configure_dspy():
         model=f"openai/{CONFIG.model.name}",
         api_base=CONFIG.model.api_base,
         api_key="dummy",  # llama-server ne nécessite pas de clé API
-        model_type="chat"
+        model_type="chat",
+        litellm_params={"timeout": CONFIG.model.dspy_timeout}  # Timeout configurable via litellm_params
     )
     dspy.configure(lm=lm, adapter=dspy.JSONAdapter())
+    log.info(f"⚙️  DSPy configuré avec timeout: {CONFIG.model.dspy_timeout}s")
     return lm
 
 # ─────────────────────────────────────────────
@@ -180,6 +243,8 @@ class ModelConfig(BaseModel):
     api_base: str = Field(..., description="URL de base de l'API")
     num_ctx: int = Field(..., gt=0, description="Taille du contexte")
     provider: str = Field(..., description="Fournisseur du modèle")
+    dspy_timeout: int = Field(default=600, ge=30, description="Timeout DSPy en secondes (min: 30s)")
+    max_intelligence_chars: int = Field(default=20000, ge=5000, description="Taille max de l'intelligence pour DSPy (car)")
     
     @field_validator('path')
     @classmethod
@@ -1602,6 +1667,13 @@ def run_monitoring_cycle():
         # Exécuter tous les outils séquentiellement (garantit la collecte de données réelles)
         raw_intelligence = execute_all_tools_sequentially(agent)
         log.info(f"🔍 Intelligence récoltée ({len(raw_intelligence)} caractères)")
+        
+        # RÉDUCTION DE L'INTELLIGENCE POUR DSPy
+        max_intelligence_chars = CONFIG.model.max_intelligence_chars
+        reduced_intelligence = reduce_intelligence_for_dspy(raw_intelligence, max_intelligence_chars)
+        
+        # Utiliser l'intelligence réduite pour le reste du traitement
+        raw_intelligence = reduced_intelligence
 
         # Valider l'utilisation des outils
         expected_tools = {
@@ -1692,6 +1764,10 @@ def run_monitoring_cycle():
         current_date = datetime.now().strftime("%Y-%m-%d")
         current_datetime = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
         
+        # Monitoring du temps de traitement DSPy
+        dspy_start = datetime.now()
+        log.info(f"🔄 Début traitement DSPy (intelligence: {len(raw_intelligence)} caractères)")
+        
         dspy_result = analyzer(
             current_date=current_date,
             current_datetime=current_datetime,
@@ -1699,6 +1775,13 @@ def run_monitoring_cycle():
             news_sources=CONFIG.monitoring.news_sources,
             raw_intelligence=raw_intelligence
         )
+        
+        dspy_duration = (datetime.now() - dspy_start).total_seconds()
+        log.info(f"✅ Traitement DSPy terminé en {dspy_duration:.2f}s")
+        
+        # Avertissement si proche du timeout
+        if dspy_duration > CONFIG.model.dspy_timeout * 0.8:
+            log.warning(f"⚠️  Traitement DSPy proche du timeout ({dspy_duration:.2f}s / {CONFIG.model.dspy_timeout}s)")
         
         # Extraire les événements de la réponse DSPy
         # DSPy avec JSONAdapter retourne souvent des objets Pydantic ou des dicts

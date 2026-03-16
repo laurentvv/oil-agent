@@ -64,7 +64,7 @@ The system operates in a two-stage pipeline:
   ```
   
   ```bash
-  # Download the Qwen3.5-9B model (GGUF format)
+  # Download Qwen3.5-9B model (GGUF format)
   # From: https://huggingface.co/Qwen/Qwen2.5-7B-Instruct-GGUF
   # Place in: C:\Modeles_LLM\Qwen3.5-9B-Q4_K_S.gguf
   ```
@@ -99,7 +99,8 @@ The project uses `config.json` for all configuration. Edit this file to customiz
     "path": "C:\\Modeles_LLM\\Qwen3.5-9B-Q4_K_S.gguf",
     "api_base": "http://127.0.0.1:8080",
     "num_ctx": 65536,
-    "provider": "llama.cpp"
+    "provider": "llama.cpp",
+    "dspy_timeout": 300
   },
   "llama_server": {
     "executable": "llama-server.exe",
@@ -144,6 +145,14 @@ The project uses `config.json` for all configuration. Edit this file to customiz
 
 **Important Configuration Options:**
 - `model.num_ctx`: Context window size (default: 65536 tokens). Increase if you encounter context overflow errors.
+- `model.dspy_timeout`: DSPy processing timeout in seconds (default: 600). Adjust based on your data volume:
+  - **Development/Test**: 120 seconds (2 minutes)
+  - **Production normal**: 600 seconds (10 minutes)
+  - **Large volumes**: 900 seconds (15 minutes)
+- `model.max_intelligence_chars`: Maximum intelligence size for DSPy processing in characters (default: 20000). Adjust based on your model's capabilities:
+  - **Development/Test**: 20000 characters (~5000 tokens) - default recommended
+  - **Production normal**: 30000 characters (~7500 tokens) - for detailed analysis
+  - **Large volumes**: 50000 characters (~12500 tokens) - for complex analysis
 - `llama_server.n_gpu_layers`: Number of layers to offload to GPU (-1 = all layers, 0 = CPU only).
 - `email.send_emails`: Set to `false` for testing, `true` for production.
 - `monitoring.alert_threshold`: Minimum impact score (0-10) to trigger email alerts.
@@ -152,7 +161,7 @@ The project uses `config.json` for all configuration. Edit this file to customiz
 
 ## 📈 DSPy Optimization (Learning)
 
-One of the project's core strengths is its ability to **learn from experience**.
+One of project's core strengths is its ability to **learn from experience**.
 
 ### 1. Dataset Collection
 Every time the agent runs, it saves a `(raw_intelligence, structured_output)` pair into `data/oil_intelligence_dataset.jsonl`.
@@ -168,6 +177,40 @@ This script uses `BootstrapFewShot` teleprompter to:
 - Save optimized weights to `data/oil_analyzer_optimized.json`.
 
 The next time `oil_agent.py` runs, it will **automatically load** these optimized weights to provide superior analysis.
+
+### DSPy Timeout Monitoring
+
+The agent now includes automatic monitoring of DSPy processing time to prevent timeout issues:
+
+- **Automatic Time Tracking**: Logs start and end times for DSPy processing
+- **Timeout Configuration**: Configurable via `model.dspy_timeout` in `config.json` (default: 600 seconds)
+  - **Important**: The timeout is passed to LiteLLM via `litellm_params={"timeout": ...}` in `configure_dspy()`
+- **Proximity Warning**: Issues a warning when processing time exceeds 80% of configured timeout
+- **Example Logs**:
+  ```
+  🔄 Début traitement DSPy (intelligence: 35978 caractères)
+  ✅ Traitement DSPy terminé en 45.23s
+  ```
+  
+This monitoring helps identify when timeout needs adjustment for your specific workload.
+
+### Intelligence Reduction for DSPy
+
+To improve DSPy performance with large intelligence volumes, agent now includes automatic intelligence reduction:
+
+- **Automatic Reduction**: Reduces raw intelligence before DSPy processing
+- **Configurable Limit**: Set `model.max_intelligence_chars` in `config.json` (default: 20000)
+- **Reduction Strategy**: 
+  - Keeps essential headers and summaries
+  - Removes duplicates and empty lines
+  - Limits total size to configured maximum
+- **Logging**: Logs reduction ratio (original → reduced size)
+- **Example Logs**:
+  ```
+  📦 Intelligence réduite pour DSPy : 36170 → 18945 caractères
+  ```
+  
+This helps prevent timeout errors by providing DSPy with a manageable input size.
 
 ---
 

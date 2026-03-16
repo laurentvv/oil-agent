@@ -4,7 +4,9 @@
     "path": "C:\\Modeles_LLM\\Qwen3.5-9B-Q4_K_S.gguf",
     "api_base": "http://127.0.0.1:8080",
     "num_ctx": 65536,
-    "provider": "llama.cpp"
+    "provider": "llama.cpp",
+    "dspy_timeout": 900,
+    "max_intelligence_chars": 20000
   },
   "llama_server": {
     "executable": "llama-server",
